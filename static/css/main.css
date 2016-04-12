@@ -4,7 +4,6 @@
 body {
     color: green;
     overflow: hidden;
-    background: #f9f5ef
 }
 
 h1 {
@@ -15,6 +14,47 @@ h1 {
     text-align: center;
     color: black;
     font-family: 'Poiret One', cursive;
+}
+
+.c-borders div {
+    position: absolute;
+    background-color: #000;
+}
+
+.c-borders div.border-top,
+.c-borders div.border-bottom  {
+    width: 100%;
+    height: 25px;
+    background-image: url(../img/desktop/oedipus-wing-right.svg);
+    border-left: 25px solid black;
+    border-right: 25px solid black;
+    z-index: 10;
+}
+
+.c-borders div.border-left,
+.c-borders div.border-right  {
+    width: 25px;
+    height: 100%;
+    background-image: url(../img/desktop/oedipus-wing-down.svg);
+    border-top: 25px solid black;
+    border-bottom: 25px solid black;
+    z-index: 10;
+}
+
+.c-borders div.border-top {
+    top: 0;
+}
+
+.c-borders div.border-right  {
+    right: 0;
+}
+
+.c-borders div.border-bottom  {
+    bottom: 0;
+}
+
+.c-borders div.border-left {
+    left: 0;
 }
 
 .up {
@@ -33,7 +73,6 @@ h1 {
     position: absolute;
     width: 100%;
     min-height: 100%;
-    border: 10px solid #2f444e
 }
 
 /*.rectangle {*/
