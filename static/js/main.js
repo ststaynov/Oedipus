@@ -33,19 +33,23 @@ function scrolling (s){
 }
 
 function moveBackground(f) {
-    if(translateValue < -8000) {
+    var n = parseInt(bg.css('transform').split(',')[4]);
+    console.log("transformation value at moment: " + n);
+
+    if(translateValue < n && n < -7800) {
         console.log("Return now");
 
         //get the exact translate value at the moment of jump
         var n = parseInt(bg.css('transform').split(',')[4]);
         console.log("transformation value at moment of jump: " + n);
         var newtranslateValue = -n -8000;
-        translateValue = newtranslateValue;
+        translateValue = -newtranslateValue;
 
         TweenMax.set(bg, {transform: "translate3d(0px, 0px, 0px)"});
-        TweenMax.to(bg, 1, {transform: "translate3d(" + newtranslateValue + "px, 0px, 0px)", onStart:tweenStart});
+        TweenMax.to(bg, 1, {transform: "translate3d(" + translateValue + "px, 0px, 0px)", onStart:tweenStart});
 
-        console.log(newtranslateValue);
+        console.log("After Jump translatevalue is:  " + translateValue);
+        r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
         return false;
     } //else if(translateValue > 200) {
     //    var newtranslateValue = translateValue;
@@ -58,7 +62,7 @@ function moveBackground(f) {
     //    return false;
     //}
 
-    console.log(translateValue);
+    console.log("To be translated to: " + translateValue);
     TweenMax.to($('.c-brewing-background'), 2, {transform: "translate3d(" + translateValue + "px, 0px, 0px)", onStart:tweenStart});
 
     r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
@@ -75,6 +79,21 @@ function finishedTween() {
     events--;
     console.log("Tween Finished");
     ev.text(events);
+
+    var n = parseInt(bg.css('transform').split(',')[4]);
+    if(translateValue < n && n < -7800) {
+        console.log("Return now");
+
+        //get the exact translate value at the moment of jump
+        var newtranslateValue = -translateValue -8200;
+        translateValue = -newtranslateValue - 200;
+        var noscrollTranslation = translateValue;
+
+        TweenMax.set(bg, {transform: "translate3d(" + n+7800 + "px, 0px, 0px)"});
+        TweenMax.to(bg, 1, {transform: "translate3d(" + noscrollTranslation + "px, 0px, 0px)", onStart:tweenStart});
+
+        console.log("After finishedtweetJump translatevalue is:  " + translateValue);
+    }
 }
 
 function startCountdown() {
