@@ -1,0 +1,16 @@
+{
+  "name": "oedipus",
+  "version": "1.0.0",
+  "description": "Beer Brewing App",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-sass": "^2.2.0",
+    "gulp-util": "^3.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stoyan Staynov",
+  "license": "ISC"
+}

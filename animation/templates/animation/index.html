@@ -1,3 +1,6 @@
+
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:fb="http://ogp.me/ns/fb#">
@@ -10,21 +13,21 @@
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 
     <!-- css included -->
-    <link rel="stylesheet" href="static/css/normalize.mind41d.css?">
-    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css?" %}">
+    <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<!--<script src="static/js/jquery_event-move.js"></script> -->
+    <script src="{% static "animation/js/jquery.event.move.js" %}"></script>
 </head>
 
 <body>
 <div class="c-borders">
-    <div class="border-top"></div>
-    <div class="border-right"></div>
-    <div class="border-bottom"></div>
-    <div class="border-left"></div>
+    <div class="border border-top"></div>
+    <div class="border border-right"></div>
+    <div class="border border-bottom"></div>
+    <div class="border border-left"></div>
 </div>
 
 <h1 class="up">Up</h1>
@@ -32,8 +35,6 @@
 <h1 class="events">Events</h1>
 
 <div class="main">
-    <div class="rectangle"></div>
-    <div class="triangle"></div>
 
     <div class="c-brewing-wrapper">
         <section class="c-brewing">
@@ -53,8 +54,8 @@
 
     <!-- Minified js included -->
     <!--<script src="static/js/bafter_load.js"></script>-->
-    <script src="static/js/deb_throttle.js"></script>
-    <script src="static/js/main.js"></script>
+    <script src="{% static "animation/js/deb_throttle.js" %}"></script>
+    <script src="{% static "animation/js/main.js" %}"></script>
 </body>
 
 </html>

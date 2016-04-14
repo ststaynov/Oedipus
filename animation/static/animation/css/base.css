@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  color: green;
+  overflow: hidden; }
+
+h1 {
+  position: absolute;
+  left: 50%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  color: black;
+  font-family: 'Poiret One', cursive; }
+
+.c-borders .border {
+  position: absolute;
+  background-color: #000; }
+  .c-borders .border.border-top {
+    top: 0;
+    width: 100%;
+    height: 25px;
+    background-image: url(../images/desktop/oedipus-wing-right.svg);
+    border-left: 25px solid black;
+    border-right: 25px solid black;
+    z-index: 10; }
+  .c-borders .border.border-right {
+    right: 0;
+    width: 25px;
+    height: 100%;
+    background-image: url(../images/desktop/oedipus-wing-down.svg);
+    border-top: 25px solid black;
+    border-bottom: 25px solid black;
+    z-index: 10; }
+  .c-borders .border.border-bottom {
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background-image: url(../images/desktop/oedipus-wing-right.svg);
+    border-left: 25px solid black;
+    border-right: 25px solid black;
+    z-index: 10; }
+  .c-borders .border.border-left {
+    left: 0;
+    width: 25px;
+    height: 100%;
+    background-image: url(../images/desktop/oedipus-wing-down.svg);
+    border-top: 25px solid black;
+    border-bottom: 25px solid black;
+    z-index: 10; }
+
+.up {
+  left: 45%; }
+
+.down {
+  left: 55%; }
+
+.events {
+  left: 65%; }
+
+.main {
+  position: absolute;
+  width: 100%;
+  min-height: 100%; }
+
+.c-brewing-wrapper {
+  position: relative;
+  max-height: 1240px;
+  height: 100%; }
+
+.c-brewing-background-inner {
+  position: absolute;
+  top: -20vh;
+  left: -2000px;
+  width: 12000px;
+  height: 920px;
+  background-image: url(../images/desktop/bg-canals_04.png), url(../images/desktop/bg-canals_01.png), url(../images/desktop/bg-canals_02.png), url(../images/desktop/bg-canals_03.png), url(../images/desktop/bg-canals_04.png), url(../images/desktop/bg-canals_01.png);
+  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
+  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
+  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
+  background-size: 2000px 920px,2000px 920px,2000px 920px,2000px 920px,2000px 920px,2000px 920px;
+  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  transform: translate3d(0px, 0px, 0px); }
