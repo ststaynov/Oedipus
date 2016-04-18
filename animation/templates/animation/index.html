@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 
     <!-- css included -->
-    <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css?" %}">
+    <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">
     <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineLite.min.js"></script>
@@ -23,16 +23,19 @@
 </head>
 
 <body>
-<div class="c-borders">
-    <div class="border border-top"></div>
-    <div class="border border-right"></div>
-    <div class="border border-bottom"></div>
-    <div class="border border-left"></div>
+{#<div class="c-borders">#}
+{#    <div class="border border-top"></div>#}
+{#    <div class="border border-right"></div>#}
+{#    <div class="border border-bottom"></div>#}
+{#    <div class="border border-left"></div>#}
+{#</div>#}
+<div class="logo">
+    <img src="{% static "animation/images/oedipus_logo.svg" %}" alt="">
 </div>
-
 <h1 class="up">Up</h1>
 <h1 class="down">Down</h1>
 <h1 class="events">Events</h1>
+<h1 class="bg-position">Bg Position</h1>
 
 <div class="main">
 
@@ -41,11 +44,16 @@
             <figure class="c-brewing-background">
                 <figure class="c-brewing-background-inner"></figure>
             </figure>
+
             <figure class="c-beer-bottle-container">
                 <figure class="c-beer-bottle-shadow"></figure>
                 <figure class="c-beer-bottle">
                     <figure class="component-canals-boat-inner"></figure>
                 </figure>
+            </figure>
+
+            <figure class="c-brewing-foreground">
+                <figure class="c-mouse right"></figure>
             </figure>
         </section>
     </div>
