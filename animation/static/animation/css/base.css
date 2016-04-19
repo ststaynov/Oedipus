@@ -56,13 +56,16 @@ h1 {
 .up,
 .down,
 .bg-position {
-  z-index: 20; }
+  z-index: 5;
+  display: none; }
 
 .logo {
+  top: 10px;
+  left: 10px;
   position: fixed;
-  z-index: 20;
-  top: 20px;
-  left: 20px; }
+  z-index: 5; }
+  .logo img {
+    width: 50px; }
 
 .up {
   left: 45%; }
@@ -111,3 +114,32 @@ h1 {
   .c-mouse.right {
     background: url(../images/desktop/mouse-right.png) left top no-repeat;
     background-size: 151px auto; }
+
+.c-beer-bottle-container .c-beer-bottle {
+  width: 150px;
+  height: 250px;
+  position: absolute;
+  top: 350px;
+  left: 50%;
+  margin-left: -50px;
+  display: inline-block;
+  background-color: red;
+  pointer-events: none; }
+
+.c-navigation {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  z-index: 10; }
+  .c-navigation .e-navigation-line {
+    width: 80%;
+    height: 1px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -40%;
+    background-color: #000; }
+  .c-navigation .e-navigation-bottle {
+    width: 20px;
+    margin-left: 8%;
+    position: absolute; }

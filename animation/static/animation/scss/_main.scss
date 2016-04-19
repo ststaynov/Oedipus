@@ -49,14 +49,19 @@ h1 {
 .up,
 .down,
 .bg-position {
-  z-index: 20;
+  z-index: $z-5;
+  display: none;
 }
 
 .logo {
+  top: 10px;
+  left: 10px;
   position: fixed;
-  z-index: 20;
-  top: 20px;
-  left: 20px;
+  z-index: $z-5;
+
+  img {
+    width: 50px;
+  }
 }
 
 .up {

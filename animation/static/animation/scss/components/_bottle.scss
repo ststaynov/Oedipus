@@ -1,0 +1,18 @@
+
+.c-beer-bottle-container {
+  .c-beer-bottle {
+    width: 150px;
+    height: 250px;
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    margin-left: -50px;
+    display: inline-block;
+    background-color: red;
+    pointer-events: none;
+  }
+
+  .c-beer-bottle-shadow {
+
+  }
+}

@@ -1,0 +1,23 @@
+
+.c-navigation {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  z-index: $z-10;
+
+  .e-navigation-line {
+    width: 80%;
+    height: 1px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -40%;
+    background-color: $color-black;
+  }
+
+  .e-navigation-bottle {
+    width: 20px;
+    margin-left: 8%;
+    position: absolute;
+  }
+}
