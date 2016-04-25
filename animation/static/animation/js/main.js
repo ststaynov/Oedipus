@@ -6,19 +6,21 @@ var e = document.body,
     counterDown = 0,
     translateValue = 0,
     events = 0,
-    bg = $('.c-brewing-background'),
-    fg = $('.c-brewing-foreground'),
-    btl = $('.c-beer-bottle'),
-    btlContainer = $('.c-beer-bottle-container'),
-    navLine = $('.e-navigation-line'),
-    fgBg = [bg, fg, btlContainer],
-    mouse = $('.c-mouse'),
-    btlnav = $('.e-navigation-bottle'),
-    ev = $('.events').text(events);
+    $bg = $('.c-brewing-background'),
+    $fg = $('.c-brewing-foreground'),
+    $btl = $('.c-beer-bottle'),
+    $btlContainer = $('.c-beer-bottle-container'),
+    $navLine = $('.e-navigation-line'),
+    fgBg = [$bg, $fg, $btlContainer],
+    $mouse = $('.c-mouse'),
+    $millmash = $('.c-milling-mashing'),
+    $btlnav = $('.e-navigation-bottle'),
+    $ev = $('.events').text(events);
 
 /* set the transform value with tweenMax at beginning */
 TweenMax.set(fgBg, {transform: "translate3d(10px, 0px, 0px)"});
-TweenMax.set(mouse, {transform: "translate3d(2210px, 0px, 0px)"});
+TweenMax.set($mouse, {transform: "translate3d(2210px, 0px, 0px)"});
+TweenMax.set($millmash, {transform: "translate3d(847px, 400px, 0px)"});
 
 /* hinds & hanlers */
 /* keep the scroll execution limited to 80 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
@@ -29,7 +31,7 @@ $( window ).resize(function() {
 
 function scrolling(s) {
     events+=2;
-    ev.text(events);
+    $ev.text(events);
 
     /* Keep track of the scrolling events */
     if(s.originalEvent.wheelDelta /120 > 0) {
@@ -47,46 +49,50 @@ function scrolling(s) {
 function moveBackground(f) {
     r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
     animateNavigation(translateValue);
+
     TweenMax.allTo(fgBg, 2, {transform: "translate3d(" + translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 510, checkPosition)});
-    TweenMax.to(btl, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 510, checkPosition)});
-    checkBgPosition(n);
+    TweenMax.to($btl, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 510, checkPosition)});
+    displayBgPosition(n);
 }
 
 function checkPosition() {
     /* Check the current transform value */
-    var n = parseInt(bg.css('transform').split(',')[4]);
+    var n = parseInt($bg.css('transform').split(',')[4]);
     if (n < -7800) {
         translateValue = n + 8000;
         TweenMax.set(fgBg, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
-        TweenMax.set(btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
+        TweenMax.set($btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
         btlNavigationSet(translateValue);
-    } else if (n > 200) {
+        checkbeerBottleState(translateValue);
+    } else if (n >= 200) {
         translateValue = n - 8000;
+        consoleLog('setting new position -');
         TweenMax.set(fgBg, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
-        TweenMax.set(btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
+        TweenMax.set($btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
         btlNavigationSet(translateValue);
+        checkbeerBottleState(translateValue);
     }
-    checkBgPosition(n);
-    // consoleLog('One scroll');
-    // consoleLog('n:' + n);
+    consoleLog('position should be set on: ' + n + " a " + translateValue);
+    displayBgPosition(n);
 }
 
 jQuery('.c-brewing-background-inner')
     .bind('move', function(e) {
         // move background horizontally
-        var n = parseInt(bg.css('transform').split(',')[4]);
+        var n = parseInt($bg.css('transform').split(',')[4]);
         TweenMax.set(fgBg, {transform: "translate3d(" + (n + e.deltaX) + "px, 0px, 0px)"});
-        TweenMax.set(btl, {transform: "translate3d(" + -(n + e.deltaX) + "px, 0px, 0px)"});
-        // consoleLog('n:' + n + ' deltaX' + e.deltaX);
-        checkBgPosition(n);
+        TweenMax.set($btl, {transform: "translate3d(" + -(n + e.deltaX) + "px, 0px, 0px)"});
+        checkbeerBottleState(n);
+        displayBgPosition(n);
         animateNavigation(n + e.deltaX);
     })
     .bind('moveend', function() {
-        checkPosition();
+        var n = parseInt($bg.css('transform').split(',')[4]);
         translateValue = n;
+        checkPosition();
     });
 
-var n = parseInt(bg.css('transform').split(',')[4]);
+var n = parseInt($bg.css('transform').split(',')[4]);
 // consoleLog('n:' + n);
 /* BG ANIMATIONS END */
 
@@ -101,7 +107,7 @@ function consoleLog(e) {
 
 function finishedTween() {
     events--;
-    ev.text(events);
+    $ev.text(events);
 }
 
 function tweenStart() {
@@ -110,7 +116,7 @@ function tweenStart() {
     }, 2000);
 }
 
-function checkBgPosition(n) {
+function displayBgPosition(n) {
     $('.bg-position').text(n);
 }
 
@@ -119,18 +125,27 @@ function checkBgPosition(n) {
 /* FOREGROUND ANIMATIONS START */
 
 
-TweenMax.to(mouse, 3, {transform: "translate3d(2600px, 0px, 0px)", repeat:-1 , yoyo:true, ease: Power0.easeNone, onRepeat:switchDirection});
+TweenMax.to($mouse, 3, {transform: "translate3d(2600px, 0px, 0px)", repeat:-1 , yoyo:true, ease: Power0.easeNone, onRepeat:switchDirection});
 
 /* change background image according to animation direction */
 function switchDirection() {
-    if (mouse.hasClass('right')) {
-        mouse.removeClass('right');
+    if ($mouse.hasClass('right')) {
+        $mouse.removeClass('right');
     }
     else {
-        mouse.addClass('right');
+        $mouse.addClass('right');
     }
 }
 
+function checkbeerBottleState(n) {
+    if (n < -300) {
+        $btl.addClass('milled-mashed');
+    }
+    else if (n > -300) {
+        $btl.removeClass('milled-mashed');
+    }
+    consoleLog(n);
+}
 /* FOREGROUND ANIMATIONS END */
 
 /* NAVIGATION ANIMATIONS START */
@@ -139,22 +154,28 @@ var roadToTravel = 0;
 var maxroad = 0;
 
 function animateNavigation(value) {
-    maxroad = parseInt(navLine.css('width'));
+    maxroad = parseInt($navLine.css('width'));
     /* calculate what is value from 100% (8000px) ^ calculate what is the road to pass for the percent that we get */
-    percentToTravel = parseInt(-value/80);
+    percentToTravel = parseInt(-value/77);
     roadToTravel = (maxroad/100) * percentToTravel;
-    TweenMax.to(btlnav, 2, {left: roadToTravel + "px", ease: Power0.easeNone});
-    // consoleLog(percentToTravel);
+    TweenMax.to($btlnav, 2, {left: roadToTravel + "px", ease: Power0.easeNone});
+    // consoleLog('percentToTravel: ' + percentToTravel);
+    // consoleLog('translateValue: ' + value);
 }
 
 function btlNavigationSet(translateValue) {
-    if (translateValue < 0) {
-        TweenMax.set(btlnav, {left: maxroad + "px"});
+    if (translateValue < 200) {
+        percentToTravel = parseInt(-translateValue/77);
+        something = (maxroad/100) * percentToTravel ;
+        TweenMax.set($btlnav, {left: something   + "px"});
     }
-    else if (translateValue > 0) {
-        TweenMax.set(btlnav, {left: "0px"});
+    else if (translateValue >= 200) {
+        percentToTravel = parseInt(-translateValue/77);
+        something = (maxroad/100) * -percentToTravel ;
+        TweenMax.set($btlnav, {left: something + "px"});
     }
-    // consoleLog(roadToTravel);
+    // consoleLog('On Value: ' + percentToTravel);
+    // consoleLog('translateValue: ' + translateValue);
 }
 
 /* NAVIGATION ANIMATIONS END*/

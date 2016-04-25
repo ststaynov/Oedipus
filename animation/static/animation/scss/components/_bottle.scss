@@ -8,8 +8,16 @@
     left: 50%;
     margin-left: -50px;
     display: inline-block;
-    background-color: red;
+    background-color: rgba(red,0.5);
     pointer-events: none;
+
+    &.milled-mashed {
+      background-color: rgba(green,0.5);
+    }
+
+    &.filtered {
+      background-color: rgba(blue,0.5);
+    }
   }
 
   .c-beer-bottle-shadow {

@@ -107,17 +107,3 @@ h1 {
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d( 0px, 0px, 0px);
 }
-
-.c-mouse {
-    position: absolute;
-    display: block;
-    width: 151px;
-    height: 152px;
-    background: url(../images/desktop/mouse.png) left top no-repeat;
-    background-size: 151px auto;
-
-  &.right {
-    background: url(../images/desktop/mouse-right.png) left top no-repeat;
-    background-size: 151px auto;
-  }
-}
