@@ -15,12 +15,15 @@ var e = document.body,
     $mouse = $('.c-mouse'),
     $millmash = $('.c-milling-mashing'),
     $btlnav = $('.e-navigation-bottle'),
+    $fl = ('.c-flying-lemon');
     $ev = $('.events').text(events);
 
-/* set the transform value with tweenMax at beginning */
+/* set the transform value with tweenMax at beginning & transform all initial components to their places*/
 TweenMax.set(fgBg, {transform: "translate3d(10px, 0px, 0px)"});
 TweenMax.set($mouse, {transform: "translate3d(2210px, 0px, 0px)"});
 TweenMax.set($millmash, {transform: "translate3d(847px, 400px, 0px)"});
+TweenMax.set($fl, {transform: "translate3d(1507px, 400px, 0px)"});
+
 
 /* hinds & hanlers */
 /* keep the scroll execution limited to 80 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
@@ -30,10 +33,12 @@ $( window ).resize(function() {
 });
 
 function scrolling(s) {
+
     events+=2;
     $ev.text(events);
 
     /* Keep track of the scrolling events */
+    consoleLog(s.originalEvent.wheelDelta);
     if(s.originalEvent.wheelDelta /120 > 0) {
         $('.up').text(counterUp);
         counterUp++;

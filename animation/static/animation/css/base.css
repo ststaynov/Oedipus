@@ -1,3 +1,15 @@
+body {
+  background-color: red;
+  overflow: hidden; }
+  @media screen and (max-device-width: 480px) {
+    body {
+      -moz-transform: scale(0.5, 0.5);
+      /* Moz-browsers */
+      zoom: 0.5;
+      /* Other non-webkit browsers */
+      zoom: 50%;
+      /* Webkit browsers */ } }
+
 * {
   box-sizing: border-box; }
 
@@ -106,9 +118,9 @@ h1 {
 
 .c-beer-bottle-container .c-beer-bottle {
   width: 150px;
-  height: 250px;
+  height: 150px;
   position: absolute;
-  top: 350px;
+  top: 150px;
   left: 50%;
   margin-left: -50px;
   display: inline-block;
@@ -156,3 +168,24 @@ h1 {
   background: url(../images/desktop/mouse.png) center center no-repeat;
   background-size: 151px auto;
   pointer-events: none; }
+
+.c-flying-lemon {
+  position: absolute;
+  pointer-events: none; }
+  .c-flying-lemon .relative-container {
+    position: relative; }
+  .c-flying-lemon .e-lemon {
+    width: 300px;
+    height: 190px;
+    background: url(../images/desktop/lemon.png) center center no-repeat; }
+  .c-flying-lemon .e-wings {
+    position: absolute;
+    top: 0;
+    width: 334px;
+    height: 190px;
+    background: url(../images/desktop/sprite.png) left center no-repeat;
+    animation: play 0.8s steps(3) infinite; }
+
+@keyframes play {
+  100% {
+    background-position: -1002px; } }
