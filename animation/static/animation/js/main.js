@@ -50,8 +50,8 @@ function moveBackground(f) {
     r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
     animateNavigation(translateValue);
 
-    TweenMax.allTo(fgBg, 2, {transform: "translate3d(" + translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 510, checkPosition)});
-    TweenMax.to($btl, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 510, checkPosition)});
+    TweenMax.allTo(fgBg, 2, {transform: "translate3d(" + translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 1510, checkPosition)});
+    TweenMax.to($btl, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onStart:tweenStart, onUpdate:$.throttle( 1510, checkPosition)});
     displayBgPosition(n);
 }
 
@@ -59,20 +59,22 @@ function checkPosition() {
     /* Check the current transform value */
     var n = parseInt($bg.css('transform').split(',')[4]);
     if (n < -7800) {
+        /* sets new position at the start of the film  */
         translateValue = n + 8000;
         TweenMax.set(fgBg, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
         TweenMax.set($btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
         btlNavigationSet(translateValue);
         checkbeerBottleState(translateValue);
     } else if (n >= 200) {
+        /* sets new position at the end of the film  */
         translateValue = n - 8000;
-        consoleLog('setting new position -');
         TweenMax.set(fgBg, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
         TweenMax.set($btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
         btlNavigationSet(translateValue);
         checkbeerBottleState(translateValue);
+    } else {
+        checkbeerBottleState(n);
     }
-    consoleLog('position should be set on: ' + n + " a " + translateValue);
     displayBgPosition(n);
 }
 
@@ -93,7 +95,6 @@ jQuery('.c-brewing-background-inner')
     });
 
 var n = parseInt($bg.css('transform').split(',')[4]);
-// consoleLog('n:' + n);
 /* BG ANIMATIONS END */
 
 
@@ -144,7 +145,6 @@ function checkbeerBottleState(n) {
     else if (n > -300) {
         $btl.removeClass('milled-mashed');
     }
-    consoleLog(n);
 }
 /* FOREGROUND ANIMATIONS END */
 
@@ -166,13 +166,13 @@ function animateNavigation(value) {
 function btlNavigationSet(translateValue) {
     if (translateValue < 200) {
         percentToTravel = parseInt(-translateValue/77);
-        something = (maxroad/100) * percentToTravel ;
-        TweenMax.set($btlnav, {left: something   + "px"});
+        s = (maxroad/100) * percentToTravel ;
+        TweenMax.set($btlnav, {left: s   + "px"});
     }
     else if (translateValue >= 200) {
         percentToTravel = parseInt(-translateValue/77);
-        something = (maxroad/100) * -percentToTravel ;
-        TweenMax.set($btlnav, {left: something + "px"});
+        s = (maxroad/100) * -percentToTravel ;
+        TweenMax.set($btlnav, {left: s + "px"});
     }
     // consoleLog('On Value: ' + percentToTravel);
     // consoleLog('translateValue: ' + translateValue);
