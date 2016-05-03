@@ -7,6 +7,6 @@ body {
     zoom: 0.5; /* Other non-webkit browsers */
     zoom: 50%; /* Webkit browsers */
   }
-  background-color: red;
+  background-color: $color-bg;
   overflow: hidden;
 }

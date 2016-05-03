@@ -20,8 +20,8 @@ var e = document.body,
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places*/
 TweenMax.set(fgBg, {transform: "translate3d(10px, 0px, 0px)"});
-TweenMax.set($mouse, {transform: "translate3d(2210px, 0px, 0px)"});
-TweenMax.set($millmash, {transform: "translate3d(847px, 400px, 0px)"});
+TweenMax.set($mouse, {transform: "translate3d(2010px, 175px, 0px)"});
+TweenMax.set($millmash, {transform: "translate3d(785px, 70px, 0px)"});
 TweenMax.set($fl, {transform: "translate3d(1507px, 400px, 0px)"});
 
 
@@ -32,17 +32,18 @@ $( window ).resize(function() {
     animateNavigation(translateValue);
 });
 
-function scrolling(s) {
+function scrolling(e) {
 
     events+=2;
     $ev.text(events);
-
     /* Keep track of the scrolling events */
-    consoleLog(s.originalEvent.wheelDelta);
-    if(s.originalEvent.wheelDelta /120 > 0) {
+    consoleLog(e.originalEvent.wheelDelta);
+    consoleLog(e.originalEvent.detail);
+    if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail < 0) {
         $('.up').text(counterUp);
         counterUp++;
         moveBackground(f="forward");
+        consoleLog(e.originalEvent.wheelDelta);
     }
     else {
         $('.down').text(counterDown);
@@ -131,7 +132,7 @@ function displayBgPosition(n) {
 /* FOREGROUND ANIMATIONS START */
 
 
-TweenMax.to($mouse, 3, {transform: "translate3d(2600px, 0px, 0px)", repeat:-1 , yoyo:true, ease: Power0.easeNone, onRepeat:switchDirection});
+TweenMax.to($mouse, 3, {transform: "translate3d(2400px, 175px, 0px)", repeat:-1 , yoyo:true, ease: Power0.easeNone, onRepeat:switchDirection});
 
 /* change background image according to animation direction */
 function switchDirection() {

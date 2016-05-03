@@ -1,4 +1,3 @@
-
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -57,23 +56,39 @@
 
             <figure class="c-brewing-foreground">
                 <figure class="c-flying-lemon">
-                  <div class="relative-container">
-                    <div class="e-lemon"></div>
-                    <div class="e-wings"></div>
-                  </div>
+                    <div class="relative-container">
+                        <div class="e-lemon"></div>
+                        <div class="e-wings"></div>
+                    </div>
                 </figure>
                 <figure class="c-mouse right"></figure>
-                <figure class="c-milling-mashing"></figure>
+                <figure class="c-milling-mashing">
+                    <div class="e-cloud">
+                    </div>
+
+                    <div class="e-grain-container">
+                        <div class="e-grain e-grain-1"></div>
+                        <div class="e-grain e-grain-2"></div>
+                        <div class="e-grain e-grain-3"></div>
+                        <div class="e-grain e-grain-4"></div>
+                        <div class="e-grain e-grain-5"></div>
+                    </div>
+
+                    <div class="e-milling-container">
+                        <div class="e-cog-wheel-left"></div>
+                        <div class="e-cog-wheel-right"></div>
+                    </div>
+                </figure>
             </figure>
         </section>
     </div>
 </div>
 
 
-    <!-- Minified js included -->
-    <!--<script src="static/js/bafter_load.js"></script>-->
-    <script src="{% static "animation/js/deb_throttle.js" %}"></script>
-    <script src="{% static "animation/js/main.js" %}"></script>
+<!-- Minified js included -->
+<!--<script src="static/js/bafter_load.js"></script>-->
+<script src="{% static "animation/js/deb_throttle.js" %}"></script>
+<script src="{% static "animation/js/main.js" %}"></script>
 </body>
 
 </html>

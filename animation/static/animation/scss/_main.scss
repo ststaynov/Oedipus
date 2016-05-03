@@ -81,15 +81,14 @@ h1 {
 }
 
 .main {
-  position: absolute;
   width: 100%;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .c-brewing-wrapper {
   position: relative;
-  max-height: 1240px;
-  height: 100%;
+  height: 1240px;
 }
 
 .c-brewing-background-inner {
@@ -98,12 +97,12 @@ h1 {
   bottom: 0;
   left: -2000px;
   width: 12000px;
-  height: 920px;
-  background-image: url(../images/desktop/bg-brew-line_mannenliefde_01.png),url(../images/desktop/bg-brew-line_mama_02.png),url(../images/desktop/bg-brew-line_thaithai_03.png),url(../images/desktop/bg-brew-line_mama_02.png),url(../images/desktop/bg-brew-line_mannenliefde_01.png),url(../images/desktop/bg-brew-line_mama_02.png);
+  height: 900px;
+  background-image: url(../images/desktop/oedipus-step-4-settling-bottling.png),url(../images/desktop/oedipus-step-1-milling.png),url(../images/desktop/oedipus-step-2-mashing.png),url(../images/desktop/oedipus-step-3-boiling-fermenting.png),url(../images/desktop/oedipus-step-4-settling-bottling.png),url(../images/desktop/oedipus-step-1-milling.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
-  background-size: 2000px 920px,2000px 920px,2000px 920px,2000px 920px,2000px 920px,2000px 920px;
+  background-size: 2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px;
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d( 0px, 0px, 0px);
 }
