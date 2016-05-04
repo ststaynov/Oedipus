@@ -2,17 +2,16 @@
 .c-milling-mashing {
   position: absolute;
   display: block;
-  width: 300px;
+  width: 371px;
   height: 500px;
-  background-color: rgba(255,255,255,.8);
-  //background: url(../images/desktop/mouse.png) center center no-repeat;
+  background: url('../images/desktop/step1/bg.png') center center no-repeat;
   //background-size: 151px auto;
   pointer-events: none;
 
   .e-cloud {
       width: 150px;
       height: 90px;
-      margin: 0 auto;
+      margin: 0 73px;
       background: url('../images/desktop/step1/cloud.png') left center no-repeat;
       animation: cloud .8s steps(3) infinite;
   }

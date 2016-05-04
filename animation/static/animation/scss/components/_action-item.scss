@@ -1,10 +1,10 @@
 
-.c-beer-bottle-container {
-  .c-beer-bottle {
+.c-action-container {
+  .c-action {
     width: 150px;
-    height: 50px;
+    height: 95px;
     position: absolute;
-    top: 220px;
+    top: 168px;
     left: 50%;
     margin-left: -50px;
     display: inline-block;
@@ -13,6 +13,7 @@
 
     &.milled-mashed {
       background-color: rgba(green,0.5);
+      background: url('../images/desktop/step1/comment-poststep1.png') center center no-repeat;
     }
 
     &.filtered {

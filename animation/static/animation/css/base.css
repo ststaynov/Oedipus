@@ -115,37 +115,47 @@ h1 {
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d(0px, 0px, 0px); }
 
-.c-beer-bottle-container .c-beer-bottle {
+.c-action-container .c-action {
   width: 150px;
-  height: 50px;
+  height: 95px;
   position: absolute;
-  top: 220px;
+  top: 168px;
   left: 50%;
   margin-left: -50px;
   display: inline-block;
   background-color: rgba(255, 0, 0, 0.5);
   pointer-events: none; }
-  .c-beer-bottle-container .c-beer-bottle.milled-mashed {
-    background-color: rgba(0, 128, 0, 0.5); }
-  .c-beer-bottle-container .c-beer-bottle.filtered {
+  .c-action-container .c-action.milled-mashed {
+    background-color: rgba(0, 128, 0, 0.5);
+    background: url("../images/desktop/step1/comment-poststep1.png") center center no-repeat; }
+  .c-action-container .c-action.filtered {
     background-color: rgba(0, 0, 255, 0.5); }
 
 .c-navigation {
   position: absolute;
-  top: 50px;
+  top: 90%;
   width: 100%;
   z-index: 10; }
   .c-navigation .e-navigation-line {
-    width: 80%;
+    width: 83%;
     height: 1px;
     position: absolute;
     top: 40px;
     left: 50%;
-    margin-left: -40%;
+    margin-left: -42%;
     background-color: #000; }
+  .c-navigation .e-navigation-step {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 30px;
+    margin-left: 7.5%;
+    display: inline-block;
+    background-color: #000;
+    border-radius: 100%; }
   .c-navigation .e-navigation-bottle {
     width: 20px;
-    margin-left: 8%;
+    margin-left: 8.5%;
     position: absolute; }
 
 .c-mouse {
@@ -162,9 +172,9 @@ h1 {
 .c-milling-mashing {
   position: absolute;
   display: block;
-  width: 300px;
+  width: 371px;
   height: 500px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background: url("../images/desktop/step1/bg.png") center center no-repeat;
   pointer-events: none;
   /*@keyframes cloud {
       100% { background-position: -1002px; }
@@ -174,7 +184,7 @@ h1 {
   .c-milling-mashing .e-cloud {
     width: 150px;
     height: 90px;
-    margin: 0 auto;
+    margin: 0 73px;
     background: url("../images/desktop/step1/cloud.png") left center no-repeat;
     animation: cloud 0.8s steps(3) infinite; }
   .c-milling-mashing .e-grain-container {
