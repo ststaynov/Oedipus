@@ -15,7 +15,7 @@ var e = document.body,
     $mouse = $('.c-mouse'),
     $millmash = $('.c-milling-mashing'),
     $btlnav = $('.e-navigation-bottle'),
-    $fl = ('.c-flying-lemon');
+    $fl = $('.c-flying-lemon');
     $ev = $('.events').text(events);
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places*/
@@ -60,7 +60,6 @@ function moveBackground(f) {
 
 function checkPosition() {
     /* Check the current transform value */
-    consoleLog('checkPosition;');
     var n = parseInt($bg.css('transform').split(',')[4]);
     if (n < -7800) {
         /* sets new position at the start of the film  */
@@ -91,10 +90,10 @@ jQuery('.c-brewing-background-inner')
         checkbeerBottleState(n);
         displayBgPosition(n);
         animateNavigation(n + e.deltaX);
+        onUpdate:$.throttle( 510, checkPosition);
     })
     .bind('moveend', function() {
-        var n = parseInt($bg.css('transform').split(',')[4]);
-        translateValue = n;
+        translateValue = parseInt($bg.css('transform').split(',')[4]);
         checkPosition();
     });
 
@@ -145,7 +144,7 @@ function switchDirection() {
 var animBreakPoint1 = -300;
 
 function checkbeerBottleState(n) {
-    if (n < animBreakPoint1) {
+    if (n <= animBreakPoint1) {
         $btl.addClass('milled-mashed');
     }
     else if (n > animBreakPoint1) {
@@ -172,11 +171,11 @@ function animateNavigation(value) {
     roadToTravel = (btlMaxRoad/100) * percentToTravel;
     // consoleLog('roadToTravel: ' + roadToTravel + 'px')  ;
     if(roadToTravel < 11) { // Keep nav bottle from overthrowing its endpoint
-        TweenMax.to($btlnav, 2, {left: 11 + "px", ease: Power4.easeNone});
+        TweenMax.to($btlnav, 1, {left: 11 + "px", ease: Power4.easeNone});
     } else if(roadToTravel > btlMaxRight) {
-        TweenMax.to($btlnav, 2, {left: btlMaxRight + "px", ease: Power0.easeNone});
+        TweenMax.to($btlnav, 1, {left: btlMaxRight + "px", ease: Power0.easeNone});
     } else {
-        TweenMax.to($btlnav, 2, {left: roadToTravel + "px", ease: Power0.easeNone});
+        TweenMax.to($btlnav, 1, {left: roadToTravel + "px", ease: Power0.easeNone});
     }
     // consoleLog('percentToTravel: ' + percentToTravel);
     // consoleLog('translateValue: ' + value);
@@ -187,16 +186,14 @@ function btlNavigationSet(translateValue) {
     // FIRES ALWAYS
     percentToTravel = parseInt(-translateValue / 80);
     s = (maxRoad/100) * percentToTravel;
-    consoleLog('s: ' + s);
-    consoleLog('btlMaxRight ' + btlMaxRight);
-    consoleLog(translateValue);
+
     if(s < 11) {
         TweenMax.set($btlnav, {left: 11 + "px"});
     } else if (s < btlMaxRight && s > 960) {
         consoleLog('set to '+ btlMaxRight);
         TweenMax.set($btlnav, {left: btlMaxRight + "px"});
     } else if (translateValue < -5000){ // Some if-else's to check if the film is changing from right-left or from left-right
-        TweenMax.set($btlnav, {left: s + 100 + "px"});
+        TweenMax.set($btlnav, {left: s + ((maxRoad/100)*5)  + "px"});
     } else {
         TweenMax.set($btlnav, {left: s + "px"});
     }
