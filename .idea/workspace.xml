@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/static/animation/images/desktop/step1/bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/static/animation/images/desktop/step1/comment-poststep1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/_bottle.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/css/base.css" afterPath="$PROJECT_DIR$/animation/static/animation/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/js/main.js" afterPath="$PROJECT_DIR$/animation/static/animation/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/_all.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/_all.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/_milling-mashing.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/_milling-mashing.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/_navigation.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/_navigation.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/templates/animation/index.html" afterPath="$PROJECT_DIR$/animation/templates/animation/index.html" />
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +43,8 @@
       <file leaf-file-name="_action-item.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="225">
+              <caret line="15" column="95" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
               <folding />
             </state>
           </provider>
@@ -69,8 +63,8 @@
       <file leaf-file-name="_navigation.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_navigation.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -79,8 +73,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="184" column="12" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="12" />
+            <state relative-caret-position="719">
+              <caret line="197" column="102" selection-start-line="197" selection-start-column="102" selection-end-line="197" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -145,10 +139,10 @@
         <option value="$PROJECT_DIR$/animation/static/animation/scss/_main.scss" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_bottle.scss" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_milling-mashing.scss" />
-        <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss" />
         <option value="$PROJECT_DIR$/animation/templates/animation/index.html" />
-        <option value="$PROJECT_DIR$/animation/static/animation/js/main.js" />
+        <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_navigation.scss" />
+        <option value="$PROJECT_DIR$/animation/static/animation/js/main.js" />
       </list>
     </option>
   </component>
@@ -163,7 +157,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="319" />
+    <option name="x" value="313" />
     <option name="y" value="23" />
     <option name="width" value="1601" />
     <option name="height" value="1109" />
@@ -742,11 +736,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462276336261</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="navigation configuration">
+      <created>1462375640151</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1462375640151</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="319" y="23" width="1601" height="1109" extended-state="0" />
+    <frame x="313" y="23" width="1601" height="1109" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21611492" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -808,7 +809,8 @@
     <MESSAGE value="everything on scroll&amp;move works!!" />
     <MESSAGE value="life is hard" />
     <MESSAGE value="step 1 animation ^ background images updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="step 1 animation ^ background images updated" />
+    <MESSAGE value="navigation configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="navigation configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1137,18 +1139,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_milling-mashing.scss">
+    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_all.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="6" column="76" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="15">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1161,26 +1155,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_all.scss">
+    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="225">
+          <caret line="15" column="95" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_milling-mashing.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="6" column="76" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_navigation.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="165">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="184" column="12" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="12" />
+        <state relative-caret-position="719">
+          <caret line="197" column="102" selection-start-line="197" selection-start-column="102" selection-end-line="197" selection-end-column="102" />
           <folding />
         </state>
       </provider>

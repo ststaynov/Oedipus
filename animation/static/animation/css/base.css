@@ -137,25 +137,26 @@ h1 {
   width: 100%;
   z-index: 10; }
   .c-navigation .e-navigation-line {
-    width: 83%;
+    width: 70%;
     height: 1px;
     position: absolute;
     top: 40px;
     left: 50%;
-    margin-left: -42%;
-    background-color: #000; }
+    margin-left: -35%;
+    background-color: #000;
+    display: none; }
   .c-navigation .e-navigation-step {
     width: 20px;
     height: 20px;
     position: absolute;
     top: 30px;
-    margin-left: 7.5%;
+    margin-left: 14.3%;
     display: inline-block;
     background-color: #000;
     border-radius: 100%; }
   .c-navigation .e-navigation-bottle {
     width: 20px;
-    margin-left: 8.5%;
+    margin-left: 13.5%;
     position: absolute; }
 
 .c-mouse {

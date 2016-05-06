@@ -6,13 +6,14 @@
   z-index: $z-10;
 
   .e-navigation-line {
-    width: 83%;
+    width: 70%;
     height: 1px;
     position: absolute;
     top: 40px;
     left: 50%;
-    margin-left: -42%;
+    margin-left: -35%;
     background-color: $color-black;
+    display: none;
   }
 
   .e-navigation-step {
@@ -20,7 +21,7 @@
     height: 20px;
     position: absolute;
     top: 30px;
-    margin-left: 7.5%;
+    margin-left: 14.3%;
     display: inline-block;
     background-color: $color-black;
     border-radius: 100%;
@@ -28,7 +29,7 @@
 
   .e-navigation-bottle {
     width: 20px;
-    margin-left: 8.5%;
+    margin-left: 13.5%;
     position: absolute;
   }
 }
