@@ -26,7 +26,7 @@ TweenMax.set($mouse, {transform: "translate3d(2010px, 175px, 0px)"});
 TweenMax.set($millmash, {transform: "translate3d(790px, 78px, 0px)"});
 TweenMax.set($fl, {transform: "translate3d(1507px, 400px, 0px)"});
 TweenMax.set($cooling, {transform: "translate3d(4780px, 50px, 0px)"});
-TweenMax.set($bottling, {transform: "translate3d(7220px, 50px, 0px)"});
+TweenMax.set($bottling, {transform: "translate3d(7220px, 0px, 0px)"});
 
 
 /* hinds & hanlers */

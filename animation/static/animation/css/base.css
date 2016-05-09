@@ -362,9 +362,8 @@ h1 {
   width: 500px;
   height: 900px;
   pointer-events: none;
-  background: url(../images/desktop/cooling.png) center center no-repeat; }
+  background: url(../images/desktop/fg-bottling.png) center center no-repeat; }
   .c-bottling-container .e-label {
     position: absolute;
-    background-color: red;
     width: 100px;
     height: 100px; }
