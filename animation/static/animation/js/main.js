@@ -17,14 +17,16 @@ var e = document.body,
     $btlnav = $('.e-navigation-bottle'),
     $fl = $('.c-flying-lemon'),
     $ev = $('.events').text(events),
-    $cooling = $('.c-cooling-container');
+    $cooling = $('.c-cooling-container'),
+    $bottling = $('.c-bottling-container');
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places*/
 TweenMax.set(fgBg, {transform: "translate3d(10px, 0px, 0px)"});
 TweenMax.set($mouse, {transform: "translate3d(2010px, 175px, 0px)"});
 TweenMax.set($millmash, {transform: "translate3d(790px, 78px, 0px)"});
 TweenMax.set($fl, {transform: "translate3d(1507px, 400px, 0px)"});
-TweenMax.set($cooling, {transform: "translate3d(5007px, 0px, 0px)"});
+TweenMax.set($cooling, {transform: "translate3d(4780px, 50px, 0px)"});
+TweenMax.set($bottling, {transform: "translate3d(7220px, 50px, 0px)"});
 
 
 /* hinds & hanlers */
@@ -228,8 +230,8 @@ function setNavStepPoints() {
 /* SNOWFLAKES START */
 var random_num1, random_num2, random_num3, snow, snow_x, snow_y, container, container_height, container_width, interval;
 container = $('.c-frame-snow');
-container_height = 500;
-container_width = 450;
+container_height = 900;
+container_width = 800;
 
 $(window).load(function() {
   interval = setInterval(function() {
