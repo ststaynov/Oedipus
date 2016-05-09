@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/static/animation/images/desktop/cooling.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fabfile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/templates/animation/index.html" afterPath="$PROJECT_DIR$/animation/templates/animation/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fabfile.py" afterPath="$PROJECT_DIR$/fabfile.py" />
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +32,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/animation/templates/animation/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
+            <state relative-caret-position="463">
+              <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -111,8 +111,8 @@
       <file leaf-file-name="fabfile.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fabfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="31" column="8" selection-start-line="29" selection-start-column="10" selection-end-line="31" selection-end-column="8" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -176,9 +176,9 @@
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/cooling.scss" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_all.scss" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_cooling.scss" />
-        <option value="$PROJECT_DIR$/animation/templates/animation/index.html" />
         <option value="$PROJECT_DIR$/animation/static/animation/js/main.js" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_bottling.scss" />
+        <option value="$PROJECT_DIR$/animation/templates/animation/index.html" />
         <option value="$PROJECT_DIR$/fabfile.py" />
       </list>
     </option>
@@ -591,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462791855708</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added fabfile.py">
+      <created>1462798595207</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1462798595207</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -659,7 +666,8 @@
     <MESSAGE value="step 1 animation ^ background images updated" />
     <MESSAGE value="navigation configuration" />
     <MESSAGE value="requirements.txt added" />
-    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt added" />
+    <MESSAGE value="added fabfile.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="added fabfile.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -970,14 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/animation/templates/animation/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1027,10 +1027,18 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/animation/templates/animation/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fabfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="31" column="8" selection-start-line="29" selection-start-column="10" selection-end-line="31" selection-end-column="8" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>

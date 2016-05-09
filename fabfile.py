@@ -27,9 +27,9 @@ def deploy_stg():
         # not neded, static urls are there
         run("source ../beermuseum-env/bin/activate && python ./manage.py collectstatic --noinput")
         # fixRosetta()
-        run("source ../beermuseum-env/bin/activate && python ./manage.py compilemessages")
-        run("source ../beermuseum-env/bin/activate && sudo chown fabrique:www-data locale -R")
-        run("source ../beermuseum-env/bin/activate && chmod g+w locale -R")
+        # run("source ../beermuseum-env/bin/activate && python ./manage.py compilemessages")
+        # run("source ../beermuseum-env/bin/activate && sudo chown fabrique:www-data locale -R")
+        # run("source ../beermuseum-env/bin/activate && chmod g+w locale -R")
         # print("Compress css")
         #run("source ../staging-env/bin/activate && python ./manage.py compress")
         print("touching your wsgis!")
