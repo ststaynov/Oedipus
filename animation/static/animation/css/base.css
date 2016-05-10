@@ -115,6 +115,10 @@ h1 {
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d(0px, 0px, 0px); }
 
+.intro {
+  width: 100%;
+  height: 400px; }
+
 .c-action-container .c-action {
   width: 150px;
   height: 95px;
@@ -367,3 +371,24 @@ h1 {
     position: absolute;
     width: 100px;
     height: 100px; }
+
+.grid {
+  width: 100%;
+  height: auto;
+  text-align: center; }
+  .grid .grid-item,
+  .grid .grid-item--width2 {
+    width: calc(33.33333% - 10px);
+    height: 360px;
+    margin: 0 5px 10px 5px;
+    display: block;
+    float: left;
+    border: 2px solid rgba(102, 102, 102, 0.5);
+    overflow: hidden;
+    background-color: rgba(128, 0, 128, 0.4); }
+  .grid .grid-item--width2 {
+    width: calc(66.66666% - 10px); }
+
+.grid-container {
+  max-width: 960px;
+  margin: 0 auto; }
