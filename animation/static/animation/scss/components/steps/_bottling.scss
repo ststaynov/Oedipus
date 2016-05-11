@@ -2,10 +2,10 @@
 .c-bottling-container {
   position: absolute;
   display: block;
-  width: 500px;
-  height: 900px;
+  width: 600px;
+  height: 800px;
   pointer-events: none;
-  background: url(../images/desktop/fg-bottling.png) center center no-repeat;
+  background-color: rgba(purple,.2);
 
   .e-label {
     position: absolute;

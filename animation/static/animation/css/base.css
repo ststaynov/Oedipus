@@ -76,7 +76,8 @@ h1 {
     width: 50px; }
 
 .bg-position {
-  left: 10%; }
+  left: 10%;
+  bottom: 0px; }
 
 .main {
   width: 100%;
@@ -94,7 +95,7 @@ h1 {
   left: -2000px;
   width: 12000px;
   height: 900px;
-  background-image: url(../images/desktop/oedipus-step-4-settling-bottling.png), url(../images/desktop/oedipus-step-1-milling.png), url(../images/desktop/oedipus-step-2-mashing.png), url(../images/desktop/oedipus-step-3-boiling-fermenting.png), url(../images/desktop/oedipus-step-4-settling-bottling.png), url(../images/desktop/oedipus-step-1-milling.png);
+  background-image: url(../images/desktop/oedipus-step-4-bottling-exploding.png), url(../images/desktop/oedipus-step-1-cloud-milmash.png), url(../images/desktop/oedipus-step-2-boiling-cooling.png), url(../images/desktop/oedipus-step-3-cooling-fermenting.png), url(../images/desktop/oedipus-step-4-bottling-exploding.png), url(../images/desktop/oedipus-step-1-cloud-milmash.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
@@ -110,15 +111,15 @@ h1 {
   width: 150px;
   height: 95px;
   position: absolute;
-  top: 168px;
-  left: 50%;
+  top: 25px;
+  left: 20%;
   margin-left: -50px;
   display: inline-block;
   background-color: rgba(255, 0, 0, 0.5);
   pointer-events: none; }
   .c-action-container .c-action.milled-mashed {
     background-color: rgba(0, 128, 0, 0.5);
-    background: url("../images/desktop/step1/comment-poststep1.png") center center no-repeat; }
+    background: url("../images/desktop/step1/cloud.png") center center no-repeat; }
   .c-action-container .c-action.filtered {
     background-color: rgba(0, 0, 255, 0.5); }
 
@@ -161,12 +162,68 @@ h1 {
     background: url(../images/desktop/mouse-right.png) left top no-repeat;
     background-size: 151px auto; }
 
+.c-flying-lemon {
+  position: absolute;
+  pointer-events: none; }
+  .c-flying-lemon .relative-container {
+    position: relative; }
+  .c-flying-lemon .e-lemon {
+    width: 300px;
+    height: 190px;
+    background: url(../images/desktop/lemon.png) center center no-repeat; }
+  .c-flying-lemon .e-wings {
+    position: absolute;
+    top: 0;
+    width: 334px;
+    height: 190px;
+    background: url(../images/desktop/sprite.png) left center no-repeat;
+    animation: play 0.8s steps(3) infinite; }
+
+@keyframes play {
+  100% {
+    background-position: -1002px; } }
+
+.grid {
+  width: 100%;
+  height: auto;
+  text-align: center; }
+  .grid .grid-item,
+  .grid .grid-item--width2 {
+    width: 30.5%;
+    height: 360px;
+    margin: 0 1% 20px 1%;
+    display: block;
+    float: left;
+    border: 2px solid rgba(102, 102, 102, 0.5);
+    overflow: hidden;
+    background-color: rgba(128, 0, 128, 0.4); }
+  .grid .grid-item--width2 {
+    width: 66.0%; }
+  @media screen and (max-width: 480px) {
+    .grid .grid-item,
+    .grid .grid-item--width2 {
+      width: 50%; }
+    .grid .grid-item--width2 {
+      width: 100%; } }
+
+.grid-container {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.c-magic-cloud {
+  position: absolute;
+  display: block;
+  width: 1000px;
+  height: 800px;
+  pointer-events: none;
+  background-color: rgba(128, 0, 128, 0.2); }
+
 .c-milling-mashing {
   position: absolute;
   display: block;
-  width: 371px;
-  height: 500px;
-  background: url("../images/desktop/step1/bg.png") center center no-repeat;
+  width: 600px;
+  height: 800px;
+  background-color: rgba(128, 0, 128, 0.2);
   pointer-events: none;
   /*@keyframes cloud {
       100% { background-position: -1002px; }
@@ -279,32 +336,19 @@ h1 {
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg); } }
 
-.c-flying-lemon {
+.c-boiling {
   position: absolute;
-  pointer-events: none; }
-  .c-flying-lemon .relative-container {
-    position: relative; }
-  .c-flying-lemon .e-lemon {
-    width: 300px;
-    height: 190px;
-    background: url(../images/desktop/lemon.png) center center no-repeat; }
-  .c-flying-lemon .e-wings {
-    position: absolute;
-    top: 0;
-    width: 334px;
-    height: 190px;
-    background: url(../images/desktop/sprite.png) left center no-repeat;
-    animation: play 0.8s steps(3) infinite; }
-
-@keyframes play {
-  100% {
-    background-position: -1002px; } }
+  display: block;
+  width: 600px;
+  height: 800px;
+  pointer-events: none;
+  background-color: rgba(128, 0, 128, 0.2); }
 
 .c-cooling-container {
   position: absolute;
   display: block;
-  width: 800px;
-  height: 900px;
+  width: 600px;
+  height: 800px;
   pointer-events: none;
   background: url(../images/desktop/cooling.png) center center no-repeat; }
   .c-cooling-container .c-frame-snow {
@@ -347,41 +391,30 @@ h1 {
     top: 0;
     opacity: 0; } }
 
+.c-fermenting {
+  position: absolute;
+  display: block;
+  width: 600px;
+  height: 800px;
+  pointer-events: none;
+  background-color: rgba(128, 0, 128, 0.2); }
+
 .c-bottling-container {
   position: absolute;
   display: block;
-  width: 500px;
-  height: 900px;
+  width: 600px;
+  height: 800px;
   pointer-events: none;
-  background: url(../images/desktop/fg-bottling.png) center center no-repeat; }
+  background-color: rgba(128, 0, 128, 0.2); }
   .c-bottling-container .e-label {
     position: absolute;
     width: 100px;
     height: 100px; }
 
-.grid {
-  width: 100%;
-  height: auto;
-  text-align: center; }
-  .grid .grid-item,
-  .grid .grid-item--width2 {
-    width: 30.5%;
-    height: 360px;
-    margin: 0 1% 20px 1%;
-    display: block;
-    float: left;
-    border: 2px solid rgba(102, 102, 102, 0.5);
-    overflow: hidden;
-    background-color: rgba(128, 0, 128, 0.4); }
-  .grid .grid-item--width2 {
-    width: 66.0%; }
-  @media screen and (max-width: 480px) {
-    .grid .grid-item,
-    .grid .grid-item--width2 {
-      width: 50%; }
-    .grid .grid-item--width2 {
-      width: 100%; } }
-
-.grid-container {
-  max-width: 960px;
-  margin: 0 auto; }
+.c-end-pop {
+  position: absolute;
+  display: block;
+  width: 1000px;
+  height: 800px;
+  pointer-events: none;
+  background-color: rgba(128, 0, 128, 0.2); }

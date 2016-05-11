@@ -2,8 +2,14 @@
 @import 'action-item';
 @import 'navigation';
 @import 'mouse';
-@import 'milling-mashing';
 @import 'flying-lemon';
-@import 'cooling';
-@import 'bottling';
 @import 'masonry-grid';
+
+// steps
+@import 'steps/magic-cloud';
+@import 'steps/milling-mashing';
+@import 'steps/boiling';
+@import 'steps/cooling';
+@import 'steps/fermenting';
+@import 'steps/bottling';
+@import 'steps/end-pop';
