@@ -5,9 +5,9 @@
   
   .grid-item,
   .grid-item--width2 {
-    width: calc(33.33333% - 10px);
+    width: 30.5%;
     height: 360px;
-    margin: 0 5px 10px 5px;
+    margin: 0 1% 20px 1%;
     display: block;
     float: left;
     border: 2px solid hsla(0, 0%, 40%, 0.5);
@@ -15,7 +15,20 @@
     background-color: rgba(purple, .4);
   }
 
-  .grid-item--width2 { width: calc(66.66666% - 10px); }
+  .grid-item--width2 {
+    width: 66.0%;
+  }
+
+  @media screen and (max-width: 480px) {
+    .grid-item,
+    .grid-item--width2 {
+      width: 50%;
+    }
+
+    .grid-item--width2 {
+      width: 100%;
+    }
+  }
 }
 
 .grid-container {

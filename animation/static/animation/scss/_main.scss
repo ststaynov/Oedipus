@@ -45,12 +45,8 @@ h1 {
   }
 }
 
-.events,
-.up,
-.down,
 .bg-position {
   z-index: $z-5;
-  display: none;
 }
 
 .logo {
@@ -64,20 +60,8 @@ h1 {
   }
 }
 
-.up {
-  left: 45%;
-}
-
-.down {
-  left: 55%;
-}
-
-.events {
-  left: 65%;
-}
-
 .bg-position {
-  left: 70%;
+  left: 10%;
 }
 
 .main {

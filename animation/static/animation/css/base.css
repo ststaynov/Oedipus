@@ -64,12 +64,8 @@ h1 {
     border-bottom: 25px solid black;
     z-index: 10; }
 
-.events,
-.up,
-.down,
 .bg-position {
-  z-index: 5;
-  display: none; }
+  z-index: 5; }
 
 .logo {
   top: 10px;
@@ -79,17 +75,8 @@ h1 {
   .logo img {
     width: 50px; }
 
-.up {
-  left: 45%; }
-
-.down {
-  left: 55%; }
-
-.events {
-  left: 65%; }
-
 .bg-position {
-  left: 70%; }
+  left: 10%; }
 
 .main {
   width: 100%;
@@ -378,16 +365,22 @@ h1 {
   text-align: center; }
   .grid .grid-item,
   .grid .grid-item--width2 {
-    width: calc(33.33333% - 10px);
+    width: 30.5%;
     height: 360px;
-    margin: 0 5px 10px 5px;
+    margin: 0 1% 20px 1%;
     display: block;
     float: left;
     border: 2px solid rgba(102, 102, 102, 0.5);
     overflow: hidden;
     background-color: rgba(128, 0, 128, 0.4); }
   .grid .grid-item--width2 {
-    width: calc(66.66666% - 10px); }
+    width: 66.0%; }
+  @media screen and (max-width: 480px) {
+    .grid .grid-item,
+    .grid .grid-item--width2 {
+      width: 50%; }
+    .grid .grid-item--width2 {
+      width: 100%; } }
 
 .grid-container {
   max-width: 960px;

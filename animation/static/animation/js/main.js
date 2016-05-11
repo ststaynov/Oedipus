@@ -43,12 +43,10 @@ function scrolling(e) {
     $ev.text(events);
     /* Keep track of the scrolling events */
     if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail < 0) {
-        $('.up').text(counterUp);
         counterUp++;
         moveBackground(f="forward");
     }
     else {
-        $('.down').text(counterDown);
         counterDown++;
         moveBackground();
     }
@@ -201,12 +199,6 @@ function btlNavigationSet(translateValue) {
     } else {
         TweenMax.set($btlnav, {left: s + "px"});
     }
-    //Something like this should work
-    // if(s < -12 && s > -30 ) {
-    //     TweenMax.set($btlnav, {left: -12 + "px"});
-    // } else {
-    //     TweenMax.set($btlnav, {left: s + "px"});
-    // }
 }
 
 var $pS1 = $('.e-step-1'),
