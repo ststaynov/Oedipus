@@ -28,12 +28,12 @@ TweenMax.set($mouse, {x: 2010, y:705});
 TweenMax.set($flemon, {x: 1007, y:400});
 // steps
 TweenMax.set($magicCloud, {x: 5});
-TweenMax.set($millmash, {x: 1370});
-TweenMax.set($boiling, {x: 2532});
-TweenMax.set($cooling, {x: 3702});
-TweenMax.set($fermenting, {x: 4870});
-TweenMax.set($bottling, {x: 6030});
-TweenMax.set($endPop, {x: 7000});
+TweenMax.set($millmash, {x: 1536}); //+166
+TweenMax.set($boiling, {x: 2864});
+TweenMax.set($cooling, {x: 4200});
+TweenMax.set($fermenting, {x: 5534});
+TweenMax.set($bottling, {x: 6860});
+TweenMax.set($endPop, {x: 8000});
 
 
 /* hinds & hanlers */
