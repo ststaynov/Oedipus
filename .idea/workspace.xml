@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/css/base.css" afterPath="$PROJECT_DIR$/animation/static/animation/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/js/main.js" afterPath="$PROJECT_DIR$/animation/static/animation/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_cooling.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_cooling.scss" />
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,10 +81,10 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="65" selection-end-column="0" />
               <folding>
-                <marker date="1463041983000" expanded="true" signature="5131:5243" placeholder="..." />
+                <marker date="1463042982000" expanded="true" signature="5153:5265" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -912,7 +910,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462980611089</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="initial commit, tween{self} references added ^ laggy">
+      <created>1463042138145</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1463042138145</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -986,7 +991,8 @@
     <MESSAGE value="masonry added  ^ pages html added" />
     <MESSAGE value="Last commit with navigation" />
     <MESSAGE value="oedipus redesign" />
-    <option name="LAST_COMMIT_MESSAGE" value="oedipus redesign" />
+    <MESSAGE value="initial commit, tween{self} references added ^ laggy" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit, tween{self} references added ^ laggy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1352,10 +1358,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <marker date="1463041983000" expanded="true" signature="5131:5243" placeholder="..." />
+            <marker date="1463042982000" expanded="true" signature="5153:5265" placeholder="..." />
           </folding>
         </state>
       </provider>

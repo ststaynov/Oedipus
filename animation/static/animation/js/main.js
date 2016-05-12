@@ -40,7 +40,7 @@ TweenMax.set($endPop, {x: 7000});
 $('body').bind('DOMMouseScroll mousewheel', $.throttle( 80, scrolling ));
 
 function scrolling(e) {
-
+    e.preventDefault();
     /* Keep track of the scrolling events */
     if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail < 0) {
         moveBackground(f="forward");
@@ -53,7 +53,7 @@ function scrolling(e) {
 function moveBackground(f) {
     r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
     TweenMax.allTo(fgBg, 2, {x: translateValue});
-    TweenMax.to($actionItem, 2, {x: -translateValue, onUpdate:$.throttle( 1110, checkPosition), onUpdateParams:["{self}"]});
+    TweenMax.to($actionItem, 2, {x: -translateValue, onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]});
     // TweenMax.to($actionItem, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]}); A nice experiment
     displayBgPosition(n);
 }
