@@ -38,12 +38,12 @@ TweenMax.set($endPop, {x: 7000});
 
 /* hinds & hanlers */
 /* keep the scroll execution limited to 80 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
-$('body').bind('DOMMouseScroll mousewheel', $.throttle( 80, scrolling ));
+$('body').bind('DOMMouseScroll mousewheel', $.throttle( 180, scrolling )); // maybe use debounce here for the touchpad scrolling
 
 function scrolling(e) {
     e.preventDefault();
     /* Keep track of the scrolling events */
-    if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail < 0) {
+    if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail /3) {
         moveBackground(f="forward");
     }
     else {
@@ -55,7 +55,6 @@ function moveBackground(f) {
     r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
     TweenMax.allTo(fgBg, 2, {x: translateValue});
     TweenMax.to($actionItem, 2, {x: -translateValue, onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]});
-    // TweenMax.to($actionItem, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]}); A nice experiment
     displayBgPosition(n);
 }
 
@@ -91,11 +90,6 @@ jQuery('.c-brewing-background-inner')
         TweenMax.set($actionItem, {x: -(n + e.deltaX), onUpdate:$.throttle( 810, checkPosition), onUpdateParams:["{self}"]});
         checkbeerBottleState(n);
         displayBgPosition(n);
-    })
-    .bind('moveend', function() {
-        translateValue = parseInt($bg.css('transform').split(',')[4]);
-        checkPosition();
-        displayBgPosition(translateValue);
     });
 
     var n = parseInt($bg.css('transform').split(',')[4]);
@@ -155,7 +149,7 @@ $(window).load(function() {
     random_num3 = Math.floor(Math.random() * 15) + 5;
     create_flake();
     destroy_flake();
-  }, 100);
+  }, 200);
 });
 
 function create_flake() {
