@@ -42,6 +42,12 @@ $('body').bind('DOMMouseScroll mousewheel', $.throttle( 180, scrolling )); // ma
 
 function scrolling(e) {
     e.preventDefault();
+    // In case autoscroll was running
+    if($btnAutoScroll.hasClass('scrolling')){
+        $btnAutoScroll.removeClass('scrolling');
+        stopAutoScroll();
+    }
+    
     /* Keep track of the scrolling events */
     if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail /3) {
         moveBackground(f="forward");
@@ -67,29 +73,37 @@ function checkPosition(tween) {
     if (n < -7800) {
         /* sets new position at the start of the film  */
         translateValue = n + 8000;
+        consoleLog('set to ' + translateValue);
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        checkbeerBottleState(translateValue);
+        checkActionItemState(translateValue);
     } else if (n >= 200) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        checkbeerBottleState(translateValue);
+        checkActionItemState(translateValue);
     } else {
-        checkbeerBottleState(n);
+        checkActionItemState(n);
     }
     displayBgPosition(n);
 }
 
 jQuery('.c-brewing-background-inner')
     .bind('move', function(e) {
-        // move background horizontally
         var n = parseInt($bg.css('transform').split(',')[4]);
+
         TweenMax.set(fgBg, {x: (n + e.deltaX)});
         TweenMax.set($actionItem, {x: -(n + e.deltaX), onUpdate:$.throttle( 810, checkPosition), onUpdateParams:["{self}"]});
-        checkbeerBottleState(n);
+        checkActionItemState(n);
         displayBgPosition(n);
+    })
+    .bind('moveend', function() {
+        // In case autoscroll was running
+        translateValue = parseInt($bg.css('transform').split(',')[4]);
+        if($btnAutoScroll.hasClass('scrolling')){
+            $btnAutoScroll.removeClass('scrolling');
+        }
     });
 
     var n = parseInt($bg.css('transform').split(',')[4]);
@@ -125,7 +139,7 @@ function switchDirection() {
 
 var animBreakPoint1 = -300;
 
-function checkbeerBottleState(n) {
+function checkActionItemState(n) {
     if (n <= animBreakPoint1) {
         $actionItem.addClass('milled-mashed');
     }
@@ -175,22 +189,60 @@ var flake = '<svg width="294pt" height="324pt" viewBox="0 0 294 324" version="1.
 
 $btnAutoScroll.click(function(e){
     e.preventDefault();
-    if($(this).hasClass('scrolling')){
-        $(this).removeClass('scrolling');
-        stopAutoScroll();
-    } else {
-        $(this).addClass('scrolling');
-        startAutoScroll();
-    }
+    changeActionItemClass();
 });
 
+function changeActionItemClass () {
+    if($btnAutoScroll.hasClass('scrolling')){
+        $btnAutoScroll.removeClass('scrolling');
+        stopAutoScroll();
+    } else {
+        $btnAutoScroll.addClass('scrolling');
+        startAutoScroll();
+    }
+}
+
 function startAutoScroll() {
-    var n = parseInt($bg.css('transform').split(',')[4]);
-    // some for loop here
+    // calculate depending on the position what time to set for the animation to be consistent throughout all the film (% stuff)
+    var n = parseInt($bg.css('transform').split(',')[4]),
+        filmEnd = 7700,
+        filmStart = 200,
+        maxTime = 20,
+        oneTimePercent,
+        oneFilmPercent,
+        percentAtTheMoment,
+        timeToAnimate;
+
+    consoleLog('n: ' + n );
+    if (n <= -7600) {
+        consoleLog('fired');
+        TweenMax.set(fgBg, {x: filmStart});
+        TweenMax.set($actionItem, {x: -filmStart});
+        var n = parseInt($bg.css('transform').split(',')[4]);
+    }
+
+    oneTimePercent = maxTime / 100;
+    oneFilmPercent = parseInt(filmEnd / 99);
+    percentAtTheMoment = 100 - (-parseInt(n / oneFilmPercent));
+    timeToAnimate = oneTimePercent * percentAtTheMoment;
+
+    TweenMax.allTo(fgBg, timeToAnimate, {ease: Power0.easeNone, x: -filmEnd});
+    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:$.throttle( 110, customCheckActionItemState), onUpdateParams:["{self}"], onComplete: changeActionItemClass});
+
+    function customCheckActionItemState() {
+        var n = parseInt($bg.css('transform').split(',')[4]);
+        percentAtTheMoment = -parseInt(n / oneFilmPercent);
+        checkActionItemState(n);
+    }
 }
 
 function stopAutoScroll() {
+    var n = parseInt($bg.css('transform').split(',')[4]);
 
+    translateValue = n;
+    TweenMax.set(fgBg, {x: n});
+    TweenMax.set($actionItem, {x: -n});
+    consoleLog('fired');
 }
 /* AutoScrollButton END */
 
