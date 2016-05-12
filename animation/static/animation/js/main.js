@@ -5,7 +5,7 @@ var e = document.body,
     translateValue = 0,
     $bg = $('.c-brewing-background'),
     $fg = $('.c-brewing-foreground'),
-    $btl = $('.c-action'),
+    $actionItem = $('.c-action'),
     $btlContainer = $('.c-action-container'),
     fgBg = [$bg, $fg, $btlContainer],
     $mouse = $('.c-mouse'),
@@ -21,18 +21,19 @@ var e = document.body,
     $bottling = $('.c-bottling-container'),
     $endPop = $('.c-end-pop');
 
-/* set the transform value with tweenMax at beginning & transform all initial components to their places*/
-TweenMax.set(fgBg, {transform: "translate3d(10px, 0px, 0px)"});
-TweenMax.set($mouse, {transform: "translate3d(2010px, 705px, 0px)"});
-TweenMax.set($flemon, {transform: "translate3d(1007px, 400px, 0px)"});
+/* set the transform value with tweenMax at beginning & transform all initial components to their places
+                        Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
+TweenMax.set(fgBg, {x: 10});
+TweenMax.set($mouse, {x: 2010, y:705});
+TweenMax.set($flemon, {x: 1007, y:400});
 // steps
-TweenMax.set($magicCloud, {transform: "translate3d(5px, 0px, 0px)"});
-TweenMax.set($millmash, {transform: "translate3d(1370px, 0px, 0px)"});
-TweenMax.set($boiling, {transform: "translate3d(2532px, 0px, 0px)"});
-TweenMax.set($cooling, {transform: "translate3d(3702px, 0px, 0px)"});
-TweenMax.set($fermenting, {transform: "translate3d(4870px, 0px, 0px)"});
-TweenMax.set($bottling, {transform: "translate3d(6030px, 0px, 0px)"});
-TweenMax.set($endPop, {transform: "translate3d(7000px, 0px, 0px)"});
+TweenMax.set($magicCloud, {x: 5});
+TweenMax.set($millmash, {x: 1370});
+TweenMax.set($boiling, {x: 2532});
+TweenMax.set($cooling, {x: 3702});
+TweenMax.set($fermenting, {x: 4870});
+TweenMax.set($bottling, {x: 6030});
+TweenMax.set($endPop, {x: 7000});
 
 
 /* hinds & hanlers */
@@ -40,7 +41,7 @@ TweenMax.set($endPop, {transform: "translate3d(7000px, 0px, 0px)"});
 $('body').bind('DOMMouseScroll mousewheel', $.throttle( 80, scrolling ));
 
 function scrolling(e) {
-
+    e.preventDefault();
     /* Keep track of the scrolling events */
     if(e.originalEvent.wheelDelta /120 > 0 || e.originalEvent.detail < 0) {
         moveBackground(f="forward");
@@ -52,28 +53,29 @@ function scrolling(e) {
 
 function moveBackground(f) {
     r = f==="forward" ? translateValue = translateValue + 200 : translateValue = translateValue - 200;
-    TweenMax.allTo(fgBg, 2, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
-    TweenMax.to($btl, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onUpdate:$.throttle( 310, checkPosition), onUpdateParams:["{self}"]});
-    // TweenMax.to($btl, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]}); A nice experiment
+    TweenMax.allTo(fgBg, 2, {x: translateValue});
+    TweenMax.to($actionItem, 2, {x: -translateValue, onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]});
+    // TweenMax.to($actionItem, 2, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)", onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]}); A nice experiment
     displayBgPosition(n);
 }
 
-function checkPosition() {
+function checkPosition(tween) {
     /* Check the current transform value */
-    var n = parseInt($bg.css('transform').split(',')[4]);
-    consoleLog(n);
+    var n = -tween._targets[0]._gsTransform.x.toFixed(2);
+    // var n = parseInt($bg.css('transform').split(',')[4]);
+    consoleLog('css value: ' + n);
 
     if (n < -7800) {
         /* sets new position at the start of the film  */
         translateValue = n + 8000;
-        TweenMax.set(fgBg, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
-        TweenMax.set($btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
+        TweenMax.set(fgBg, {x: translateValue});
+        TweenMax.set($actionItem, {x: -translateValue});
         checkbeerBottleState(translateValue);
     } else if (n >= 200) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
-        TweenMax.set(fgBg, {transform: "translate3d(" + translateValue + "px, 0px, 0px)"});
-        TweenMax.set($btl, {transform: "translate3d(" + -translateValue + "px, 0px, 0px)"});
+        TweenMax.set(fgBg, {x: translateValue});
+        TweenMax.set($actionItem, {x: -translateValue});
         checkbeerBottleState(translateValue);
     } else {
         checkbeerBottleState(n);
@@ -85,10 +87,9 @@ jQuery('.c-brewing-background-inner')
     .bind('move', function(e) {
         // move background horizontally
         var n = parseInt($bg.css('transform').split(',')[4]);
-        TweenMax.set(fgBg, {transform: "translate3d(" + (n + e.deltaX) + "px, 0px, 0px)"});
-        TweenMax.set($btl, {transform: "translate3d(" + -(n + e.deltaX) + "px, 0px, 0px)"});
+        TweenMax.set(fgBg, {x: (n + e.deltaX)});
+        TweenMax.set($actionItem, {x: -(n + e.deltaX), onUpdate:$.throttle( 810, checkPosition), onUpdateParams:["{self}"]});
         checkbeerBottleState(n);
-        onUpdate:$.throttle( 510, checkPosition);
         displayBgPosition(n);
     })
     .bind('moveend', function() {
@@ -116,7 +117,7 @@ function displayBgPosition(n) {
 /* FOREGROUND ANIMATIONS START */
 
 
-TweenMax.to($mouse, 3, {transform: "translate3d(2400px, 705px, 0px)", repeat:-1 , yoyo:true, ease: Power0.easeNone, onRepeat:switchDirection});
+TweenMax.to($mouse, 3, {x: 2400, y:705, repeat:-1 , yoyo:true, ease: Power0.easeNone, onRepeat:switchDirection});
 
 /* change background image according to animation direction */
 function switchDirection() {
@@ -132,10 +133,10 @@ var animBreakPoint1 = -300;
 
 function checkbeerBottleState(n) {
     if (n <= animBreakPoint1) {
-        $btl.addClass('milled-mashed');
+        $actionItem.addClass('milled-mashed');
     }
     else if (n > animBreakPoint1) {
-        $btl.removeClass('milled-mashed');
+        $actionItem.removeClass('milled-mashed');
     }
 }
 /* FOREGROUND ANIMATIONS END */
