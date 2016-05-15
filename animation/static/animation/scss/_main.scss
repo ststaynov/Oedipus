@@ -84,13 +84,47 @@ h1 {
   width: 12000px;
   height: 900px;
   //background-image: url(../images/desktop/oedipus-step-4-bottling-exploding.png),url(../images/desktop/oedipus-step-1-cloud-milmash.png),url(../images/desktop/oedipus-step-2-boiling-cooling.png),url(../images/desktop/oedipus-step-3-cooling-fermenting.png),url(../images/desktop/oedipus-step-4-bottling-exploding.png),url(../images/desktop/oedipus-step-5-bottling-exploding.png);
-  background-image: url(../images/desktop/test/oedipus-step-5-bottling-exploding.png),url(../images/desktop/test/oedipus-step-1-cloud-milmash.png),url(../images/desktop/test/oedipus-step-2-millmash-boiling.png),url(../images/desktop/test/oedipus-step-3-cooling.png),url(../images/desktop/test/oedipus-step-4-fermenting-bottling.png),url(../images/desktop/test/oedipus-step-5-bottling-exploding.png);
+  //background-image: url(../images/desktop/test/oedipus-step-5-bottling-exploding.png),url(../images/desktop/test/oedipus-step-1-cloud-milmash.png),url(../images/desktop/test/oedipus-step-2-millmash-boiling.png),url(../images/desktop/test/oedipus-step-3-cooling.png),url(../images/desktop/test/oedipus-step-4-fermenting-bottling.png),url(../images/desktop/test/oedipus-step-5-bottling-exploding.png);
+
+  //background-image: url(../images/desktop/test/oedipus-step-5-bottling-exploding2.png),url(../images/desktop/test/oedipus-step-1-cloud-milmash2.png),url(../images/desktop/test/oedipus-step-2-millmash-boiling2.gif),url(../images/desktop/test/oedipus-step-3-cooling2.gif),url(../images/desktop/test/oedipus-step-4-fermenting-bottling2.gif),url(../images/desktop/test/oedipus-step-5-bottling-exploding2.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
   background-size: 2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px;
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d( 0px, 0px, 0px);
+}
+
+.c-brewing-background-inner-top {
+  position: absolute;
+  top: 0;
+  left: -2000px;
+  width: 12000px;
+  height: 300px;
+  background-image: url(../images/desktop/test/film-top/05.png),url(../images/desktop/test/film-top/01.png),url(../images/desktop/test/film-top/02.png),url(../images/desktop/test/film-top/03.png),url(../images/desktop/test/film-top/04.png),url(../images/desktop/test/film-top/05.png);
+  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
+  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
+  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
+  background-size: 2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px;
+  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  transform: translate3d( 0px, 0px, 0px);
+  pointer-events: none;
+}
+
+.c-brewing-background-inner-bottom {
+  position: absolute;
+  top: calc(100vh - 300px);
+  left: -2000px;
+  width: 12000px;
+  height: 300px;
+  background-image: url(../images/desktop/test/film-bottom/05.png),url(../images/desktop/test/film-bottom/01.png),url(../images/desktop/test/film-bottom/02.png),url(../images/desktop/test/film-bottom/03.png),url(../images/desktop/test/film-bottom/04.png),url(../images/desktop/test/film-bottom/05.png);
+  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
+  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
+  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
+  background-size: 2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px;
+  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  transform: translate3d( 0px, 0px, 0px);
+  pointer-events: none;
 }
 
 .intro {

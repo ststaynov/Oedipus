@@ -19,10 +19,13 @@ var e = document.body,
     $cooling = $('.c-cooling-container'),
     $fermenting = $('.c-fermenting'),
     $bottling = $('.c-bottling-container'),
-    $endPop = $('.c-end-pop');
+    $endPop = $('.c-end-pop'),
+    $backgroundBottom = $('.c-brewing-background-inner-bottom');
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
                         Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
+/* Setting things up at the beginning START */
+
 TweenMax.set(fgBg, {x: 10});
 TweenMax.set($mouse, {x: 2010, y:705});
 TweenMax.set($flemon, {x: 1007, y:400});
@@ -34,7 +37,7 @@ TweenMax.set($cooling, {x: 4200});
 TweenMax.set($fermenting, {x: 5534});
 TweenMax.set($bottling, {x: 6860});
 TweenMax.set($endPop, {x: 8000});
-
+/* Setting things up at the beginning END */
 
 /* hinds & hanlers */
 /* keep the scroll execution limited to 80 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
@@ -62,18 +65,17 @@ function moveBackground(f) {
     TweenMax.allTo(fgBg, 2, {x: translateValue});
     TweenMax.to($actionItem, 2, {x: -translateValue, onUpdate:$.throttle( 510, checkPosition), onUpdateParams:["{self}"]});
     displayBgPosition(n);
+    checkBackgroundColors();
 }
 
 function checkPosition(tween) {
     /* Check the current transform value */
     var n = -tween._targets[0]._gsTransform.x.toFixed(2);
     // var n = parseInt($bg.css('transform').split(',')[4]);
-    consoleLog('css value: ' + n);
 
     if (n < -7800) {
         /* sets new position at the start of the film  */
         translateValue = n + 8000;
-        consoleLog('set to ' + translateValue);
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
         checkActionItemState(translateValue);
@@ -92,11 +94,12 @@ function checkPosition(tween) {
 jQuery('.c-brewing-background-inner')
     .bind('move', function(e) {
         var n = parseInt($bg.css('transform').split(',')[4]);
-
+        consoleLog('move');
         TweenMax.set(fgBg, {x: (n + e.deltaX)});
         TweenMax.set($actionItem, {x: -(n + e.deltaX), onUpdate:$.throttle( 810, checkPosition), onUpdateParams:["{self}"]});
         checkActionItemState(n);
         displayBgPosition(n);
+        checkBackgroundColors();
     })
     .bind('moveend', function() {
         // In case autoscroll was running
@@ -215,7 +218,6 @@ function startAutoScroll() {
 
     consoleLog('n: ' + n );
     if (n <= -7600) {
-        consoleLog('fired');
         TweenMax.set(fgBg, {x: filmStart});
         TweenMax.set($actionItem, {x: -filmStart});
         var n = parseInt($bg.css('transform').split(',')[4]);
@@ -227,7 +229,12 @@ function startAutoScroll() {
     timeToAnimate = oneTimePercent * percentAtTheMoment;
 
     TweenMax.allTo(fgBg, timeToAnimate, {ease: Power0.easeNone, x: -filmEnd});
-    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:$.throttle( 110, customCheckActionItemState), onUpdateParams:["{self}"], onComplete: changeActionItemClass});
+    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:customOnUpdate , onUpdateParams:["{self}"], onComplete: changeActionItemClass});
+
+    function customOnUpdate(){
+        customCheckActionItemState();
+        checkBackgroundColors();
+    }
 
     function customCheckActionItemState() {
         var n = parseInt($bg.css('transform').split(',')[4]);
@@ -242,7 +249,59 @@ function stopAutoScroll() {
     translateValue = n;
     TweenMax.set(fgBg, {x: n});
     TweenMax.set($actionItem, {x: -n});
-    consoleLog('fired');
 }
 /* AutoScrollButton END */
 
+/* Change Background per Step START */
+
+/*
+    color change breakpoints
+    step1: 0-650
+    step2: 650-1840
+    step3: 1840-3150
+    step4: 3150-4490
+    step5: 4490-5830
+    step6: 5830-7055
+    step7: 7055-8000
+*/
+var colorOedipusGreen= '#a3d01a',
+    colorOedipusYellow = '#f9df00',
+    colorOedipusBlueDark = '#4d509b',
+    colorOedipusPink = '#ff98b5',
+    colorOedipusBlue = '#4998d2',
+    colorOedipusPinkDark = '#ca447f',
+    colorOedipusOrange = '#ff8338';
+
+function checkBackgroundColors() {
+    var n = parseInt($bg.css('transform').split(',')[4]);
+    consoleLog('fired');
+
+    if( n >  -4490) {
+        if (n > -650) { //step 1
+            TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            consoleLog('step1 - white');
+        } else if(n > -1840) { // step 2
+            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusYellow});
+            consoleLog('step2 - yellow');
+        }else if(n > -3150) { // step 3
+            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
+            consoleLog('step3 - purple');
+        } else { //step 4
+            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
+            consoleLog('step4 - blue');
+        }
+    } else {
+        if (n > -5830 ) { // step5
+            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusOrange});
+            consoleLog('step5 - orange');
+        } else if (n > -7055){ // step6
+            TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            consoleLog('step6 - white');
+        } else if (n > -8000){ // step7
+            TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            consoleLog('step7 - white');
+        }
+    }
+}
+
+/* Change Background per Step END */
