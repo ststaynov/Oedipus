@@ -5,10 +5,11 @@ body {
     body .c-boiling,
     body .c-bottling-container,
     body .c-magic-cloud,
+    body .c-cooling-container,
     body .c-milling-mashing,
     body .c-fermenting,
     body .c-end-pop {
-      transform: scale(0.5, 0.5); } }
+      transform: scale(0.6, 0.6); } }
 
 * {
   box-sizing: border-box; }
@@ -156,7 +157,7 @@ h1 {
   pointer-events: none; }
   .c-action-container .c-action.milled-mashed {
     background-color: rgba(0, 128, 0, 0.5);
-    background: url("../images/desktop/step1/cloud.png") center center no-repeat; }
+    background: url("../images/desktop/step2/cloud.png") center center no-repeat; }
   .c-action-container .c-action.filtered {
     background-color: rgba(0, 0, 255, 0.5); }
 
@@ -267,7 +268,8 @@ h1 {
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  background-color: rgba(128, 0, 128, 0.2);
+  background: url("../images/desktop/step1/bg.png") left center no-repeat; }
 
 .c-milling-mashing {
   position: absolute;
@@ -284,13 +286,13 @@ h1 {
   .c-milling-mashing .e-cloud {
     width: 150px;
     height: 90px;
-    margin: 0 73px;
-    background: url("../images/desktop/step1/cloud.png") left center no-repeat;
+    margin: 0 auto;
+    background: url("../images/desktop/step2/cloud.png") left center no-repeat;
     animation: cloud 0.8s steps(3) infinite; }
   .c-milling-mashing .e-grain-container {
-    position: relative;
-    left: 75px;
-    top: -90px; }
+    width: 150px;
+    height: 200px;
+    margin: 0 auto; }
   .c-milling-mashing .e-grain {
     width: 50px;
     height: 50px;
@@ -299,27 +301,27 @@ h1 {
     margin: 0 auto; }
   .c-milling-mashing .e-grain-1 {
     margin: 0 12px;
-    background: url("../images/desktop/step1/malt-1.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-1.png") center center no-repeat;
     -webkit-animation: drip .45s infinite;
     animation: drip .75s infinite; }
   .c-milling-mashing .e-grain-2 {
     margin: 0 25px;
-    background: url("../images/desktop/step1/malt-2.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-2.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 1s;
     animation: drip .75s infinite 1s; }
   .c-milling-mashing .e-grain-3 {
     margin: 0 50px;
-    background: url("../images/desktop/step1/malt-3.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-3.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 2s;
     animation: drip .75s infinite 2s; }
   .c-milling-mashing .e-grain-4 {
     margin: 0 75px;
-    background: url("../images/desktop/step1/malt-4.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-4.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 3s;
     animation: drip .75s infinite 3s; }
   .c-milling-mashing .e-grain-5 {
     margin: 0 90px;
-    background: url("../images/desktop/step1/malt-5.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-5.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 4s;
     animation: drip .75s infinite 4s; }
 
@@ -352,14 +354,15 @@ h1 {
     padding-top: 23px;
     position: absolute;
     top: 165px;
-    left: 50px;
-    background: url("../images/desktop/step1/milling-container.png") center center no-repeat; }
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("../images/desktop/step2/milling-container.png") center center no-repeat; }
   .c-milling-mashing .e-cog-wheel-left, .c-milling-mashing .e-cog-wheel-right {
     width: 50px;
     height: 50px;
     position: absolute;
     display: inline-block;
-    background: url("../images/desktop/step1/cog-wheel.png") center center no-repeat; }
+    background: url("../images/desktop/step2/cog-wheel.png") center center no-repeat; }
   .c-milling-mashing .e-cog-wheel-left {
     margin-left: 50px;
     -webkit-animation: spin 4s linear infinite;
