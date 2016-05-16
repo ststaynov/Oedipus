@@ -13,6 +13,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/static/animation/images/desktop/test/film-top/04.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/static/animation/images/desktop/test/film-top/05.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/css/base.css" afterPath="$PROJECT_DIR$/animation/static/animation/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/js/main.js" afterPath="$PROJECT_DIR$/animation/static/animation/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/_main.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/_main.scss" />
@@ -25,6 +26,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_milling-mashing.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_milling-mashing.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/settings/_responsive.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/settings/_responsive.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/templates/animation/index.html" afterPath="$PROJECT_DIR$/animation/templates/animation/index.html" />
+=======
+>>>>>>> Stashed changes
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -848,7 +851,23 @@
       <option name="project" value="LOCAL" />
       <updated>1463355631842</updated>
     </task>
+<<<<<<< Updated upstream
     <option name="localTasksCounter" value="19" />
+=======
+    <task id="LOCAL-00019" summary="film middle added">
+      <created>1463395656301</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1463395656301</updated>
+    </task>
+    <task id="LOCAL-00020" summary="push">
+      <created>1463408983170</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1463408983170</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -928,7 +947,13 @@
     <MESSAGE value="auto-scroll button added &amp; working" />
     <MESSAGE value="elements of fg positioned accordin to the new sizes&#10;" />
     <MESSAGE value="film split into top/bottom" />
+<<<<<<< Updated upstream
     <option name="LAST_COMMIT_MESSAGE" value="film split into top/bottom" />
+=======
+    <MESSAGE value="film middle added" />
+    <MESSAGE value="push" />
+    <option name="LAST_COMMIT_MESSAGE" value="push" />
+>>>>>>> Stashed changes
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
