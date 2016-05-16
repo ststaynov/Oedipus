@@ -4,6 +4,7 @@ body {
   @media screen and (max-device-width: 480px) {
     body .c-boiling,
     body .c-bottling-container,
+    body .c-magic-cloud,
     body .c-milling-mashing,
     body .c-fermenting,
     body .c-end-pop {
@@ -116,17 +117,26 @@ h1 {
   pointer-events: none; }
 
 .c-brewing-background-inner-bottom {
+  width: 12000px;
+  height: 300px;
   position: absolute;
   top: calc(100vh - 300px);
   left: -2000px;
-  width: 12000px;
-  height: 300px;
   background-image: url(../images/desktop/test/film-bottom/05.png), url(../images/desktop/test/film-bottom/01.png), url(../images/desktop/test/film-bottom/02.png), url(../images/desktop/test/film-bottom/03.png), url(../images/desktop/test/film-bottom/04.png), url(../images/desktop/test/film-bottom/05.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
   background-size: 2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px;
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  transform: translate3d(0px, 0px, 0px);
+  pointer-events: none; }
+
+.film-related {
+  width: 12000px;
+  height: 500px;
+  position: absolute;
+  top: calc(50vh - 250px);
+  background-color: rgba(0, 0, 0, 0.2);
   transform: translate3d(0px, 0px, 0px);
   pointer-events: none; }
 
@@ -255,7 +265,7 @@ h1 {
   position: absolute;
   display: block;
   width: 1000px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
 
@@ -263,7 +273,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   background-color: rgba(128, 0, 128, 0.2);
   pointer-events: none;
   /*@keyframes cloud {
@@ -381,7 +391,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
 
@@ -389,7 +399,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
   .c-cooling-container .c-frame-snow {
@@ -436,7 +446,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
 
@@ -444,7 +454,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
   .c-bottling-container .e-label {
@@ -456,6 +466,6 @@ h1 {
   position: absolute;
   display: block;
   width: 1000px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }

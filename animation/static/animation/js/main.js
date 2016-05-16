@@ -156,7 +156,7 @@ function checkActionItemState(n) {
 /* SNOWFLAKES START */
 var random_num1, random_num2, random_num3, snow, snow_x, snow_y, container, container_height, container_width, interval;
 container = $('.c-frame-snow');
-container_height = 900;
+container_height = 500;
 container_width = 800;
 
 $(window).load(function() {
@@ -179,7 +179,7 @@ function destroy_flake() {
   snow.each(function() {
     snow_y = $(this).offset().top;
     snow_x = $(this).offset().left;
-    if (snow_y > (container_height - 40)) {
+    if (snow_y > (container_height)) {
       $(this).remove();
     }
   });
