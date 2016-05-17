@@ -5,5 +5,7 @@
   height: 500px;
   pointer-events: none;
   background-color: rgba(purple,.2);
-  background: url('../images/desktop/step1/bg.png') left center no-repeat;
+  background-image: url('../images/desktop/step1/bg.png');
+  background-repeat: no-repeat;
+  background-position: left center;
 }
