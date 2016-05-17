@@ -3,16 +3,15 @@
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   background-color: rgba(purple,.2);
-  //background-size: 151px auto;
   pointer-events: none;
 
   .e-cloud {
-      width: 150px;
+      width:  150px;
       height: 90px;
-      margin: 0 73px;
-      background: url('../images/desktop/step1/cloud.png') left center no-repeat;
+      margin: 0 auto;
+      background: url('../images/desktop/step2/cloud.png') left center no-repeat;
       animation: cloud .8s steps(3) infinite;
   }
 
@@ -21,9 +20,9 @@
   }*/
 
   .e-grain-container {
-      position: relative;
-      left: 75px;
-      top: -90px;
+    width: 150px;
+    height: 200px;
+    margin: 0 auto;
   }
   .e-grain {
       width: 50px;
@@ -34,31 +33,31 @@
   }
   .e-grain-1 {
       margin: 0 12px;
-      background: url('../images/desktop/step1/malt-1.png') center center no-repeat;
+      background: url('../images/desktop/step2/malt-1.png') center center no-repeat;
       -webkit-animation: drip .45s infinite;
       animation: drip .75s infinite;
   }
   .e-grain-2 {
       margin: 0 25px;
-      background: url('../images/desktop/step1/malt-2.png') center center no-repeat;
+      background: url('../images/desktop/step2/malt-2.png') center center no-repeat;
       -webkit-animation: drip .45s infinite 1s;
       animation: drip .75s infinite 1s;
   }
   .e-grain-3 {
       margin: 0 50px;
-      background: url('../images/desktop/step1/malt-3.png') center center no-repeat;
+      background: url('../images/desktop/step2/malt-3.png') center center no-repeat;
       -webkit-animation: drip .45s infinite 2s;
       animation: drip .75s infinite 2s;
   }
   .e-grain-4 {
       margin: 0 75px;
-      background: url('../images/desktop/step1/malt-4.png') center center no-repeat;
+      background: url('../images/desktop/step2/malt-4.png') center center no-repeat;
       -webkit-animation: drip .45s infinite 3s;
       animation: drip .75s infinite 3s;
   }
   .e-grain-5 {
       margin: 0 90px;
-      background: url('../images/desktop/step1/malt-5.png') center center no-repeat;
+      background: url('../images/desktop/step2/malt-5.png') center center no-repeat;
       -webkit-animation: drip .45s infinite 4s;
       animation: drip .75s infinite 4s;
   }
@@ -97,33 +96,34 @@
 
   /* milling container start */
   .e-milling-container {
-      width: 200px;
-      height: 100px;
-      padding-top: 23px;
-      position: absolute;
-      top: 165px;
-      left: 50px;
-      background: url('../images/desktop/step1/milling-container.png') center center no-repeat;
+    width: 200px;
+    height: 100px;
+    padding-top: 23px;
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url('../images/desktop/step2/milling-container.png') center center no-repeat;
   }
 
   .e-cog-wheel-left,.e-cog-wheel-right {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      display: inline-block;
-      background: url('../images/desktop/step1/cog-wheel.png') center center no-repeat;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: inline-block;
+    background: url('../images/desktop/step2/cog-wheel.png') center center no-repeat;
   }
 
   .e-cog-wheel-left {
-      margin-left: 50px;
-      -webkit-animation: spin 4s linear infinite;
-      animation: spin 4s linear infinite;
+    margin-left: 50px;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
   }
 
   .e-cog-wheel-right {
-      margin-left: 100px;
-      -webkit-animation: spinreverse 4s linear infinite;
-      animation: spinreverse 4s linear infinite;
+    margin-left: 100px;
+    -webkit-animation: spinreverse 4s linear infinite;
+    animation: spinreverse 4s linear infinite;
   }
 
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }

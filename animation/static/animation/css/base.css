@@ -2,13 +2,14 @@ body {
   background-color: #fbf8f1;
   overflow: hidden; }
   @media screen and (max-device-width: 480px) {
-    body {
-      -moz-transform: scale(0.5, 0.5);
-      /* Moz-browsers */
-      zoom: 0.5;
-      /* Other non-webkit browsers */
-      zoom: 50%;
-      /* Webkit browsers */ } }
+    body .c-boiling,
+    body .c-bottling-container,
+    body .c-magic-cloud,
+    body .c-cooling-container,
+    body .c-milling-mashing,
+    body .c-fermenting,
+    body .c-end-pop {
+      transform: scale(0.6, 0.6); } }
 
 * {
   box-sizing: border-box; }
@@ -94,13 +95,51 @@ h1 {
   left: -2000px;
   width: 12000px;
   height: 900px;
-  background-image: url(../images/desktop/test/oedipus-step-5-bottling-exploding.png), url(../images/desktop/test/oedipus-step-1-cloud-milmash.png), url(../images/desktop/test/oedipus-step-2-millmash-boiling.png), url(../images/desktop/test/oedipus-step-3-cooling.png), url(../images/desktop/test/oedipus-step-4-fermenting-bottling.png), url(../images/desktop/test/oedipus-step-5-bottling-exploding.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
   background-size: 2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px;
   background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d(0px, 0px, 0px); }
+
+.c-brewing-background-inner-top {
+  position: absolute;
+  top: 0;
+  left: -2000px;
+  width: 12000px;
+  height: 300px;
+  background-image: url(../images/desktop/test/film-top/05.png), url(../images/desktop/test/film-top/01.png), url(../images/desktop/test/film-top/02.png), url(../images/desktop/test/film-top/03.png), url(../images/desktop/test/film-top/04.png), url(../images/desktop/test/film-top/05.png);
+  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
+  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
+  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
+  background-size: 2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px;
+  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  transform: translate3d(0px, 0px, 0px);
+  pointer-events: none; }
+
+.c-brewing-background-inner-bottom {
+  width: 12000px;
+  height: 300px;
+  position: absolute;
+  top: calc(100vh - 300px);
+  left: -2000px;
+  background-image: url(../images/desktop/test/film-bottom/05.png), url(../images/desktop/test/film-bottom/01.png), url(../images/desktop/test/film-bottom/02.png), url(../images/desktop/test/film-bottom/03.png), url(../images/desktop/test/film-bottom/04.png), url(../images/desktop/test/film-bottom/05.png);
+  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
+  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
+  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
+  background-size: 2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px,2000px 300px;
+  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  transform: translate3d(0px, 0px, 0px);
+  pointer-events: none; }
+
+.film-related {
+  width: 12000px;
+  height: 500px;
+  position: absolute;
+  top: calc(50vh - 250px);
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translate3d(0px, 0px, 0px);
+  pointer-events: none; }
 
 .intro {
   width: 100%;
@@ -118,7 +157,7 @@ h1 {
   pointer-events: none; }
   .c-action-container .c-action.milled-mashed {
     background-color: rgba(0, 128, 0, 0.5);
-    background: url("../images/desktop/step1/cloud.png") center center no-repeat; }
+    background: url("../images/desktop/step2/cloud.png") center center no-repeat; }
   .c-action-container .c-action.filtered {
     background-color: rgba(0, 0, 255, 0.5); }
 
@@ -227,15 +266,16 @@ h1 {
   position: absolute;
   display: block;
   width: 1000px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  background-color: rgba(128, 0, 128, 0.2);
+  background: url("../images/desktop/step1/bg.png") left center no-repeat; }
 
 .c-milling-mashing {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   background-color: rgba(128, 0, 128, 0.2);
   pointer-events: none;
   /*@keyframes cloud {
@@ -246,13 +286,13 @@ h1 {
   .c-milling-mashing .e-cloud {
     width: 150px;
     height: 90px;
-    margin: 0 73px;
-    background: url("../images/desktop/step1/cloud.png") left center no-repeat;
+    margin: 0 auto;
+    background: url("../images/desktop/step2/cloud.png") left center no-repeat;
     animation: cloud 0.8s steps(3) infinite; }
   .c-milling-mashing .e-grain-container {
-    position: relative;
-    left: 75px;
-    top: -90px; }
+    width: 150px;
+    height: 200px;
+    margin: 0 auto; }
   .c-milling-mashing .e-grain {
     width: 50px;
     height: 50px;
@@ -261,27 +301,27 @@ h1 {
     margin: 0 auto; }
   .c-milling-mashing .e-grain-1 {
     margin: 0 12px;
-    background: url("../images/desktop/step1/malt-1.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-1.png") center center no-repeat;
     -webkit-animation: drip .45s infinite;
     animation: drip .75s infinite; }
   .c-milling-mashing .e-grain-2 {
     margin: 0 25px;
-    background: url("../images/desktop/step1/malt-2.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-2.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 1s;
     animation: drip .75s infinite 1s; }
   .c-milling-mashing .e-grain-3 {
     margin: 0 50px;
-    background: url("../images/desktop/step1/malt-3.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-3.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 2s;
     animation: drip .75s infinite 2s; }
   .c-milling-mashing .e-grain-4 {
     margin: 0 75px;
-    background: url("../images/desktop/step1/malt-4.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-4.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 3s;
     animation: drip .75s infinite 3s; }
   .c-milling-mashing .e-grain-5 {
     margin: 0 90px;
-    background: url("../images/desktop/step1/malt-5.png") center center no-repeat;
+    background: url("../images/desktop/step2/malt-5.png") center center no-repeat;
     -webkit-animation: drip .45s infinite 4s;
     animation: drip .75s infinite 4s; }
 
@@ -314,14 +354,15 @@ h1 {
     padding-top: 23px;
     position: absolute;
     top: 165px;
-    left: 50px;
-    background: url("../images/desktop/step1/milling-container.png") center center no-repeat; }
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("../images/desktop/step2/milling-container.png") center center no-repeat; }
   .c-milling-mashing .e-cog-wheel-left, .c-milling-mashing .e-cog-wheel-right {
     width: 50px;
     height: 50px;
     position: absolute;
     display: inline-block;
-    background: url("../images/desktop/step1/cog-wheel.png") center center no-repeat; }
+    background: url("../images/desktop/step2/cog-wheel.png") center center no-repeat; }
   .c-milling-mashing .e-cog-wheel-left {
     margin-left: 50px;
     -webkit-animation: spin 4s linear infinite;
@@ -353,7 +394,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
 
@@ -361,7 +402,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
   .c-cooling-container .c-frame-snow {
@@ -408,7 +449,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
 
@@ -416,7 +457,7 @@ h1 {
   position: absolute;
   display: block;
   width: 600px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
   .c-bottling-container .e-label {
@@ -428,6 +469,6 @@ h1 {
   position: absolute;
   display: block;
   width: 1000px;
-  height: 800px;
+  height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
