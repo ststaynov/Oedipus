@@ -1,0 +1,18 @@
+
+
+.button-block {
+  margin-bottom: 50px;
+  display: inline-block;
+  float: left;
+  clear: both;
+
+  .button {
+    width: 120px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    background-color: rgba( $color-black, .3);
+    color: $color-white;
+  }
+}

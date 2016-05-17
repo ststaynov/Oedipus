@@ -78,15 +78,11 @@ function checkPosition(tween) {
         translateValue = n + 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        checkActionItemState(translateValue);
     } else if (n >= 200) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        checkActionItemState(translateValue);
-    } else {
-        checkActionItemState(n);
     }
     displayBgPosition(n);
 }
@@ -97,7 +93,6 @@ jQuery('.c-brewing-background-inner')
         consoleLog('move');
         TweenMax.set(fgBg, {x: (n + e.deltaX)});
         TweenMax.set($actionItem, {x: -(n + e.deltaX), onUpdate:$.throttle( 810, checkPosition), onUpdateParams:["{self}"]});
-        checkActionItemState(n);
         displayBgPosition(n);
         checkBackgroundColors();
     })
@@ -140,15 +135,12 @@ function switchDirection() {
     }
 }
 
-var animBreakPoint1 = -300;
 
-function checkActionItemState(n) {
-    if (n <= animBreakPoint1) {
-        $actionItem.addClass('milled-mashed');
-    }
-    else if (n > animBreakPoint1) {
-        $actionItem.removeClass('milled-mashed');
-    }
+function checkActionItemState(classToAdd) {
+    // first remove all classes
+    $actionItem.removeClass();
+    $actionItem.addClass('c-action');
+    $actionItem.addClass(classToAdd);
 }
 /* FOREGROUND ANIMATIONS END */
 
@@ -192,10 +184,10 @@ var flake = '<svg width="294pt" height="324pt" viewBox="0 0 294 324" version="1.
 
 $btnAutoScroll.click(function(e){
     e.preventDefault();
-    changeActionItemClass();
+    changeScrollButtonClass();
 });
 
-function changeActionItemClass () {
+function changeScrollButtonClass () {
     if($btnAutoScroll.hasClass('scrolling')){
         $btnAutoScroll.removeClass('scrolling');
         stopAutoScroll();
@@ -229,17 +221,10 @@ function startAutoScroll() {
     timeToAnimate = oneTimePercent * percentAtTheMoment;
 
     TweenMax.allTo(fgBg, timeToAnimate, {ease: Power0.easeNone, x: -filmEnd});
-    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:customOnUpdate , onUpdateParams:["{self}"], onComplete: changeActionItemClass});
+    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:customOnUpdate , onUpdateParams:["{self}"], onComplete: changeScrollButtonClass});
 
     function customOnUpdate(){
-        customCheckActionItemState();
         checkBackgroundColors();
-    }
-
-    function customCheckActionItemState() {
-        var n = parseInt($bg.css('transform').split(',')[4]);
-        percentAtTheMoment = -parseInt(n / oneFilmPercent);
-        checkActionItemState(n);
     }
 }
 
@@ -263,45 +248,73 @@ function stopAutoScroll() {
     step5: 4490-5830
     step6: 5830-7055
     step7: 7055-8000
+
+    step1Duration = -650,
+    step2Duration = -1840,
+    step3Duration = -3150,
+    step4Duration = -4490,
+    step5Duration = -5830,
+    step6Duration = -7055,
+    step6End = -8000;
 */
+
+
 var colorOedipusGreen= '#a3d01a',
     colorOedipusYellow = '#f9df00',
     colorOedipusBlueDark = '#4d509b',
     colorOedipusPink = '#ff98b5',
     colorOedipusBlue = '#4998d2',
     colorOedipusPinkDark = '#ca447f',
-    colorOedipusOrange = '#ff8338';
+    colorOedipusOrange = '#ff8338',
+    step1Duration = -650,
+    step2Duration = -1840,
+    step3Duration = -3150,
+    step4Duration = -4490,
+    step5Duration = -5830,
+    step6Duration = -7055,
+    step6End = -8000;
 
 function checkBackgroundColors() {
     var n = parseInt($bg.css('transform').split(',')[4]);
     consoleLog('fired');
 
-    if( n >  -4490) {
+    if( n >  step4Duration) {
         if (n > -650) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            checkActionItemState('initial');
             consoleLog('step1 - white');
-        } else if(n > -1840) { // step 2
+        } else if(n > step2Duration) { // step 2
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusYellow});
+            checkActionItemState('milled-mashed');
             consoleLog('step2 - yellow');
-        }else if(n > -3150) { // step 3
+        }else if(n > step3Duration) { // step 3
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
+            checkActionItemState('boiling');
             consoleLog('step3 - purple');
         } else { //step 4
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
+            checkActionItemState('cooling');
             consoleLog('step4 - blue');
         }
     } else {
-        if (n > -5830 ) { // step5
+        if (n > step5Duration ) { // step5
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusOrange});
+            checkActionItemState('fermenting');
             consoleLog('step5 - orange');
-        } else if (n > -7055){ // step6
+        } else if (n > step6Duration){ // step6
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            $actionItem.addClass('bottling');
             consoleLog('step6 - white');
-        } else if (n > -8000){ // step7
+        } else if (n > step6End){ // step7
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             consoleLog('step7 - white');
         }
     }
 }
-
 /* Change Background per Step END */
+// - initial (to the right of the viewport twitching around with small constant animations)
+//       - milled-mashed (still to the right)
+//       - boiling (to the top left)
+//       - cooling (the cloud moves in waves at the top of the screen blowing at the pipes)
+//       - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
+//       -bottling (stops at previous step and stays there)
