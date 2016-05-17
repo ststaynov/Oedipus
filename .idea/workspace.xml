@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/css/base.css" afterPath="$PROJECT_DIR$/animation/static/animation/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_magic-cloud.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_magic-cloud.scss" />
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -846,7 +844,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463435255769</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="magic cloud bg">
+      <created>1463490377264</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1463490377264</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -928,7 +932,8 @@
     <MESSAGE value="elements of fg positioned accordin to the new sizes&#10;" />
     <MESSAGE value="film split into top/bottom" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="magic cloud bg" />
+    <option name="LAST_COMMIT_MESSAGE" value="magic cloud bg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
