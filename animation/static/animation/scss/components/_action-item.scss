@@ -1,4 +1,13 @@
 
+/* action Item classes:
+      - initial (to the right of the viewport twitching around with small constant animations)
+      - milled-mashed (still to the right)
+      - boiling (to the top left)
+      - cooling (the cloud moves in waves at the top of the screen blowing at the pipes)
+      - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
+      -bottling (stops at previous step and stays there)
+ */
+
 .c-action-container {
   .c-action {
     width: 150px;
@@ -8,16 +17,46 @@
     left: 20%;
     margin-left: -50px;
     display: inline-block;
-    background-color: rgba(red,0.5);
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
 
-    &.milled-mashed {
-      background-color: rgba(green,0.5);
-      background: url('../images/desktop/step2/cloud.png') center center no-repeat;
+    &.initial {
+      background-color: rgba(blue,0.5);
+      visibility: visible;
+      opacity: 1;
     }
 
-    &.filtered {
-      background-color: rgba(blue,0.5);
+    &.milled-mashed {
+      background-color: rgba($color-oedipus-pink,0.5);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &.boiling {
+      background-color: rgba($color-oedipus-green,0.5);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &.cooling {
+      background-color: rgba($color-oedipus-yellow,0.5);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &.fermenting {
+      background-color: rgba($color-oedipus-blue-dark,0.5);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &.bottling {
+      background-color: rgba($color-oedipus-pink-dark,0.5);
+      visibility: visible;
+      opacity: 1;
     }
   }
 }
+

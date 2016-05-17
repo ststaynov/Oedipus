@@ -95,11 +95,6 @@ h1 {
   left: -2000px;
   width: 12000px;
   height: 900px;
-  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
-  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
-  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
-  background-size: 2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px;
-  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d(0px, 0px, 0px); }
 
 .c-brewing-background-inner-top {
@@ -145,6 +140,14 @@ h1 {
   width: 100%;
   height: 400px; }
 
+/* action Item classes:
+      - initial (to the right of the viewport twitching around with small constant animations)
+      - milled-mashed (still to the right)
+      - boiling (to the top left)
+      - cooling (the cloud moves in waves at the top of the screen blowing at the pipes)
+      - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
+      -bottling (stops at previous step and stays there)
+ */
 .c-action-container .c-action {
   width: 150px;
   height: 95px;
@@ -153,13 +156,34 @@ h1 {
   left: 20%;
   margin-left: -50px;
   display: inline-block;
-  background-color: rgba(255, 0, 0, 0.5);
-  pointer-events: none; }
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear; }
+  .c-action-container .c-action.initial {
+    background-color: rgba(0, 0, 255, 0.5);
+    visibility: visible;
+    opacity: 1; }
   .c-action-container .c-action.milled-mashed {
-    background-color: rgba(0, 128, 0, 0.5);
-    background: url("../images/desktop/step2/cloud.png") center center no-repeat; }
-  .c-action-container .c-action.filtered {
-    background-color: rgba(0, 0, 255, 0.5); }
+    background-color: rgba(255, 152, 181, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.boiling {
+    background-color: rgba(163, 208, 26, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.cooling {
+    background-color: rgba(249, 223, 0, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.fermenting {
+    background-color: rgba(77, 80, 155, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.bottling {
+    background-color: rgba(202, 68, 127, 0.5);
+    visibility: visible;
+    opacity: 1; }
 
 .c-navigation {
   position: absolute;
@@ -262,6 +286,20 @@ h1 {
   .c-auto-scroll-button.scrolling {
     background-color: #f9df00; }
 
+.button-block {
+  margin-bottom: 50px;
+  display: inline-block;
+  float: left;
+  clear: both; }
+  .button-block .button {
+    width: 120px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff; }
+
 .c-magic-cloud {
   position: absolute;
   display: block;
@@ -272,6 +310,17 @@ h1 {
   background-image: url("../images/desktop/step1/bg.png");
   background-repeat: no-repeat;
   background-position: left center; }
+  .c-magic-cloud.replica {
+    background-color: orange;
+    z-index: 5;
+    transform: translateX(8000px); }
+  .c-magic-cloud.fading {
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0; }
+  .c-magic-cloud.loaded {
+    opacity: 1; }
+  .c-magic-cloud.unloaded {
+    opacity: 0; }
 
 .c-milling-mashing {
   position: absolute;
@@ -279,6 +328,9 @@ h1 {
   width: 600px;
   height: 500px;
   background-color: rgba(128, 0, 128, 0.2);
+  background-image: url("../images/desktop/step2/bg.png");
+  background-repeat: no-repeat;
+  background-position: left center;
   pointer-events: none;
   /*@keyframes cloud {
       100% { background-position: -1002px; }
@@ -474,3 +526,11 @@ h1 {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
+  .c-end-pop.replica {
+    background-color: orange;
+    z-index: 5;
+    transform: translateX(5px); }
+  .c-end-pop.loaded {
+    opacity: 1; }
+  .c-end-pop.unloaded {
+    opacity: 0; }
