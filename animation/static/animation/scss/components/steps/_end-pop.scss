@@ -6,4 +6,18 @@
   height: 500px;
   pointer-events: none;
   background-color: rgba(purple,.2);
+
+  &.replica {
+    background-color: rgba(orange, 2);
+    z-index: $z-5;
+  }
+
+  &.loaded {
+    opacity: 1;
+  }
+
+  &.unloaded {
+    opacity: 0;
+  }
+
 }

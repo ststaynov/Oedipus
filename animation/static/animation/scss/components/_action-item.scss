@@ -17,32 +17,45 @@
     left: 20%;
     margin-left: -50px;
     display: inline-block;
-    background-color: rgba(red,0.5);
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
 
     &.initial {
       background-color: rgba(blue,0.5);
+      visibility: visible;
+      opacity: 1;
     }
 
     &.milled-mashed {
-      background-color: rgba(green,0.5);
-      background: url('../images/desktop/step2/cloud.png') center center no-repeat;
+      background-color: rgba($color-oedipus-pink,0.5);
+      visibility: visible;
+      opacity: 1;
     }
 
     &.boiling {
-      background-color: rgba(green,0.5);
+      background-color: rgba($color-oedipus-green,0.5);
+      visibility: visible;
+      opacity: 1;
     }
 
     &.cooling {
-      background-color: rgba(blue,0.5);
+      background-color: rgba($color-oedipus-yellow,0.5);
+      visibility: visible;
+      opacity: 1;
     }
 
     &.fermenting {
-      background-color: rgba(green,0.5);
+      background-color: rgba($color-oedipus-blue-dark,0.5);
+      visibility: visible;
+      opacity: 1;
     }
 
     &.bottling {
-      background-color: rgba(blue,0.5);
+      background-color: rgba($color-oedipus-pink-dark,0.5);
+      visibility: visible;
+      opacity: 1;
     }
   }
 }

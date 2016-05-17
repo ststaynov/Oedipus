@@ -13,13 +13,15 @@ var e = document.body,
     $btnAutoScroll = $('.c-auto-scroll-button'),
 
     // steps
-    $magicCloud = $('.c-magic-cloud'),
+    $replicaEndPop = $('.c-end-pop.replica'),
+    $magicCloud = $('.c-magic-cloud.original'),
     $millmash = $('.c-milling-mashing'),
     $boiling = $('.c-boiling'),
     $cooling = $('.c-cooling-container'),
     $fermenting = $('.c-fermenting'),
     $bottling = $('.c-bottling-container'),
-    $endPop = $('.c-end-pop'),
+    $endPop = $('.c-end-pop.original'),
+    $replicaMagicCloud = $('.c-magic-cloud.replica'),
     $backgroundBottom = $('.c-brewing-background-inner-bottom');
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
@@ -30,6 +32,7 @@ TweenMax.set(fgBg, {x: 10});
 TweenMax.set($mouse, {x: 2010, y:705});
 TweenMax.set($flemon, {x: 1007, y:400});
 // steps
+TweenMax.set($replicaEndPop, {x: 5});
 TweenMax.set($magicCloud, {x: 5});
 TweenMax.set($millmash, {x: 1536}); //+166
 TweenMax.set($boiling, {x: 2864});
@@ -37,6 +40,7 @@ TweenMax.set($cooling, {x: 4200});
 TweenMax.set($fermenting, {x: 5534});
 TweenMax.set($bottling, {x: 6860});
 TweenMax.set($endPop, {x: 8000});
+TweenMax.set($replicaMagicCloud, {x: 8000});
 /* Setting things up at the beginning END */
 
 /* hinds & hanlers */
@@ -78,11 +82,19 @@ function checkPosition(tween) {
         translateValue = n + 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
+        TweenMax.to($replicaEndPop, 1, {opacity: 0, clearProps:"all", onComplete: customLoadReplica}); // animates replica
+        function customLoadReplica() {
+            loadReplica($replicaMagicCloud ,$replicaEndPop);
+        }
     } else if (n >= 200) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
+        TweenMax.to($replicaMagicCloud, 1, {opacity: 0, clearProps:"all", onComplete: customLoadReplica}); // animates replica
+        function customLoadReplica() {
+            loadReplica($replicaEndPop, $replicaMagicCloud);
+        }
     }
     displayBgPosition(n);
 }
@@ -248,14 +260,6 @@ function stopAutoScroll() {
     step5: 4490-5830
     step6: 5830-7055
     step7: 7055-8000
-
-    step1Duration = -650,
-    step2Duration = -1840,
-    step3Duration = -3150,
-    step4Duration = -4490,
-    step5Duration = -5830,
-    step6Duration = -7055,
-    step6End = -8000;
 */
 
 
@@ -279,7 +283,9 @@ function checkBackgroundColors() {
     consoleLog('fired');
 
     if( n >  step4Duration) {
-        if (n > -650) { //step 1
+        loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
+
+        if (n > step1Duration) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             checkActionItemState('initial');
             consoleLog('step1 - white');
@@ -287,7 +293,7 @@ function checkBackgroundColors() {
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusYellow});
             checkActionItemState('milled-mashed');
             consoleLog('step2 - yellow');
-        }else if(n > step3Duration) { // step 3
+        } else if(n > step3Duration) { // step 3
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
             checkActionItemState('boiling');
             consoleLog('step3 - purple');
@@ -297,6 +303,7 @@ function checkBackgroundColors() {
             consoleLog('step4 - blue');
         }
     } else {
+        loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
         if (n > step5Duration ) { // step5
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusOrange});
             checkActionItemState('fermenting');
@@ -312,9 +319,20 @@ function checkBackgroundColors() {
     }
 }
 /* Change Background per Step END */
-// - initial (to the right of the viewport twitching around with small constant animations)
-//       - milled-mashed (still to the right)
-//       - boiling (to the top left)
-//       - cooling (the cloud moves in waves at the top of the screen blowing at the pipes)
-//       - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
-//       -bottling (stops at previous step and stays there)
+
+/* load the beginning/end film replicas START */
+
+function loadReplica(replicaToLoad, replicaToUnLoad) {
+    // TweenMax.set(replicaToLoad, {opacity: 1});
+    // TweenMax.set(replicaToUnLoad, {opacity: 0});
+    replicaToUnLoad.removeClass('loaded');
+    replicaToUnLoad.addClass('unloaded');
+    replicaToLoad.removeClass('unloaded');
+    replicaToLoad.addClass('loaded');
+}
+
+function unLoadReplica(replicaToLoad, replicaToUnLoad) {
+
+}
+
+/* load the beginning/end film replicas END */
