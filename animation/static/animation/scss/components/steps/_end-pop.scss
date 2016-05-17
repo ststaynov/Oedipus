@@ -10,6 +10,7 @@
   &.replica {
     background-color: rgba(orange, 2);
     z-index: $z-5;
+    transform: translateX(5px);
   }
 
   &.loaded {

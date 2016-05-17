@@ -10,9 +10,9 @@
   background-position: left center;
 
   &.replica {
-    background-color: rgba(orange, .2);
+    background-color: rgba(orange, 2);
     z-index: $z-5;
-    opacity: 0;
+    transform: translateX(8000px);
   }
 
   &.fading {

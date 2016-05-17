@@ -32,7 +32,10 @@ TweenMax.set(fgBg, {x: 10});
 TweenMax.set($mouse, {x: 2010, y:705});
 TweenMax.set($flemon, {x: 1007, y:400});
 // steps
-TweenMax.set($replicaEndPop, {x: 5});
+/*  Replica translation are done in css since tweenMax: clearProps:"all" is set for them
+    TweenMax.set($replicaEndPop, {x: 5});
+    TweenMax.set($replicaMagicCloud, {x: 8000}); */
+
 TweenMax.set($magicCloud, {x: 5});
 TweenMax.set($millmash, {x: 1536}); //+166
 TweenMax.set($boiling, {x: 2864});
@@ -40,7 +43,6 @@ TweenMax.set($cooling, {x: 4200});
 TweenMax.set($fermenting, {x: 5534});
 TweenMax.set($bottling, {x: 6860});
 TweenMax.set($endPop, {x: 8000});
-TweenMax.set($replicaMagicCloud, {x: 8000});
 /* Setting things up at the beginning END */
 
 /* hinds & hanlers */

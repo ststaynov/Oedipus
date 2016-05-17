@@ -311,9 +311,9 @@ h1 {
   background-repeat: no-repeat;
   background-position: left center; }
   .c-magic-cloud.replica {
-    background-color: rgba(255, 165, 0, 0.2);
+    background-color: orange;
     z-index: 5;
-    opacity: 0; }
+    transform: translateX(8000px); }
   .c-magic-cloud.fading {
     transition: visibility 0s, opacity 0.5s linear;
     opacity: 0; }
@@ -528,7 +528,8 @@ h1 {
   background-color: rgba(128, 0, 128, 0.2); }
   .c-end-pop.replica {
     background-color: orange;
-    z-index: 5; }
+    z-index: 5;
+    transform: translateX(5px); }
   .c-end-pop.loaded {
     opacity: 1; }
   .c-end-pop.unloaded {
