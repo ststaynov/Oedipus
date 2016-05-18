@@ -605,27 +605,29 @@ h1 {
     height: 75px;
     position: absolute;
     background-color: rgba(255, 165, 0, 0.2);
-    top: 19%;
+    top: 62px;
     left: 50%;
     transform: translateX(-50%); }
   .c-boiling .e-boiling-tank {
     width: 400px;
-    height: 315px;
-    padding-top: 23px;
+    height: 360px;
+    padding-top: 125px;
     position: absolute;
-    top: 165px;
+    top: 135px;
     left: 50%;
-    transform: translateX(-50%) rotate(180deg);
-    background-image: url("../images/desktop/step3/boiling-container.png");
+    transform: translateX(-50%);
+    background-image: url("../images/desktop/step3/boil-tank.svg");
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden; }
   .c-boiling .e-boiling-items-container {
-    width: 300px;
-    height: 60%;
+    width: 100%;
+    height: 207px;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); }
+    bottom: 0;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 255, 0.5); }
   .c-boiling .e-boil-item {
     width: 25px;
     height: 50px;
@@ -671,37 +673,55 @@ h1 {
 
 @-webkit-keyframes boil {
   0% {
-    opacity: 0;
-    transform: translateX(-10px) translateY(50px); }
+    top: 120px;
+    left: 10px;
+    opacity: 0; }
   25% {
-    transform: translateX(-10px); }
-  50% { }
-  80% {
     opacity: 1; }
+  50% {
+    left: -10px; }
+  80% {
+    left: 10px; }
   100% {
-    transform: translateX(10px) translateY(220px);
+    top: -20px;
+    left: -10px;
     opacity: 0; } }
 
 @keyframes boil {
   0% {
-    opacity: 0;
-    top: -20px;
-    left: -10px; }
+    top: 120px;
+    left: 10px;
+    opacity: 0; }
   25% {
-    left: 10px; }
+    opacity: 1; }
   50% {
     left: -10px; }
   80% {
-    left: 10px;
-    opacity: 1; }
+    left: 10px; }
   100% {
-    top: 120px;
-    opacity: 0;
-    left: 10px; } }
-  .c-boiling .water .wave.back {
-    right: 0;
-    fill: #2c7fbe;
-    animation: wave-back 1.4s; }
+    top: -20px;
+    left: -10px;
+    opacity: 0; } }
+  .c-boiling .water .wave {
+    width: 200%;
+    position: absolute; }
+    .c-boiling .water .wave.back {
+      right: 0;
+      fill: #2c7fbe;
+      animation: wave-back 1.4s infinite linear; }
+    .c-boiling .water .wave.front {
+      left: 0;
+      fill: #32bafa;
+      margin-bottom: -1px;
+      animation: wave-front .7s infinite linear; }
+
+@keyframes wave-front {
+  100% {
+    transform: translate(-50%, 0); } }
+
+@keyframes wave-back {
+  100% {
+    transform: translate(50%, 0); } }
 
 .c-cooling-container {
   position: absolute;

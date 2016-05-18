@@ -112,32 +112,35 @@
     height: 75px;
     position: absolute;
     background-color: rgba(orange,.2);
-    top: 19%;
+    top: 62px;
     left: 50%;
     transform: translateX(-50%);
   }
 
   .e-boiling-tank {
     width: 400px;
-    height: 315px;
-    padding-top: 23px;
+    height: 360px;
+    padding-top: 125px;
     position: absolute;
-    top: 165px;
+    top: 135px;
     left: 50%;
-    transform: translateX(-50%) rotate(180deg);
-    background-image: url('../images/desktop/step3/boiling-container.png');
+    transform: translateX(-50%);
+    //-webkit-clip-path: url(#svgClipPathBoil);
+    //clip-path: url(#svgClipPathBoil);
+    background-image: url('../images/desktop/step3/boil-tank.svg');
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden;
   }
 
   .e-boiling-items-container {
-    width: 300px;
-    height: 60%;
+    width: 100%;
+    height: 207px;
     position: absolute;
     left: 50%;
+    bottom: 0;
     transform: translateX(-50%);
-    //background-color: rgba(blue,.2);
+    background-color: rgba(blue,.5);
   }
   .e-boil-item {
     width: 25px;
@@ -193,49 +196,53 @@
 
      @-webkit-keyframes boil {
     0% {
+      top: 120px;
+      left: 10px;
       opacity: 0;
-      //top: 50px;
-      //left: -10px;
-      transform: translateX(-10px) translateY(50px);
+      //transform: translateX(10px) translateY(220px);
     }
     25% {
-      //left: 10px;
-      transform: translateX(-10px);
-    }
-    50% {
-
-    }
-    80% {
       opacity: 1;
     }
+    50% {
+      left: -10px;
+      //transform: translateX(-10px);
+    }
+    80% {
+      left: 10px;
+      //transform: translateX(10px);
+    }
     100% {
-      //top: 220px;
-      //left: 10px;
-      transform: translateX(10px) translateY(220px);
+      top: -20px;
+      left: -10px;
       opacity: 0;
+      //transform: translateX(-10px) translateY(50px);
     }
   }
 
   @keyframes boil {
     0% {
+      top: 120px;
+      left: 10px;
       opacity: 0;
-      top: -20px;
-      left: -10px;
+      //transform: translateX(10px) translateY(220px);
     }
     25% {
-      left: 10px;
+      opacity: 1;
     }
     50% {
       left: -10px;
+      //transform: translateX(-10px);
     }
     80% {
       left: 10px;
-      opacity: 1;
+      //transform: translateX(10px);
     }
     100% {
-      top: 120px;
+      top: -20px;
+      left: -10px;
       opacity: 0;
-      left: 10px;
+      //transform: translateX(-10px) translateY(50px);
     }
   }
 
@@ -243,13 +250,35 @@
 
   .water {
     .wave {
+      width: 200%;
+      position: absolute;
+
       &.back {
         right: 0;
         fill: #2c7fbe;
-        animation: wave-back 1.4s
+        animation: wave-back 1.4s infinite linear;
+      }
+
+      &.front {
+        left: 0;
+        fill: #32bafa;
+        margin-bottom: -1px;
+        animation: wave-front .7s infinite linear;
       }
     }
   }
+  @keyframes wave-front {
+    100% {
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @keyframes wave-back {
+    100% {
+      transform: translate(50%, 0);
+    }
+  }
+
 
   /* waves end */
 }
