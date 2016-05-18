@@ -13,13 +13,15 @@ var e = document.body,
     $btnAutoScroll = $('.c-auto-scroll-button'),
 
     // steps
-    $magicCloud = $('.c-magic-cloud'),
+    $replicaEndPop = $('.c-end-pop.replica'),
+    $magicCloud = $('.c-magic-cloud.original'),
     $millmash = $('.c-milling-mashing'),
     $boiling = $('.c-boiling'),
     $cooling = $('.c-cooling-container'),
     $fermenting = $('.c-fermenting'),
     $bottling = $('.c-bottling-container'),
-    $endPop = $('.c-end-pop'),
+    $endPop = $('.c-end-pop.original'),
+    $replicaMagicCloud = $('.c-magic-cloud.replica'),
     $backgroundBottom = $('.c-brewing-background-inner-bottom');
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
@@ -30,6 +32,10 @@ TweenMax.set(fgBg, {x: 10});
 TweenMax.set($mouse, {x: 2010, y:705});
 TweenMax.set($flemon, {x: 1007, y:400});
 // steps
+/*  Replica translation are done in css since tweenMax: clearProps:"all" is set for them
+    TweenMax.set($replicaEndPop, {x: 5});
+    TweenMax.set($replicaMagicCloud, {x: 8000}); */
+
 TweenMax.set($magicCloud, {x: 5});
 TweenMax.set($millmash, {x: 1536}); //+166
 TweenMax.set($boiling, {x: 2864});
@@ -78,15 +84,19 @@ function checkPosition(tween) {
         translateValue = n + 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        checkActionItemState(translateValue);
+        TweenMax.to($replicaEndPop, 1, {opacity: 0, clearProps:"all", onComplete: customLoadReplica}); // animates replica
+        function customLoadReplica() {
+            loadReplica($replicaMagicCloud ,$replicaEndPop);
+        }
     } else if (n >= 200) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        checkActionItemState(translateValue);
-    } else {
-        checkActionItemState(n);
+        TweenMax.to($replicaMagicCloud, 1, {opacity: 0, clearProps:"all", onComplete: customLoadReplica}); // animates replica
+        function customLoadReplica() {
+            loadReplica($replicaEndPop, $replicaMagicCloud);
+        }
     }
     displayBgPosition(n);
 }
@@ -97,7 +107,6 @@ jQuery('.c-brewing-background-inner')
         consoleLog('move');
         TweenMax.set(fgBg, {x: (n + e.deltaX)});
         TweenMax.set($actionItem, {x: -(n + e.deltaX), onUpdate:$.throttle( 810, checkPosition), onUpdateParams:["{self}"]});
-        checkActionItemState(n);
         displayBgPosition(n);
         checkBackgroundColors();
     })
@@ -140,15 +149,12 @@ function switchDirection() {
     }
 }
 
-var animBreakPoint1 = -300;
 
-function checkActionItemState(n) {
-    if (n <= animBreakPoint1) {
-        $actionItem.addClass('milled-mashed');
-    }
-    else if (n > animBreakPoint1) {
-        $actionItem.removeClass('milled-mashed');
-    }
+function checkActionItemState(classToAdd) {
+    // first remove all classes
+    $actionItem.removeClass();
+    $actionItem.addClass('c-action');
+    $actionItem.addClass(classToAdd);
 }
 /* FOREGROUND ANIMATIONS END */
 
@@ -192,10 +198,10 @@ var flake = '<svg width="294pt" height="324pt" viewBox="0 0 294 324" version="1.
 
 $btnAutoScroll.click(function(e){
     e.preventDefault();
-    changeActionItemClass();
+    changeScrollButtonClass();
 });
 
-function changeActionItemClass () {
+function changeScrollButtonClass () {
     if($btnAutoScroll.hasClass('scrolling')){
         $btnAutoScroll.removeClass('scrolling');
         stopAutoScroll();
@@ -229,17 +235,10 @@ function startAutoScroll() {
     timeToAnimate = oneTimePercent * percentAtTheMoment;
 
     TweenMax.allTo(fgBg, timeToAnimate, {ease: Power0.easeNone, x: -filmEnd});
-    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:customOnUpdate , onUpdateParams:["{self}"], onComplete: changeActionItemClass});
+    TweenMax.to($actionItem, timeToAnimate, {ease: Power0.easeNone, x: filmEnd, onUpdate:customOnUpdate , onUpdateParams:["{self}"], onComplete: changeScrollButtonClass});
 
     function customOnUpdate(){
-        customCheckActionItemState();
         checkBackgroundColors();
-    }
-
-    function customCheckActionItemState() {
-        var n = parseInt($bg.css('transform').split(',')[4]);
-        percentAtTheMoment = -parseInt(n / oneFilmPercent);
-        checkActionItemState(n);
     }
 }
 
@@ -264,44 +263,74 @@ function stopAutoScroll() {
     step6: 5830-7055
     step7: 7055-8000
 */
+
+
 var colorOedipusGreen= '#a3d01a',
     colorOedipusYellow = '#f9df00',
     colorOedipusBlueDark = '#4d509b',
     colorOedipusPink = '#ff98b5',
     colorOedipusBlue = '#4998d2',
     colorOedipusPinkDark = '#ca447f',
-    colorOedipusOrange = '#ff8338';
+    colorOedipusOrange = '#ff8338',
+    step1Duration = -650,
+    step2Duration = -1840,
+    step3Duration = -3150,
+    step4Duration = -4490,
+    step5Duration = -5830,
+    step6Duration = -7055,
+    step6End = -8000;
 
 function checkBackgroundColors() {
     var n = parseInt($bg.css('transform').split(',')[4]);
     consoleLog('fired');
 
-    if( n >  -4490) {
-        if (n > -650) { //step 1
+    if( n >  step4Duration) {
+        loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
+
+        if (n > step1Duration) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            checkActionItemState('initial');
             consoleLog('step1 - white');
-        } else if(n > -1840) { // step 2
+        } else if(n > step2Duration) { // step 2
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusYellow});
+            checkActionItemState('milled-mashed');
             consoleLog('step2 - yellow');
-        }else if(n > -3150) { // step 3
+        } else if(n > step3Duration) { // step 3
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
+            checkActionItemState('boiling');
             consoleLog('step3 - purple');
         } else { //step 4
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
+            checkActionItemState('cooling');
             consoleLog('step4 - blue');
         }
     } else {
-        if (n > -5830 ) { // step5
+        loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
+        if (n > step5Duration ) { // step5
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusOrange});
+            checkActionItemState('fermenting');
             consoleLog('step5 - orange');
-        } else if (n > -7055){ // step6
+        } else if (n > step6Duration){ // step6
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            $actionItem.addClass('bottling');
             consoleLog('step6 - white');
-        } else if (n > -8000){ // step7
+        } else if (n > step6End){ // step7
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             consoleLog('step7 - white');
         }
     }
 }
-
 /* Change Background per Step END */
+
+/* load the beginning/end film replicas START */
+
+function loadReplica(replicaToLoad, replicaToUnLoad) {
+    // TweenMax.set(replicaToLoad, {opacity: 1});
+    // TweenMax.set(replicaToUnLoad, {opacity: 0});
+    replicaToUnLoad.removeClass('loaded');
+    replicaToUnLoad.addClass('unloaded');
+    replicaToLoad.removeClass('unloaded');
+    replicaToLoad.addClass('loaded');
+}
+
+/* load the beginning/end film replicas END */

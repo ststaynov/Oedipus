@@ -1,0 +1,21 @@
+
+.c-portrait-overlay {
+  display: none;
+
+  @media only screen and (max-device-width : 1024px) and (orientation : portrait) {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    background-color: $color-portrait-overlay;
+    z-index: $z-10;
+
+    .e-flip-message {
+      top: 40%;
+      position: relative;
+      color: $color-portrait-text;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}
