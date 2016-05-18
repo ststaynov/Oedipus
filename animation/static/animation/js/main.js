@@ -333,8 +333,4 @@ function loadReplica(replicaToLoad, replicaToUnLoad) {
     replicaToLoad.addClass('loaded');
 }
 
-function unLoadReplica(replicaToLoad, replicaToUnLoad) {
-
-}
-
 /* load the beginning/end film replicas END */

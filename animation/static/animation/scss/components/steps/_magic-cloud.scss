@@ -8,9 +8,6 @@
   background-image: url('../images/desktop/step1/bg.png');
   background-repeat: no-repeat;
   background-position: left center;
-  background-image: url('../images/desktop/step1/bg.png');
-  background-repeat: no-repeat;
-  background-position: left center;
 
   &.replica {
     background-color: rgba(orange, 2);
@@ -30,5 +27,4 @@
   &.unloaded {
     opacity: 0;
   }
-
 }

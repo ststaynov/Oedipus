@@ -140,6 +140,14 @@ h1 {
   width: 100%;
   height: 400px; }
 
+.e-title {
+  position: absolute;
+  margin: 0 auto;
+  top: 50%;
+  font-size: 32px;
+  transform: translateX(-50%);
+  left: 50%; }
+
 /* action Item classes:
       - initial (to the right of the viewport twitching around with small constant animations)
       - milled-mashed (still to the right)
@@ -300,6 +308,23 @@ h1 {
     background-color: rgba(0, 0, 0, 0.3);
     color: #fff; }
 
+.c-portrait-overlay {
+  display: none; }
+  @media only screen and (max-device-width: 1024px) and (orientation: portrait) {
+    .c-portrait-overlay {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: fixed;
+      background-color: #3a3025;
+      z-index: 10; }
+      .c-portrait-overlay .e-flip-message {
+        top: 40%;
+        position: relative;
+        color: #fbf8f1;
+        font-size: 18px;
+        text-align: center; } }
+
 .c-magic-cloud {
   position: absolute;
   display: block;
@@ -336,7 +361,9 @@ h1 {
       100% { background-position: -1002px; }
   }*/
   /* milling container start */
-  /* milling container end */ }
+  /* milling container end */
+  /* milled grain start */
+  /* milled grain end */ }
   .c-milling-mashing .e-cloud {
     width: 150px;
     height: 90px;
@@ -444,6 +471,55 @@ h1 {
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg); } }
 
+@keyframes grain-fall {
+  0% {
+    top: -2px; }
+  100% {
+    top: 26px; } }
+  .c-milling-mashing .e-milled-grain {
+    width: 38px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: -2px;
+    position: absolute;
+    top: 264px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px 15px 8px 8px;
+    border-bottom: 7px solid black; }
+  .c-milling-mashing b {
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background: #000;
+    display: block;
+    left: 10px;
+    position: absolute;
+    animation-name: grain-fall;
+    animation-duration: 1s;
+    animation-iteration-count: infinite; }
+    .c-milling-mashing b:nth-of-type(2) {
+      left: 24px;
+      animation-delay: 0.7s; }
+    .c-milling-mashing b:nth-of-type(3) {
+      left: 18px;
+      animation-delay: 0.6s; }
+    .c-milling-mashing b:nth-of-type(4) {
+      left: 13px;
+      animation-delay: 0.3s; }
+    .c-milling-mashing b:nth-of-type(5) {
+      left: 18px;
+      animation-delay: 0.4s; }
+    .c-milling-mashing b:nth-of-type(6) {
+      left: 11px;
+      animation-delay: 0.8s; }
+    .c-milling-mashing b:nth-of-type(7) {
+      left: 19px;
+      animation-delay: 0.4s; }
+    .c-milling-mashing b:nth-of-type(8) {
+      left: 22px;
+      animation-delay: 0.2s; }
+
 .c-boiling {
   position: absolute;
   display: block;
@@ -451,6 +527,97 @@ h1 {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
+  .c-boiling .e-hops-bag {
+    width: 90px;
+    height: 80px;
+    position: absolute;
+    left: 100px;
+    background: url("../images/desktop/step3/hops-bag.png") left center no-repeat; }
+  .c-boiling .e-hops-item-container {
+    position: absolute;
+    left: 150px; }
+  .c-boiling .e-hops-item {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat; }
+  .c-boiling .hop-item-1 {
+    margin: 0 12px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .45s infinite 0.4s;
+    animation: drop 1.8s infinite 0.4s; }
+  .c-boiling .hop-item-2 {
+    margin: 0 20px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .75s infinite 1.50s;
+    animation: drop 2s infinite 1.50s; }
+  .c-boiling .hop-item-3 {
+    margin: 0 28px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .74s infinite 2.50s;
+    animation: drop 2.2s infinite 2.50s; }
+  .c-boiling .hop-item-4 {
+    margin: 0 36px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .75s infinite 3.75s;
+    animation: drop 1.9s infinite 3.75s; }
+  .c-boiling .hop-item-5 {
+    margin: 0 44px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .75s infinite 4.75s;
+    animation: drop 2.3s infinite 4.75s; }
+
+@-webkit-keyframes drop {
+  0% {
+    opacity: 0;
+    top: 50px; }
+  25% {
+    left: -10px; }
+  50% {
+    top: 75px; }
+  80% {
+    opacity: 1; }
+  100% {
+    top: 220px;
+    opacity: 0;
+    left: 10px; } }
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    top: 50px; }
+  25% {
+    left: -10px; }
+  50% {
+    top: 75px;
+    left: 10px; }
+  80% {
+    opacity: 1; }
+  100% {
+    top: 220px;
+    opacity: 0;
+    left: 10px; } }
+  .c-boiling .e-steam-top {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    background-color: rgba(255, 165, 0, 0.2);
+    top: 19%;
+    left: 50%;
+    transform: translateX(-50%); }
+  .c-boiling .e-boiling-tank {
+    width: 400px;
+    height: 315px;
+    padding-top: 23px;
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    background-image: url("../images/desktop/step3/boiling-container.png");
+    background-size: 100%;
+    background-repeat: no-repeat; }
 
 .c-cooling-container {
   position: absolute;
@@ -514,10 +681,6 @@ h1 {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
-  .c-bottling-container .e-label {
-    position: absolute;
-    width: 100px;
-    height: 100px; }
 
 .c-end-pop {
   position: absolute;
