@@ -95,11 +95,6 @@ h1 {
   left: -2000px;
   width: 12000px;
   height: 900px;
-  background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
-  background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
-  background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
-  background-size: 2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px,2000px 900px;
-  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
   transform: translate3d(0px, 0px, 0px); }
 
 .c-brewing-background-inner-top {
@@ -145,6 +140,22 @@ h1 {
   width: 100%;
   height: 400px; }
 
+.e-title {
+  position: absolute;
+  margin: 0 auto;
+  top: 50%;
+  font-size: 32px;
+  transform: translateX(-50%);
+  left: 50%; }
+
+/* action Item classes:
+      - initial (to the right of the viewport twitching around with small constant animations)
+      - milled-mashed (still to the right)
+      - boiling (to the top left)
+      - cooling (the cloud moves in waves at the top of the screen blowing at the pipes)
+      - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
+      -bottling (stops at previous step and stays there)
+ */
 .c-action-container .c-action {
   width: 150px;
   height: 95px;
@@ -153,13 +164,34 @@ h1 {
   left: 20%;
   margin-left: -50px;
   display: inline-block;
-  background-color: rgba(255, 0, 0, 0.5);
-  pointer-events: none; }
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear; }
+  .c-action-container .c-action.initial {
+    background-color: rgba(0, 0, 255, 0.5);
+    visibility: visible;
+    opacity: 1; }
   .c-action-container .c-action.milled-mashed {
-    background-color: rgba(0, 128, 0, 0.5);
-    background: url("../images/desktop/step2/cloud.png") center center no-repeat; }
-  .c-action-container .c-action.filtered {
-    background-color: rgba(0, 0, 255, 0.5); }
+    background-color: rgba(255, 152, 181, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.boiling {
+    background-color: rgba(163, 208, 26, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.cooling {
+    background-color: rgba(249, 223, 0, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.fermenting {
+    background-color: rgba(77, 80, 155, 0.5);
+    visibility: visible;
+    opacity: 1; }
+  .c-action-container .c-action.bottling {
+    background-color: rgba(202, 68, 127, 0.5);
+    visibility: visible;
+    opacity: 1; }
 
 .c-navigation {
   position: absolute;
@@ -262,6 +294,37 @@ h1 {
   .c-auto-scroll-button.scrolling {
     background-color: #f9df00; }
 
+.button-block {
+  margin-bottom: 50px;
+  display: inline-block;
+  float: left;
+  clear: both; }
+  .button-block .button {
+    width: 120px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff; }
+
+.c-portrait-overlay {
+  display: none; }
+  @media only screen and (max-device-width: 1024px) and (orientation: portrait) {
+    .c-portrait-overlay {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: fixed;
+      background-color: #3a3025;
+      z-index: 10; }
+      .c-portrait-overlay .e-flip-message {
+        top: 40%;
+        position: relative;
+        color: #fbf8f1;
+        font-size: 18px;
+        text-align: center; } }
+
 .c-magic-cloud {
   position: absolute;
   display: block;
@@ -272,6 +335,17 @@ h1 {
   background-image: url("../images/desktop/step1/bg.png");
   background-repeat: no-repeat;
   background-position: left center; }
+  .c-magic-cloud.replica {
+    background-color: orange;
+    z-index: 5;
+    transform: translateX(8000px); }
+  .c-magic-cloud.fading {
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0; }
+  .c-magic-cloud.loaded {
+    opacity: 1; }
+  .c-magic-cloud.unloaded {
+    opacity: 0; }
 
 .c-milling-mashing {
   position: absolute;
@@ -279,12 +353,17 @@ h1 {
   width: 600px;
   height: 500px;
   background-color: rgba(128, 0, 128, 0.2);
+  background-image: url("../images/desktop/step2/bg.png");
+  background-repeat: no-repeat;
+  background-position: left center;
   pointer-events: none;
   /*@keyframes cloud {
       100% { background-position: -1002px; }
   }*/
   /* milling container start */
-  /* milling container end */ }
+  /* milling container end */
+  /* milled grain start */
+  /* milled grain end */ }
   .c-milling-mashing .e-cloud {
     width: 150px;
     height: 90px;
@@ -392,13 +471,233 @@ h1 {
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg); } }
 
+@keyframes grain-fall {
+  0% {
+    top: -2px; }
+  100% {
+    top: 26px; } }
+  .c-milling-mashing .e-milled-grain {
+    width: 38px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: -2px;
+    position: absolute;
+    top: 264px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px 15px 8px 8px;
+    border-bottom: 7px solid black; }
+  .c-milling-mashing b {
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background: #000;
+    display: block;
+    left: 10px;
+    position: absolute;
+    animation-name: grain-fall;
+    animation-duration: 1s;
+    animation-iteration-count: infinite; }
+    .c-milling-mashing b:nth-of-type(2) {
+      left: 24px;
+      animation-delay: 0.7s; }
+    .c-milling-mashing b:nth-of-type(3) {
+      left: 18px;
+      animation-delay: 0.6s; }
+    .c-milling-mashing b:nth-of-type(4) {
+      left: 13px;
+      animation-delay: 0.3s; }
+    .c-milling-mashing b:nth-of-type(5) {
+      left: 18px;
+      animation-delay: 0.4s; }
+    .c-milling-mashing b:nth-of-type(6) {
+      left: 11px;
+      animation-delay: 0.8s; }
+    .c-milling-mashing b:nth-of-type(7) {
+      left: 19px;
+      animation-delay: 0.4s; }
+    .c-milling-mashing b:nth-of-type(8) {
+      left: 22px;
+      animation-delay: 0.2s; }
+
 .c-boiling {
   position: absolute;
   display: block;
   width: 600px;
   height: 500px;
   pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  background-color: rgba(255, 165, 0, 0.2); }
+  .c-boiling .e-hops-bag {
+    width: 90px;
+    height: 80px;
+    position: absolute;
+    left: 100px;
+    background: url("../images/desktop/step3/hops-bag.png") left center no-repeat; }
+  .c-boiling .e-hops-item-container {
+    position: absolute;
+    left: 150px; }
+  .c-boiling .e-hops-item {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat; }
+  .c-boiling .hop-item-1 {
+    margin: 0 12px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .45s infinite 0.4s;
+    animation: drop 1.8s infinite 0.4s; }
+  .c-boiling .hop-item-2 {
+    margin: 0 20px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .75s infinite 1.50s;
+    animation: drop 2s infinite 1.50s; }
+  .c-boiling .hop-item-3 {
+    margin: 0 28px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .74s infinite 2.50s;
+    animation: drop 2.2s infinite 2.50s; }
+  .c-boiling .hop-item-4 {
+    margin: 0 36px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .75s infinite 3.75s;
+    animation: drop 1.9s infinite 3.75s; }
+  .c-boiling .hop-item-5 {
+    margin: 0 44px;
+    background-image: url("../images/desktop/step3/hop.png");
+    -webkit-animation: drop .75s infinite 4.75s;
+    animation: drop 2.3s infinite 4.75s; }
+
+@-webkit-keyframes drop {
+  0% {
+    opacity: 0;
+    top: 50px;
+    left: -10px; }
+  25% {
+    left: 10px; }
+  50% { }
+  80% {
+    opacity: 1; }
+  100% {
+    top: 220px;
+    opacity: 0;
+    left: 10px; } }
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    top: 50px;
+    left: -10px; }
+  25% {
+    left: 10px; }
+  50% { }
+  80% {
+    opacity: 1; }
+  100% {
+    top: 220px;
+    opacity: 0;
+    left: 10px; } }
+  .c-boiling .e-steam-top {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    background-color: rgba(255, 165, 0, 0.2);
+    top: 19%;
+    left: 50%;
+    transform: translateX(-50%); }
+  .c-boiling .e-boiling-tank {
+    width: 400px;
+    height: 315px;
+    padding-top: 23px;
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    background-image: url("../images/desktop/step3/boiling-container.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden; }
+  .c-boiling .e-boiling-items-container {
+    width: 300px;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); }
+  .c-boiling .e-boil-item {
+    width: 25px;
+    height: 50px;
+    display: inline-block;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat; }
+  .c-boiling .boil-item-1 {
+    margin-left: 100px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite;
+    animation: boil .75s infinite; }
+  .c-boiling .boil-item-2 {
+    margin-left: 75px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite 1s;
+    animation: boil .75s infinite 1s; }
+  .c-boiling .boil-item-3 {
+    margin-left: 150px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite 2s;
+    animation: boil .75s infinite 2s; }
+  .c-boiling .boil-item-4 {
+    margin-left: 30px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite 3s;
+    animation: boil .75s infinite 3s; }
+  .c-boiling .boil-item-5 {
+    margin-left: 180px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite 4s;
+    animation: boil .75s infinite 4s; }
+  .c-boiling .boil-item-6 {
+    margin-left: 5px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite 5s;
+    animation: boil .75s infinite 5s; }
+  .c-boiling .boil-item-6 {
+    margin-left: 210px;
+    background-image: url("../images/desktop/step3/bubbles.png");
+    -webkit-animation: boil .45s infinite 6s;
+    animation: boil .75s infinite 6s; }
+
+@-webkit-keyframes boil {
+  0% {
+    opacity: 0;
+    top: 50px;
+    left: -10px; }
+  25% {
+    left: 10px; }
+  50% { }
+  80% {
+    opacity: 1; }
+  100% {
+    top: 220px;
+    opacity: 0;
+    left: 10px; } }
+
+@keyframes boil {
+  0% {
+    opacity: 0;
+    top: -20px;
+    left: -10px; }
+  25% {
+    left: 10px; }
+  50% {
+    left: -10px; }
+  80% {
+    left: 10px;
+    opacity: 1; }
+  100% {
+    top: 120px;
+    opacity: 0;
+    left: 10px; } }
 
 .c-cooling-container {
   position: absolute;
@@ -462,10 +761,6 @@ h1 {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
-  .c-bottling-container .e-label {
-    position: absolute;
-    width: 100px;
-    height: 100px; }
 
 .c-end-pop {
   position: absolute;
@@ -474,3 +769,11 @@ h1 {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
+  .c-end-pop.replica {
+    background-color: orange;
+    z-index: 5;
+    transform: translateX(5px); }
+  .c-end-pop.loaded {
+    opacity: 1; }
+  .c-end-pop.unloaded {
+    opacity: 0; }
