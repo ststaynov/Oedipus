@@ -526,7 +526,9 @@ h1 {
   width: 600px;
   height: 500px;
   pointer-events: none;
-  background-color: rgba(255, 165, 0, 0.2); }
+  background-color: rgba(255, 165, 0, 0.2);
+  /* waves start */
+  /* waves end */ }
   .c-boiling .e-hops-bag {
     width: 90px;
     height: 80px;
@@ -670,17 +672,15 @@ h1 {
 @-webkit-keyframes boil {
   0% {
     opacity: 0;
-    top: 50px;
-    left: -10px; }
+    transform: translateX(-10px) translateY(50px); }
   25% {
-    left: 10px; }
+    transform: translateX(-10px); }
   50% { }
   80% {
     opacity: 1; }
   100% {
-    top: 220px;
-    opacity: 0;
-    left: 10px; } }
+    transform: translateX(10px) translateY(220px);
+    opacity: 0; } }
 
 @keyframes boil {
   0% {
@@ -698,6 +698,10 @@ h1 {
     top: 120px;
     opacity: 0;
     left: 10px; } }
+  .c-boiling .water .wave.back {
+    right: 0;
+    fill: #2c7fbe;
+    animation: wave-back 1.4s; }
 
 .c-cooling-container {
   position: absolute;

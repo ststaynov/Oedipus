@@ -194,11 +194,13 @@
      @-webkit-keyframes boil {
     0% {
       opacity: 0;
-      top: 50px;
-      left: -10px;
+      //top: 50px;
+      //left: -10px;
+      transform: translateX(-10px) translateY(50px);
     }
     25% {
-      left: 10px;
+      //left: 10px;
+      transform: translateX(-10px);
     }
     50% {
 
@@ -207,9 +209,10 @@
       opacity: 1;
     }
     100% {
-      top: 220px;
+      //top: 220px;
+      //left: 10px;
+      transform: translateX(10px) translateY(220px);
       opacity: 0;
-      left: 10px;
     }
   }
 
@@ -235,4 +238,18 @@
       left: 10px;
     }
   }
+
+  /* waves start */
+
+  .water {
+    .wave {
+      &.back {
+        right: 0;
+        fill: #2c7fbe;
+        animation: wave-back 1.4s
+      }
+    }
+  }
+
+  /* waves end */
 }
