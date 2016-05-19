@@ -9,10 +9,10 @@ var e = document.body,
     $mouse = $('.c-mouse'),
     $flemon = $('.c-flying-lemon'),
     $btnAutoScroll = $('.c-auto-scroll-button'),
-    loopBackwardAllowed = false;
+    loopBackwardAllowed = false,
 
-// steps
-$replicaEndPop = $('.c-end-pop.replica'),
+    // steps
+    $replicaEndPop = $('.c-end-pop.replica'),
     $magicCloud = $('.c-magic-cloud.original'),
     $millmash = $('.c-milling-mashing'),
     $boiling = $('.c-boiling'),
@@ -20,8 +20,17 @@ $replicaEndPop = $('.c-end-pop.replica'),
     $fermenting = $('.c-fermenting'),
     $bottling = $('.c-bottling-container'),
     $endPop = $('.c-end-pop.original'),
-    $replicaMagicCloud = $('.c-magic-cloud.replica');
-// $backgroundBottom = $('.c-brewing-background-inner-bottom');
+    $replicaMagicCloud = $('.c-magic-cloud.replica'),
+
+    // timelines per step
+    magicCloudTl = new TimelineMax({}),
+    millmashTl = new TimelineMax({}),
+    boilingTl = new TimelineMax({}),
+    coolingTl = new TimelineMax({}),
+    fermentingTl = new TimelineMax({}),
+    bottlingTl = new TimelineMax({}),
+    endPopTl = new TimelineMax({});
+
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
@@ -36,7 +45,7 @@ TweenMax.set($flemon, {x: 1007, y: 400});
  TweenMax.set($replicaMagicCloud, {x: 8000}); */
 
 TweenMax.set($magicCloud, {x: 5});
-TweenMax.set($millmash, {x: 1536}); //+166
+TweenMax.set($millmash, {x: 1536});
 TweenMax.set($boiling, {x: 2864});
 TweenMax.set($cooling, {x: 4200});
 TweenMax.set($fermenting, {x: 5534});
@@ -45,8 +54,8 @@ TweenMax.set($endPop, {x: 8000});
 /* Setting things up at the beginning END */
 
 /* hinds & hanlers */
-/* keep the scroll execution limited to 80 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
-$('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce here for the touchpad scrolling
+/* keep the scroll execution limited to 180 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
+$('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
 
 function scrolling(e) {
     e.preventDefault();
@@ -62,7 +71,6 @@ function scrolling(e) {
     }
     else {
         moveBackground();
-        consoleLog('');
     }
 }
 
@@ -112,10 +120,6 @@ function checkPosition(tween) {
         //     TweenMax.set(fgBg, {x: translateValue});
         //     TweenMax.set($actionItem, {x: -translateValue});
         // }
-        consoleLog('Not Fired');
-        consoleLog('position: ' + n);
-        consoleLog('p: ' + p);
-        consoleLog('translateValue: ' + translateValue);
     }
     displayBgPosition(n);
 }
@@ -160,25 +164,39 @@ function displayBgPosition(n) {
 /* FOREGROUND ANIMATIONS START */
 
 
-TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: switchDirection});
+TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: mouseSwitchDirection});
 
 /* change background image according to animation direction */
-function switchDirection() {
-    if ($mouse.hasClass('right')) {
-        $mouse.removeClass('right');
+function mouseSwitchDirection() {
+    switchDirection($mouse);
+}
+
+function windSwitchDirection() {
+    switchDirection($actionItem);
+}
+
+function switchDirection(object) {
+    if (object.hasClass('right')) {
+        object.removeClass('right');
+        object.addClass('left');
     }
     else {
-        $mouse.addClass('right');
+        object.removeClass('left');
+        object.addClass('right');
     }
 }
 
 
 function checkActionItemState(classToAdd) {
     // first remove all classes
-    $actionItem.removeClass();
-    $actionItem.addClass('c-action');
-    $actionItem.addClass(classToAdd);
-    checkForActionItemEffects(classToAdd);
+    if ($actionItem.hasClass(classToAdd)) {
+        //nothing
+    } else {
+        $actionItem.removeClass();
+        $actionItem.addClass('c-action');
+        $actionItem.addClass(classToAdd);
+        checkForActionItemEffects(classToAdd);
+    }
 }
 /* FOREGROUND ANIMATIONS END */
 
@@ -315,7 +333,6 @@ var colorOedipusGreen = '#a3d01a',
 
 function checkBackgroundColors() {
     var n = parseInt($bg.css('transform').split(',')[4]);
-    consoleLog('fired');
 
     if (n > step4Duration) {
         loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
@@ -367,30 +384,70 @@ function loadReplica(replicaToLoad, replicaToUnLoad) {
 /* load the beginning/end film replicas END */
 
 /* action item stages START */
+var mainActionItemtl = new TimelineMax({}); // I know it's easier to add all children(per step) to the mainTimeline at beginning and then per step reference them but no one's perfect
 
 function checkForActionItemEffects(hasClass) {
     switch (hasClass) {
         case "initial":
-            TweenMax.to($actionItem, 1.5, {top: '4vh', left: '16vw'});
+            mainActionItemtl.clear();
             break;
         case "milled-mashed":
-            TweenMax.to($actionItem, 1.5, {left: '84vw', top: '30vh'});
+            mainActionItemtl.clear();
             break;
         case "boiling":
-            text = "How you like them apples?";
+            //clear Timeline from previous tweens&callbacks
+            mainActionItemtl.clear();
+            // mainActionItemtl.eventCallback("onRepeat", null);
+            // mainActionItemtl.eventCallback("repeat", null);
+            // mainActionItemtl.eventCallback("yoyo", null);
+            // mainActionItemtl.eventCallback("ease", null);
+
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '16vw'});
             break;
         case "cooling":
-            text = "Banana is good!";
+            $actionItem.addClass('right');
+            //clear Timeline from previous tweens&callbacks
+            mainActionItemtl.clear();
+
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '86vw',onComplete:setCloudLeft});
+            function setCloudLeft(){
+                if ($actionItem.hasClass('left')) {}
+                else {
+                    $actionItem.addClass('left');
+                    $actionItem.removeClass('right');
+                }
+            }
+
+            setTimeout(function(){
+              mainActionItemtl.add(getCoolingTimeline());
+            }, 800);
             break;
         case "fermenting":
-            text = "I am not a fan of orange.";
+            mainActionItemtl.clear();
+
+            mainActionItemtl.add(getFermentingTimeline());
             break;
         case "bottling":
-            text = "How you like them apples?";
+            mainActionItemtl.clear();
             break;
         default:
-            text = "I have never heard of that fruit...";
     }
 }
 
+function getCoolingTimeline() {
+    var tl = new TimelineMax({ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection});
+
+    tl.to($actionItem, 2, {top: '5vh', left: '14vw'});
+
+    return tl;
+}
+
+function getFermentingTimeline() {
+    var tl = new TimelineMax({delay: 0.8});
+
+    tl.to($actionItem, 2, {left: '86vw', top: '5vh'});
+
+
+    return tl;
+}
 /* action item stages END */

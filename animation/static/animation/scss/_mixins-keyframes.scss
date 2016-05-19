@@ -16,3 +16,11 @@
   border-bottom: 25px solid black;
   z-index: 10;
 }
+
+@mixin fermenting-fg-item() {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
