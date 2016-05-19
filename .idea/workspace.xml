@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="max snowflake count set">
+    <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss" afterPath="$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/css/base.css" afterPath="$PROJECT_DIR$/animation/static/animation/css/base.css" />
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1088,7 +1088,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463651985583</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="url configured">
+      <created>1463671787345</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1463671787345</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1151,7 +1158,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="spaghetti code but works, fluent navigation + millmash container" />
     <MESSAGE value="everything on scroll&amp;move works!!" />
     <MESSAGE value="life is hard" />
     <MESSAGE value="step 1 animation ^ background images updated" />
@@ -1176,7 +1182,8 @@
     <MESSAGE value="svg container added" />
     <MESSAGE value="working laws (blocking user to go backwad if he hasn't looped once)" />
     <MESSAGE value="max snowflake count set" />
-    <option name="LAST_COMMIT_MESSAGE" value="max snowflake count set" />
+    <MESSAGE value="url configured" />
+    <option name="LAST_COMMIT_MESSAGE" value="url configured" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
