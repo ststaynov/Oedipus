@@ -45,12 +45,15 @@
       visibility: visible;
       opacity: 1;
       &.right {
-        background: url(../images/desktop/mouse-right.png) left top no-repeat;
-        background-size: 151px auto;
+        background-image: url('../images/desktop/step4/windy-right.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
       }
       &.left {
-        background: url(../images/desktop/mouse.png) left top no-repeat;
-        background-size: 151px auto;
+        background-image: url('../images/desktop/step4/windy-left.svg');
+        transform: translate(-100,-100);
+        background-size: contain;
+        background-repeat: no-repeat;
       }
     }
 
