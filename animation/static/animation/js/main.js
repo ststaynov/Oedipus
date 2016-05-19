@@ -62,7 +62,6 @@ function scrolling(e) {
     }
     else {
         moveBackground();
-        consoleLog('');
     }
 }
 
@@ -112,10 +111,6 @@ function checkPosition(tween) {
         //     TweenMax.set(fgBg, {x: translateValue});
         //     TweenMax.set($actionItem, {x: -translateValue});
         // }
-        consoleLog('Not Fired');
-        consoleLog('position: ' + n);
-        consoleLog('p: ' + p);
-        consoleLog('translateValue: ' + translateValue);
     }
     displayBgPosition(n);
 }
@@ -160,25 +155,39 @@ function displayBgPosition(n) {
 /* FOREGROUND ANIMATIONS START */
 
 
-TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: switchDirection});
+TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: mouseSwitchDirection});
 
 /* change background image according to animation direction */
-function switchDirection() {
-    if ($mouse.hasClass('right')) {
-        $mouse.removeClass('right');
+function mouseSwitchDirection() {
+    switchDirection($mouse);
+}
+
+function windSwitchDirection() {
+    switchDirection($actionItem);
+}
+
+function switchDirection(object) {
+    if (object.hasClass('right')) {
+        object.removeClass('right');
+        object.addClass('left');
     }
     else {
-        $mouse.addClass('right');
+        object.removeClass('left');
+        object.addClass('right');
     }
 }
 
 
 function checkActionItemState(classToAdd) {
     // first remove all classes
-    $actionItem.removeClass();
-    $actionItem.addClass('c-action');
-    $actionItem.addClass(classToAdd);
-    checkForActionItemEffects(classToAdd);
+    if ($actionItem.hasClass(classToAdd)) {
+        //nothing
+    } else {
+        $actionItem.removeClass();
+        $actionItem.addClass('c-action');
+        $actionItem.addClass(classToAdd);
+        checkForActionItemEffects(classToAdd);
+    }
 }
 /* FOREGROUND ANIMATIONS END */
 
@@ -315,7 +324,6 @@ var colorOedipusGreen = '#a3d01a',
 
 function checkBackgroundColors() {
     var n = parseInt($bg.css('transform').split(',')[4]);
-    consoleLog('fired');
 
     if (n > step4Duration) {
         loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
@@ -367,30 +375,80 @@ function loadReplica(replicaToLoad, replicaToUnLoad) {
 /* load the beginning/end film replicas END */
 
 /* action item stages START */
+var mainActionItemtl = new TimelineMax({});
 
 function checkForActionItemEffects(hasClass) {
     switch (hasClass) {
         case "initial":
-            TweenMax.to($actionItem, 1.5, {top: '4vh', left: '16vw'});
+            mainActionItemtl.clear();
             break;
         case "milled-mashed":
-            TweenMax.to($actionItem, 1.5, {left: '84vw', top: '30vh'});
+            mainActionItemtl.clear();
             break;
         case "boiling":
-            text = "How you like them apples?";
+            //clear Timeline from previous tweens&callbacks
+            mainActionItemtl.clear();
+            // mainActionItemtl.eventCallback("onRepeat", null);
+            // mainActionItemtl.eventCallback("repeat", null);
+            // mainActionItemtl.eventCallback("yoyo", null);
+            // mainActionItemtl.eventCallback("ease", null);
+
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '16vw'});
             break;
         case "cooling":
-            text = "Banana is good!";
+            $actionItem.addClass('right');
+            //clear Timeline from previous tweens&callbacks
+            mainActionItemtl.clear();
+            consoleLog(mainActionItemtl);
+            // mainActionItemtl.eventCallback("onRepeat", null);
+            // mainActionItemtl.eventCallback("repeat", null);
+            // mainActionItemtl.eventCallback("yoyo", null);
+            // mainActionItemtl.eventCallback("ease", null);
+
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '86vw',onComplete:setCloudLeft});
+            function setCloudLeft(){
+                if ($actionItem.hasClass('left')) {}
+                else {
+                    $actionItem.addClass('left');
+                    $actionItem.removeClass('right');
+                }
+            }
+
+            setTimeout(function(){
+              mainActionItemtl.add(getCoolingTimeline());
+            }, 800);
             break;
         case "fermenting":
-            text = "I am not a fan of orange.";
+            //clear Timeline from previous tweens&callbacks
+            mainActionItemtl.clear();
+            // mainActionItemtl.eventCallback("onRepeat", null);
+            // mainActionItemtl.eventCallback("repeat", null);
+            // mainActionItemtl.eventCallback("yoyo", null);
+            // mainActionItemtl.eventCallback("ease", null);
+
+            mainActionItemtl.add(getFermentingTimeline());
             break;
         case "bottling":
-            text = "How you like them apples?";
+            mainActionItemtl.clear();
             break;
         default:
-            text = "I have never heard of that fruit...";
     }
 }
 
+function getCoolingTimeline() {
+    var tl = new TimelineMax({ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection});
+
+    tl.to($actionItem, 2, {top: '5vh', left: '14vw'});
+
+    return tl;
+}
+
+function getFermentingTimeline() {
+    var tl = new TimelineMax({delay: 0.8});
+
+    tl.to($actionItem, 2, {left: '86vw', top: '5vh'});
+
+
+    return tl;
+}
 /* action item stages END */
