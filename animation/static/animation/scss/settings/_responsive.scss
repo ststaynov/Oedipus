@@ -2,7 +2,7 @@
 body {
   //position: absolute; /* Fixes strange scroll overflow */
 
-  @media screen and (max-device-width: 480px) {
+  @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) { // if device is mobile or device is portrait
     //-moz-transform: scale(0.5, 0.5); /* Moz-browsers */
     //zoom: 0.5; /* Other non-webkit browsers */
     //zoom: 50%; /* Webkit browsers */
@@ -12,7 +12,8 @@ body {
     .c-cooling-container,
     .c-milling-mashing,
     .c-fermenting,
-    .c-end-pop {
+    .c-end-pop,
+    .c-action-container {
       transform: scale(0.6,0.6);
     }
 
