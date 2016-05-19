@@ -8,8 +8,7 @@ body {
     body .c-cooling-container,
     body .c-milling-mashing,
     body .c-fermenting,
-    body .c-end-pop,
-    body .c-action-container {
+    body .c-end-pop {
       transform: scale(0.6, 0.6); } }
 
 * {
@@ -174,11 +173,11 @@ h1 {
     visibility: visible;
     opacity: 1; }
   .c-action-container .c-action.milled-mashed {
-    background-color: rgba(255, 152, 181, 0.5);
+    background-color: rgba(163, 208, 26, 0.5);
     visibility: visible;
     opacity: 1; }
   .c-action-container .c-action.boiling {
-    background-color: rgba(163, 208, 26, 0.5);
+    background-color: rgba(255, 152, 181, 0.5);
     visibility: visible;
     opacity: 1; }
   .c-action-container .c-action.cooling {
@@ -186,11 +185,11 @@ h1 {
     visibility: visible;
     opacity: 1; }
   .c-action-container .c-action.fermenting {
-    background-color: rgba(77, 80, 155, 0.5);
+    background-color: rgba(202, 68, 127, 0.5);
     visibility: visible;
     opacity: 1; }
   .c-action-container .c-action.bottling {
-    background-color: rgba(202, 68, 127, 0.5);
+    background-color: rgba(77, 80, 155, 0.5);
     visibility: visible;
     opacity: 1; }
 

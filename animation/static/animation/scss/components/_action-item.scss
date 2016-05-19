@@ -29,13 +29,13 @@
     }
 
     &.milled-mashed {
-      background-color: rgba($color-oedipus-pink,0.5);
+      background-color: rgba($color-oedipus-green,0.5);
       visibility: visible;
       opacity: 1;
     }
 
     &.boiling {
-      background-color: rgba($color-oedipus-green,0.5);
+      background-color: rgba($color-oedipus-pink,0.5);
       visibility: visible;
       opacity: 1;
     }
@@ -47,13 +47,13 @@
     }
 
     &.fermenting {
-      background-color: rgba($color-oedipus-blue-dark,0.5);
+      background-color: rgba($color-oedipus-pink-dark,0.5);
       visibility: visible;
       opacity: 1;
     }
 
     &.bottling {
-      background-color: rgba($color-oedipus-pink-dark,0.5);
+      background-color: rgba($color-oedipus-blue-dark,0.5);
       visibility: visible;
       opacity: 1;
     }

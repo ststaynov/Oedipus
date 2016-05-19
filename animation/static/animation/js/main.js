@@ -105,13 +105,13 @@ function checkPosition(tween) {
     } else if (n >= 160 && !loopBackwardAllowed) { /* checks if user is allowed to go to the end of the film */
         translateValue = 161;
 
-        if (n > 170) {
+        // if (n > 170) { attempt to remove the bouncing effect when breaking the law
             TweenMax.to(fgBg, 0.4, {x: translateValue});
             TweenMax.to($actionItem, 0.4, {x: -translateValue});
-        } else {
-            TweenMax.set(fgBg, {x: translateValue});
-            TweenMax.set($actionItem, {x: -translateValue});
-        }
+        // } else {
+        //     TweenMax.set(fgBg, {x: translateValue});
+        //     TweenMax.set($actionItem, {x: -translateValue});
+        // }
         consoleLog('Not Fired');
         consoleLog('position: ' + n);
         consoleLog('p: ' + p);
