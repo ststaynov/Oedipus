@@ -10,6 +10,7 @@ var e = document.body,
     $flemon = $('.c-flying-lemon'),
     $btnAutoScroll = $('.c-auto-scroll-button'),
     loopBackwardAllowed = false,
+    stepPositionsArr = [],
 
     // steps
     $replicaEndPop = $('.c-end-pop.replica'),
@@ -36,22 +37,27 @@ var e = document.body,
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
 
 /* Setting things up at the beginning START */
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000] //TODO change values to suit mobile screens
+} else {
+    positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000]
+}
 
-TweenMax.set(fgBg, {x: 10});
-TweenMax.set($mouse, {x: 2010, y: 705});
-TweenMax.set($flemon, {x: 1007, y: 400});
+TweenMax.set(fgBg, {x: positionsArr[0]});
+TweenMax.set($mouse, {x: positionsArr[1], y: positionsArr[2]});
+TweenMax.set($flemon, {x: positionsArr[3], y: positionsArr[4]});
 // steps
 /*  Replica translation are done in css since tweenMax: clearProps:"all" is set for them
  TweenMax.set($replicaEndPop, {x: 5});
  TweenMax.set($replicaMagicCloud, {x: 8000}); */
 
-TweenMax.set($magicCloud, {x: 5});
-TweenMax.set($millmash, {x: 1536});
-TweenMax.set($boiling, {x: 2864});
-TweenMax.set($cooling, {x: 4200});
-TweenMax.set($fermenting, {x: 5534});
-TweenMax.set($bottling, {x: 6860});
-TweenMax.set($endPop, {x: 8000});
+TweenMax.set($magicCloud, {x: positionsArr[5]});
+TweenMax.set($millmash, {x: positionsArr[6]});
+TweenMax.set($boiling, {x: positionsArr[7]});
+TweenMax.set($cooling, {x: positionsArr[8]});
+TweenMax.set($fermenting, {x: positionsArr[9]});
+TweenMax.set($bottling, {x: positionsArr[10]});
+TweenMax.set($endPop, {x: positionsArr[11]});
 
 /* Setting things up at the beginning END */
 
@@ -72,7 +78,7 @@ var sunBeamArr = [$('.flumpje-item-1'), $('.flumpje-item-2'), $('.flumpje-item-3
                 .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200}', ease:ease}, "sunBeam")
                 .to(sunBeamArr[9], 4, {x:'-=200', ease:ease}, "sunBeam")
                 .to(sunBeamArr, 1.5, {opacity: 1}, "sunBeam")
-                .to(sunBeamArr, 1, {delay:4, opacity: 0}, "sunBeam")
+                .to(sunBeamArr, 1, {delay:3.5, opacity: 0}, "sunBeam")
                 .to(sunBeamArr, 0.5, {scale: 0.8}, "sunBeam")
                 .to(sunBeamArr, 0.5, {delay:1, scale: 1}, "sunBeam")
                 .to(sunBeamArr, 0.5, {delay:1.5, scale: 0.8}, "sunBeam")
