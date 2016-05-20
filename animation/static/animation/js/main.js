@@ -38,7 +38,7 @@ var e = document.body,
 
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000] //TODO change values to suit mobile screens
+    positionsArr = [10, 2010,705, 1007,400, -135, 1406, 2734, 4070, 5404, 6730, 7570] //TODO change values to suit mobile screens
 } else {
     positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000]
 }
