@@ -248,9 +248,15 @@ $btnAutoScroll.click(function (e) {
 });
 
 function changeScrollButtonClass() {
+    var n = parseInt($bg.css('transform').split(',')[4]);
     if ($btnAutoScroll.hasClass('scrolling')) {
         $btnAutoScroll.removeClass('scrolling');
         stopAutoScroll();
+    } else if (n < -7690) {
+        moveBackground();
+        setTimeout(function(){
+            startAutoScroll();
+        }, 2000);
     } else {
         $btnAutoScroll.addClass('scrolling');
         startAutoScroll();
@@ -393,6 +399,7 @@ function checkForActionItemEffects(hasClass) {
             break;
         case "milled-mashed":
             mainActionItemtl.clear();
+            TweenMax.to($actionItem, 0.8, {top: '30vh', left: '84vw'});
             break;
         case "boiling":
             //clear Timeline from previous tweens&callbacks

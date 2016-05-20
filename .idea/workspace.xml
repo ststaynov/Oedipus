@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2441413f-1c0a-4295-a200-2fd856cccf72" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/css/base.css" afterPath="$PROJECT_DIR$/animation/static/animation/css/base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/animation/static/animation/js/main.js" afterPath="$PROJECT_DIR$/animation/static/animation/js/main.js" />
     </list>
     <ignored path="oedipus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_action-item.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_action-item.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="63" column="52" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
+            <state relative-caret-position="105">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -41,21 +41,21 @@
       <file leaf-file-name="_responsive.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/settings/_responsive.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="18" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="774">
+              <caret line="283" column="44" selection-start-line="283" selection-start-column="44" selection-end-line="283" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1463671610000" expanded="true" signature="7358:7470" placeholder="..." />
+                <marker date="1463751847000" expanded="true" signature="7358:7470" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -142,7 +142,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -197,8 +197,8 @@
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/steps/_boiling.scss" />
         <option value="$PROJECT_DIR$/animation/templates/animation/index.html" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/settings/_responsive.scss" />
-        <option value="$PROJECT_DIR$/animation/static/animation/js/main.js" />
         <option value="$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss" />
+        <option value="$PROJECT_DIR$/animation/static/animation/js/main.js" />
       </list>
     </option>
   </component>
@@ -1095,7 +1095,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463671787345</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="url configured">
+      <created>1463671893350</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1463671893350</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1496,25 +1503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/settings/_responsive.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1463671610000" expanded="true" signature="7358:7470" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/animation/static/animation/images/desktop/step5/button-cloud-hover.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1527,9 +1515,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/components/_action-item.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="63" column="52" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
+        <state relative-caret-position="105">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/animation/static/animation/scss/settings/_responsive.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/animation/static/animation/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="283" column="44" selection-start-line="283" selection-start-column="44" selection-end-line="283" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1463751847000" expanded="true" signature="7358:7470" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
