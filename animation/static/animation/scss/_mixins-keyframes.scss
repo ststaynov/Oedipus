@@ -24,3 +24,11 @@
     background-size: 100%;
     background-repeat: no-repeat;
 }
+
+@mixin magicCloud-fg-item() {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

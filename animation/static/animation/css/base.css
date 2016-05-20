@@ -357,6 +357,62 @@ h1 {
     opacity: 1; }
   .c-magic-cloud.unloaded {
     opacity: 0; }
+  .c-magic-cloud .e-energy {
+    width: 100%;
+    height: 100%; }
+  .c-magic-cloud .e-flumpje-item-container {
+    width: 800px;
+    height: 500px;
+    position: relative;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 255, 0.2); }
+  .c-magic-cloud .e-flumpje-item {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../images/desktop/step5/flumpje.png"); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(1) {
+      top: 136px;
+      left: 237px;
+      transform: rotate(36deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(2) {
+      top: 100px;
+      left: 300px;
+      transform: rotate(72deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(3) {
+      top: 105px;
+      right: 364px;
+      transform: rotate(108deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(4) {
+      top: 143px;
+      right: 311px;
+      transform: rotate(144deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(5) {
+      top: 206px;
+      right: 293px;
+      transform: rotate(180deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(6) {
+      top: 266px;
+      right: 321px;
+      transform: rotate(216deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(7) {
+      top: 307px;
+      left: 350px;
+      transform: rotate(252deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(8) {
+      top: 298px;
+      left: 274px;
+      transform: rotate(288deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(9) {
+      top: 257px;
+      left: 221px;
+      transform: rotate(324deg); }
+    .c-magic-cloud .e-flumpje-item:nth-of-type(10) {
+      top: 196px;
+      left: 208px;
+      transform: rotate(360deg); }
 
 .c-milling-mashing {
   position: absolute;
@@ -420,26 +476,26 @@ h1 {
 @-webkit-keyframes drip {
   0% {
     opacity: 0;
-    top: 50px;
     width: 0;
-    height: 0; }
+    height: 0;
+    transform: translateY(50px); }
   50% {
-    top: 75px; }
+    transform: translateY(75px); }
   100% {
-    top: 170px;
-    opacity: 1; } }
+    opacity: 1;
+    transform: translateY(170px); } }
 
 @keyframes drip {
   0% {
     opacity: 0;
-    top: 50px;
     width: 0;
-    height: 0; }
+    height: 0;
+    transform: translateY(50px); }
   50% {
-    top: 75px; }
+    transform: translateY(75px); }
   100% {
-    top: 170px;
-    opacity: 1; } }
+    opacity: 1;
+    transform: translateY(170px); } }
   .c-milling-mashing .e-milling-container {
     width: 200px;
     height: 100px;
@@ -466,27 +522,25 @@ h1 {
 
 @-webkit-keyframes spin {
   100% {
-    -webkit-transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 @keyframes spin {
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
 @-webkit-keyframes spinreverse {
   100% {
-    -webkit-transform: rotate(-360deg); } }
+    transform: rotate(-360deg); } }
 
 @keyframes spinreverse {
   100% {
-    -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg); } }
 
 @keyframes grain-fall {
   0% {
-    top: -2px; }
+    transform: translateY(-2px); }
   100% {
-    top: 26px; } }
+    transform: translateY(26px); } }
   .c-milling-mashing .e-milled-grain {
     width: 38px;
     height: 30px;
@@ -585,32 +639,28 @@ h1 {
 @-webkit-keyframes drop {
   0% {
     opacity: 0;
-    top: 50px;
-    left: -10px; }
+    transform: translateX(-10px) translateY(50px); }
   25% {
-    left: 10px; }
+    transform: translateX(10px) translateY(50px); }
   50% { }
   80% {
     opacity: 1; }
   100% {
-    top: 220px;
     opacity: 0;
-    left: 10px; } }
+    transform: translateX(10px) translateY(220px); } }
 
 @keyframes drop {
   0% {
     opacity: 0;
-    top: 50px;
-    left: -10px; }
+    transform: translateX(-10px) translateY(50px); }
   25% {
-    left: 10px; }
+    transform: translateX(10px) translateY(50px); }
   50% { }
   80% {
     opacity: 1; }
   100% {
-    top: 220px;
-    opacity: 0;
-    left: 10px; } }
+    transform: translateX(10px) translateY(220px);
+    opacity: 0; } }
   .c-boiling .e-steam-top {
     width: 75px;
     height: 75px;
@@ -684,35 +734,31 @@ h1 {
 
 @-webkit-keyframes boil {
   0% {
-    top: 120px;
-    left: 10px;
-    opacity: 0; }
+    opacity: 0;
+    transform: translateX(10px) translateY(220px); }
   25% {
     opacity: 1; }
   50% {
-    left: -10px; }
+    transform: translateX(-10px); }
   80% {
-    left: 10px; }
+    transform: translateX(10px); }
   100% {
-    top: -20px;
-    left: -10px;
-    opacity: 0; } }
+    opacity: 0;
+    transform: translateX(-10px) translateY(50px); } }
 
 @keyframes boil {
   0% {
-    top: 120px;
-    left: 10px;
-    opacity: 0; }
+    opacity: 0;
+    transform: translateX(10px) translateY(220px); }
   25% {
     opacity: 1; }
   50% {
-    left: -10px; }
+    transform: translateX(-10px); }
   80% {
-    left: 10px; }
+    transform: translateX(10px); }
   100% {
-    top: -20px;
-    left: -10px;
-    opacity: 0; } }
+    opacity: 0;
+    transform: translateX(-10px) translateY(50px); } }
   .c-boiling .water .wave {
     width: 200%;
     position: absolute; }

@@ -66,11 +66,10 @@
    @-webkit-keyframes drop {
     0% {
       opacity: 0;
-      top: 50px;
-      left: -10px;
+      transform: translateX(-10px) translateY(50px);
     }
     25% {
-      left: 10px;
+      transform: translateX(10px) translateY(50px);
     }
     50% {
 
@@ -79,20 +78,18 @@
       opacity: 1;
     }
     100% {
-      top: 220px;
       opacity: 0;
-      left: 10px;
+      transform: translateX(10px) translateY(220px);
     }
   }
 
   @keyframes drop {
     0% {
       opacity: 0;
-      top: 50px;
-      left: -10px;
+      transform: translateX(-10px) translateY(50px);
     }
     25% {
-      left: 10px;
+      transform: translateX(10px) translateY(50px);
     }
     50% {
 
@@ -101,9 +98,8 @@
       opacity: 1;
     }
     100% {
-      top: 220px;
+      transform: translateX(10px) translateY(220px);
       opacity: 0;
-      left: 10px;
     }
   }
 
@@ -196,53 +192,41 @@
 
      @-webkit-keyframes boil {
     0% {
-      top: 120px;
-      left: 10px;
       opacity: 0;
-      //transform: translateX(10px) translateY(220px);
+      transform: translateX(10px) translateY(220px);
     }
     25% {
       opacity: 1;
     }
     50% {
-      left: -10px;
-      //transform: translateX(-10px);
+      transform: translateX(-10px);
     }
     80% {
-      left: 10px;
-      //transform: translateX(10px);
+      transform: translateX(10px);
     }
     100% {
-      top: -20px;
-      left: -10px;
       opacity: 0;
-      //transform: translateX(-10px) translateY(50px);
+      transform: translateX(-10px) translateY(50px);
     }
   }
 
   @keyframes boil {
     0% {
-      top: 120px;
-      left: 10px;
       opacity: 0;
-      //transform: translateX(10px) translateY(220px);
+      transform: translateX(10px) translateY(220px);
     }
     25% {
       opacity: 1;
     }
     50% {
-      left: -10px;
-      //transform: translateX(-10px);
+      transform: translateX(-10px);
     }
     80% {
-      left: 10px;
-      //transform: translateX(10px);
+      transform: translateX(10px);
     }
     100% {
-      top: -20px;
-      left: -10px;
       opacity: 0;
-      //transform: translateX(-10px) translateY(50px);
+      transform: translateX(-10px) translateY(50px);
     }
   }
 

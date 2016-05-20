@@ -34,6 +34,7 @@ var e = document.body,
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
+
 /* Setting things up at the beginning START */
 
 TweenMax.set(fgBg, {x: 10});
@@ -51,7 +52,27 @@ TweenMax.set($cooling, {x: 4200});
 TweenMax.set($fermenting, {x: 5534});
 TweenMax.set($bottling, {x: 6860});
 TweenMax.set($endPop, {x: 8000});
+
 /* Setting things up at the beginning END */
+
+
+/* Setting up animation timelines per step START */
+var sunBeamArr = [$('.flumpje-item-1'), $('.flumpje-item-2'), $('.flumpje-item-3'), $('.flumpje-item-4'), $('.flumpje-item-5'), $('.flumpje-item-6'), $('.flumpje-item-7'), $('.flumpje-item-8'), $('.flumpje-item-9'), $('.flumpje-item-10')];
+
+    magicCloudTl.to(sunBeamArr[0], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[1], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[2], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[3], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[4], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[5], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[6], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[7], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[8], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr[9], 5, {rotation: 720}, "sunBeam")
+                .to(sunBeamArr, 5, {scale: 0.5}, "sunBeam");
+
+/* Setting up animation timelines per step END */
+
 
 /* hinds & hanlers */
 /* keep the scroll execution limited to 180 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
@@ -223,7 +244,6 @@ $(window).load(function () {
 
 function create_flake() {
     snowFlakeCount+=1;
-    consoleLog(random_color);
     var snow_flake = '<div class="snow" style="left:' + random_num1 + '%;transform:scale(' + (random_num2 / 50) + '); animation-duration:' + (random_num3) + 's">' + flakeBeginning + random_color + flakeEnd + '</div>';
 
     $(snow_flake).appendTo(container);

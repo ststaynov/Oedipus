@@ -64,35 +64,35 @@
       -webkit-animation: drip .45s infinite 4s;
       animation: drip .75s infinite 4s;
   }
-   @-webkit-keyframes drip {
-      0% {
-        opacity: 0;
-        top: 50px;
-        width: 0;
-        height: 0;
-      }
-      50% {
-        top: 75px;
-      }
-      100% {
-        top: 170px;
-        opacity: 1;
-      }
+  @-webkit-keyframes drip {
+    0% {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      transform: translateY(50px);
     }
+    50% {
+      transform: translateY(75px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(170px);
+    }
+  }
 
   @keyframes drip {
     0% {
       opacity: 0;
-      top: 50px;
       width: 0;
       height: 0;
+      transform: translateY(50px);
     }
     50% {
-      top: 75px;
+      transform: translateY(75px);
     }
     100% {
-      top: 170px;
       opacity: 1;
+      transform: translateY(170px);
     }
   }
   /* milling container start */
@@ -127,11 +127,11 @@
     animation: spinreverse 4s linear infinite;
   }
 
-  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { transform: rotate(360deg); } }
+  @keyframes spin { 100% { transform:rotate(360deg); } }
 
-  @-webkit-keyframes spinreverse { 100% { -webkit-transform: rotate(-360deg); } }
-  @keyframes spinreverse { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+  @-webkit-keyframes spinreverse { 100% {transform: rotate(-360deg); } }
+  @keyframes spinreverse { 100% {transform: rotate(-360deg); } }
 
   /* milling container end */
 
@@ -139,10 +139,10 @@
 
   @keyframes grain-fall {
     0% {
-      top: -2px;
+      transform: translateY(-2px);
     }
     100% {
-      top: 26px;
+      transform: translateY(26px);
     }
   }
 
