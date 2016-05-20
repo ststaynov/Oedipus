@@ -43,57 +43,58 @@
 
   .e-flumpje-item {
     @include magicCloud-fg-item();
-    background-image: url('../images/desktop/step5/flumpje.png');
+    background-image: url('../images/desktop/step1/beam.png');
+    opacity: 0;
 
     &:nth-of-type(1) {
-      top: 136px;
+      top: 116px;
       left: 237px;
-      transform: rotate(36deg)
+      transform: rotate(56deg)
     }
     &:nth-of-type(2) {
-      top: 100px;
+      top: 60px;
       left: 300px;
-      transform: rotate(72deg)
+      transform: rotate(112deg)
     }
     &:nth-of-type(3) {
-      top: 105px;
+      top: 85px;
       right: 364px;
-      transform: rotate(108deg)
+      transform: rotate(148deg)
     }
     &:nth-of-type(4) {
-      top: 143px;
+      top: 123px;
       right: 311px;
-      transform: rotate(144deg)
+      transform: rotate(184deg)
     }
     &:nth-of-type(5) {
-      top: 206px;
+      top: 166px;
       right: 293px;
-      transform: rotate(180deg)
+      transform: rotate(220deg)
     }
     &:nth-of-type(6) {
-      top: 266px;
+      top: 226px;
       right: 321px;
-      transform: rotate(216deg)
+      transform: rotate(256deg)
     }
     &:nth-of-type(7) {
-      top: 307px;
+      top: 267px;
       left: 350px;
-      transform: rotate(252deg)
+      transform: rotate(292deg)
     }
     &:nth-of-type(8) {
-      top: 298px;
+      top: 258px;
       left: 274px;
-      transform: rotate(288deg)
+      transform: rotate(328deg)
     }
     &:nth-of-type(9) {
-      top: 257px;
+      top: 217px;
       left: 221px;
-      transform: rotate(324deg)
+      transform: rotate(364deg)
     }
     &:nth-of-type(10) {
-      top: 196px;
+      top: 176px;
       left: 208px;
-      transform: rotate(360deg)
+      transform: rotate(40deg)
     }
   }
 }

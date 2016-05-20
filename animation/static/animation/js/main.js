@@ -23,7 +23,7 @@ var e = document.body,
     $replicaMagicCloud = $('.c-magic-cloud.replica'),
 
     // timelines per step
-    magicCloudTl = new TimelineMax({}),
+    magicCloudTl = new TimelineMax({repeat:-1}),
     millmashTl = new TimelineMax({}),
     boilingTl = new TimelineMax({}),
     coolingTl = new TimelineMax({}),
@@ -57,19 +57,29 @@ TweenMax.set($endPop, {x: 8000});
 
 
 /* Setting up animation timelines per step START */
-var sunBeamArr = [$('.flumpje-item-1'), $('.flumpje-item-2'), $('.flumpje-item-3'), $('.flumpje-item-4'), $('.flumpje-item-5'), $('.flumpje-item-6'), $('.flumpje-item-7'), $('.flumpje-item-8'), $('.flumpje-item-9'), $('.flumpje-item-10')];
+var sunBeamArr = [$('.flumpje-item-1'), $('.flumpje-item-2'), $('.flumpje-item-3'), $('.flumpje-item-4'), $('.flumpje-item-5'), $('.flumpje-item-6'), $('.flumpje-item-7'), $('.flumpje-item-8'), $('.flumpje-item-9'), $('.flumpje-item-10')],
+    ease = 'Power0.easeNone';
 
-    magicCloudTl.to(sunBeamArr[0], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[1], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[2], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[3], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[4], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[5], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[6], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[7], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[8], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr[9], 5, {rotation: 720}, "sunBeam")
-                .to(sunBeamArr, 5, {scale: 0.5}, "sunBeam");
+
+    magicCloudTl.to(sunBeamArr[0], 4, {x:'-=200', y:'-=200', ease:ease}, "sunBeam")
+                .to(sunBeamArr[1], 4, {y:'-=200', ease:ease}, "sunBeam")
+                .to(sunBeamArr[2], 4, {x:'+=200', y:'-=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[3], 4, {x:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[4], 4, {x:'+=200', y:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[5], 4, {x:'+=100', y:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[6], 4, {y:'+=170}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[7], 4, {x:'-=100', y:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[9], 4, {x:'-=200', ease:ease}, "sunBeam")
+                .to(sunBeamArr, 1.5, {opacity: 1}, "sunBeam")
+                .to(sunBeamArr, 1, {delay:4, opacity: 0}, "sunBeam")
+                .to(sunBeamArr, 0.5, {scale: 0.8}, "sunBeam")
+                .to(sunBeamArr, 0.5, {delay:1, scale: 1}, "sunBeam")
+                .to(sunBeamArr, 0.5, {delay:1.5, scale: 0.8}, "sunBeam")
+                .to(sunBeamArr, 0.5, {delay:2, scale: 1}, "sunBeam")
+                .to(sunBeamArr, 0.5, {delay:2.5, scale: 0.8}, "sunBeam")
+                .to(sunBeamArr, 0.5, {delay:3, scale: 1}, "sunBeam")
+                .to(sunBeamArr, 0.5, {delay:3.5, scale: 0.8}, "sunBeam");
 
 /* Setting up animation timelines per step END */
 
