@@ -24,12 +24,12 @@
 </head>
 
 <body>
-{#<div class="c-borders">#}
-{#    <div class="border border-top"></div>#}
-{#    <div class="border border-right"></div>#}
-{#    <div class="border border-bottom"></div>#}
-{#    <div class="border border-left"></div>#}
-{#</div>#}
+<div id="preloader">
+    <div id="loading-animation">
+{#         animation goes here #}
+    </div>
+</div>
+
 <div class="logo">
     <img src="{% static "animation/images/oedipus_logo.svg" %}" alt="">
 </div>
@@ -211,6 +211,14 @@
 <!--<script src="static/js/bafter_load.js"></script>-->
 <script src="{% static "animation/js/deb_throttle.js" %}"></script>
 <script src="{% static "animation/js/main.js" %}"></script>
+<script>
+$(window).load(function() {
+// will first fade out the loading animation
+    jQuery("#loading-animation").fadeOut();
+        // will fade out the whole DIV that covers the website.
+    jQuery("#preloader").delay(1000).fadeOut("slow");
+    });
+</script>
 </body>
 
 </html>

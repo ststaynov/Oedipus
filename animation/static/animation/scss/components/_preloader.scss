@@ -1,0 +1,27 @@
+
+#preloader {
+    background-color: #182327;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    top: 0;
+    z-index: 9999999;
+}
+
+#loading-animation {
+  position: absolute;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('../images/oedipus_logo.svg');
+  background-size: 100%;
+  animation: spin 3s linear infinite;
+}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
