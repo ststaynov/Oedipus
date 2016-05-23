@@ -104,11 +104,8 @@
   }
 
   .e-steam-top {
-    width: 75px;
-    height: 75px;
     position: absolute;
-    background-color: rgba(orange,.2);
-    top: 62px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -143,7 +140,7 @@
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    background-color: rgba(blue,.5);
+    background-color: rgba(#32bafa,.5);
   }
 
   .e-boil-item {

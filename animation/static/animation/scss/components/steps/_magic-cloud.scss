@@ -33,7 +33,7 @@
     height: 100%;
   }
 
-  .e-flumpje-item-container {
+  .e-beam-item-container {
     width: 800px;
     height: 500px;
     position: relative;
@@ -41,7 +41,7 @@
     background-color: rgba(blue,0.2);
   }
 
-  .e-flumpje-item {
+  .e-beam-item {
     @include magicCloud-fg-item();
     background-image: url('../images/desktop/step1/beam.png');
     opacity: 0;
