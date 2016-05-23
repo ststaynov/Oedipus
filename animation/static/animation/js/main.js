@@ -436,7 +436,7 @@ function checkBackgroundColors() {
             // consoleLog('step6 - white');
         } else if (n > step6End) { // step7
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
-            // consoleLog('step7 - white');
+            checkActionItemState('bottling');
         }
     }
 }
