@@ -10,7 +10,8 @@ var e = document.body,
     $flemon = $('.c-flying-lemon'),
     $btnAutoScroll = $('.c-auto-scroll-button'),
     loopBackwardAllowed = false,
-    stepPositionsArr = [],
+    positionsArr = [],
+    $thermometerNeedle = $('#needle');
 
     // steps
     $replicaEndPop = $('.c-end-pop.replica'),
@@ -86,6 +87,8 @@ var sunBeamArr = [$('.flumpje-item-1'), $('.flumpje-item-2'), $('.flumpje-item-3
                 .to(sunBeamArr, 0.5, {delay:2.5, scale: 0.8}, "sunBeam")
                 .to(sunBeamArr, 0.5, {delay:3, scale: 1}, "sunBeam")
                 .to(sunBeamArr, 0.5, {delay:3.5, scale: 0.8}, "sunBeam");
+
+    boilingTl.to($thermometerNeedle, 2, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "begin");
 
 /* Setting up animation timelines per step END */
 
