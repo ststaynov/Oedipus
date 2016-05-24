@@ -6,7 +6,20 @@
   height: 500px;
   pointer-events: none;
   background-color: rgba(purple,.2);
+
+  .c-window {
+    width:100px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    top: 291px;
+    left: 0;
+    right: 0;
+    background-color: black;
+    border-radius: 100%;
+  }
 }
+
 
 .c-fermenting-foreground {
 

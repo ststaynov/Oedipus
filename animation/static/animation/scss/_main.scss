@@ -148,3 +148,12 @@ h1 {
   transform: translateX(-50%);
   left: 50%;
 }
+
+svg.bg {
+  width: 500px;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

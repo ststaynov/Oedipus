@@ -10,8 +10,6 @@
 
 .c-action-container {
   .c-action {
-    width: 270px;
-    height: 200px;
     position: absolute;
     top: 30vh;
     left: 84vw;
@@ -23,7 +21,7 @@
     transition: visibility 0s, opacity 0.5s linear;
 
     &.initial {
-      background-color: rgba(blue,0.5);
+      //background-color: rgba(blue,0.5);
       visibility: visible;
       opacity: 1;
       svg#c-cloud-millmash {
@@ -32,7 +30,7 @@
     }
 
     &.milled-mashed {
-      background-color: rgba($color-oedipus-green,0.5);
+      //background-color: rgba($color-oedipus-green,0.5);
       visibility: visible;
       opacity: 1;
       svg#c-cloud-millmash {
@@ -41,7 +39,7 @@
     }
 
     &.boiling {
-      background-color: rgba($color-oedipus-pink,0.5);
+      //background-color: rgba($color-oedipus-pink,0.5);
       visibility: visible;
       opacity: 1;
       svg#c-cloud-boil {
@@ -50,7 +48,7 @@
     }
 
     &.cooling {
-      background-color: rgba($color-oedipus-yellow,0.5);
+      //background-color: rgba($color-oedipus-yellow,0.5);
       visibility: visible;
       opacity: 1;
       &.right {
@@ -71,7 +69,7 @@
     }
 
     &.fermenting {
-      background-color: rgba($color-oedipus-pink-dark,0.5);
+      //background-color: rgba($color-oedipus-pink-dark,0.5);
       visibility: visible;
       opacity: 1;
       svg#c-cloud-fermenting {
@@ -80,7 +78,7 @@
     }
 
     &.bottling {
-      background-color: rgba($color-oedipus-blue-dark,0.5);
+      //background-color: rgba($color-oedipus-blue-dark,0.5);
       visibility: visible;
       opacity: 0;
       transition: visibility 0s, opacity 0.5s linear;
@@ -113,22 +111,15 @@
   #e-hand-left {
 
   }
-  //.cloud-back {
-  //
-  //}
-  //.cloud-front {
-  //
-  //}
-  //.face {
-  //
-  //}
-  //.hand-left {
-  //
-  //}
-  //.hand-right {
-  //
-  //}
+  @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .c-action {
+      top: 10vh;
 
+      svg {
+        width: 90px;
+      }
+    }
+  }
 
 }
 

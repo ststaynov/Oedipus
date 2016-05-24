@@ -148,6 +148,14 @@ h1 {
   transform: translateX(-50%);
   left: 50%; }
 
+svg.bg {
+  width: 500px;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
 #preloader {
   background-color: #fbf8f1;
   bottom: 0;
@@ -189,8 +197,6 @@ h1 {
       -bottling (stops at previous step and stays there)
  */
 .c-action-container .c-action {
-  width: 270px;
-  height: 200px;
   position: absolute;
   top: 30vh;
   left: 84vw;
@@ -201,25 +207,21 @@ h1 {
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear; }
   .c-action-container .c-action.initial {
-    background-color: rgba(0, 0, 255, 0.5);
     visibility: visible;
     opacity: 1; }
     .c-action-container .c-action.initial svg#c-cloud-millmash {
       visibility: visible; }
   .c-action-container .c-action.milled-mashed {
-    background-color: rgba(163, 208, 26, 0.5);
     visibility: visible;
     opacity: 1; }
     .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
       visibility: visible; }
   .c-action-container .c-action.boiling {
-    background-color: rgba(255, 152, 181, 0.5);
     visibility: visible;
     opacity: 1; }
     .c-action-container .c-action.boiling svg#c-cloud-boil {
       visibility: visible; }
   .c-action-container .c-action.cooling {
-    background-color: rgba(249, 223, 0, 0.5);
     visibility: visible;
     opacity: 1; }
     .c-action-container .c-action.cooling.right {
@@ -234,13 +236,11 @@ h1 {
       .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
         visibility: visible; }
   .c-action-container .c-action.fermenting {
-    background-color: rgba(202, 68, 127, 0.5);
     visibility: visible;
     opacity: 1; }
     .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
       visibility: visible; }
   .c-action-container .c-action.bottling {
-    background-color: rgba(77, 80, 155, 0.5);
     visibility: visible;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear; }
@@ -253,6 +253,12 @@ h1 {
     position: absolute;
     visibility: hidden;
     overflow: visible; }
+
+@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .c-action-container .c-action {
+    top: 10vh; }
+    .c-action-container .c-action svg {
+      width: 90px; } }
 
 .c-navigation {
   position: absolute;
@@ -556,20 +562,20 @@ h1 {
     position: absolute;
     top: 165px;
     left: 50%;
-    transform: translateX(-50%);
-    background: url("../images/desktop/step2/milling-container.png") center center no-repeat; }
+    transform: translateX(-50%); }
   .c-milling-mashing .e-cog-wheel-left, .c-milling-mashing .e-cog-wheel-right {
-    width: 50px;
-    height: 50px;
+    width: 78px;
+    height: 78px;
     position: absolute;
     display: inline-block;
-    background: url("../images/desktop/step2/cog-wheel.png") center center no-repeat; }
+    background: url("../images/desktop/step2/cog-wheel.svg");
+    background-size: 100%; }
   .c-milling-mashing .e-cog-wheel-left {
-    margin-left: 50px;
+    margin-left: 5px;
     -webkit-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite; }
   .c-milling-mashing .e-cog-wheel-right {
-    margin-left: 100px;
+    margin-left: 105px;
     -webkit-animation: spinreverse 4s linear infinite;
     animation: spinreverse 4s linear infinite; }
 
@@ -597,10 +603,8 @@ h1 {
   .c-milling-mashing .e-milled-grain {
     width: 38px;
     height: 30px;
-    margin-left: 5px;
-    margin-top: -2px;
     position: absolute;
-    top: 264px;
+    top: 340px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 15px 15px 8px 8px;
@@ -720,16 +724,15 @@ h1 {
     left: 50%;
     transform: translateX(-50%); }
   .c-boiling .e-boiling-tank {
-    width: 400px;
-    height: 360px;
+    width: 370px;
+    height: 270px;
     padding-top: 125px;
     position: absolute;
-    top: 135px;
+    top: 152px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url("../images/desktop/step3/boil-tank.svg");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    -webkit-clip-path: polygon(20% 0, 78% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(20% 0, 78% 0%, 100% 100%, 0% 100%);
     overflow: hidden; }
   .c-boiling .thermometer {
     display: inline-block;
@@ -738,7 +741,7 @@ h1 {
     left: 60px; }
   .c-boiling .e-boiling-items-container {
     width: 100%;
-    height: 207px;
+    height: 120px;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -889,6 +892,16 @@ h1 {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
+  .c-fermenting .c-window {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    top: 291px;
+    left: 0;
+    right: 0;
+    background-color: black;
+    border-radius: 100%; }
 
 .c-fermenting-foreground .e-note {
   right: 50px;
