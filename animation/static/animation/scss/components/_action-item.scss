@@ -10,8 +10,8 @@
 
 .c-action-container {
   .c-action {
-    width: 150px;
-    height: 95px;
+    width: 270px;
+    height: 200px;
     position: absolute;
     top: 30vh;
     left: 84vw;
@@ -26,18 +26,27 @@
       background-color: rgba(blue,0.5);
       visibility: visible;
       opacity: 1;
+      svg#c-cloud-millmash {
+        visibility: visible;
+      }
     }
 
     &.milled-mashed {
       background-color: rgba($color-oedipus-green,0.5);
       visibility: visible;
       opacity: 1;
+      svg#c-cloud-millmash {
+        visibility: visible;
+      }
     }
 
     &.boiling {
       background-color: rgba($color-oedipus-pink,0.5);
       visibility: visible;
       opacity: 1;
+      svg#c-cloud-boil {
+        visibility: visible;
+      }
     }
 
     &.cooling {
@@ -45,15 +54,19 @@
       visibility: visible;
       opacity: 1;
       &.right {
-        background-image: url('../images/desktop/step4/windy-right.svg');
         background-size: contain;
         background-repeat: no-repeat;
+        svg#c-cloud-cool-right {
+          visibility: visible;
+        }
       }
       &.left {
-        background-image: url('../images/desktop/step4/windy-left.svg');
         transform: translate(-100,-100);
         background-size: contain;
         background-repeat: no-repeat;
+        svg#c-cloud-cool-left {
+          visibility: visible;
+        }
       }
     }
 
@@ -61,7 +74,9 @@
       background-color: rgba($color-oedipus-pink-dark,0.5);
       visibility: visible;
       opacity: 1;
-      background-image: url('../images/desktop/step5/clock.png');
+      svg#c-cloud-fermenting {
+        visibility: visible;
+      }
     }
 
     &.bottling {
@@ -71,5 +86,49 @@
       transition: visibility 0s, opacity 0.5s linear;
     }
   }
+
+  .c-cloud {
+    position: relative;
+    width: 150px;
+    height: 100px;
+
+    svg {
+      position: absolute;
+      visibility: hidden;
+      overflow: visible;
+    }
+  }
+
+  #e-cloud-back {
+
+  }
+
+  #e-cloud-front {
+
+  }
+
+  #e-hand-right {
+
+  }
+  #e-hand-left {
+
+  }
+  //.cloud-back {
+  //
+  //}
+  //.cloud-front {
+  //
+  //}
+  //.face {
+  //
+  //}
+  //.hand-left {
+  //
+  //}
+  //.hand-right {
+  //
+  //}
+
+
 }
 

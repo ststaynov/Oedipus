@@ -13,6 +13,22 @@ var e = document.body,
     positionsArr = [],
     $thermometerNeedle = $('#needle'),
 
+    // action item
+    $actionItem = $('.c-action'),
+    $cloudBack = $('#e-cloud-back'),
+    $cloudFront = $('#e-cloud-front'),
+    $handRight = $('#e-hand-right'),
+    $handLeft = $('#e-hand-left'),
+    $warmBeams = $('path#e-cloud-warm-beam'), //include path so that jquery selects all
+    $coldLeftBeams = $('path#e-cloud-cold-left-beam'),
+    $coldRightBeams = $('path#e-cloud-cold-right-beam'),
+        //clouds
+        $cloudMillMash = $('#c-cloud-millmash'),
+        $cloudBoil = $('#c-cloud-boil'),
+        $cloudCoolL = $('#c-cloud-cool-left'),
+        $cloudCoolR = $('#c-cloud-cool-right'),
+        $cloudFermenting = $('#c-cloud-fermenting'),
+    
     // steps
     $replicaEndPop = $('.c-end-pop.replica'),
     $magicCloud = $('.c-magic-cloud.original'),
@@ -32,16 +48,16 @@ var e = document.body,
     fermentingTl = new TimelineMax({}),
     bottlingTl = new TimelineMax({}),
     endPopTl = new TimelineMax({});
-
+consoleLog($warmBeams);
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
 
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    positionsArr = [10, 2010,705, 1007,400, -135, 1406, 2734, 4070, 5404, 6730, 7570] //TODO change values to suit mobile screens
+    positionsArr = [10, 2010,705, 1007,400, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //TODO change values to suit mobile screens
 } else {
-    positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000]
+    positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000];
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
@@ -63,6 +79,16 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 /* Setting things up at the beginning END */
 
 
+/* Setting up action item animation START */
+var actionItemTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
+
+actionItemTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial")
+            .staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial")
+            .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -10}, {opacity: 0.3, x: 30, y: 50}, 0.1, "initial");
+
+/* Setting up action item animation END */
+
+
 /* Setting up animation timelines per step START */
 var sunBeamArr = [$('.beam-item-1'), $('.beam-item-2'), $('.beam-item-3'), $('.beam-item-4'), $('.beam-item-5'), $('.beam-item-6'), $('.beam-item-7'), $('.beam-item-8'), $('.beam-item-9'), $('.beam-item-10')],
     ease = 'Power0.easeNone';
@@ -70,13 +96,13 @@ var sunBeamArr = [$('.beam-item-1'), $('.beam-item-2'), $('.beam-item-3'), $('.b
 
     magicCloudTl.to(sunBeamArr[0], 4, {x:'-=200', y:'-=200', ease:ease}, "sunBeam")
                 .to(sunBeamArr[1], 4, {y:'-=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[2], 4, {x:'+=200', y:'-=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[2], 4, {x:'+=200', y:'-=200', ease:ease}, "sunBeam")
                 .to(sunBeamArr[3], 4, {x:'+=200}', ease:ease}, "sunBeam")
-                .to(sunBeamArr[4], 4, {x:'+=200', y:'+=200}', ease:ease}, "sunBeam")
-                .to(sunBeamArr[5], 4, {x:'+=100', y:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[4], 4, {x:'+=200', y:'+=200', ease:ease}, "sunBeam")
+                .to(sunBeamArr[5], 4, {x:'+=100', y:'+=200', ease:ease}, "sunBeam")
                 .to(sunBeamArr[6], 4, {y:'+=170}', ease:ease}, "sunBeam")
-                .to(sunBeamArr[7], 4, {x:'-=100', y:'+=200}', ease:ease}, "sunBeam")
-                .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200}', ease:ease}, "sunBeam")
+                .to(sunBeamArr[7], 4, {x:'-=100', y:'+=200', ease:ease}, "sunBeam")
+                .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200', ease:ease}, "sunBeam")
                 .to(sunBeamArr[9], 4, {x:'-=200', ease:ease}, "sunBeam")
                 .to(sunBeamArr, 1.5, {opacity: 1}, "sunBeam")
                 .to(sunBeamArr, 1, {delay:3.5, opacity: 0}, "sunBeam")
@@ -507,7 +533,8 @@ function checkForActionItemEffects(hasClass) {
 
 function getCoolingTimeline() {
     mainActionItemtl.to($actionItem, 2, {left: '14vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
-                    .to($actionItem, 0.5, {y: '50vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
+                    .to($actionItem, 0.5, {y: '50vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool")
+                    .to($handRight, 2, {x: '-70px', y: '20px', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
 }
 
 function getFermentingTimeline() {

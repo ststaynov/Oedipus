@@ -189,8 +189,8 @@ h1 {
       -bottling (stops at previous step and stays there)
  */
 .c-action-container .c-action {
-  width: 150px;
-  height: 95px;
+  width: 270px;
+  height: 200px;
   position: absolute;
   top: 30vh;
   left: 84vw;
@@ -204,37 +204,55 @@ h1 {
     background-color: rgba(0, 0, 255, 0.5);
     visibility: visible;
     opacity: 1; }
+    .c-action-container .c-action.initial svg#c-cloud-millmash {
+      visibility: visible; }
   .c-action-container .c-action.milled-mashed {
     background-color: rgba(163, 208, 26, 0.5);
     visibility: visible;
     opacity: 1; }
+    .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
+      visibility: visible; }
   .c-action-container .c-action.boiling {
     background-color: rgba(255, 152, 181, 0.5);
     visibility: visible;
     opacity: 1; }
+    .c-action-container .c-action.boiling svg#c-cloud-boil {
+      visibility: visible; }
   .c-action-container .c-action.cooling {
     background-color: rgba(249, 223, 0, 0.5);
     visibility: visible;
     opacity: 1; }
     .c-action-container .c-action.cooling.right {
-      background-image: url("../images/desktop/step4/windy-right.svg");
       background-size: contain;
       background-repeat: no-repeat; }
+      .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
+        visibility: visible; }
     .c-action-container .c-action.cooling.left {
-      background-image: url("../images/desktop/step4/windy-left.svg");
       transform: translate(-100, -100);
       background-size: contain;
       background-repeat: no-repeat; }
+      .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
+        visibility: visible; }
   .c-action-container .c-action.fermenting {
     background-color: rgba(202, 68, 127, 0.5);
     visibility: visible;
-    opacity: 1;
-    background-image: url("../images/desktop/step5/clock.png"); }
+    opacity: 1; }
+    .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
+      visibility: visible; }
   .c-action-container .c-action.bottling {
     background-color: rgba(77, 80, 155, 0.5);
     visibility: visible;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear; }
+
+.c-action-container .c-cloud {
+  position: relative;
+  width: 150px;
+  height: 100px; }
+  .c-action-container .c-cloud svg {
+    position: absolute;
+    visibility: hidden;
+    overflow: visible; }
 
 .c-navigation {
   position: absolute;
