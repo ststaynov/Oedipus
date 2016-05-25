@@ -18,9 +18,11 @@ var e = document.body,
     $cloudFront = $('#e-cloud-front'),
     $handRight = $('#e-hand-right'),
     $handLeft = $('#e-hand-left'),
-    $warmBeams = $('path#e-cloud-warm-beam'), //include path so that jquery selects all
+    $warmBeams = $('path#e-cloud-warm-beam'), //include path so that jquery selects all TODO make warmItems per cloud so that they don't have to wait for eachother
     $coldLeftBeams = $('path#e-cloud-cold-left-beam'),
     $coldRightBeams = $('path#e-cloud-cold-right-beam'),
+    $warmBeamDown = $('path#e-cloud-warm-beam-down'),
+    $warmBeamUp = $('path#e-cloud-warm-beam-up'),
         //clouds
         $cloudMillMash = $('#c-cloud-millmash'),
         $cloudBoil = $('#c-cloud-boil'),
@@ -82,6 +84,8 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 var actionItemTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
 
 actionItemTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial")
+            .fromTo($warmBeamDown, 0.3, {opacity: 1, y: -10}, {opacity: 0.3, y: 50}, "initial")
+            .fromTo($warmBeamUp, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0.3, x: -20, y: -50}, "initial")
             .staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial")
             .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -10}, {opacity: 0.3, x: 30, y: 50}, 0.1, "initial");
 
@@ -134,9 +138,10 @@ var $note = $('.e-note'),
 /* Setting up animation timelines per step END */
 
 
-/* hinds & hanlers */
+/* binds & hanlers */
 /* keep the scroll execution limited to 180 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
 $('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
+$('body').bind('keydown', $.throttle(280, arrowBtnMove));
 
 function scrolling(e) {
     e.preventDefault();
@@ -153,6 +158,18 @@ function scrolling(e) {
     else {
         moveBackground();
     }
+}
+
+function arrowBtnMove(e){
+    var pressedBtnValue =  e.which;
+    if (pressedBtnValue == 37) {
+        moveBackground(f = "forward");
+        consoleLog('movebackward');
+    } else if (pressedBtnValue == 39) {
+        moveBackground();
+        consoleLog('moveforward');
+    }
+    consoleLog('btn number: ' + e.which + 'pressed');
 }
 
 function moveBackground(f) {

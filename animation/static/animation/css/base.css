@@ -251,7 +251,7 @@ svg.bg {
   height: 100px; }
   .c-action-container .c-cloud svg {
     position: absolute;
-    visibility: hidden;
+    visibility: visible;
     overflow: visible; }
 
 @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
