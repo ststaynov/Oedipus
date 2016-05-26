@@ -29,6 +29,15 @@ var e = document.body,
         $cloudCoolL = $('#c-cloud-cool-left'),
         $cloudCoolR = $('#c-cloud-cool-right'),
         $cloudFermenting = $('#c-cloud-fermenting'),
+
+        //cloudTimeLines
+        magicCloudTl = new TimelineMax({repeat:-1}),
+        cloudMillmashTl = new TimelineMax({repeat:-1}),
+        cloudBoilingTl = new TimelineMax({repeat:-1}),
+        cloudCoolingTl = new TimelineMax({repeat:-1}),
+        cloudFermentingTl = new TimelineMax({repeat:-1}),
+        cloudBottlingTl = new TimelineMax({repeat:-1}),
+        cloudEndPopTl = new TimelineMax({repeat:-1});
     
     // steps
     $replicaEndPop = $('.c-end-pop.replica'),
@@ -42,7 +51,6 @@ var e = document.body,
     $replicaMagicCloud = $('.c-magic-cloud.replica'),
 
     // timelines per step
-    magicCloudTl = new TimelineMax({repeat:-1}),
     millmashTl = new TimelineMax({}),
     boilingTl = new TimelineMax({}),
     coolingTl = new TimelineMax({}),
@@ -88,6 +96,16 @@ actionItemTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, 
             .fromTo($warmBeamUp, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0.3, x: -20, y: -50}, "initial")
             .staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial")
             .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -10}, {opacity: 0.3, x: 30, y: 50}, 0.1, "initial");
+
+// var cloudBeamMasterAnimTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
+//
+//     // add all the cloud animations to a MASTER animation
+//     cloudBeamMasterAnimTl.from(cloudMillmashTl)
+//     .from(cloudBoilingTl)
+//     .from(cloudCoolingTl)
+//     .from(cloudFermentingTl)
+//     .from(cloudBottlingTl)
+//     .from(cloudEndPopTl);
 
 /* Setting up action item animation END */
 
@@ -301,29 +319,69 @@ function checkActionItemState(classToAdd) {
 
 /* SNOWFLAKES START */
 var random_num1, random_num2, random_num3, snow, snow_x, snow_y, interval, snowFlakeCount = 0, random_color,
-container = $('.c-frame-snow'),
-container_height = 500,
-container_width = 800;
+snowContainer = $('.c-snow-frame'),
+container_height = $(document).height();
 
-$(window).load(function () {
-    interval = setInterval(function () {
-        random_num1 = Math.round(Math.random() * 100);
-        random_num2 = Math.round(Math.random() * 100);
-        random_num3 = Math.floor(Math.random() * 15) + 5;
-        random_color = oedipusColors[Math.floor((Math.random() * 6) + 1)];
-
-        if(snowFlakeCount < 25) {
-            create_flake();
-        }
-        destroy_flake();
-    }, 200);
+$(window).resize(function() {
+  container_height = $(document).height();
+  // doc_width = $(document).width();
 });
+
+// $(window).load(function () {
+//     interval = setInterval(function () {
+//         random_num1 = Math.round(Math.random() * 100);
+//         random_num2 = Math.round(Math.random() * 100);
+//         random_num3 = Math.floor(Math.random() * 15) + 5;
+//         random_color = oedipusColors[Math.floor((Math.random() * 6) + 1)];
+//
+//         if(snowFlakeCount < 25) {
+//             create_flake();
+//         }
+//         destroy_flake();
+//     }, 200);
+// });
+var isSnowing = false;
+
+function checkSnow(activate) {
+    if (activate) {
+        isSnowing = true;
+        snowContainer.addClass('active');
+        snowInterval = setInterval(function () {
+            random_num1 = Math.round(Math.random() * 100);
+            random_num2 = Math.round(Math.random() * 100);
+            random_num3 = Math.floor(Math.random() * 15) + 5;
+            random_color = oedipusColors[Math.floor((Math.random() * 6) + 1)];
+
+            if(snowFlakeCount < 50) {
+                create_flake();
+            }
+            destroy_flake();
+        }, 200);
+    } else {
+        // fading out flakes is done with css
+        isSnowing = false;
+        setTimeout(function(){
+            if (!isSnowing) {
+                destroyAllflakes();
+            }
+        }, 2000);
+        clearInterval(snowInterval);
+        snowContainer.removeClass('active');
+    }
+}
+
+function destroyAllflakes() {
+    snow.each(function () {
+        $(this).remove();
+        snowFlakeCount-=1;
+    });
+}
 
 function create_flake() {
     snowFlakeCount+=1;
     var snow_flake = '<div class="snow" style="left:' + random_num1 + '%;transform:scale(' + (random_num2 / 50) + '); animation-duration:' + (random_num3) + 's">' + flakeBeginning + random_color + flakeEnd + '</div>';
 
-    $(snow_flake).appendTo(container);
+    $(snow_flake).appendTo(snowContainer);
 }
 
 function destroy_flake() {
@@ -331,7 +389,7 @@ function destroy_flake() {
     snow.each(function () {
         snow_y = $(this).offset().top;
         snow_x = $(this).offset().left;
-        if (snow_y > (container_height + 200)) {
+        if (snow_y > (container_height - 100)) {
             $(this).remove();
             snowFlakeCount-=1;
         }
@@ -514,13 +572,14 @@ function checkForActionItemEffects(hasClass) {
             // mainActionItemtl.eventCallback("repeat", null);
             // mainActionItemtl.eventCallback("yoyo", null);
             // mainActionItemtl.eventCallback("ease", null);
-
+            checkSnow(false);
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '16vw'});
             break;
         case "cooling":
             $actionItem.addClass('right');
             //clear Timeline from previous tweens&callbacks
             mainActionItemtl.clear();
+            checkSnow(true);
 
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '86vw', onComplete:setCloudLeft});
             function setCloudLeft(){
@@ -537,7 +596,7 @@ function checkForActionItemEffects(hasClass) {
             break;
         case "fermenting":
             mainActionItemtl.clear();
-
+            checkSnow(false);
             mainActionItemtl.add(getFermentingTimeline());
             break;
         case "bottling":

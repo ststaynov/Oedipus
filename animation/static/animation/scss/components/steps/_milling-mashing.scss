@@ -10,6 +10,12 @@
   background-position: left center;
   pointer-events: none;
 
+  svg { // TEST
+    width: 290px;
+    top: 60px;
+    left: 46px;
+  }
+
   .e-cloud {
       width:  150px;
       height: 90px;

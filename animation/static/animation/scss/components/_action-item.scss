@@ -22,7 +22,6 @@
 
     &.initial {
       //background-color: rgba(blue,0.5);
-      visibility: visible;
       opacity: 1;
       svg#c-cloud-millmash {
         visibility: visible;
@@ -31,7 +30,6 @@
 
     &.milled-mashed {
       //background-color: rgba($color-oedipus-green,0.5);
-      visibility: visible;
       opacity: 1;
       svg#c-cloud-millmash {
         visibility: visible;
@@ -40,7 +38,6 @@
 
     &.boiling {
       //background-color: rgba($color-oedipus-pink,0.5);
-      visibility: visible;
       opacity: 1;
       svg#c-cloud-boil {
         visibility: visible;
@@ -49,7 +46,6 @@
 
     &.cooling {
       //background-color: rgba($color-oedipus-yellow,0.5);
-      visibility: visible;
       opacity: 1;
       &.right {
         background-size: contain;
@@ -70,7 +66,6 @@
 
     &.fermenting {
       //background-color: rgba($color-oedipus-pink-dark,0.5);
-      visibility: visible;
       opacity: 1;
       svg#c-cloud-fermenting {
         visibility: visible;
@@ -79,7 +74,6 @@
 
     &.bottling {
       //background-color: rgba($color-oedipus-blue-dark,0.5);
-      visibility: visible;
       opacity: 0;
       transition: visibility 0s, opacity 0.5s linear;
     }
@@ -92,24 +86,8 @@
 
     svg {
       position: absolute;
-      visibility: visible;
       overflow: visible;
     }
-  }
-
-  #e-cloud-back {
-
-  }
-
-  #e-cloud-front {
-
-  }
-
-  #e-hand-right {
-
-  }
-  #e-hand-left {
-
   }
   @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) {
     .c-action {
@@ -120,6 +98,37 @@
       }
     }
   }
+
+  /* beam animations START */
+
+
+  #e-cloud-cold-left-beam {
+
+  }
+
+  #e-cloud-cold-right-beam {
+
+  }
+
+  #e-cloud-warm-beam-down {
+
+  }
+
+  #e-cloud-warm-beam-up {
+
+  }
+
+  #e-cloud-warm-beam-left {
+
+  }
+
+  #e-cloud-warm-beam-right {
+
+  }
+
+  /* beam animations END */
+
+
 
 }
 

@@ -196,69 +196,63 @@ svg.bg {
       - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
       -bottling (stops at previous step and stays there)
  */
-.c-action-container .c-action {
-  position: absolute;
-  top: 30vh;
-  left: 84vw;
-  margin-left: -50px;
-  display: inline-block;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear; }
-  .c-action-container .c-action.initial {
-    visibility: visible;
-    opacity: 1; }
-    .c-action-container .c-action.initial svg#c-cloud-millmash {
-      visibility: visible; }
-  .c-action-container .c-action.milled-mashed {
-    visibility: visible;
-    opacity: 1; }
-    .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
-      visibility: visible; }
-  .c-action-container .c-action.boiling {
-    visibility: visible;
-    opacity: 1; }
-    .c-action-container .c-action.boiling svg#c-cloud-boil {
-      visibility: visible; }
-  .c-action-container .c-action.cooling {
-    visibility: visible;
-    opacity: 1; }
-    .c-action-container .c-action.cooling.right {
-      background-size: contain;
-      background-repeat: no-repeat; }
-      .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
-        visibility: visible; }
-    .c-action-container .c-action.cooling.left {
-      transform: translate(-100, -100);
-      background-size: contain;
-      background-repeat: no-repeat; }
-      .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
-        visibility: visible; }
-  .c-action-container .c-action.fermenting {
-    visibility: visible;
-    opacity: 1; }
-    .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
-      visibility: visible; }
-  .c-action-container .c-action.bottling {
-    visibility: visible;
+.c-action-container {
+  /* beam animations START */
+  /* beam animations END */ }
+  .c-action-container .c-action {
+    position: absolute;
+    top: 30vh;
+    left: 84vw;
+    margin-left: -50px;
+    display: inline-block;
+    pointer-events: none;
+    visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear; }
-
-.c-action-container .c-cloud {
-  position: relative;
-  width: 150px;
-  height: 100px; }
-  .c-action-container .c-cloud svg {
-    position: absolute;
-    visibility: visible;
-    overflow: visible; }
-
-@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .c-action-container .c-action {
-    top: 10vh; }
-    .c-action-container .c-action svg {
-      width: 90px; } }
+    .c-action-container .c-action.initial {
+      opacity: 1; }
+      .c-action-container .c-action.initial svg#c-cloud-millmash {
+        visibility: visible; }
+    .c-action-container .c-action.milled-mashed {
+      opacity: 1; }
+      .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
+        visibility: visible; }
+    .c-action-container .c-action.boiling {
+      opacity: 1; }
+      .c-action-container .c-action.boiling svg#c-cloud-boil {
+        visibility: visible; }
+    .c-action-container .c-action.cooling {
+      opacity: 1; }
+      .c-action-container .c-action.cooling.right {
+        background-size: contain;
+        background-repeat: no-repeat; }
+        .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
+          visibility: visible; }
+      .c-action-container .c-action.cooling.left {
+        transform: translate(-100, -100);
+        background-size: contain;
+        background-repeat: no-repeat; }
+        .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
+          visibility: visible; }
+    .c-action-container .c-action.fermenting {
+      opacity: 1; }
+      .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
+        visibility: visible; }
+    .c-action-container .c-action.bottling {
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s linear; }
+  .c-action-container .c-cloud {
+    position: relative;
+    width: 150px;
+    height: 100px; }
+    .c-action-container .c-cloud svg {
+      position: absolute;
+      overflow: visible; }
+  @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .c-action-container .c-action {
+      top: 10vh; }
+      .c-action-container .c-action svg {
+        width: 90px; } }
 
 .c-navigation {
   position: absolute;
@@ -320,32 +314,36 @@ svg.bg {
   100% {
     background-position: -1002px; } }
 
-.grid {
-  width: 100%;
-  height: auto;
-  text-align: center; }
-  .grid .grid-item,
-  .grid .grid-item--width2 {
-    width: 30.5%;
-    height: 360px;
-    margin: 0 1% 20px 1%;
-    display: block;
-    float: left;
-    border: 2px solid rgba(102, 102, 102, 0.5);
-    overflow: hidden;
-    background-color: rgba(128, 0, 128, 0.4); }
-  .grid .grid-item--width2 {
-    width: 66.0%; }
-  @media screen and (max-width: 480px) {
-    .grid .grid-item,
-    .grid .grid-item--width2 {
-      width: 50%; }
-    .grid .grid-item--width2 {
-      width: 100%; } }
+.c-quotes-grid {
+  padding: 35px; }
 
-.grid-container {
-  max-width: 960px;
+#grid-items-container {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
   margin: 0 auto; }
+
+.c-quote-grid-item {
+  width: calc(100% - 10px);
+  margin: 0px 5px 10px 5px;
+  min-width: 300px;
+  display: inline-block;
+  overflow: hidden;
+  transform: translateY(150px) scale(0.6);
+  background-color: red;
+  height: 400px; }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (max-device-aspect-ratio: 8 / 4) and (orientation: landscape) {
+    .c-quote-grid-item {
+      width: calc(33.33333% - 10px); } }
+  @media only screen and (min-width: 530px) {
+    .c-quote-grid-item {
+      width: calc(50% - 10px); } }
+  @media only screen and (min-width: 800px) {
+    .c-quote-grid-item {
+      width: calc(33.33333% - 10px); } }
+  @media only screen and (min-width: 730px) {
+    .c-quote-grid-item {
+      width: calc(25% - 10px); } }
 
 .c-auto-scroll-button {
   width: 75px;
@@ -391,6 +389,52 @@ svg.bg {
         color: #fbf8f1;
         font-size: 18px;
         text-align: center; } }
+
+.c-snow-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none; }
+  .c-snow-frame .snow {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    left: 20%;
+    top: 0;
+    opacity: 0;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition: opacity 2000ms; }
+  .c-snow-frame.active .snow {
+    opacity: 1;
+    transition: opacity 2000ms; }
+  .c-snow-frame .snow svg {
+    width: 100%;
+    height: auto; }
+
+@keyframes fall {
+  0% {
+    top: 0;
+    visibility: hidden; }
+  1% {
+    top: 0;
+    visibility: visible; }
+  80% {
+    top: calc( 100% + 150px);
+    visibility: visible; }
+  81% {
+    top: calc( 100% + 150px);
+    visibility: hidden; }
+  100% {
+    top: 0;
+    visibility: hidden; } }
 
 .c-magic-cloud {
   position: absolute;
@@ -488,6 +532,10 @@ svg.bg {
   /* milling container end */
   /* milled grain start */
   /* milled grain end */ }
+  .c-milling-mashing svg {
+    width: 290px;
+    top: 60px;
+    left: 46px; }
   .c-milling-mashing .e-cloud {
     width: 150px;
     height: 90px;
@@ -845,45 +893,6 @@ svg.bg {
   height: 500px;
   pointer-events: none;
   background-color: rgba(128, 0, 128, 0.2); }
-  .c-cooling-container .c-frame-snow {
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    position: relative;
-    padding: 0;
-    margin: 0; }
-  .c-cooling-container .snow {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    position: absolute;
-    left: 20%;
-    top: 0;
-    z-infex: 2;
-    animation-name: fall;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; }
-  .c-cooling-container .snow svg {
-    width: 100%;
-    height: auto; }
-
-@keyframes fall {
-  0% {
-    top: 0;
-    opacity: 0; }
-  1% {
-    top: 0;
-    opacity: 1; }
-  80% {
-    top: calc( 100% + 150px);
-    opacity: 1; }
-  81% {
-    top: calc( 100% + 150px);
-    opacity: 0; }
-  100% {
-    top: 0;
-    opacity: 0; } }
 
 .c-fermenting {
   position: absolute;

@@ -1,37 +1,42 @@
-.grid {
-  width: 100%;
-  height: auto;
-  text-align: center;
-  
-  .grid-item,
-  .grid-item--width2 {
-    width: 30.5%;
-    height: 360px;
-    margin: 0 1% 20px 1%;
-    display: block;
-    float: left;
-    border: 2px solid hsla(0, 0%, 40%, 0.5);
-    overflow: hidden;
-    background-color: rgba(purple, .4);
+
+.c-quotes-grid {
+  padding: 35px;
+}
+#grid-items-container {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.c-quote-grid-item {
+  width: calc(100% - 10px);
+  margin: 0px 5px 10px 5px;
+  min-width: 300px;
+  display: inline-block;
+  overflow: hidden;
+  transform: translateY(150px) scale(0.6);
+  background-color: red;
+  height: 400px;
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (max-device-aspect-ratio: 8/4) and (orientation: landscape)  {
+    width: calc(33.33333% - 10px);
   }
 
-  .grid-item--width2 {
-    width: 66.0%;
+  @media only screen and (min-width: 530px) {
+    // 2 columns
+    width: calc(50% - 10px);
   }
-
-  @media screen and (max-width: 480px) {
-    .grid-item,
-    .grid-item--width2 {
-      width: 50%;
-    }
-
-    .grid-item--width2 {
-      width: 100%;
-    }
+  @media only screen and (min-width: 800px) {
+    // 3 columns
+    width: calc(33.33333% - 10px);
+  }
+  @media only screen and (min-width: 730px) {
+    // 4 columns
+    width: calc(25% - 10px);
   }
 }
 
-.grid-container {
-  max-width: 960px;
-  margin: 0 auto;
+.c-quote-sizer {
+
 }
