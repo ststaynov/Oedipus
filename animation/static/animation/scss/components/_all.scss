@@ -4,7 +4,6 @@
 @import 'navigation';
 @import 'mouse';
 @import 'flying-lemon';
-@import 'masonry-grid';
 @import 'auto-scroll-button';
 @import 'button';
 @import 'portrait-overlay';
@@ -12,6 +11,10 @@
 
 // test
 @import 'test';
+
+// other pages
+@import 'home-page';
+@import 'masonry-grid';
 
 // steps
 @import 'steps/magic-cloud';

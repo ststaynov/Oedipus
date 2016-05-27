@@ -1,0 +1,30 @@
+
+
+@mixin homeSection {
+    height: 80vh;
+    width: 100%;
+}
+
+.home-page {
+
+  .s-initial {
+    @include homeSection;
+    background-color: #596778;
+  }
+  .s-directions {
+    @include homeSection;
+    background-color: $color-oedipus-pink-dark;
+    text-align: center;
+
+    iframe {
+      margin-top: 10vh;
+      width: 90% !important;
+    }
+  }
+
+  .s-footer {
+    @include homeSection;
+    height: 100px;
+    background-color: #596778;
+  }
+}

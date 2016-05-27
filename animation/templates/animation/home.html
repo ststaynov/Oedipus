@@ -7,19 +7,43 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
-    <script src="{% static "animation/js/bootstrap.js" %}"></script>
+    <script defer src="{% static "animation/js/bootstrap.js" %}"></script>
 </head>
-<body>
+<body style='overflow:visible;width:auto;'>
 
-    <header>home</header>
+    <header class="intro">
+        <nav class="menu">
+           <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+           <label class="menu-open-button" for="menu-open">
+            <span class="lines line-1"></span>
+            <span class="lines line-2"></span>
+            <span class="lines line-3"></span>
+          </label>
 
-    <section class="map"></section>
+           <a href="#" class="menu-item blue"> <i class="fa fa-anchor"></i> </a>
+           <a href="#" class="menu-item green"> <i class="fa fa-coffee"></i> </a>
+           <a href="#" class="menu-item red"> <i class="fa fa-heart"></i> </a>
+           <a href="#" class="menu-item purple"> <i class="fa fa-microphone"></i> </a>
+           <a href="#" class="menu-item orange"> <i class="fa fa-star"></i> </a>
+           <a href="#" class="menu-item lightblue"> <i class="fa fa-diamond"></i> </a>
+        </nav>
+    </header>
 
-    <section class="address"></section>
+    <main class="home-page">
+        <section class="s-initial">
 
-    <footer></footer>
+        </section>
+
+        <section class="s-directions">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.2625984749743!2d4.918810916083054!3d52.38378975406676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609abb38b5575%3A0x693ab0fd624586c0!2sOedipus+Brewing!5e0!3m2!1sen!2snl!4v1464353512236" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </section>
+
+        <section class="s-footer">
+
+        </section>
+    </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
-</bodystyle>
+</body>
 </html>
