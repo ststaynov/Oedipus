@@ -1,4 +1,8 @@
 
+.header {
+
+}
+
 .c-quotes-grid {
   padding: 35px;
 }
@@ -11,13 +15,48 @@
 
 .c-quote-grid-item {
   width: calc(100% - 10px);
-  margin: 0px 5px 10px 5px;
+  margin: 0 5px 10px 5px;
   min-width: 300px;
   display: inline-block;
   overflow: hidden;
-  transform: translateY(150px) scale(0.6);
-  background-color: red;
-  height: 400px;
+  background-color: rgba(red, .02);
+  //height: 400px;
+
+  &:nth-of-type(7n + 1) {
+    background-color: $color-oedipus-green;
+  }
+  &:nth-of-type(7n + 2) {
+    background-color: $color-oedipus-pink-dark;
+  }
+  &:nth-of-type(7n + 3) {
+    background-color: $color-oedipus-blue-dark;
+  }
+  &:nth-of-type(7n + 4) {
+    background-color: $color-oedipus-yellow;
+  }
+  &:nth-of-type(7n + 5) {
+    background-color: $color-oedipus-orange;
+  }
+  &:nth-of-type(7n + 6) {
+    background-color: $color-oedipus-pink;
+  }
+  &:nth-of-type(7n + 7) {
+    background-color: $color-oedipus-blue;
+  }
+
+  .c-vertical-sizer {
+    padding-bottom: 133.333%;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(blue, .02);
+  }
+  .e-inner {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
+  }
+
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (max-device-aspect-ratio: 8/4) and (orientation: landscape)  {
     width: calc(33.33333% - 10px);

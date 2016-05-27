@@ -14,8 +14,7 @@ $(function() {
     $msnry = $('#grid-items-container').masonry({
           itemSelector: '.c-quote-grid-item',
           columnWidth: '.c-quote-sizer',
-          percentPosition: true,
-          transitionDuration: 0
+          percentPosition: true
         });
 
     $msnry.masonry('layout');  // snap everything because padding bottom sometimes borks masonry

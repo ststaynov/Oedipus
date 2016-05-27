@@ -5,13 +5,13 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-color: rgba(purple,.2);
+  //background-color: rgba(purple,.2);
   background-image: url('../images/desktop/step1/bg.png');
   background-repeat: no-repeat;
   background-position: left center;
 
   &.replica {
-    background-color: rgba(orange, 2);
+    //background-color: rgba(orange, 2);
     z-index: $z-5;
     transform: translateX(8000px);
   }
@@ -39,7 +39,7 @@
     height: 500px;
     position: relative;
     margin: 0 auto;
-    background-color: rgba(blue,0.2);
+    //background-color: rgba(blue,0.2);
   }
 
   .e-beam-item {

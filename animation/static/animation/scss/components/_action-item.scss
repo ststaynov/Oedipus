@@ -9,6 +9,27 @@
  */
 
 .c-action-container {
+
+  .c-cloud-bg-sprite {
+    position: absolute;
+    width: 175px;
+    height: 135px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    //background-color: rgba(red, .2);
+    visibility: visible;
+    background-image: url('../images/desktop/action-item/spritesheet.png');
+     animation: puff 0.9s steps(75) infinite;
+  }
+
+  @keyframes puff {
+    from { background-position: 0; }
+    to { background-position: 13875px; }
+  }
+
+
   .c-action {
     position: absolute;
     top: 30vh;
@@ -87,6 +108,7 @@
     svg {
       position: absolute;
       overflow: visible;
+      display: none;
     }
   }
   @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) {

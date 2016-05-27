@@ -11,6 +11,7 @@ var e = document.body,
     loopBackwardAllowed = false,
     positionsArr = [],
     $thermometerNeedle = $('#needle'),
+    magicCloudTl = new TimelineMax({repeat:-1}),
 
     // action item
     $actionItem = $('.c-action'),
@@ -23,6 +24,10 @@ var e = document.body,
     $coldRightBeams = $('path#e-cloud-cold-right-beam'),
     $warmBeamDown = $('path#e-cloud-warm-beam-down'),
     $warmBeamUp = $('path#e-cloud-warm-beam-up'),
+    $warmBeamUpLeft = $('path#e-cloud-warm-beam-up-left'),
+    $warmBeamUpRight = $('path#e-cloud-warm-beam-up-right'),
+    $fermentingTank = $('g#tank'),
+
         //clouds
         $cloudMillMash = $('#c-cloud-millmash'),
         $cloudBoil = $('#c-cloud-boil'),
@@ -31,10 +36,10 @@ var e = document.body,
         $cloudFermenting = $('#c-cloud-fermenting'),
 
         //cloudTimeLines
-        magicCloudTl = new TimelineMax({repeat:-1}),
         cloudMillmashTl = new TimelineMax({repeat:-1}),
         cloudBoilingTl = new TimelineMax({repeat:-1}),
-        cloudCoolingTl = new TimelineMax({repeat:-1}),
+        cloudCoolingTlLeft = new TimelineMax({repeat:-1}),
+        cloudCoolingTlRight = new TimelineMax({repeat:-1}),
         cloudFermentingTl = new TimelineMax({repeat:-1}),
         cloudBottlingTl = new TimelineMax({repeat:-1}),
         cloudEndPopTl = new TimelineMax({repeat:-1});
@@ -89,13 +94,31 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 
 
 /* Setting up action item animation START */
-var actionItemTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
+// var actionItemTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
+//
+// actionItemTl
+//             .staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial")
+//             .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0.3, x: -30, y: 40}, 0.1, "initial");
 
-actionItemTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial")
-            .fromTo($warmBeamDown, 0.3, {opacity: 1, y: -10}, {opacity: 0.3, y: 50}, "initial")
-            .fromTo($warmBeamUp, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0.3, x: -20, y: -50}, "initial")
-            .staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial")
-            .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -10}, {opacity: 0.3, x: 30, y: 50}, 0.1, "initial");
+
+
+//cloudTimeLines
+cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+
+cloudBoilingTl.fromTo($warmBeamUp, 0.3, {opacity: 1, y: -10}, {opacity: 0.3, y: 20}, "initial")
+              .fromTo($warmBeamUpLeft, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0.3, x: -20, y: -50}, "initial")
+              .fromTo($warmBeamUpRight, 0.3, {opacity: 1, x: -10, y: 10}, {opacity: 0.3, x: 20, y: -50}, "initial");
+
+
+cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial");
+
+cloudCoolingTlRight.staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0.3, x: -30, y: 40}, 0.1, "initial");
+
+cloudFermentingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+
+cloudBottlingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+
+cloudEndPopTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
 
 // var cloudBeamMasterAnimTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
 //
@@ -152,7 +175,28 @@ var $note = $('.e-note'),
                 .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($drink, 2, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($flumpje, 2, {top: '-=20',rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
+                // .fromTo($fermentingTank, 0.5, {rotation: -2}, {rotation: 2, transformOrigin:"50% 50%", repeat: -1, repeatdelay:2}, "ferment")
+                // .to($fermentingTank, 0.5, {rotation: 0, repeat: -1, ease: Elastic.easeOut, repeatdelay:2}, "ferment"); TODO WHY YOU NO SHAKE with delay?
+setInterval(function(){shakeAnimation($fermentingTank);},5000);
 
+
+function shakeAnimation(element){
+  TweenMax.to(element, .1, {
+    x: -4,
+    ease: Quad.easeInOut
+  });
+  TweenMax.to(element, .1, {
+    repeat: 4,
+    x: 4,
+    yoyo: true,
+    delay: .1,
+    ease: Quad.easeInOut
+  });
+  TweenMax.to(element, .1, {
+    x: 0,
+    delay: .1 * 4
+  });
+}
 /* Setting up animation timelines per step END */
 
 
@@ -179,6 +223,7 @@ function scrolling(e) {
 }
 
 function arrowBtnMove(e){
+    e.preventDefault();
     var pressedBtnValue =  e.which;
     if (pressedBtnValue == 37) {
         moveBackground(f = "forward");
@@ -205,7 +250,7 @@ function moveBackground(f) {
 function checkPosition(tween) {
     /* Check the current transform value */
     var n = -tween._targets[0]._gsTransform.x.toFixed(2);
-    var p = parseInt($bg.css('transform').split(',')[4]);
+    // var p = parseInt($bg.css('transform').split(',')[4]);
 
     if (n < -7800) {
         /* sets new position at the start of the film  */
@@ -232,10 +277,6 @@ function checkPosition(tween) {
         // if (n > 170) { attempt to remove the bouncing effect when breaking the law
             TweenMax.to(fgBg, 0.4, {x: translateValue});
             TweenMax.to($actionItem, 0.4, {x: -translateValue});
-        // } else {
-        //     TweenMax.set(fgBg, {x: translateValue});
-        //     TweenMax.set($actionItem, {x: -translateValue});
-        // }
     }
     displayBgPosition(n);
 }
@@ -243,7 +284,7 @@ function checkPosition(tween) {
 jQuery('.c-brewing-background-inner')
     .bind('move', function (e) {
         var n = parseInt($bg.css('transform').split(',')[4]);
-        consoleLog('move');
+
         TweenMax.set(fgBg, {x: (n + e.deltaX)});
         TweenMax.set($actionItem, {
             x: -(n + e.deltaX),
@@ -327,19 +368,6 @@ $(window).resize(function() {
   // doc_width = $(document).width();
 });
 
-// $(window).load(function () {
-//     interval = setInterval(function () {
-//         random_num1 = Math.round(Math.random() * 100);
-//         random_num2 = Math.round(Math.random() * 100);
-//         random_num3 = Math.floor(Math.random() * 15) + 5;
-//         random_color = oedipusColors[Math.floor((Math.random() * 6) + 1)];
-//
-//         if(snowFlakeCount < 25) {
-//             create_flake();
-//         }
-//         destroy_flake();
-//     }, 200);
-// });
 var isSnowing = false;
 
 function checkSnow(activate) {
@@ -351,8 +379,7 @@ function checkSnow(activate) {
             random_num2 = Math.round(Math.random() * 100);
             random_num3 = Math.floor(Math.random() * 15) + 5;
             random_color = oedipusColors[Math.floor((Math.random() * 6) + 1)];
-
-            if(snowFlakeCount < 50) {
+            if(snowFlakeCount < 30) {
                 create_flake();
             }
             destroy_flake();
@@ -360,21 +387,25 @@ function checkSnow(activate) {
     } else {
         // fading out flakes is done with css
         isSnowing = false;
-        setTimeout(function(){
+        setTimeout(function() {
             if (!isSnowing) {
                 destroyAllflakes();
             }
         }, 2000);
-        clearInterval(snowInterval);
+        if (snow) {
+            clearInterval(snowInterval);
+        }
         snowContainer.removeClass('active');
     }
 }
 
 function destroyAllflakes() {
-    snow.each(function () {
-        $(this).remove();
-        snowFlakeCount-=1;
-    });
+    if (snow) { //preventing the snow doesn't exist console error
+        snow.each(function () {
+            $(this).remove();
+            snowFlakeCount-=1;
+        });
+    }
 }
 
 function create_flake() {
@@ -601,6 +632,8 @@ function checkForActionItemEffects(hasClass) {
             break;
         case "bottling":
             mainActionItemtl.clear();
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '45vw'});
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '100vw', delay:1});
             break;
         default:
     }
@@ -608,7 +641,7 @@ function checkForActionItemEffects(hasClass) {
 
 function getCoolingTimeline() {
     mainActionItemtl.to($actionItem, 2, {left: '14vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
-                    .to($actionItem, 0.5, {y: '50vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool")
+                    .to($actionItem, 0.5, {top: '10vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool")
                     .to($handRight, 2, {x: '-70px', y: '20px', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
 }
 

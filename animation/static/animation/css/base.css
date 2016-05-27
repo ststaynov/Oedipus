@@ -132,7 +132,6 @@ h1 {
   height: 500px;
   position: absolute;
   top: calc(50vh - 250px);
-  background-color: rgba(0, 0, 0, 0.2);
   transform: translate3d(0px, 0px, 0px);
   pointer-events: none; }
 
@@ -199,6 +198,23 @@ svg.bg {
 .c-action-container {
   /* beam animations START */
   /* beam animations END */ }
+  .c-action-container .c-cloud-bg-sprite {
+    position: absolute;
+    width: 175px;
+    height: 135px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    visibility: visible;
+    background-image: url("../images/desktop/action-item/spritesheet.png");
+    animation: puff 0.9s steps(75) infinite; }
+
+@keyframes puff {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 13875px; } }
   .c-action-container .c-action {
     position: absolute;
     top: 30vh;
@@ -247,7 +263,8 @@ svg.bg {
     height: 100px; }
     .c-action-container .c-cloud svg {
       position: absolute;
-      overflow: visible; }
+      overflow: visible;
+      display: none; }
   @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
     .c-action-container .c-action {
       top: 10vh; }
@@ -325,13 +342,35 @@ svg.bg {
 
 .c-quote-grid-item {
   width: calc(100% - 10px);
-  margin: 0px 5px 10px 5px;
+  margin: 0 5px 10px 5px;
   min-width: 300px;
   display: inline-block;
   overflow: hidden;
-  transform: translateY(150px) scale(0.6);
-  background-color: red;
-  height: 400px; }
+  background-color: rgba(255, 0, 0, 0.02); }
+  .c-quote-grid-item:nth-of-type(7n + 1) {
+    background-color: #a3d01a; }
+  .c-quote-grid-item:nth-of-type(7n + 2) {
+    background-color: #ca447f; }
+  .c-quote-grid-item:nth-of-type(7n + 3) {
+    background-color: #4d509b; }
+  .c-quote-grid-item:nth-of-type(7n + 4) {
+    background-color: #f9df00; }
+  .c-quote-grid-item:nth-of-type(7n + 5) {
+    background-color: #ff8338; }
+  .c-quote-grid-item:nth-of-type(7n + 6) {
+    background-color: #ff98b5; }
+  .c-quote-grid-item:nth-of-type(7n + 7) {
+    background-color: #4998d2; }
+  .c-quote-grid-item .c-vertical-sizer {
+    padding-bottom: 133.333%;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 255, 0.02); }
+  .c-quote-grid-item .e-inner {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0 30px; }
   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (max-device-aspect-ratio: 8 / 4) and (orientation: landscape) {
     .c-quote-grid-item {
       width: calc(33.33333% - 10px); } }
@@ -442,12 +481,10 @@ svg.bg {
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2);
   background-image: url("../images/desktop/step1/bg.png");
   background-repeat: no-repeat;
   background-position: left center; }
   .c-magic-cloud.replica {
-    background-color: orange;
     z-index: 5;
     transform: translateX(8000px); }
   .c-magic-cloud.fading {
@@ -464,8 +501,7 @@ svg.bg {
     width: 800px;
     height: 500px;
     position: relative;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 255, 0.2); }
+    margin: 0 auto; }
   .c-magic-cloud .e-beam-item {
     width: 60px;
     height: 160px;
@@ -520,7 +556,6 @@ svg.bg {
   display: block;
   width: 600px;
   height: 500px;
-  background-color: rgba(128, 0, 128, 0.2);
   background-image: url("../images/desktop/step2/bg.png");
   background-repeat: no-repeat;
   background-position: left center;
@@ -696,7 +731,6 @@ svg.bg {
   width: 600px;
   height: 500px;
   pointer-events: none;
-  background-color: rgba(255, 165, 0, 0.2);
   /* waves start */
   /* waves end */ }
   .c-boiling .e-hops-bag {
@@ -891,16 +925,14 @@ svg.bg {
   display: block;
   width: 600px;
   height: 500px;
-  pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  pointer-events: none; }
 
 .c-fermenting {
   position: absolute;
   display: block;
   width: 600px;
   height: 500px;
-  pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  pointer-events: none; }
   .c-fermenting .c-window {
     width: 100px;
     height: 100px;
@@ -958,16 +990,14 @@ svg.bg {
   display: block;
   width: 600px;
   height: 500px;
-  pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  pointer-events: none; }
 
 .c-end-pop {
   position: absolute;
   display: block;
   width: 1000px;
   height: 500px;
-  pointer-events: none;
-  background-color: rgba(128, 0, 128, 0.2); }
+  pointer-events: none; }
   .c-end-pop.replica {
     background-color: orange;
     z-index: 5;
