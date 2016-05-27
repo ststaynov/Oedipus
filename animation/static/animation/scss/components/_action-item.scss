@@ -33,7 +33,7 @@
   .c-action {
     position: absolute;
     top: 30vh;
-    left: 84vw;
+    left: 10vw;
     margin-left: -50px;
     display: inline-block;
     pointer-events: none;
@@ -108,7 +108,6 @@
     svg {
       position: absolute;
       overflow: visible;
-      display: none;
     }
   }
   @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) {

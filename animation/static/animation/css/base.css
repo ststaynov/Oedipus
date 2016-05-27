@@ -155,6 +155,18 @@ svg.bg {
   left: 0;
   right: 0; }
 
+.film-related {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.c-cooling-container,
+.c-bottling-container,
+.c-boiling,
+.c-end-pop,
+.c-fermenting,
+.c-magic-cloud,
+.c-milling-mashing {
+  background-color: rgba(128, 0, 128, 0.2); }
+
 #preloader {
   background-color: #fbf8f1;
   bottom: 0;
@@ -218,7 +230,7 @@ svg.bg {
   .c-action-container .c-action {
     position: absolute;
     top: 30vh;
-    left: 84vw;
+    left: 10vw;
     margin-left: -50px;
     display: inline-block;
     pointer-events: none;
@@ -263,8 +275,7 @@ svg.bg {
     height: 100px; }
     .c-action-container .c-cloud svg {
       position: absolute;
-      overflow: visible;
-      display: none; }
+      overflow: visible; }
   @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
     .c-action-container .c-action {
       top: 10vh; }
@@ -999,7 +1010,6 @@ svg.bg {
   height: 500px;
   pointer-events: none; }
   .c-end-pop.replica {
-    background-color: orange;
     z-index: 5;
     transform: translateX(5px); }
   .c-end-pop.loaded {

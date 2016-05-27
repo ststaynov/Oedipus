@@ -591,6 +591,7 @@ function checkForActionItemEffects(hasClass) {
     switch (hasClass) {
         case "initial":
             mainActionItemtl.clear();
+            TweenMax.to($actionItem, 0.8, {top: '30vh', left: '84vw'});
             break;
         case "milled-mashed":
             mainActionItemtl.clear();
@@ -600,8 +601,8 @@ function checkForActionItemEffects(hasClass) {
             //clear Timeline from previous tweens&callbacks
             mainActionItemtl.clear();
             // mainActionItemtl.eventCallback("onRepeat", null);
-            // mainActionItemtl.eventCallback("repeat", null);
-            // mainActionItemtl.eventCallback("yoyo", null);
+            mainActionItemtl.eventCallback("repeat", null);
+            // mainActionItemtl.eventCallback("yoyo", null) ;
             // mainActionItemtl.eventCallback("ease", null);
             checkSnow(false);
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '16vw'});
@@ -633,7 +634,7 @@ function checkForActionItemEffects(hasClass) {
         case "bottling":
             mainActionItemtl.clear();
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '45vw'});
-            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '100vw', delay:1});
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '110vw', delay:1});
             break;
         default:
     }
