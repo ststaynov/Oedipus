@@ -155,18 +155,6 @@ svg.bg {
   left: 0;
   right: 0; }
 
-.film-related {
-  background-color: rgba(0, 0, 0, 0.2); }
-
-.c-cooling-container,
-.c-bottling-container,
-.c-boiling,
-.c-end-pop,
-.c-fermenting,
-.c-magic-cloud,
-.c-milling-mashing {
-  background-color: rgba(128, 0, 128, 0.2); }
-
 #preloader {
   background-color: #fbf8f1;
   bottom: 0;
@@ -382,6 +370,10 @@ svg.bg {
     left: 0;
     width: 100%;
     padding: 0 30px; }
+    .c-quote-grid-item .e-inner h4 {
+      color: #404040; }
+    .c-quote-grid-item .e-inner h2 {
+      color: #fff; }
   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (max-device-aspect-ratio: 8 / 4) and (orientation: landscape) {
     .c-quote-grid-item {
       width: calc(33.33333% - 10px); } }
@@ -485,6 +477,18 @@ svg.bg {
   100% {
     top: 0;
     visibility: hidden; } }
+
+.film-related {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.c-cooling-container,
+.c-bottling-container,
+.c-boiling,
+.c-end-pop,
+.c-fermenting,
+.c-magic-cloud,
+.c-milling-mashing {
+  background-color: rgba(128, 0, 128, 0.2); }
 
 .c-magic-cloud {
   position: absolute;

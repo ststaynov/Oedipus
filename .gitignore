@@ -85,3 +85,6 @@ target/
 
 #Node stuff
 node_modules/
+
+#Test scss
+*test.scss
