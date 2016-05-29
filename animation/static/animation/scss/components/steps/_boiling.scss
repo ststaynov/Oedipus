@@ -270,4 +270,72 @@
   }
 
   /* waves end */
+  .c-burst {
+    width: 272px;
+    height: 191px;
+    background-image: url('../images/desktop/step3/spritesheet_burst_17f_272x181.png');
+    animation: burst 1s steps(17) infinite;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+  .c-zigzag-three {
+    width: 534px;
+    height: 305px;
+    background-image: url('../images/desktop/step3/zigzag3_spritesheet_32f_534x305.png');
+    animation: zigzagThree 1.5s steps(32) infinite;
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+  }
+
+  .c-zigzag-four {
+    width: 305px;
+    height: 238px;
+    background-image: url('../images/desktop/step3/zigzag4_spritesheet_16f_305x238.png');
+    animation: zigzagFour 1.5s steps(16) infinite;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .c-zigzag-five {
+    width: 391px;
+    height: 441px;
+    background-image: url('../images/desktop/step3/zigzag5_spritesheet_24f_391x441.png');
+    animation: zigzagFive 1.5s steps(24) infinite;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .c-shake {
+    width: 486px;
+    height: 755px;
+    background-image: url('../images/desktop/step3/shake_spritesheet_18f_486x755.png');
+    animation: shake 1.5s steps(18) infinite;
+    position: absolute;
+    right: -400px;
+    bottom: -100px;
+  }
+  @keyframes zigzagThree {
+    from { background-position: 0; }
+    to { background-position: 17408px; }
+  }
+  @keyframes zigzagFour {
+    from { background-position: 0; }
+    to { background-position: 5040px; }
+  }
+  @keyframes zigzagFive {
+    from { background-position: 0; }
+    to { background-position: 9624px; }
+  }
+  @keyframes shake {
+    from { background-position: 0; }
+    to { background-position: 8928px; }
+  }
+  @keyframes burst {
+    from { background-position: 0; }
+    to { background-position: 4794px; }
+  }
 }

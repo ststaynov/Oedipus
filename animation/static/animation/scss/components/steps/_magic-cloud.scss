@@ -5,10 +5,10 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url('../images/desktop/step1/cloud-spritesheet_1.png');
+  background-image: url('../images/desktop/step1/cloud-spritesheet_2.png');
   //background-repeat: no-repeat;
   background-position: left center;
-  animation: magicPuff 0.9s steps(13) infinite;
+  animation: magicPuff 1.2s steps(13) infinite;
 
   @keyframes magicPuff {
     from { background-position: 0; }

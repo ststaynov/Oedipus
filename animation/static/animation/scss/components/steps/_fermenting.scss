@@ -50,4 +50,59 @@
     background-image: url('../images/desktop/step5/drink.svg');
     @include fermenting-fg-item();
   }
+
+
+  .c-sperma {
+    width: 426px;
+    height: 96px;
+    background-image: url('../images/desktop/step5/sperma_spritesheet_12f_426x96.png');
+    animation: sperma 0.9s steps(12) infinite;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .c-nipple {
+    width: 350px;
+    height: 349px;
+    background-image: url('../images/desktop/step5/nipple_spritesheet_f_350x349.png');
+    animation: nipple 6.5s steps(61) infinite;
+    position: absolute;
+    right: -400px;
+    bottom: -100px;
+  }
+
+  .c-meteor {
+    width: 476px;
+    height: 263px;
+    background-image: url('../images/desktop/step5/meteor_spritesheet_16f_476x263.png');
+    animation: meteor 0.4s steps(16) infinite;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .c-sun {
+    width: 391px;
+    height: 328px;
+    background-image: url('../images/desktop/step5/sun_spritesheet_12f_391x328.png');
+    animation: sun 1.5s steps(12) infinite;
+    position: absolute;
+    left: -200px;
+    bottom: 0;
+  }
+  @keyframes sperma {
+    from { background-position: 0; }
+    to { background-position: 5232px; }
+  }
+  @keyframes nipple {
+    from { background-position: 0; }
+    to { background-position: 21960px; }
+  }
+  @keyframes meteor {
+    from { background-position: 0; }
+    to { background-position: 7776px; }
+  }
+  @keyframes sun {
+    from { background-position: 0; }
+    to { background-position: 4812px; }
+  }
 }

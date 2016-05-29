@@ -417,18 +417,6 @@ svg.bg {
     top: 0;
     visibility: hidden; } }
 
-.film-related {
-  background-color: rgba(0, 0, 0, 0.2); }
-
-.c-cooling-container,
-.c-bottling-container,
-.c-boiling,
-.c-end-pop,
-.c-fermenting,
-.c-magic-cloud,
-.c-milling-mashing {
-  background-color: rgba(128, 0, 128, 0.2); }
-
 .home-page .s-initial {
   height: 80vh;
   width: 100%;
@@ -768,9 +756,9 @@ a {
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url("../images/desktop/step1/cloud-spritesheet_1.png");
+  background-image: url("../images/desktop/step1/cloud-spritesheet_2.png");
   background-position: left center;
-  animation: magicPuff 0.9s steps(13) infinite; }
+  animation: magicPuff 1.2s steps(13) infinite; }
 
 @keyframes magicPuff {
   from {
@@ -1014,6 +1002,48 @@ a {
     .c-milling-mashing b:nth-of-type(8) {
       left: 22px;
       animation-delay: 0.2s; }
+  .c-milling-mashing .c-zigzag-one {
+    width: 213px;
+    height: 347px;
+    background-image: url("../images/desktop/step2/zigzag1_spritesheet_12f_213x347.png");
+    animation: zigzagOne 0.9s steps(12) infinite;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .c-milling-mashing .c-zigzag-two {
+    width: 325px;
+    height: 444px;
+    background-image: url("../images/desktop/step2/zigzag2_spritesheet_12f_325x444.png");
+    animation: zigzagTwo 0.9s steps(12) infinite;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .c-milling-mashing .c-pumping {
+    width: 290px;
+    height: 421px;
+    background-image: url("../images/desktop/step2/pumping_spritesheet_28f_290x421.png");
+    animation: pumping 1.4s steps(28) infinite;
+    position: absolute;
+    left: 100px;
+    bottom: 0; }
+
+@keyframes zigzagOne {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 2676px; } }
+
+@keyframes zigzagTwo {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 4020px; } }
+
+@keyframes pumping {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 8400px; } }
 
 .c-boiling {
   position: absolute;
@@ -1209,6 +1239,78 @@ a {
 @keyframes wave-back {
   100% {
     transform: translate(50%, 0); } }
+  .c-boiling .c-burst {
+    width: 272px;
+    height: 191px;
+    background-image: url("../images/desktop/step3/spritesheet_burst_17f_272x181.png");
+    animation: burst 1s steps(17) infinite;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0; }
+  .c-boiling .c-zigzag-three {
+    width: 534px;
+    height: 305px;
+    background-image: url("../images/desktop/step3/zigzag3_spritesheet_32f_534x305.png");
+    animation: zigzagThree 1.5s steps(32) infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; }
+  .c-boiling .c-zigzag-four {
+    width: 305px;
+    height: 238px;
+    background-image: url("../images/desktop/step3/zigzag4_spritesheet_16f_305x238.png");
+    animation: zigzagFour 1.5s steps(16) infinite;
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .c-boiling .c-zigzag-five {
+    width: 391px;
+    height: 441px;
+    background-image: url("../images/desktop/step3/zigzag5_spritesheet_24f_391x441.png");
+    animation: zigzagFive 1.5s steps(24) infinite;
+    position: absolute;
+    left: 0;
+    bottom: 0; }
+  .c-boiling .c-shake {
+    width: 486px;
+    height: 755px;
+    background-image: url("../images/desktop/step3/shake_spritesheet_18f_486x755.png");
+    animation: shake 1.5s steps(18) infinite;
+    position: absolute;
+    right: -400px;
+    bottom: -100px; }
+
+@keyframes zigzagThree {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 17408px; } }
+
+@keyframes zigzagFour {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 5040px; } }
+
+@keyframes zigzagFive {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 9624px; } }
+
+@keyframes shake {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 8928px; } }
+
+@keyframes burst {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 4794px; } }
 
 .c-cooling-container {
   position: absolute;
@@ -1274,6 +1376,66 @@ a {
   position: absolute;
   background-size: 100%;
   background-repeat: no-repeat; }
+
+.c-fermenting-foreground .c-sperma {
+  width: 426px;
+  height: 96px;
+  background-image: url("../images/desktop/step5/sperma_spritesheet_12f_426x96.png");
+  animation: sperma 0.9s steps(12) infinite;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.c-fermenting-foreground .c-nipple {
+  width: 350px;
+  height: 349px;
+  background-image: url("../images/desktop/step5/nipple_spritesheet_f_350x349.png");
+  animation: nipple 6.5s steps(61) infinite;
+  position: absolute;
+  right: -400px;
+  bottom: -100px; }
+
+.c-fermenting-foreground .c-meteor {
+  width: 476px;
+  height: 263px;
+  background-image: url("../images/desktop/step5/meteor_spritesheet_16f_476x263.png");
+  animation: meteor 0.4s steps(16) infinite;
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.c-fermenting-foreground .c-sun {
+  width: 391px;
+  height: 328px;
+  background-image: url("../images/desktop/step5/sun_spritesheet_12f_391x328.png");
+  animation: sun 1.5s steps(12) infinite;
+  position: absolute;
+  left: -200px;
+  bottom: 0; }
+
+@keyframes sperma {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 5232px; } }
+
+@keyframes nipple {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 21960px; } }
+
+@keyframes meteor {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 7776px; } }
+
+@keyframes sun {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 4812px; } }
 
 .c-bottling-container {
   position: absolute;

@@ -209,4 +209,46 @@
 
   /* milled grain end */
 
+  .c-zigzag-one {
+    width: 213px;
+    height: 347px;
+    background-image: url('../images/desktop/step2/zigzag1_spritesheet_12f_213x347.png');
+    animation: zigzagOne 0.9s steps(12) infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .c-zigzag-two {
+    width: 325px;
+    height: 444px;
+    background-image: url('../images/desktop/step2/zigzag2_spritesheet_12f_325x444.png');
+    animation: zigzagTwo 0.9s steps(12) infinite;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .c-pumping {
+    width: 290px;
+    height: 421px;
+    background-image: url('../images/desktop/step2/pumping_spritesheet_28f_290x421.png');
+    animation: pumping 1.4s steps(28) infinite;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+  }
+
+  @keyframes zigzagOne {
+    from { background-position: 0; }
+    to { background-position: 2676px; }
+  }
+  @keyframes zigzagTwo {
+    from { background-position: 0; }
+    to { background-position: 4020px; }
+  }
+  @keyframes pumping {
+    from { background-position: 0; }
+    to { background-position: 8400px; }
+  }
+
 }

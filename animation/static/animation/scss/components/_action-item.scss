@@ -21,7 +21,7 @@
     //background-color: rgba(red, .2);
     visibility: visible;
     background-image: url('../images/desktop/action-item/spritesheet.png');
-   animation: puff 0.9s steps(75) infinite;
+    animation: puff 0.9s steps(75) infinite;
   }
 
   @keyframes puff {
