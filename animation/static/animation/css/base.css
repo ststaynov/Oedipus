@@ -417,6 +417,18 @@ svg.bg {
     top: 0;
     visibility: hidden; } }
 
+.film-related {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.c-cooling-container,
+.c-bottling-container,
+.c-boiling,
+.c-end-pop,
+.c-fermenting,
+.c-magic-cloud,
+.c-milling-mashing {
+  background-color: rgba(128, 0, 128, 0.2); }
+
 .home-page .s-initial {
   height: 80vh;
   width: 100%;
@@ -756,9 +768,15 @@ a {
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url("../images/desktop/step1/bg.png");
-  background-repeat: no-repeat;
-  background-position: left center; }
+  background-image: url("../images/desktop/step1/cloud-spritesheet_1.png");
+  background-position: left center;
+  animation: magicPuff 0.9s steps(13) infinite; }
+
+@keyframes magicPuff {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 13130px; } }
   .c-magic-cloud.replica {
     z-index: 5;
     transform: translateX(8000px); }
@@ -831,9 +849,6 @@ a {
   display: block;
   width: 600px;
   height: 500px;
-  background-image: url("../images/desktop/step2/bg.png");
-  background-repeat: no-repeat;
-  background-position: left center;
   pointer-events: none;
   /*@keyframes cloud {
       100% { background-position: -1002px; }
