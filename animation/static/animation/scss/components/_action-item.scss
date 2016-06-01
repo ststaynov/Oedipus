@@ -20,8 +20,8 @@
     bottom: 0;
     //background-color: rgba(red, .2);
     visibility: visible;
-    background-image: url('../images/desktop/action-item/spritesheet.png');
-    animation: puff 0.9s steps(75) infinite;
+    background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png');
+    animation: puff 1.3s steps(75) infinite;
   }
 
   @keyframes puff {
@@ -43,7 +43,7 @@
 
     &.initial {
       opacity: 1;
-      svg#c-cloud-millmash {
+      svg#c-cloud-travel {
         visibility: visible;
         top: 18px;
         right: 4px; // aligning the face with the sprite
@@ -54,8 +54,8 @@
       opacity: 1;
       svg#c-cloud-millmash {
         visibility: visible;
-        top: 18px;
-        right: 4px; // aligning the face with the sprite
+        top: -6px;
+        right: -11px; // aligning the face with the sprite
       }
     }
 
@@ -95,7 +95,7 @@
       opacity: 1;
       svg#c-cloud-fermenting {
         visibility: visible;
-        top: 26px;
+        top: -27px;
         left: 30px;
       }
     }

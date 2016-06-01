@@ -1,12 +1,10 @@
 
 .c-sun {
-    width: 391px;
-    height: 328px;
-    background-image: url('../images/desktop/step5/sun_spritesheet_12f_391x328.png');
-    animation: sun 1.5s steps(12) infinite;
-    position: absolute;
-    left: -200px;
-    bottom: 0;
+  width: 391px;
+  height: 328px;
+  position: absolute;
+  background-image: url('../images/desktop/step5/sun_spritesheet_12f_391x328.png');
+  animation: sun 1.5s steps(12) infinite;
 }
 
 @keyframes sun {

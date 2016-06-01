@@ -5,8 +5,14 @@ var e = document.body,
     $fg = $('.c-brewing-foreground'),
     $btlContainer = $('.c-action-container'),
     fgBg = [$bg, $fg, $btlContainer],
+
+    // foreground animatios
     $mouse = $('.c-mouse'),
     $flemon = $('.c-flying-lemon'),
+    $nipple = $('.c-nipple'),
+    $meteor = $('.c-meteor'),
+    $sun = $('.c-sun'),
+
     $btnAutoScroll = $('.c-auto-scroll-button'),
     loopBackwardAllowed = false,
     positionsArr = [],
@@ -69,14 +75,17 @@ consoleLog($warmBeams);
 
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    positionsArr = [10, 2010,705, 1007,400, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //TODO change values to suit mobile screens
+    positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //TODO change values to suit mobile screens
 } else {
-    positionsArr = [10, 2010,705, 1007,400, 5, 1536, 2864, 4200, 5534, 6860, 8000];
+    positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
 TweenMax.set($mouse, {x: positionsArr[1], y: positionsArr[2]});
 TweenMax.set($flemon, {x: positionsArr[3], y: positionsArr[4]});
+TweenMax.set($nipple, {x: 4650, y: 600});
+TweenMax.set($sun, {x: 850, y: 0});
+TweenMax.set($meteor, {x: 2000, y: 100});
 // steps
 /*  Replica translation are done in css since tweenMax: clearProps:"all" is set for them
  TweenMax.set($replicaEndPop, {x: 5});
@@ -103,22 +112,22 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 
 
 //cloudTimeLines
-cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
-cloudBoilingTl.fromTo($warmBeamUp, 0.3, {opacity: 1, y: -10}, {opacity: 0.3, y: 20}, "initial")
-              .fromTo($warmBeamUpLeft, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0.3, x: -20, y: -50}, "initial")
-              .fromTo($warmBeamUpRight, 0.3, {opacity: 1, x: -10, y: 10}, {opacity: 0.3, x: 20, y: -50}, "initial");
+cloudBoilingTl.fromTo($warmBeamUp, 0.3, {opacity: 1, y: -10}, {opacity: 0, y: 20}, "initial")
+              .fromTo($warmBeamUpLeft, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0, x: -20, y: -50}, "initial")
+              .fromTo($warmBeamUpRight, 0.3, {opacity: 1, x: -10, y: 10}, {opacity: 0, x: 20, y: -50}, "initial");
 
 
-cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial");
+cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial");
 
-cloudCoolingTlRight.staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0.3, x: -30, y: 40}, 0.1, "initial");
+cloudCoolingTlRight.staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 
-cloudFermentingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+cloudFermentingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
-cloudBottlingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+cloudBottlingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
-cloudEndPopTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0.3, x: -50}, 0.1, "initial");
+cloudEndPopTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
 // var cloudBeamMasterAnimTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
 //

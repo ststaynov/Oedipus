@@ -16,11 +16,12 @@
   }
 
   .e-cloud {
-      width:  150px;
-      height: 90px;
-      margin: 0 auto;
-      background: url('../images/desktop/step2/cloud.png') left center no-repeat;
-      animation: cloud .8s steps(3) infinite;
+    width: 150px;
+    height: 90px;
+    margin: 0 auto;
+    background: url('../images/desktop/step2/cloud.png') left center no-repeat;
+    background-size: contain;
+    animation: cloud .8s steps(3) infinite;
   }
 
   /*@keyframes cloud {
@@ -35,41 +36,37 @@
     margin: 0 auto;
   }
   .e-grain {
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      position: absolute;
-      margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    position: absolute;
+    margin: 0 auto;
+    background: url('../images/desktop/step2/malt-1.png') center center no-repeat;
   }
   .e-grain-1 {
-      margin: 0 12px;
-      background: url('../images/desktop/step2/malt-1.png') center center no-repeat;
-      -webkit-animation: drip .45s infinite;
-      animation: drip .75s infinite;
+    margin: 0 12px;
+    -webkit-animation: drip .45s infinite;
+    animation: drip .75s infinite;
   }
   .e-grain-2 {
-      margin: 0 25px;
-      background: url('../images/desktop/step2/malt-2.png') center center no-repeat;
-      -webkit-animation: drip .45s infinite 1s;
-      animation: drip .75s infinite 1s;
+    margin: 0 25px;
+    -webkit-animation: drip .45s infinite 1s;
+    animation: drip .75s infinite 1s;
   }
   .e-grain-3 {
-      margin: 0 50px;
-      background: url('../images/desktop/step2/malt-3.png') center center no-repeat;
-      -webkit-animation: drip .45s infinite 2s;
-      animation: drip .75s infinite 2s;
+    margin: 0 50px;
+    -webkit-animation: drip .45s infinite 2s;
+    animation: drip .75s infinite 2s;
   }
   .e-grain-4 {
-      margin: 0 75px;
-      background: url('../images/desktop/step2/malt-4.png') center center no-repeat;
-      -webkit-animation: drip .45s infinite 3s;
-      animation: drip .75s infinite 3s;
+    margin: 0 75px;
+    -webkit-animation: drip .45s infinite 3s;
+    animation: drip .75s infinite 3s;
   }
   .e-grain-5 {
-      margin: 0 90px;
-      background: url('../images/desktop/step2/malt-5.png') center center no-repeat;
-      -webkit-animation: drip .45s infinite 4s;
-      animation: drip .75s infinite 4s;
+    margin: 0 90px;
+    -webkit-animation: drip .45s infinite 4s;
+    animation: drip .75s infinite 4s;
   }
   @-webkit-keyframes drip {
     0% {
@@ -114,7 +111,7 @@
     //background: url('../images/desktop/step2/milling-container.png') center center no-repeat;
   }
 
-  .e-cog-wheel-left,.e-cog-wheel-right {
+  .e-cog-wheel-left, .e-cog-wheel-right {
     width: 78px;
     height: 78px;
     position: absolute;
@@ -135,11 +132,27 @@
     animation: spinreverse 4s linear infinite;
   }
 
-  @-webkit-keyframes spin { 100% { transform: rotate(360deg); } }
-  @keyframes spin { 100% { transform:rotate(360deg); } }
+  @-webkit-keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
-  @-webkit-keyframes spinreverse { 100% {transform: rotate(-360deg); } }
-  @keyframes spinreverse { 100% {transform: rotate(-360deg); } }
+  @-webkit-keyframes spinreverse {
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+  @keyframes spinreverse {
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
 
   /* milling container end */
 
@@ -256,7 +269,7 @@
     border-bottom-left-radius: 17px;
     border-bottom-right-radius: 17px;
     transform: translateX(-50%);
-    background-color: rgba(#ECBF92,.4);
+    background-color: rgba(#ECBF92, .4);
   }
 
   /* milled grain end */
@@ -267,7 +280,7 @@
     background-image: url('../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png');
     animation: zigzagOne 0.9s steps(12) infinite;
     position: absolute;
-    top: 0;
+    top: -199px;
     left: 0;
   }
 
@@ -277,30 +290,43 @@
     background-image: url('../images/desktop/step2/zigzag2_spritesheet_12f_213x347_2556_optimized.png');
     animation: zigzagTwo 0.9s steps(12) infinite;
     position: absolute;
-    top: 0;
+    top: 299px;
     right: 0;
   }
+
   .c-pumping {
     width: 69px;
     height: 100px;
     background-image: url('../images/desktop/step2/pumpin_spritesheet_28f_69x100_1932_optimized.png');
     animation: pumping 1.4s steps(28) infinite;
     position: absolute;
-    left: 100px;
-    bottom: 0;
+    left: 376px;
+    top: 67px;
   }
 
   @keyframes zigzagOne {
-    from { background-position: 0; }
-    to { background-position: 3900px; }
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: 3900px;
+    }
   }
   @keyframes zigzagTwo {
-    from { background-position: 0; }
-    to { background-position: 2556px; }
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: 2556px;
+    }
   }
   @keyframes pumping {
-    from { background-position: 0; }
-    to { background-position: 1932px; }
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: 1932px;
+    }
   }
 
 }
