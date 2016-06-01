@@ -5,4 +5,9 @@
   width: 600px;
   height: 500px;
   pointer-events: none;
+
+  > svg {
+    width: 350px;
+    top: 60px;
+  }
 }

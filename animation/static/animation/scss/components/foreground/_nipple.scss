@@ -3,11 +3,12 @@
   width: 350px;
   height: 349px;
   position: absolute;
-  background-image: url('../images/desktop/step5/nipple_spritesheet_f_350x349.png');
-  animation: nipple 6.5s steps(61) infinite;
+  background-image: url('../images/desktop/foreground/nipple_spritesheet _48f_350x349_1720_optimized.png');
+  animation: nipple 6.5s steps(48) infinite;
+  pointer-events: none;
 }
 
 @keyframes nipple {
   from { background-position: 0; }
-  to { background-position: 21960px; }
+  to { background-position: 1720px; }
 }

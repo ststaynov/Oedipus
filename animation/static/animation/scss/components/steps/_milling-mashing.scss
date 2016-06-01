@@ -4,12 +4,9 @@
   display: block;
   width: 600px;
   height: 500px;
-  //background-image: url('../images/desktop/step2/bg.png');
-  //background-repeat: no-repeat;
-  //background-position: left center;
   pointer-events: none;
 
-  svg { // TEST
+  > svg {
     width: 290px;
     top: 60px;
     left: 46px;
@@ -23,10 +20,6 @@
     background-size: contain;
     animation: cloud .8s steps(3) infinite;
   }
-
-  /*@keyframes cloud {
-      100% { background-position: -1002px; }
-  }*/
 
   .e-grain-container {
     width: 150px;
@@ -108,7 +101,6 @@
     top: 165px;
     left: 50%;
     transform: translateX(-50%);
-    //background: url('../images/desktop/step2/milling-container.png') center center no-repeat;
   }
 
   .e-cog-wheel-left, .e-cog-wheel-right {
@@ -277,31 +269,31 @@
   .c-zigzag-one {
     width: 325px;
     height: 444px;
-    background-image: url('../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png');
-    animation: zigzagOne 0.9s steps(12) infinite;
     position: absolute;
     top: -199px;
     left: 0;
+    background-image: url('../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png');
+    animation: zigzagOne 0.9s steps(12) infinite;
   }
 
   .c-zigzag-two {
     width: 213px;
     height: 347px;
+    position: absolute;
+    right: 0;
+    top: 299px;
     background-image: url('../images/desktop/step2/zigzag2_spritesheet_12f_213x347_2556_optimized.png');
     animation: zigzagTwo 0.9s steps(12) infinite;
-    position: absolute;
-    top: 299px;
-    right: 0;
   }
 
   .c-pumping {
     width: 69px;
     height: 100px;
+    position: absolute;
+    top: 245px;
+    left: 400px;
     background-image: url('../images/desktop/step2/pumpin_spritesheet_28f_69x100_1932_optimized.png');
     animation: pumping 1.4s steps(28) infinite;
-    position: absolute;
-    left: 376px;
-    top: 67px;
   }
 
   @keyframes zigzagOne {

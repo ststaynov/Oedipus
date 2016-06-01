@@ -1,9 +1,10 @@
 
-// For testing pourposes
+ //For testing pourposes
 //.film-related {
 //  background-color: rgba(0,0,0,.2);
 //}
 //
+//.c-magic-cloud,
 //.c-cooling-container,
 //.c-bottling-container,
 //.c-boiling,
@@ -13,23 +14,28 @@
 //.c-milling-mashing {
 //  background-color: rgba(purple,.2);
 //}
-
+//
 //.c-snow-frame {
 //  background-color: rgba(0,0,0,0.4);
 //}
-
-  // all sprites
-//.c-magic-cloud,
-//.c-sperma,
-//.c-sun,
-//.c-nipple,
-//.c-meteor,
-//.c-zigzag-one,
-//.c-zigzag-two,
-//.c-zigzag-three,
-//.c-zigzag-four,
-//.c-zigzag-five,
-//.c-burst,
-//.c-pumping {
-//  display: none !important;
+//
+//   //all sprites
+@media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) { // if device is mobile or device is portrait
+  .c-sperma,
+  .c-sun,
+  .c-nipple,
+  .c-meteor,
+  .c-zigzag-one,
+  .c-zigzag-two,
+  .c-zigzag-three,
+  .c-zigzag-four,
+  .c-zigzag-five,
+  .c-burst,
+  .c-pumping {
+    display: none !important;
+  }
+}
+//
+//.e-title {
+//  display: block !important;
 //}

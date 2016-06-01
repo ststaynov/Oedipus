@@ -142,7 +142,8 @@ h1 {
   top: 50%;
   font-size: 32px;
   transform: translateX(-50%);
-  left: 50%; }
+  left: 50%;
+  display: none; }
 
 svg.bg {
   width: 500px;
@@ -433,21 +434,23 @@ svg.bg {
   width: 476px;
   height: 263px;
   position: absolute;
-  background-image: url("../images/desktop/step5/meteor_spritesheet_16f_476x263.png");
-  animation: meteor 0.4s steps(16) infinite; }
+  background-image: url("../images/desktop/foreground/meteor_spritesheet_14f_476x263_6804_optimized.png");
+  animation: meteor 0.4s steps(14) infinite;
+  pointer-events: none; }
 
 @keyframes meteor {
   from {
     background-position: 0; }
   to {
-    background-position: 7776px; } }
+    background-position: 6804px; } }
 
 .c-sun {
   width: 391px;
   height: 328px;
   position: absolute;
-  background-image: url("../images/desktop/step5/sun_spritesheet_12f_391x328.png");
-  animation: sun 1.5s steps(12) infinite; }
+  background-image: url("../images/desktop/foreground/sun_spritesheet_12f_391x328_4812_optimized.png");
+  animation: sun 1.5s steps(12) infinite;
+  pointer-events: none; }
 
 @keyframes sun {
   from {
@@ -459,14 +462,29 @@ svg.bg {
   width: 350px;
   height: 349px;
   position: absolute;
-  background-image: url("../images/desktop/step5/nipple_spritesheet_f_350x349.png");
-  animation: nipple 6.5s steps(61) infinite; }
+  background-image: url("../images/desktop/foreground/nipple_spritesheet _48f_350x349_1720_optimized.png");
+  animation: nipple 6.5s steps(48) infinite;
+  pointer-events: none; }
 
 @keyframes nipple {
   from {
     background-position: 0; }
   to {
-    background-position: 21960px; } }
+    background-position: 1720px; } }
+
+@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .c-sperma,
+  .c-sun,
+  .c-nipple,
+  .c-meteor,
+  .c-zigzag-one,
+  .c-zigzag-two,
+  .c-zigzag-three,
+  .c-zigzag-four,
+  .c-zigzag-five,
+  .c-burst,
+  .c-pumping {
+    display: none !important; } }
 
 .home-page .s-initial {
   height: 80vh;
@@ -937,14 +955,11 @@ a {
   width: 600px;
   height: 500px;
   pointer-events: none;
-  /*@keyframes cloud {
-      100% { background-position: -1002px; }
-  }*/
   /* milling container start */
   /* milling container end */
   /* milled grain start */
   /* milled grain end */ }
-  .c-milling-mashing svg {
+  .c-milling-mashing > svg {
     width: 290px;
     top: 60px;
     left: 46px; }
@@ -1139,27 +1154,27 @@ a {
   .c-milling-mashing .c-zigzag-one {
     width: 325px;
     height: 444px;
-    background-image: url("../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png");
-    animation: zigzagOne 0.9s steps(12) infinite;
     position: absolute;
     top: -199px;
-    left: 0; }
+    left: 0;
+    background-image: url("../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png");
+    animation: zigzagOne 0.9s steps(12) infinite; }
   .c-milling-mashing .c-zigzag-two {
     width: 213px;
     height: 347px;
-    background-image: url("../images/desktop/step2/zigzag2_spritesheet_12f_213x347_2556_optimized.png");
-    animation: zigzagTwo 0.9s steps(12) infinite;
     position: absolute;
+    right: 0;
     top: 299px;
-    right: 0; }
+    background-image: url("../images/desktop/step2/zigzag2_spritesheet_12f_213x347_2556_optimized.png");
+    animation: zigzagTwo 0.9s steps(12) infinite; }
   .c-milling-mashing .c-pumping {
     width: 69px;
     height: 100px;
-    background-image: url("../images/desktop/step2/pumpin_spritesheet_28f_69x100_1932_optimized.png");
-    animation: pumping 1.4s steps(28) infinite;
     position: absolute;
-    left: 376px;
-    top: 67px; }
+    top: 245px;
+    left: 400px;
+    background-image: url("../images/desktop/step2/pumpin_spritesheet_28f_69x100_1932_optimized.png");
+    animation: pumping 1.4s steps(28) infinite; }
 
 @keyframes zigzagOne {
   from {
@@ -1187,16 +1202,19 @@ a {
   pointer-events: none;
   /* waves start */
   /* waves end */ }
+  .c-boiling > svg {
+    width: 375px;
+    top: 60px; }
   .c-boiling .e-hops-bag {
     width: 114px;
     height: 92px;
     position: absolute;
-    top: -100px;
+    top: 0;
     left: 40px;
     background: url("../images/desktop/step3/hops_bag.svg") left center no-repeat; }
   .c-boiling .e-hops-item-container {
     position: absolute;
-    top: -100px;
+    top: 0;
     left: 98px; }
   .c-boiling .e-hops-item {
     width: 25px;
@@ -1232,7 +1250,7 @@ a {
 @-webkit-keyframes drop {
   0% {
     opacity: 0;
-    transform: translateX(-10px) translateY(50px); }
+    transform: translateX(10px) translateY(50px); }
   25% {
     transform: translateX(10px) translateY(50px); }
   50% { }
@@ -1240,19 +1258,19 @@ a {
     opacity: 1; }
   100% {
     opacity: 0;
-    transform: translateX(10px) translateY(220px); } }
+    transform: translateX(100px) translateY(160px) scale(0.7, 0.7); } }
 
 @keyframes drop {
   0% {
     opacity: 0;
-    transform: translateX(-10px) translateY(50px); }
-  25% {
     transform: translateX(10px) translateY(50px); }
+  25% {
+    transform: translateX(20px) translateY(50px); }
   50% { }
   80% {
     opacity: 1; }
   100% {
-    transform: translateX(10px) translateY(220px);
+    transform: translateX(80px) translateY(160px) scale(0.7, 0.7);
     opacity: 0; } }
   .c-boiling .e-steam-top {
     position: absolute;
@@ -1260,22 +1278,24 @@ a {
     left: 50%;
     transform: translateX(-50%); }
   .c-boiling .e-boiling-tank {
-    width: 370px;
-    height: 262px;
+    width: 278px;
+    height: 165px;
     padding-top: 125px;
     position: absolute;
-    top: 152px;
+    top: 190px;
     left: calc(50% - 4px);
     transform: translateX(-50%);
     overflow: hidden; }
   .c-boiling .thermometer {
     display: inline-block;
     position: absolute;
-    top: 0;
-    right: 0; }
+    top: 126px;
+    right: 161px; }
+    .c-boiling .thermometer svg {
+      width: 38px; }
   .c-boiling .e-boiling-items-container {
     width: 100%;
-    height: 111px;
+    height: 86px;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -1353,10 +1373,12 @@ a {
     width: 200%;
     position: absolute; }
     .c-boiling .water .wave.back {
+      top: 62px;
       right: 0;
       fill: #FBAB29;
       animation: wave-back 1.4s infinite linear; }
     .c-boiling .water .wave.front {
+      top: 62px;
       left: 0;
       fill: #F9DF00;
       margin-bottom: -1px;
@@ -1375,26 +1397,26 @@ a {
     background-image: url("../images/desktop/step3/burst_spritesheet_17f_272x181_4794_optimized.png");
     animation: burst 1s steps(17) infinite;
     position: absolute;
-    left: 0;
-    top: 22px;
-    transform: rotate(-30deg); }
+    left: 364px;
+    top: 328px;
+    transform: rotate(130deg); }
   .c-boiling .c-zigzag-three {
     width: 169px;
     height: 132px;
+    bottom: 15px;
+    left: 10px;
     background-image: url("../images/desktop/step3/zigzag3_spritesheet_16f_169x132_2864_optimized.png");
     animation: zigzagThree 1.5s steps(16) infinite;
     position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0; }
+    transform: rotate(110deg); }
   .c-boiling .c-zigzag-four {
     width: 169px;
     height: 155px;
+    top: -45px;
+    left: 150px;
     background-image: url("../images/desktop/step3/zigzag4_spritesheet_24f_169x155_4296_optimized.png");
     animation: zigzagFour 1.5s steps(24) infinite;
     position: absolute;
-    top: -146px;
-    left: 118px;
     transform: rotate(128deg); }
   .c-boiling .c-zigzag-five {
     width: 222px;
@@ -1402,8 +1424,8 @@ a {
     background-image: url("../images/desktop/step3/zigzag5_spritesheet_31f_222x127_7192_optimized.png");
     animation: zigzagFive 1.5s steps(31) infinite;
     position: absolute;
-    left: 0;
-    bottom: 0; }
+    top: 106px;
+    transform: rotate(-120deg); }
 
 @keyframes zigzagThree {
   from {
@@ -1435,6 +1457,9 @@ a {
   width: 600px;
   height: 500px;
   pointer-events: none; }
+  .c-cooling-container > svg {
+    width: 350px;
+    top: 60px; }
 
 .c-fermenting {
   position: absolute;
@@ -1442,54 +1467,67 @@ a {
   width: 600px;
   height: 500px;
   pointer-events: none; }
+  .c-fermenting > svg {
+    width: 350px;
+    top: 60px;
+    left: 46px; }
   .c-fermenting .c-window {
     width: 100px;
     height: 100px;
     margin: auto;
     position: absolute;
-    top: 291px;
-    left: 0;
+    top: 240px;
+    left: 40px;
     right: 0;
     background-color: black;
-    border-radius: 100%; }
+    z-index: -1; }
 
-.c-fermenting-foreground .e-note {
+.c-fermenting-foreground .e-notes {
+  width: 85px;
+  height: 110px;
   right: 50px;
   top: 50px;
-  background-image: url("../images/desktop/step5/note.svg");
-  width: 60px;
-  height: 60px;
+  background-image: url("../images/desktop/step5/notes.svg");
   position: absolute;
   background-size: 100%;
   background-repeat: no-repeat; }
 
 .c-fermenting-foreground .e-drum {
+  width: 77px;
+  height: 92px;
   right: 10px;
   bottom: 150px;
   background-image: url("../images/desktop/step5/drum.svg");
-  width: 60px;
-  height: 60px;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat; }
+
+.c-fermenting-foreground .e-guitar {
+  width: 83px;
+  height: 135px;
+  right: 83px;
+  bottom: 135px;
+  background-image: url("../images/desktop/step5/guitar.svg");
   position: absolute;
   background-size: 100%;
   background-repeat: no-repeat; }
 
 .c-fermenting-foreground .e-flumpje {
+  width: 92px;
+  height: 114px;
   left: 125px;
   bottom: 50px;
-  width: 100px;
-  background-image: url("../images/desktop/step5/flumpje.png");
-  width: 60px;
-  height: 60px;
+  background-image: url("../images/desktop/step5/fluempjes.svg");
   position: absolute;
   background-size: 100%;
   background-repeat: no-repeat; }
 
 .c-fermenting-foreground .e-drink {
+  width: 72px;
+  height: 111px;
   left: 25px;
   bottom: 250px;
   background-image: url("../images/desktop/step5/drink.svg");
-  width: 60px;
-  height: 60px;
   position: absolute;
   background-size: 100%;
   background-repeat: no-repeat; }
