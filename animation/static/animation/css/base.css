@@ -472,37 +472,19 @@ svg.bg {
   to {
     background-position: 1720px; } }
 
-.film-related {
-  background-color: rgba(0, 0, 0, 0.2); }
-
-.c-cooling-container,
-.c-bottling-container,
-.c-boiling,
-.c-end-pop,
-.c-fermenting,
-.c-magic-cloud,
-.c-milling-mashing {
-  background-color: rgba(128, 0, 128, 0.2); }
-
-.c-snow-frame {
-  background-color: rgba(0, 0, 0, 0.4); }
-
-.c-magic-cloud,
-.c-sperma,
-.c-sun,
-.c-nipple,
-.c-meteor,
-.c-zigzag-one,
-.c-zigzag-two,
-.c-zigzag-three,
-.c-zigzag-four,
-.c-zigzag-five,
-.c-burst,
-.c-pumping {
-  display: none !important; }
-
-.e-title {
-  display: block !important; }
+@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .c-sperma,
+  .c-sun,
+  .c-nipple,
+  .c-meteor,
+  .c-zigzag-one,
+  .c-zigzag-two,
+  .c-zigzag-three,
+  .c-zigzag-four,
+  .c-zigzag-five,
+  .c-burst,
+  .c-pumping {
+    display: none !important; } }
 
 .home-page .s-initial {
   height: 80vh;
