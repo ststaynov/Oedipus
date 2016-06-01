@@ -3,8 +3,9 @@
   width: 391px;
   height: 328px;
   position: absolute;
-  background-image: url('../images/desktop/step5/sun_spritesheet_12f_391x328.png');
+  background-image: url('../images/desktop/foreground/sun_spritesheet_12f_391x328_4812_optimized.png');
   animation: sun 1.5s steps(12) infinite;
+  pointer-events: none;
 }
 
 @keyframes sun {

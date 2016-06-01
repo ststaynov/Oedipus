@@ -6,18 +6,23 @@
   height: 500px;
   pointer-events: none;
 
+  > svg {
+    width: 375px;
+    top: 60px;
+  }
+
   .e-hops-bag {
     width: 114px;
     height: 92px;
     position: absolute;
-    top: -100px;
+    top: 0;
     left: 40px;
     background: url('../images/desktop/step3/hops_bag.svg') left center no-repeat;
   }
 
   .e-hops-item-container {
     position: absolute;
-    top: -100px;
+    top: 0;
     left: 98px;
   }
 
@@ -65,39 +70,39 @@
    @-webkit-keyframes drop {
     0% {
       opacity: 0;
-      transform: translateX(-10px) translateY(50px);
+      transform: translateX(10px) translateY(50px);
     }
     25% {
       transform: translateX(10px) translateY(50px);
     }
     50% {
-
+      //transform: translateX(50px)
     }
     80% {
       opacity: 1;
     }
     100% {
       opacity: 0;
-      transform: translateX(10px) translateY(220px);
+      transform: translateX(100px) translateY(160px) scale(0.7,0.7);
     }
   }
 
   @keyframes drop {
     0% {
       opacity: 0;
-      transform: translateX(-10px) translateY(50px);
-    }
-    25% {
       transform: translateX(10px) translateY(50px);
     }
+    25% {
+      transform: translateX(20px) translateY(50px);
+    }
     50% {
-
+      //transform: translateX(50px)
     }
     80% {
       opacity: 1;
     }
     100% {
-      transform: translateX(10px) translateY(220px);
+      transform: translateX(80px) translateY(160px) scale(0.7,0.7);
       opacity: 0;
     }
   }
@@ -110,11 +115,11 @@
   }
 
   .e-boiling-tank {
-    width: 370px;
-    height: 262px;
+    width: 278px;
+    height: 165px;
     padding-top: 125px;
     position: absolute;
-    top: 152px;
+    top: 190px;
     left: calc(50% - 4px);
     transform: translateX(-50%);
     overflow: hidden;
@@ -123,13 +128,17 @@
   .thermometer {
     display: inline-block;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 126px;
+    right: 161px;
+
+    svg {
+      width: 38px;
+    }
   }
 
   .e-boiling-items-container {
     width: 100%;
-    height: 111px;
+    height: 86px;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -237,12 +246,14 @@
       position: absolute;
 
       &.back {
+        top: 62px;
         right: 0;
         fill: #FBAB29;
         animation: wave-back 1.4s infinite linear;
       }
 
       &.front {
+        top: 62px;
         left: 0;
         fill: #F9DF00;
         margin-bottom: -1px;
@@ -269,29 +280,29 @@
     background-image: url('../images/desktop/step3/burst_spritesheet_17f_272x181_4794_optimized.png');
     animation: burst 1s steps(17) infinite;
     position: absolute;
-    left: 0;
-    top: 22px;
-    transform: rotate(-30deg);
+    left: 364px;
+    top: 328px;
+    transform: rotate(130deg);
   }
   .c-zigzag-three {
     width: 169px;
     height: 132px;
+    bottom: 15px;
+    left: 10px;
     background-image: url('../images/desktop/step3/zigzag3_spritesheet_16f_169x132_2864_optimized.png');
     animation: zigzagThree 1.5s steps(16) infinite;
     position: absolute;
-    top: 52px;
-    left:0;
-    right:0;
+    transform: rotate(110deg);
   }
 
   .c-zigzag-four {
     width: 169px;
     height: 155px;
+    top: -45px;
+    left: 150px;
     background-image: url('../images/desktop/step3/zigzag4_spritesheet_24f_169x155_4296_optimized.png');
     animation: zigzagFour 1.5s steps(24) infinite;
     position: absolute;
-    top: -146px;
-    left: 118px;
     transform: rotate(128deg);
   }
   .c-zigzag-five {
@@ -300,18 +311,9 @@
     background-image: url('../images/desktop/step3/zigzag5_spritesheet_31f_222x127_7192_optimized.png');
     animation: zigzagFive 1.5s steps(31) infinite;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    top: 106px;
+    transform: rotate(-120deg);
   }
-  //.c-shake {
-  //  width: 486px;
-  //  height: 755px;
-  //  background-image: url('../images/desktop/step3/shake_spritesheet_18f_486x755.png');
-  //  animation: shake 1.5s steps(18) infinite;
-  //  position: absolute;
-  //  right: -400px;
-  //  bottom: -100px;
-  //}
   @keyframes zigzagThree {
     from { background-position: 0; }
     to { background-position: 2864px; }
@@ -324,10 +326,6 @@
     from { background-position: 0; }
     to { background-position: 7192px; }
   }
-  //@keyframes shake {
-  //  from { background-position: 0; }
-  //  to { background-position: 8928px; }
-  //}
   @keyframes burst {
     from { background-position: 0; }
     to { background-position: 4794px; }

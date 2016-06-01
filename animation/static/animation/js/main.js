@@ -68,7 +68,6 @@ var e = document.body,
     fermentingTl = new TimelineMax({}),
     bottlingTl = new TimelineMax({}),
     endPopTl = new TimelineMax({});
-consoleLog($warmBeams);
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
@@ -528,13 +527,13 @@ function stopAutoScroll() {
 
 
 var colorOedipusGreen = '#a3d01a',
-    colorOedipusYellow = '#f9df00',
+    colorOedipusPink = '#FF98B5',
     colorOedipusBlueDark = '#4d509b',
     colorOedipusPink = '#ff98b5',
     colorOedipusBlue = '#4998d2',
     colorOedipusPinkDark = '#ca447f',
-    colorOedipusOrange = '#ff8338',
-    oedipusColors = [colorOedipusGreen, colorOedipusYellow, colorOedipusBlueDark, colorOedipusPink, colorOedipusBlue, colorOedipusPinkDark, colorOedipusOrange],
+    colorOedipusGreen = '#A3D01A',
+    oedipusColors = [colorOedipusGreen, colorOedipusPink, colorOedipusBlueDark, colorOedipusPink, colorOedipusBlue, colorOedipusPinkDark, colorOedipusGreen],
 
     step1Duration = -650,
     step2Duration = -1840,
@@ -555,7 +554,7 @@ function checkBackgroundColors() {
             checkActionItemState('initial');
             // consoleLog('step1 - white');
         } else if (n > step2Duration) { // step 2
-            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusYellow});
+            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPink});
             checkActionItemState('milled-mashed');
             // consoleLog('step2 - yellow');
         } else if (n > step3Duration) { // step 3
@@ -570,11 +569,11 @@ function checkBackgroundColors() {
     } else {
         loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
         if (n > step5Duration) { // step5
-            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusOrange});
+            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusGreen});
             checkActionItemState('fermenting');
             // consoleLog('step5 - orange');
         } else if (n > step6Duration) { // step6
-            TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            TweenMax.to(e, 5.5, {backgroundColor: '#fff'});
             checkActionItemState('bottling');
             // consoleLog('step6 - white');
         } else if (n > step6End) { // step7
