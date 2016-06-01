@@ -5,14 +5,14 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url('../images/desktop/step1/cloud-spritesheet_2.png');
+  background-image: url('../images/desktop/step1/orange_spritesheet_15f_1000x800_15000_optimized.png');
   //background-repeat: no-repeat;
   background-position: left center;
-  animation: magicPuff 1.2s steps(13) infinite;
+  animation: magicPuff 1.2s steps(15) infinite;
 
   @keyframes magicPuff {
     from { background-position: 0; }
-    to { background-position: 13130px; }
+    to { background-position: 15000px; }
   }
   &.replica {
     z-index: $z-5;

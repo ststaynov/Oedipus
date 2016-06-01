@@ -183,17 +183,20 @@ setInterval(function(){shakeAnimation($fermentingTank);},5000);
 function shakeAnimation(element){
   TweenMax.to(element, .1, {
     x: -4,
+    rotation: -1,
     ease: Quad.easeInOut
   });
   TweenMax.to(element, .1, {
     repeat: 4,
     x: 4,
+    rotation: 1,
     yoyo: true,
     delay: .1,
     ease: Quad.easeInOut
   });
   TweenMax.to(element, .1, {
     x: 0,
+    rotation: 0,
     delay: .1 * 4
   });
 }

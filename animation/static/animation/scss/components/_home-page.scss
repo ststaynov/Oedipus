@@ -3,28 +3,74 @@
 @mixin homeSection {
     height: 80vh;
     width: 100%;
+    position: relative;
+}
+
+@mixin svgBackground {
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .home-page {
 
   .s-initial {
     @include homeSection;
-    background-color: #596778;
+    @include svgBackground;
+    background-image: url('../images/desktop/home/purple-article.svg');
+  }
+
+  .s-description {
+    @include homeSection;
+
+    .e-quote {
+      @include svgBackground;
+      width: 650px;
+      height: 100%;
+      margin-left: 150px;
+      position: absolute;
+      display: inline-block;
+      background-image: url('../images/desktop/home/pink-cloud.svg');
+    }
+  }
+  .s-splashes {
+    @include homeSection;
+    .e-details {
+      @include svgBackground;
+      width: 800px;
+      height: 100%;
+      position: absolute;
+      margin-right: 150px;
+      right: 0;
+      display: inline-block;
+      background-image: url('../images/desktop/home/blue-article.svg');
+    }
+    @include homeSection;
+
   }
   .s-directions {
     @include homeSection;
-    background-color: $color-oedipus-pink-dark;
     text-align: center;
+    @include svgBackground;
+    background-size: cover;
 
     iframe {
       margin-top: 10vh;
-      width: 90% !important;
+      width: 80% !important;
     }
   }
-
   .s-footer {
     @include homeSection;
-    height: 100px;
-    background-color: #596778;
+    height: 75px;
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+    a {
+      color: white;
+      margin: 0 auto;
+      margin-bottom: 5px;
+      right: 0;
+      left: 0;
+      position: absolute;
+      bottom: 0;
+    }
   }
 }

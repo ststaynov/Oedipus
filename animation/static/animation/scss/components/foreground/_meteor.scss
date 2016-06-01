@@ -1,0 +1,15 @@
+
+.c-meteor {
+  width: 476px;
+  height: 263px;
+  background-image: url('../images/desktop/step5/meteor_spritesheet_16f_476x263.png');
+  animation: meteor 0.4s steps(16) infinite;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes meteor {
+  from { background-position: 0; }
+  to { background-position: 7776px; }
+}

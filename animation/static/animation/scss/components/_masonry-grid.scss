@@ -24,7 +24,6 @@
   display: inline-block;
   overflow: hidden;
   background-color: rgba(red, .02);
-  //height: 400px;
 
   &:nth-of-type(7n + 1) {
     background-color: $color-oedipus-green;

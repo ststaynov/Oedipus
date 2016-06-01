@@ -1,0 +1,15 @@
+
+.c-nipple {
+  width: 350px;
+  height: 349px;
+  background-image: url('../images/desktop/step5/nipple_spritesheet_f_350x349.png');
+  animation: nipple 6.5s steps(61) infinite;
+  position: absolute;
+  right: -400px;
+  bottom: -100px;
+}
+
+@keyframes nipple {
+  from { background-position: 0; }
+  to { background-position: 21960px; }
+}

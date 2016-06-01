@@ -42,37 +42,41 @@
     transition: visibility 0s, opacity 0.5s linear;
 
     &.initial {
-      //background-color: rgba(blue,0.5);
       opacity: 1;
       svg#c-cloud-millmash {
         visibility: visible;
+        top: 18px;
+        right: 4px; // aligning the face with the sprite
       }
     }
 
     &.milled-mashed {
-      //background-color: rgba($color-oedipus-green,0.5);
       opacity: 1;
       svg#c-cloud-millmash {
         visibility: visible;
+        top: 18px;
+        right: 4px; // aligning the face with the sprite
       }
     }
 
     &.boiling {
-      //background-color: rgba($color-oedipus-pink,0.5);
       opacity: 1;
       svg#c-cloud-boil {
         visibility: visible;
+        top: -19px;
+        left: 25px;
       }
     }
 
     &.cooling {
-      //background-color: rgba($color-oedipus-yellow,0.5);
       opacity: 1;
       &.right {
         background-size: contain;
         background-repeat: no-repeat;
         svg#c-cloud-cool-right {
           visibility: visible;
+          top: 26px;
+          left: 29px;
         }
       }
       &.left {
@@ -81,20 +85,22 @@
         background-repeat: no-repeat;
         svg#c-cloud-cool-left {
           visibility: visible;
+          top: 18px;
+          left: -10px;
         }
       }
     }
 
     &.fermenting {
-      //background-color: rgba($color-oedipus-pink-dark,0.5);
       opacity: 1;
       svg#c-cloud-fermenting {
         visibility: visible;
+        top: 26px;
+        left: 30px;
       }
     }
 
     &.bottling {
-      //background-color: rgba($color-oedipus-blue-dark,0.5);
       opacity: 0;
       transition: visibility 0s, opacity 0.5s linear;
     }

@@ -2,12 +2,13 @@
 @import 'preloader';
 @import 'action-item';
 @import 'navigation';
-@import 'mouse';
-@import 'flying-lemon';
 @import 'auto-scroll-button';
 @import 'button';
 @import 'portrait-overlay';
 @import 'snow-frame';
+
+// foreground
+@import 'foreground/all';
 
 // test
 @import 'test';
