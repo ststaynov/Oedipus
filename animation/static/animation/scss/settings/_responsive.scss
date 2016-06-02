@@ -12,10 +12,14 @@ body {
     .c-cooling-container,
     .c-milling-mashing,
     .c-fermenting,
-    //.c-action-container, // causes action item to fall behind when translating
     .c-end-pop,
     .c-cloud-bg-sprite {
       transform: scale(0.6,0.6);
+    }
+
+    // too heavy for mobile
+    .c-magic-cloud {
+      background: none;
     }
   }
 

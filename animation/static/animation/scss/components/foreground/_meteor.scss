@@ -1,14 +1,14 @@
 
 .c-meteor {
-  width: 476px;
-  height: 263px;
+  width: 317px;
+  height: 175px;
   position: absolute;
-  background-image: url('../images/desktop/foreground/meteor_spritesheet_14f_476x263_6804_optimized.png');
-  animation: meteor 0.4s steps(14) infinite;
+  background-image: url('../images/desktop/foreground/meteor_spritesheet_16f_317x175_5072_optimised.png');
+  animation: meteor 0.4s steps(16) infinite;
   pointer-events: none;
 }
 
 @keyframes meteor {
   from { background-position: 0; }
-  to { background-position: 6804px; }
+  to { background-position: 5072px; }
 }

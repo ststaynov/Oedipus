@@ -5,8 +5,7 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url('../images/desktop/step1/orange_spritesheet_15f_1000x800_15000_optimized.png');
-  //background-repeat: no-repeat;
+  background-image: url('../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png');
   background-position: left center;
   animation: magicPuff 1.2s steps(15) infinite;
 
@@ -42,7 +41,6 @@
     height: 500px;
     position: relative;
     margin: 0 auto;
-    //background-color: rgba(blue,0.2);
   }
 
   .e-beam-item {
@@ -101,4 +99,28 @@
       transform: rotate(40deg)
     }
   }
+  .e-bottle-cap {
+    width: 459px;
+    height: 356px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../images/desktop/step1/cap.svg');
+  }
+}
+
+.float {
+    -webkit-animation-name: Floating;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes Floating{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);}
 }

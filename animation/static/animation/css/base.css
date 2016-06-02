@@ -10,7 +10,9 @@ body {
     body .c-fermenting,
     body .c-end-pop,
     body .c-cloud-bg-sprite {
-      transform: scale(0.6, 0.6); } }
+      transform: scale(0.6, 0.6); }
+    body .c-magic-cloud {
+      background: none; } }
 
 * {
   box-sizing: border-box; }
@@ -404,7 +406,8 @@ svg.bg {
   width: 151px;
   height: 152px;
   background: url(../images/desktop/mouse.png) left top no-repeat;
-  background-size: 151px auto; }
+  background-size: 151px auto;
+  pointer-events: none; }
   .c-mouse.right {
     background: url(../images/desktop/mouse-right.png) left top no-repeat;
     background-size: 151px auto; }
@@ -431,24 +434,24 @@ svg.bg {
     background-position: -1002px; } }
 
 .c-meteor {
-  width: 476px;
-  height: 263px;
+  width: 317px;
+  height: 175px;
   position: absolute;
-  background-image: url("../images/desktop/foreground/meteor_spritesheet_14f_476x263_6804_optimized.png");
-  animation: meteor 0.4s steps(14) infinite;
+  background-image: url("../images/desktop/foreground/meteor_spritesheet_16f_317x175_5072_optimised.png");
+  animation: meteor 0.4s steps(16) infinite;
   pointer-events: none; }
 
 @keyframes meteor {
   from {
     background-position: 0; }
   to {
-    background-position: 6804px; } }
+    background-position: 5072px; } }
 
 .c-sun {
   width: 391px;
   height: 328px;
   position: absolute;
-  background-image: url("../images/desktop/foreground/sun_spritesheet_12f_391x328_4812_optimized.png");
+  background-image: url("../images/desktop/foreground/sun_spritesheet_12f_391x328_4692_optimised.png");
   animation: sun 1.5s steps(12) infinite;
   pointer-events: none; }
 
@@ -456,21 +459,37 @@ svg.bg {
   from {
     background-position: 0; }
   to {
-    background-position: 4812px; } }
+    background-position: 4692px; } }
 
 .c-nipple {
   width: 350px;
   height: 349px;
   position: absolute;
-  background-image: url("../images/desktop/foreground/nipple_spritesheet _48f_350x349_1720_optimized.png");
-  animation: nipple 6.5s steps(48) infinite;
+  background-image: url("../images/desktop/foreground/nipple_spritesheet_48f_350x349_16800_optimised.png");
+  animation: nipple 2.5s steps(48) infinite;
   pointer-events: none; }
 
 @keyframes nipple {
   from {
     background-position: 0; }
   to {
-    background-position: 1720px; } }
+    background-position: 16800px; } }
+
+.film-related {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.c-magic-cloud,
+.c-cooling-container,
+.c-bottling-container,
+.c-boiling,
+.c-end-pop,
+.c-fermenting,
+.c-magic-cloud,
+.c-milling-mashing {
+  background-color: rgba(128, 0, 128, 0.2); }
+
+.c-snow-frame {
+  background-color: rgba(0, 0, 0, 0.4); }
 
 @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
   .c-sperma,
@@ -485,6 +504,9 @@ svg.bg {
   .c-burst,
   .c-pumping {
     display: none !important; } }
+
+.e-title {
+  display: block !important; }
 
 .home-page .s-initial {
   height: 80vh;
@@ -873,7 +895,7 @@ a {
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url("../images/desktop/step1/orange_spritesheet_15f_1000x800_15000_optimized.png");
+  background-image: url("../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png");
   background-position: left center;
   animation: magicPuff 1.2s steps(15) infinite; }
 
@@ -948,6 +970,30 @@ a {
       top: 176px;
       left: 208px;
       transform: rotate(40deg); }
+  .c-magic-cloud .e-bottle-cap {
+    width: 459px;
+    height: 356px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("../images/desktop/step1/cap.svg"); }
+
+.float {
+  -webkit-animation-name: Floating;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out; }
+
+@-webkit-keyframes Floating {
+  from {
+    -webkit-transform: translate(0, 0px); }
+  65% {
+    -webkit-transform: translate(0, 15px); }
+  to {
+    -webkit-transform: translate(0, 0px); } }
 
 .c-milling-mashing {
   position: absolute;
@@ -973,36 +1019,56 @@ a {
   .c-milling-mashing .e-grain-container {
     width: 150px;
     height: 200px;
-    top: -100px;
+    top: 0;
     position: relative;
-    margin: 0 auto; }
+    margin: 0 auto;
+    animation: wiggle 4.75s infinite 2s; }
+
+@-webkit-keyframes wiggle {
+  0% { }
+  25% {
+    transform: rotate(3deg); }
+  50% {
+    transform: rotate(-3deg); }
+  100% {
+    transform: rotate(0deg); } }
+
+@keyframes wiggle {
+  0% { }
+  25% {
+    transform: rotate(3deg); }
+  50% {
+    transform: rotate(-3deg); }
+  100% {
+    transform: rotate(0deg); } }
   .c-milling-mashing .e-grain {
-    width: 50px;
-    height: 50px;
+    width: 4px;
+    height: 4px;
     display: inline-block;
     position: absolute;
     margin: 0 auto;
-    background: url("../images/desktop/step2/malt-1.png") center center no-repeat; }
-  .c-milling-mashing .e-grain-1 {
-    margin: 0 12px;
-    -webkit-animation: drip .45s infinite;
-    animation: drip .75s infinite; }
-  .c-milling-mashing .e-grain-2 {
-    margin: 0 25px;
-    -webkit-animation: drip .45s infinite 1s;
-    animation: drip .75s infinite 1s; }
-  .c-milling-mashing .e-grain-3 {
-    margin: 0 50px;
-    -webkit-animation: drip .45s infinite 2s;
-    animation: drip .75s infinite 2s; }
-  .c-milling-mashing .e-grain-4 {
-    margin: 0 75px;
-    -webkit-animation: drip .45s infinite 3s;
-    animation: drip .75s infinite 3s; }
-  .c-milling-mashing .e-grain-5 {
-    margin: 0 90px;
-    -webkit-animation: drip .45s infinite 4s;
-    animation: drip .75s infinite 4s; }
+    border-radius: 100%;
+    background-color: #FF8338; }
+    .c-milling-mashing .e-grain:nth-of-type(1) {
+      margin: 0 12px;
+      -webkit-animation: drip .45s infinite;
+      animation: drip .75s infinite; }
+    .c-milling-mashing .e-grain:nth-of-type(2) {
+      margin: 0 25px;
+      -webkit-animation: drip .45s infinite 1s;
+      animation: drip .75s infinite 1s; }
+    .c-milling-mashing .e-grain:nth-of-type(3) {
+      margin: 0 50px;
+      -webkit-animation: drip .45s infinite 2s;
+      animation: drip .75s infinite 2s; }
+    .c-milling-mashing .e-grain:nth-of-type(4) {
+      margin: 0 75px;
+      -webkit-animation: drip .45s infinite 3s;
+      animation: drip .75s infinite 3s; }
+    .c-milling-mashing .e-grain:nth-of-type(5) {
+      margin: 0 90px;
+      -webkit-animation: drip .45s infinite 4s;
+      animation: drip .75s infinite 4s; }
 
 @-webkit-keyframes drip {
   0% {
@@ -1019,14 +1085,82 @@ a {
 @keyframes drip {
   0% {
     opacity: 0;
-    width: 0;
-    height: 0;
-    transform: translateY(50px); }
+    transform: translateX(0); }
+  10% {
+    opacity: 1; }
   50% {
-    transform: translateY(75px); }
+    transform: translateX(10px) translateY(85px);
+    opacity: .7; }
   100% {
     opacity: 1;
-    transform: translateY(170px); } }
+    transform: translateX(0) translateY(170px); } }
+  .c-milling-mashing .e-star {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: url("../images/desktop/step2/star.svg") center center no-repeat;
+    margin: auto; }
+    .c-milling-mashing .e-star:nth-of-type(6) {
+      top: 65px;
+      left: 0;
+      right: 0;
+      animation: sparcle .75s infinite 4s; }
+    .c-milling-mashing .e-star:nth-of-type(7) {
+      top: 25px;
+      left: 25%;
+      animation: sparcle .95s infinite 4s;
+      transform: rotate(50deg); }
+    .c-milling-mashing .e-star:nth-of-type(8) {
+      top: 45px;
+      right: 25%;
+      animation: sparcle .45s infinite 4s; }
+    .c-milling-mashing .e-star:nth-of-type(9) {
+      top: 75px;
+      left: 10%;
+      animation: sparcle .85s infinite 4s; }
+    .c-milling-mashing .e-star:nth-of-type(10) {
+      top: 25px;
+      right: 10%;
+      animation: sparcle .50s infinite 4s; }
+
+@-webkit-keyframes sparcle {
+  0% {
+    transform: rotate(-5deg) scale(0.3, 0.3); }
+  25% {
+    opacity: .7; }
+  50% {
+    opacity: 1;
+    transform: rotate(5deg) scale(1.2, 1.2); }
+  75% {
+    opacity: .5; }
+  100% {
+    opacity: 0.8;
+    transform: rotate(-5deg) scale(0.3, 0.3); } }
+
+@keyframes sparcle {
+  0% {
+    transform: rotate(-5deg) scale(0.3, 0.3); }
+  25% {
+    opacity: .7; }
+  50% {
+    opacity: 1;
+    transform: rotate(5deg) scale(1.2, 1.2); }
+  75% {
+    opacity: .5; }
+  100% {
+    opacity: 0.8;
+    transform: rotate(-5deg) scale(0.3, 0.3); } }
+  .c-milling-mashing .e-grain-flumpje {
+    width: 22px;
+    height: 31px;
+    position: absolute;
+    background: url("../images/desktop/step2/pink_flumpje.svg") center center no-repeat; }
+    .c-milling-mashing .e-grain-flumpje:nth-of-type(11) {
+      left: 25%;
+      animation: drip 1s infinite; }
+    .c-milling-mashing .e-grain-flumpje:nth-of-type(12) {
+      right: 25%;
+      animation: drip .95s infinite 0.7s; }
   .c-milling-mashing .e-milling-container {
     width: 200px;
     height: 100px;
@@ -1120,19 +1254,30 @@ a {
     top: 308px;
     left: 186px;
     overflow: hidden; }
-  .c-milling-mashing .water .wave {
+  .c-milling-mashing .wave {
     width: 200%;
     position: absolute;
     top: 15px; }
-    .c-milling-mashing .water .wave.back {
+    .c-milling-mashing .wave.back {
       left: -250px;
       fill: #E8994A;
       animation: wave-back 1.4s infinite linear; }
-    .c-milling-mashing .water .wave.front {
+    .c-milling-mashing .wave.front {
       left: 0;
       fill: #ECBF92;
       margin-bottom: -1px;
       animation: wave-front .7s infinite linear; }
+  .c-milling-mashing .e-mashine-puff {
+    width: 45px;
+    height: 37px;
+    position: absolute;
+    left: 114px;
+    bottom: 152px;
+    background: url("../images/desktop/step2/mash_puff.svg"); }
+    .c-milling-mashing .e-mashine-puff.right {
+      left: auto;
+      right: 114px;
+      bottom: 90px; }
 
 @keyframes mash-wave-front {
   100% {
@@ -1152,20 +1297,20 @@ a {
     transform: translateX(-50%);
     background-color: rgba(236, 191, 146, 0.4); }
   .c-milling-mashing .c-zigzag-one {
-    width: 325px;
-    height: 444px;
+    width: 77px;
+    height: 105px;
     position: absolute;
     top: -199px;
     left: 0;
-    background-image: url("../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png");
+    background-image: url("../images/desktop/step2/zigzag1_spritesheet_12f_77x105_924_optimised.png");
     animation: zigzagOne 0.9s steps(12) infinite; }
   .c-milling-mashing .c-zigzag-two {
-    width: 213px;
-    height: 347px;
+    width: 76px;
+    height: 100px;
     position: absolute;
     right: 0;
     top: 299px;
-    background-image: url("../images/desktop/step2/zigzag2_spritesheet_12f_213x347_2556_optimized.png");
+    background-image: url("../images/desktop/step2/zigzag2_spritesheet_12f_76x100_912_optimised.png");
     animation: zigzagTwo 0.9s steps(12) infinite; }
   .c-milling-mashing .c-pumping {
     width: 69px;
@@ -1173,20 +1318,20 @@ a {
     position: absolute;
     top: 245px;
     left: 400px;
-    background-image: url("../images/desktop/step2/pumpin_spritesheet_28f_69x100_1932_optimized.png");
+    background-image: url("../images/desktop/step2/pumping_spritesheet_28f_69x100_1932_optimised.png");
     animation: pumping 1.4s steps(28) infinite; }
 
 @keyframes zigzagOne {
   from {
     background-position: 0; }
   to {
-    background-position: 3900px; } }
+    background-position: 924px; } }
 
 @keyframes zigzagTwo {
   from {
     background-position: 0; }
   to {
-    background-position: 2556px; } }
+    background-position: 912px; } }
 
 @keyframes pumping {
   from {
@@ -1533,10 +1678,10 @@ a {
   background-repeat: no-repeat; }
 
 .c-fermenting-foreground .c-sperma {
-  width: 426px;
-  height: 96px;
-  background-image: url("../images/desktop/step5/sperma_spritesheet_10f_426x96_4260_optimized.png");
-  animation: sperma 0.9s steps(10) infinite;
+  width: 222px;
+  height: 50px;
+  background-image: url("../images/desktop/step5/sperma_spritesheet_12f_222x50_2664_optimised.png");
+  animation: sperma 0.9s steps(12) infinite;
   position: absolute;
   right: 0;
   top: 0; }
@@ -1545,7 +1690,7 @@ a {
   from {
     background-position: 0; }
   to {
-    background-position: 4260px; } }
+    background-position: 2664px; } }
 
 .c-bottling-container {
   position: absolute;
