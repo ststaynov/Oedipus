@@ -18,6 +18,10 @@ h1 {
   font-family: 'Poiret One', cursive;
 }
 
+svg {
+  shape-rendering: geometricPrecision;
+}
+
 .c-borders {
   .border {
     position: absolute;
@@ -92,7 +96,7 @@ h1 {
   left: -2000px;
   width: 12000px;
   height: 300px;
-  background-image: url(../images/desktop/test/film-top/05.png),url(../images/desktop/test/film-top/01.png),url(../images/desktop/test/film-top/02.png),url(../images/desktop/test/film-top/03.png),url(../images/desktop/test/film-top/04.png),url(../images/desktop/test/film-top/05.png);
+  background-image: url(../images/desktop/background/film-top/05.png),url(../images/desktop/background/film-top/01.png),url(../images/desktop/background/film-top/02.png),url(../images/desktop/background/film-top/03.png),url(../images/desktop/background/film-top/04.png),url(../images/desktop/background/film-top/05.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;
@@ -108,7 +112,7 @@ h1 {
   position: absolute;
   top: calc(100vh - 300px);
   left: -2000px;
-  background-image: url(../images/desktop/test/film-bottom/05.png),url(../images/desktop/test/film-bottom/01.png),url(../images/desktop/test/film-bottom/02.png),url(../images/desktop/test/film-bottom/03.png),url(../images/desktop/test/film-bottom/04.png),url(../images/desktop/test/film-bottom/05.png);
+  background-image: url(../images/desktop/background/film-bottom/05.png),url(../images/desktop/background/film-bottom/01.png),url(../images/desktop/background/film-bottom/02.png),url(../images/desktop/background/film-bottom/03.png),url(../images/desktop/background/film-bottom/04.png),url(../images/desktop/background/film-bottom/05.png);
   background-position: 0 0,2000px 0,4000px 0,6000px 0,8000px 0,10000px 0;
   background-position-x: 0px, 2000px, 4000px, 6000px, 8000px, 10000px;
   background-position-y: 0px, 0px, 0px, 0px, 0px, 0px;

@@ -8,6 +8,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
     <script defer src="{% static "animation/js/bootstrap.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script> {# cdn for timeLineMax tweenMax cssPlugin etc.#}
 </head>
 <body style='overflow:visible;width:auto;'>
 
@@ -60,28 +61,61 @@
         </nav>
     </header>
 
-    <main class="home-page">
-        <section class="s-initial">
+    <main style="width: 600px; height: 500px; position:absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;">
+        <div class="relative-container" style="width: 100%; height: 100%; position:relative; background-color: rgba(0,0,0,0.4);">
 
-        </section>
+            <div class="e-bottle-container" style="width: 160px; height: 500px; position:absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;">
+                <div class="wave wave-orange"></div>
+                <div class="wave wave-yellow"></div>
+                <div class="wave wave-yellow2"></div>
+                <div class="wave wave-pink"></div>
+                <div class="wave wave-pink2"></div>
+                <div class="wave wave-blue"></div>
+            </div>
 
-        <section class="s-description">
-            <article class="e-quote"></article>
-        </section>
-        <section class="s-splashes">
-            <article class="e-details"></article>
-        </section>
-
-        <section class="s-directions">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.2625984749743!2d4.918810916083054!3d52.38378975406676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609abb38b5575%3A0x693ab0fd624586c0!2sOedipus+Brewing!5e0!3m2!1sen!2snl!4v1464353512236" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </section>
-
-        <section class="s-footer">
-            <small><a href="http://www.freepik.com”"> sponsored by Freepik</a></small>
-        </section>
+        </div>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <style>
+        .wave {
+            width: 159px;
+            height: 171px;
+            position: absolute;
+        }
+
+        .wave-orange {
+            top: 0;
+            background: url('{% static "animation/images/desktop/test/wave_orange.svg" %}') left center no-repeat;
+        }
+        .wave-yellow {
+            top: 50px;
+            background: url('{% static "animation/images/desktop/test/wave_yellow.svg" %}') left center no-repeat;
+        }
+        .wave-yellow2 {
+            top: 100px;
+            background: url('{% static "animation/images/desktop/test/wave_yellow2.svg" %}') left center no-repeat;
+        }
+        .wave-pink {
+            top: 150px;
+            background: url('{% static "animation/images/desktop/test/wave_pink.svg" %}') left center no-repeat;
+        }
+        .wave-pink2 {
+            top: 200px;
+            background: url('{% static "animation/images/desktop/test/wave_pink2.svg" %}') left center no-repeat;
+        }
+        .wave-blue {
+            top: 250px;
+            background: url('{% static "animation/images/desktop/test/wave_blue.svg" %}') left center no-repeat;
+        }
+
+    </style>
+
+    <script>
+        var $waves = $('.wave');
+
+        TweenMax.staggerTo($waves, 1, {y: -25, repeat:-1, yoyo:true}, 0.4);
+    </script>
+
 </body>
 </html>

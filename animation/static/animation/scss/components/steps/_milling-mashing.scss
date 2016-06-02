@@ -12,54 +12,73 @@
     left: 46px;
   }
 
-  .e-cloud {
-    width: 150px;
-    height: 90px;
-    margin: 0 auto;
-    background: url('../images/desktop/step2/cloud.png') left center no-repeat;
-    background-size: contain;
-    animation: cloud .8s steps(3) infinite;
-  }
+  //.e-cloud {
+  //  width: 150px;
+  //  height: 90px;
+  //  margin: 0 auto;
+  //  background: url('../images/desktop/step2/cloud.png') left center no-repeat;
+  //  background-size: contain;
+  //  animation: cloud .8s steps(3) infinite;
+  //}
 
   .e-grain-container {
     width: 150px;
     height: 200px;
-    top: -100px;
+    top: 0;
     position: relative;
     margin: 0 auto;
+    animation: wiggle 4.75s infinite 2s;
+  }
+   @-webkit-keyframes wiggle {
+    0% {}
+      25% {transform: rotate(3deg);}
+    50% {transform: rotate(-3deg);}
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+    @keyframes wiggle {
+    0% {}
+      25% {transform: rotate(3deg);}
+    50% {transform: rotate(-3deg);}
+    100% {
+      transform: rotate(0deg);
+    }
   }
   .e-grain {
-    width: 50px;
-    height: 50px;
+    width: 4px;
+    height: 4px;
     display: inline-block;
     position: absolute;
     margin: 0 auto;
-    background: url('../images/desktop/step2/malt-1.png') center center no-repeat;
-  }
-  .e-grain-1 {
-    margin: 0 12px;
-    -webkit-animation: drip .45s infinite;
-    animation: drip .75s infinite;
-  }
-  .e-grain-2 {
-    margin: 0 25px;
-    -webkit-animation: drip .45s infinite 1s;
-    animation: drip .75s infinite 1s;
-  }
-  .e-grain-3 {
-    margin: 0 50px;
-    -webkit-animation: drip .45s infinite 2s;
-    animation: drip .75s infinite 2s;
-  }
-  .e-grain-4 {
-    margin: 0 75px;
-    -webkit-animation: drip .45s infinite 3s;
-    animation: drip .75s infinite 3s;
-  }
-  .e-grain-5 {
-    margin: 0 90px;
-    -webkit-animation: drip .45s infinite 4s;
-    animation: drip .75s infinite 4s;
+    border-radius: 100%;
+    background-color: #FF8338;
+
+    &:nth-of-type(1)  {
+      margin: 0 12px;
+      -webkit-animation: drip .45s infinite;
+      animation: drip .75s linear infinite;
+    }
+    &:nth-of-type(2)  {
+      margin: 0 25px;
+      -webkit-animation: drip .45s infinite 1s;
+      animation: drip .75s linear infinite 1s;
+    }
+    &:nth-of-type(3) {
+      margin: 0 50px;
+      -webkit-animation: drip .45s infinite 2s;
+      animation: drip .75s linear infinite 2s;
+    }
+    &:nth-of-type(4) {
+      margin: 0 75px;
+      -webkit-animation: drip .45s infinite 3s;
+      animation: drip .75s linear infinite 3s;
+    }
+    &:nth-of-type(5) {
+      margin: 0 90px;
+      -webkit-animation: drip .45s infinite 4s;
+      animation: drip .75s linear infinite 4s;
+    }
   }
   @-webkit-keyframes drip {
     0% {
@@ -80,16 +99,115 @@
   @keyframes drip {
     0% {
       opacity: 0;
-      width: 0;
-      height: 0;
-      transform: translateY(50px);
+      transform: translateX(0);
+    }
+    10% {
+      opacity: 1;
     }
     50% {
-      transform: translateY(75px);
+      transform: translateX(10px) translateY(85px);
+      opacity: .7;
     }
     100% {
       opacity: 1;
-      transform: translateY(170px);
+      transform: translateX(0) translateY(170px);
+    }
+  }
+
+  .e-star {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: url('../images/desktop/step2/star.svg') center center no-repeat;
+    margin: auto;
+
+    &:nth-of-type(6) {
+      top: 65px;
+      left: 0;
+      right: 0;
+      animation: sparcle .75s infinite 4s;
+    }
+    &:nth-of-type(7) {
+      top: 25px;
+      left: 25%;
+      animation: sparcle .95s infinite 4s;
+      transform: rotate(50deg);
+    }
+    &:nth-of-type(8) {
+      top: 45px;
+      right: 25%;
+      animation: sparcle .45s infinite 4s;
+    }
+    &:nth-of-type(9) {
+      top: 75px;
+      left: 10%;
+      animation: sparcle .85s infinite 4s;
+    }
+    &:nth-of-type(10) {
+      top: 25px;
+      right: 10%;
+      animation: sparcle .50s infinite 4s;
+    }
+    &:nth-of-type(10) {
+      top: 0;
+      left: 0;
+      animation: sparcle .50s infinite 4s;
+    }
+  }
+  @-webkit-keyframes sparcle {
+    0% {
+      transform: rotate(-5deg) scale(0.3,0.3);
+    }
+    25%{
+      opacity: .7;
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(5deg) scale(1.2,1.2);
+    }
+    75% {
+      opacity: .5;
+    }
+
+    100% {
+      opacity: 0.8;
+      transform: rotate(-5deg) scale(0.3,0.3);
+    }
+  }
+  @keyframes sparcle {
+    0% {
+      transform: rotate(-5deg) scale(0.3,0.3);
+    }
+    25%{
+      opacity: .7;
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(5deg) scale(1.2,1.2);
+    }
+    75% {
+      opacity: .5;
+    }
+
+    100% {
+      opacity: 0.8;
+      transform: rotate(-5deg) scale(0.3,0.3);
+    }
+  }
+
+  .e-grain-flumpje {
+    width: 22px;
+    height: 31px;
+    position: absolute;
+    background: url('../images/desktop/step2/pink_flumpje.svg') center center no-repeat;
+
+    &:nth-of-type(12) {
+      left: 25%;
+      animation: drip .9s linear infinite;
+    }
+    &:nth-of-type(13) {
+      right: 25%;
+      animation: drip 1.1s linear infinite 0.7s;
     }
   }
   /* milling container start */
@@ -220,25 +338,36 @@
     overflow: hidden;
   }
 
-  .water {
+  .wave {
+    width: 200%;
+    position: absolute;
+    top: 15px;
 
-    .wave {
-      width: 200%;
-      position: absolute;
-      top: 15px;
+    &.back {
+      left: -250px;
+      fill: #E8994A;
+      animation: wave-back 1.4s infinite linear;
+    }
 
-      &.back {
-        left: -250px;
-        fill: #E8994A;
-        animation: wave-back 1.4s infinite linear;
-      }
+    &.front {
+      left: 0;
+      fill: #ECBF92;
+      margin-bottom: -1px;
+      animation: wave-front .7s infinite linear;
+    }
+  }
+  .e-mashine-puff {
+    width: 45px;
+    height: 37px;
+    position: absolute;
+    left: 114px;
+    bottom: 152px;
+    background: url('../images/desktop/step2/mash_puff.svg');
 
-      &.front {
-        left: 0;
-        fill: #ECBF92;
-        margin-bottom: -1px;
-        animation: wave-front .7s infinite linear;
-      }
+    &.right {
+      left: auto;
+      right: 114px;
+      bottom: 95px;
     }
   }
   @keyframes mash-wave-front {
@@ -267,23 +396,25 @@
   /* milled grain end */
 
   .c-zigzag-one {
-    width: 325px;
-    height: 444px;
+    width: 77px;
+    height: 105px;
     position: absolute;
-    top: -199px;
-    left: 0;
-    background-image: url('../images/desktop/step2/zigzag1_spritesheet _12f_325x444_3900_optimized.png');
+    top: 0;
+    left: 237px;
+    transform: rotate(-30deg) scale(0.3,.3);
+    background-image: url('../images/desktop/step2/zigzag1_spritesheet_12f_77x105_924_optimised.png');
     animation: zigzagOne 0.9s steps(12) infinite;
   }
 
   .c-zigzag-two {
-    width: 213px;
-    height: 347px;
+    width: 76px;
+    height: 100px;
     position: absolute;
-    right: 0;
-    top: 299px;
-    background-image: url('../images/desktop/step2/zigzag2_spritesheet_12f_213x347_2556_optimized.png');
-    animation: zigzagTwo 0.9s steps(12) infinite;
+    top: 0;
+    right: 208px;
+    transform: rotate(-60deg) scale(0.3,0.3);
+    background-image: url('../images/desktop/step2/zigzag2_spritesheet_12f_76x100_912_optimised.png');
+    animation: zigzagTwo 1.2s steps(12) infinite;
   }
 
   .c-pumping {
@@ -292,24 +423,48 @@
     position: absolute;
     top: 245px;
     left: 400px;
-    background-image: url('../images/desktop/step2/pumpin_spritesheet_28f_69x100_1932_optimized.png');
+    background-image: url('../images/desktop/step2/pumping_spritesheet_28f_69x100_1932_optimised.png');
     animation: pumping 1.4s steps(28) infinite;
   }
 
   @keyframes zigzagOne {
-    from {
+    0% {
       background-position: 0;
+      opacity: 0;
     }
-    to {
-      background-position: 3900px;
+    10% {
+       opacity: 1;
+    }
+    50% {
+      top: 40px;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 110px;
+      opacity: 0;
+      background-position: 924px;
     }
   }
   @keyframes zigzagTwo {
-    from {
+    0% {
       background-position: 0;
+      opacity: 0;
     }
-    to {
-      background-position: 2556px;
+    10% {
+       opacity: 1;
+    }
+    50% {
+      top: 60px;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 130px;
+      opacity: 0;
+      background-position: 912px;
     }
   }
   @keyframes pumping {

@@ -1,5 +1,5 @@
 
- //For testing pourposes
+// //For testing pourposes
 //.film-related {
 //  background-color: rgba(0,0,0,.2);
 //}
@@ -18,8 +18,8 @@
 //.c-snow-frame {
 //  background-color: rgba(0,0,0,0.4);
 //}
-//
-//   //all sprites
+
+//all sprites
 @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) { // if device is mobile or device is portrait
   .c-sperma,
   .c-sun,
@@ -35,7 +35,7 @@
     display: none !important;
   }
 }
-//
+
 //.e-title {
 //  display: block !important;
 //}

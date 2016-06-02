@@ -5,8 +5,7 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url('../images/desktop/step1/orange_spritesheet_15f_1000x800_15000_optimized.png');
-  //background-repeat: no-repeat;
+  background-image: url('../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png');
   background-position: left center;
   animation: magicPuff 1.2s steps(15) infinite;
 
@@ -42,7 +41,6 @@
     height: 500px;
     position: relative;
     margin: 0 auto;
-    //background-color: rgba(blue,0.2);
   }
 
   .e-beam-item {
@@ -53,52 +51,76 @@
     &:nth-of-type(1) {
       top: 116px;
       left: 237px;
-      transform: rotate(56deg)
+      transform: rotate(56deg);
     }
     &:nth-of-type(2) {
       top: 60px;
       left: 300px;
-      transform: rotate(112deg)
+      transform: rotate(112deg);
     }
     &:nth-of-type(3) {
       top: 85px;
       right: 364px;
-      transform: rotate(148deg)
+      transform: rotate(148deg);
     }
     &:nth-of-type(4) {
       top: 123px;
       right: 311px;
-      transform: rotate(184deg)
+      transform: rotate(184deg);
     }
     &:nth-of-type(5) {
       top: 166px;
       right: 293px;
-      transform: rotate(220deg)
+      transform: rotate(220deg);
     }
     &:nth-of-type(6) {
       top: 226px;
       right: 321px;
-      transform: rotate(256deg)
+      transform: rotate(256deg);
     }
     &:nth-of-type(7) {
       top: 267px;
       left: 350px;
-      transform: rotate(292deg)
+      transform: rotate(292deg);
     }
     &:nth-of-type(8) {
       top: 258px;
       left: 274px;
-      transform: rotate(328deg)
+      transform: rotate(328deg);
     }
     &:nth-of-type(9) {
       top: 217px;
       left: 221px;
-      transform: rotate(364deg)
+      transform: rotate(364deg);
     }
     &:nth-of-type(10) {
       top: 176px;
       left: 208px;
-      transform: rotate(40deg)
+      transform: rotate(40deg);
     }
   }
+  .e-bottle-cap {
+    width: 459px;
+    height: 356px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../images/desktop/step1/cap.svg');
+  }
+}
+
+.float {
+    -webkit-animation-name: Floating;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes Floating{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);}
 }
