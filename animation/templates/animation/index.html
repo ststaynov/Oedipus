@@ -21,6 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script> {# cdn for timeLineMax tweenMax cssPlugin etc.#}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="{% static "animation/js/jquery.event.move.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.drawsvg/1.0.1/jquery.drawsvg.min.js"></script>
 </head>
 
 <body>
@@ -156,9 +157,15 @@
     <div class="c-brewing-wrapper">
         <section class="c-brewing">
             <figure class="c-brewing-background">
-                <figure class="c-brewing-background-inner"></figure>
                 <div class="c-brewing-background-inner-top"></div>
                 <div class="c-brewing-background-inner-bottom"></div>
+                <figure class="c-brewing-background-inner">
+                    <svg width="12000px" height="6px" id="test" viewBox="0 0 12007 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                            <path d="M3.5,3 L12003.5,3" id="Line" stroke="#FF8C00" stroke-width="6"></path>
+                        </g>
+                    </svg>
+                </figure>
             </figure>
 
             <figure class="c-brewing-foreground">

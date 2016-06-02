@@ -235,8 +235,18 @@ function shakeAnimation(element){
 $('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
 $('body').bind('keydown', $.throttle(280, arrowBtnMove));
 
+    var $svg = $('svg#test').drawsvg(),
+    max = 12000,
+    i=0;
+    $svg.drawsvg('progress', 0.01);
 function scrolling(e) {
     e.preventDefault();
+
+    i+= 200;
+    var p = i / max;
+    $svg.drawsvg('progress', p);
+    consoleLog($svg);
+
     // In case autoscroll was running
     if ($btnAutoScroll.hasClass('scrolling')) {
         $btnAutoScroll.removeClass('scrolling');
