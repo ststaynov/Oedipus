@@ -11,3 +11,6 @@ def home(request):
 
 def quotes(request):
     return render_to_response('animation/quotes.html', {})
+
+def test(request):
+    return render_to_response('animation/test.html', {})

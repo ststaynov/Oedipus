@@ -18,6 +18,8 @@ var e = document.body,
     positionsArr = [],
     $thermometerNeedle = $('#needle'),
     magicCloudTl = new TimelineMax({repeat:-1}),
+    $beerWaves = $('.beer-wave'),
+    $fermentingWindow = $('.e-window'),
 
     // action item
     $actionItem = $('.c-action'),
@@ -183,8 +185,19 @@ var $note = $('.e-note'),
                 .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($drink, 2, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($flumpje, 2, {top: '-=20',rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
-                // .fromTo($fermentingTank, 0.5, {rotation: -2}, {rotation: 2, transformOrigin:"50% 50%", repeat: -1, repeatdelay:2}, "ferment")
-                // .to($fermentingTank, 0.5, {rotation: 0, repeat: -1, ease: Elastic.easeOut, repeatdelay:2}, "ferment"); TODO WHY YOU NO SHAKE with delay?
+
+// Change the colors of the window
+tweenToRandomColor();
+function tweenToRandomColor() {
+    TweenMax.to($fermentingWindow, 4, {
+        backgroundColor: "rgb(" + random(0, 255) + "," + random(0, 255) + "," + random(0, 255) + ")",
+        onComplete:tweenToRandomColor
+    });
+}
+function random(min, max) {
+  return (min + Math.random() * (max - min) + 0.5) | 0;
+}
+
 setInterval(function(){shakeAnimation($fermentingTank);},5000);
 
 
@@ -208,6 +221,12 @@ function shakeAnimation(element){
     delay: .1 * 4
   });
 }
+
+
+
+    // Bottling
+    TweenMax.staggerTo($beerWaves, 1, {y: -25, repeat:-1, yoyo:true}, 0.4);
+
 /* Setting up animation timelines per step END */
 
 
