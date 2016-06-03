@@ -7,14 +7,15 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     fgBg = [$bg, $fg, $btlContainer],
 
     // foreground animatios
-    $mouse = $('.c-mouse'),
-    $flemon = $('.c-flying-lemon'),
+    // $mouse = $('.c-mouse'),
+    // $flemon = $('.c-flying-lemon'),
     $nipple = $('.c-nipple'),
     $meteor = $('.c-meteor'),
     $sun = $('.c-sun'),
 
     $btnAutoScroll = $('.c-auto-scroll-button'),
     loopBackwardAllowed = false,
+    loopForwardAllowed = false,
     positionsArr = [],
     $thermometerNeedle = $('#needle'),
     magicCloudTl = new TimelineMax({repeat:-1}),
@@ -89,8 +90,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
-TweenMax.set($mouse, {x: positionsArr[1], y: positionsArr[2]});
-TweenMax.set($flemon, {x: positionsArr[3], y: positionsArr[4]});
+// TweenMax.set($mouse, {x: positionsArr[1], y: positionsArr[2]});
+// TweenMax.set($flemon, {x: positionsArr[3], y: positionsArr[4]});
 TweenMax.set($nipple, {x: 4650, y: 600});
 TweenMax.set($sun, {x: 850, y: 0});
 TweenMax.set($meteor, {x: 2000, y: 100});
@@ -280,6 +281,9 @@ function arrowBtnMove(e){
         moveBackground();
         consoleLog('moveforward');
     }
+    else if (pressedBtnValue == 9) {
+
+    }
     consoleLog('btn number: ' + e.which + 'pressed');
 }
 
@@ -300,7 +304,7 @@ function checkPosition(tween) {
     var n = -tween._targets[0]._gsTransform.x.toFixed(2);
     // var p = parseInt($bg.css('transform').split(',')[4]);
 
-    if (n < -7800) {
+    if (n < -7800 && loopBackwardAllowed) {
         /* sets new position at the start of the film  */
         loopBackwardAllowed = true;
         translateValue = n + 8000;
@@ -325,7 +329,14 @@ function checkPosition(tween) {
         // if (n > 170) { attempt to remove the bouncing effect when breaking the law
             TweenMax.to(fgBg, 0.4, {x: translateValue});
             TweenMax.to($actionItem, 0.4, {x: -translateValue});
+    } else if (n <= -7740 && !loopForwardAllowed) { /* checks if user is allowed to go to the beginning of the film */
+        translateValue = -7741;
+
+        // if (n > 170) { attempt to remove the bouncing effect when breaking the law
+            TweenMax.to(fgBg, 0.4, {x: translateValue});
+            TweenMax.to($actionItem, 0.4, {x: -translateValue});
     }
+
     displayBgPosition(n);
 }
 
@@ -369,12 +380,12 @@ function displayBgPosition(n) {
 /* FOREGROUND ANIMATIONS START */
 
 
-TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: mouseSwitchDirection});
+// TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: mouseSwitchDirection});
 
 /* change background image according to animation direction */
-function mouseSwitchDirection() {
-    switchDirection($mouse);
-}
+// function mouseSwitchDirection() {
+//     switchDirection($mouse);
+// }
 
 function windSwitchDirection() {
     switchDirection($actionItem);
@@ -494,6 +505,9 @@ function changeScrollButtonClass() {
         $btnAutoScroll.removeClass('scrolling');
         stopAutoScroll();
     } else if (n < -7690) {
+        $btnAutoScroll.addClass('scrolling');
+        loopBackwardAllowed =  true;
+        loopForwardAllowed = true;
         moveBackground();
         setTimeout(function(){
             startAutoScroll();

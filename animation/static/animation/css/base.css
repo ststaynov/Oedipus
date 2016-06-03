@@ -12,7 +12,27 @@ body {
     body .c-cloud-bg-sprite {
       transform: scale(0.6, 0.6); }
     body .c-magic-cloud {
-      background: none; } }
+      background: none; }
+    body .c-action.initial svg#c-cloud-travel {
+      top: 18px !important;
+      right: 31px !important; }
+    body .c-action.milled-mashed svg#c-cloud-millmash {
+      top: -4px !important;
+      right: 21px !important; }
+    body .c-action.boiling svg#c-cloud-boil {
+      top: -7px !important;
+      left: 53px !important; }
+    body .c-action.cooling.right svg#c-cloud-cool-right {
+      top: 17px !important;
+      left: 52px !important; }
+    body .c-action.cooling.left svg#c-cloud-cool-left {
+      top: 5px !important;
+      left: 40px !important; }
+    body .c-action.fermenting svg#c-cloud-fermenting {
+      top: -16px !important;
+      left: 54px !important; }
+    body .e-energy {
+      display: none !important; } }
 
 * {
   box-sizing: border-box; }
@@ -96,6 +116,7 @@ svg {
   margin-right: 1rem;
   right: 0;
   background: url(http://oedipus.com/wp-content/themes/oedipus/assets/img/menu-cloud.svg) center no-repeat;
+  font-weight: bold;
   background-size: 100% auto;
   line-height: 3.23rem;
   text-align: center;
@@ -144,7 +165,7 @@ svg {
     z-index: -1; }
   .c-beer-fill-container > svg {
     position: absolute;
-    top: calc(86vh - 250px);
+    top: calc(50vh + 54px);
     z-index: -2; }
 
 .c-brewing-background-inner-top {
@@ -446,39 +467,6 @@ svg.bg {
   100% {
     top: 0;
     visibility: hidden; } }
-
-.c-mouse {
-  position: absolute;
-  display: block;
-  width: 151px;
-  height: 152px;
-  background: url(../images/desktop/mouse.png) left top no-repeat;
-  background-size: 151px auto;
-  pointer-events: none; }
-  .c-mouse.right {
-    background: url(../images/desktop/mouse-right.png) left top no-repeat;
-    background-size: 151px auto; }
-
-.c-flying-lemon {
-  position: absolute;
-  pointer-events: none; }
-  .c-flying-lemon .relative-container {
-    position: relative; }
-  .c-flying-lemon .e-lemon {
-    width: 300px;
-    height: 190px;
-    background: url(../images/desktop/lemon.png) center center no-repeat; }
-  .c-flying-lemon .e-wings {
-    position: absolute;
-    top: 0;
-    width: 334px;
-    height: 190px;
-    background: url(../images/desktop/sprite.png) left center no-repeat;
-    animation: play 0.8s steps(3) infinite; }
-
-@keyframes play {
-  100% {
-    background-position: -1002px; } }
 
 .c-meteor {
   width: 317px;

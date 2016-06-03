@@ -21,6 +21,56 @@ body {
     .c-magic-cloud {
       background: none;
     }
+
+    // aligning the face with the sprite for mobile
+    .c-action {
+      &.initial {
+        svg#c-cloud-travel {
+          top: 18px !important;
+          right: 31px !important;
+        }
+      }
+
+      &.milled-mashed {
+        svg#c-cloud-millmash {
+          top: -4px !important;
+          right: 21px !important;
+        }
+      }
+
+      &.boiling {
+        svg#c-cloud-boil {
+          top: -7px !important;
+          left: 53px !important;
+        }
+      }
+
+      &.cooling {
+        &.right {
+          svg#c-cloud-cool-right {
+            top: 17px !important;
+            left: 52px !important;
+          }
+        }
+        &.left {
+          svg#c-cloud-cool-left {
+            top: 5px !important;
+            left: 40px !important;
+          }
+        }
+      }
+
+      &.fermenting {
+        svg#c-cloud-fermenting {
+          top: -16px !important;
+          left: 54px !important;
+        }
+      }
+    }
+
+    .e-energy {
+      display: none !important;
+    }
   }
 
   background-color: $color-bg;

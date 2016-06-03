@@ -1,29 +1,29 @@
-
-.c-flying-lemon {
-  position: absolute;
-  pointer-events: none;
-
-  .relative-container {
-    position: relative;
-  }
-
-  .e-lemon {
-      width: 300px;
-      height: 190px;
-      background: url(../images/desktop/lemon.png) center center no-repeat;
-  }
-
-  .e-wings {
-      position: absolute;
-      top: 0;
-      width: 334px;
-      height: 190px;
-      background: url(../images/desktop/sprite.png) left center no-repeat;
-      animation: play .8s steps(3) infinite;
-  }
-}
-
-
-@keyframes play {
-    100% { background-position: -1002px; }
-}
+//
+//.c-flying-lemon {
+//  position: absolute;
+//  pointer-events: none;
+//
+//  .relative-container {
+//    position: relative;
+//  }
+//
+//  .e-lemon {
+//      width: 300px;
+//      height: 190px;
+//      background: url(../images/desktop/lemon.png) center center no-repeat;
+//  }
+//
+//  .e-wings {
+//      position: absolute;
+//      top: 0;
+//      width: 334px;
+//      height: 190px;
+//      background: url(../images/desktop/sprite.png) left center no-repeat;
+//      animation: play .8s steps(3) infinite;
+//  }
+//}
+//
+//
+//@keyframes play {
+//    100% { background-position: -1002px; }
+//}
