@@ -244,17 +244,8 @@ function shakeAnimation(element){
 $('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
 $('body').bind('keydown', $.throttle(280, arrowBtnMove));
 
-    // var $svg = $('svg#test').drawsvg(),
-    // max = 12000,
-    // i=0;
-    // $svg.drawsvg('progress', 0.01);
 function scrolling(e) {
     e.preventDefault();
-
-    // i+= 200;
-    // var p = i / max;
-    // $svg.drawsvg('progress', p);
-    // consoleLog($svg);
 
     // In case autoscroll was running
     if ($btnAutoScroll.hasClass('scrolling')) {
@@ -297,6 +288,10 @@ function moveBackground(f) {
     });
     displayBgPosition(n);
     checkBackgroundColors();
+    if ($bottling.hasClass('fixed')) { //PLEASE WORK!!!
+        TweenMax.to($bottling , 2, {x: -(translateValue - 400)});
+        consoleLog('moving');
+    }
 }
 
 function checkPosition(tween) {
@@ -337,6 +332,18 @@ function checkPosition(tween) {
             TweenMax.to($actionItem, 0.4, {x: -translateValue});
     }
 
+    if (n < -6500) {
+        if ($bottling.hasClass('fixed')) {}
+        else {
+            $bottling.addClass('fixed');
+            TweenMax.to($bottling , 2, {x: -(translateValue - 400)});
+        }
+    } else {
+        if($bottling.hasClass('fixed')) {
+            $bottling.removeClass('fixed');
+            TweenMax.set($bottling ,{x: -(n - 400)});
+        }
+    }
     displayBgPosition(n);
 }
 
@@ -350,6 +357,10 @@ jQuery('.c-brewing-background-inner')
             onUpdate: $.throttle(810, checkPosition),
             onUpdateParams: ["{self}"]
         });
+        if ($bottling.hasClass('fixed')) { //PLEASE WORK!!!
+            TweenMax.set($bottling , {x: -(n + e.deltaX + -400)});
+            consoleLog('moving');
+        }
         displayBgPosition(n);
         checkBackgroundColors();
     })
