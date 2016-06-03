@@ -357,7 +357,7 @@ jQuery('.c-brewing-background-inner')
             onUpdate: $.throttle(810, checkPosition),
             onUpdateParams: ["{self}"]
         });
-        if ($bottling.hasClass('fixed')) { //PLEASE WORK!!!
+        if ($bottling.hasClass('fixed')) { //PLEASE WORK!!! TODO make magic happen on mobile
             TweenMax.set($bottling , {x: -(n + e.deltaX + -400)});
             consoleLog('moving');
         }
