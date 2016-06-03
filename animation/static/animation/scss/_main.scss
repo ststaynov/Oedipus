@@ -53,15 +53,36 @@ svg {
   z-index: $z-5;
 }
 
-.logo {
-  top: 10px;
-  left: 10px;
-  position: fixed;
-  z-index: $z-5;
+.header__logo {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: block;
+  float: left;
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  left: 0;
+  background: url(http://oedipus.com/wp-content/themes/oedipus/assets/img/logo-cap.svg) center no-repeat;
+  background-size: contain;
+  text-indent: -9999em;
+  z-index: 5;
+}
 
-  img {
-    width: 50px;
-  }
+.header__menu-toggle {
+  float: right;
+  width: 6rem;
+  position: absolute;
+  height: 3.23rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+  right: 0;
+  background: url(http://oedipus.com/wp-content/themes/oedipus/assets/img/menu-cloud.svg) center no-repeat;
+  background-size: 100% auto;
+  line-height: 3.23rem;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  z-index: 5;
 }
 
 .bg-position {
@@ -88,6 +109,34 @@ svg {
   width: 12000px;
   height: 100vh;
   transform: translate3d( 0px, 0px, 0px);
+}
+.c-relative-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.c-beer-fill-container {
+    height: 0;
+
+  .c-brewing-background-inner-right-overlay {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate3d( 0px, 0px, 0px);
+    background-color: $color-bg;
+    z-index: $z--1;
+  }
+
+  > svg {
+    position: absolute;
+    top: calc(86vh - 250px);
+    //top: calc(50vh - 250px); Film Set up
+    z-index: -2;
+  }
 }
 
 .c-brewing-background-inner-top {

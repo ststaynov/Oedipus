@@ -1,5 +1,5 @@
 /* BG ANIMATIONS START */
-var e = document.body,
+var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     translateValue = 0,
     $bg = $('.c-brewing-background'),
     $fg = $('.c-brewing-foreground'),
@@ -35,6 +35,13 @@ var e = document.body,
     $warmBeamUpLeft = $('path#e-cloud-warm-beam-up-left'),
     $warmBeamUpRight = $('path#e-cloud-warm-beam-up-right'),
     $fermentingTank = $('g#tank'),
+
+    colorOedipusGreen = '#a3d01a',
+    colorOedipusPink = '#FF98B5',
+    colorOedipusBlueDark = '#4d509b',
+    colorOedipusBlue = '#4998d2',
+    colorOedipusPinkDark = '#ca447f',
+    oedipusColors = [colorOedipusGreen, colorOedipusPink, colorOedipusBlueDark, colorOedipusBlue, colorOedipusPinkDark],
 
         //clouds
         $cloudMillMash = $('#c-cloud-millmash'),
@@ -189,8 +196,9 @@ var $note = $('.e-note'),
 // Change the colors of the window
 tweenToRandomColor();
 function tweenToRandomColor() {
+    random_color = oedipusColors[Math.floor((Math.random() * 4) + 1)];
     TweenMax.to($fermentingWindow, 4, {
-        backgroundColor: "rgb(" + random(0, 255) + "," + random(0, 255) + "," + random(0, 255) + ")",
+        backgroundColor: '#random_color',
         onComplete:tweenToRandomColor
     });
 }
@@ -235,17 +243,17 @@ function shakeAnimation(element){
 $('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
 $('body').bind('keydown', $.throttle(280, arrowBtnMove));
 
-    var $svg = $('svg#test').drawsvg(),
-    max = 12000,
-    i=0;
-    $svg.drawsvg('progress', 0.01);
+    // var $svg = $('svg#test').drawsvg(),
+    // max = 12000,
+    // i=0;
+    // $svg.drawsvg('progress', 0.01);
 function scrolling(e) {
     e.preventDefault();
 
-    i+= 200;
-    var p = i / max;
-    $svg.drawsvg('progress', p);
-    consoleLog($svg);
+    // i+= 200;
+    // var p = i / max;
+    // $svg.drawsvg('progress', p);
+    // consoleLog($svg);
 
     // In case autoscroll was running
     if ($btnAutoScroll.hasClass('scrolling')) {
@@ -418,8 +426,8 @@ function checkSnow(activate) {
             random_num1 = Math.round(Math.random() * 100);
             random_num2 = Math.round(Math.random() * 100);
             random_num3 = Math.floor(Math.random() * 15) + 5;
-            random_color = oedipusColors[Math.floor((Math.random() * 6) + 1)];
-            if(snowFlakeCount < 30) {
+            random_color = oedipusColors[Math.floor((Math.random() * 4) + 1)];
+            if(snowFlakeCount < 20) {
                 create_flake();
             }
             destroy_flake();
@@ -555,16 +563,7 @@ function stopAutoScroll() {
  */
 
 
-var colorOedipusGreen = '#a3d01a',
-    colorOedipusPink = '#FF98B5',
-    colorOedipusBlueDark = '#4d509b',
-    colorOedipusPink = '#ff98b5',
-    colorOedipusBlue = '#4998d2',
-    colorOedipusPinkDark = '#ca447f',
-    colorOedipusGreen = '#A3D01A',
-    oedipusColors = [colorOedipusGreen, colorOedipusPink, colorOedipusBlueDark, colorOedipusPink, colorOedipusBlue, colorOedipusPinkDark, colorOedipusGreen],
-
-    step1Duration = -650,
+var step1Duration = -650,
     step2Duration = -1840,
     step3Duration = -3150,
     step4Duration = -4490,
@@ -640,10 +639,7 @@ function checkForActionItemEffects(hasClass) {
         case "boiling":
             //clear Timeline from previous tweens&callbacks
             mainActionItemtl.clear();
-            // mainActionItemtl.eventCallback("onRepeat", null);
             mainActionItemtl.eventCallback("repeat", null);
-            // mainActionItemtl.eventCallback("yoyo", null) ;
-            // mainActionItemtl.eventCallback("ease", null);
             checkSnow(false);
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '16vw'});
             break;
