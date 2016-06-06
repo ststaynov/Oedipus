@@ -547,7 +547,7 @@ function changeScrollButtonClass() {
 function startAutoScroll() {
     // calculate depending on the position what time to set for the animation to be consistent throughout all the film (% stuff)
     var n = parseInt($bg.css('transform').split(',')[4]),
-        filmEnd = 7700,
+        filmEnd = 7750,
         filmStart = 200,
         maxTime = 20,
         oneTimePercent,
@@ -591,6 +591,14 @@ function startAutoScroll() {
             if($bottling.hasClass('fixed')) {
                 $bottling.removeClass('fixed');
                 TweenMax.set($bottling ,{x: -(n - 400)});
+            }
+        }
+        if (n <= -7740 && !loopForwardAllowed) {
+
+            if ($bottling.hasClass('exploded')) {}
+            else {
+                $bottling.addClass('exploded');
+                $bottling.removeClass('fixed');
             }
         }
     }
