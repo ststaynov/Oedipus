@@ -211,12 +211,22 @@ svg {
   pointer-events: none; }
 
 .film-related {
-  width: 12000px;
+  width: 8800px;
   height: 500px;
   position: absolute;
   top: calc(50vh - 250px);
   transform: translate3d(0px, 0px, 0px);
   pointer-events: none; }
+
+.e-film-pipes {
+  width: 4920px;
+  height: 100%;
+  position: absolute;
+  left: 2000px;
+  background-image: url(../images/desktop/background/brewing_pipes.svg);
+  background-size: 100%;
+  background-position: left center;
+  background-repeat: no-repeat; }
 
 .e-title {
   position: absolute;
@@ -414,28 +424,36 @@ svg.bg {
   margin: auto;
   display: inline-block; }
   .button-block .button {
+    position: absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
     text-align: center;
     line-height: 50px;
     display: inline-block;
     color: #ca447f; }
 
 .our-beers {
+  width: 350px;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0; }
+  right: 231px; }
+  .our-beers .button {
+    top: 100px; }
 
 .share {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0; }
+  left: 279px;
+  bottom: 0; }
+  .share .button {
+    top: 163px; }
 
 .replay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0; }
+  right: 234px;
+  bottom: 0; }
+  .replay .button {
+    top: 150px; }
 
 .c-portrait-overlay {
   display: none; }
@@ -499,6 +517,20 @@ svg.bg {
     top: 0;
     visibility: hidden; } }
 
+.c-watercolor-overlay {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  pointer-events: none;
+  background-image: url("../images/desktop/background/bg_watercolor.png");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position-x: -300px;
+  opacity: 0.3; }
+
 .c-meteor {
   width: 317px;
   height: 175px;
@@ -540,36 +572,6 @@ svg.bg {
     background-position: 0; }
   to {
     background-position: 16800px; } }
-
-.film-related {
-  background-color: rgba(0, 0, 0, 0.2); }
-
-.c-magic-cloud,
-.c-cooling-container,
-.c-bottling-container,
-.c-boiling,
-.c-end-pop,
-.c-fermenting,
-.c-magic-cloud,
-.c-milling-mashing {
-  background-color: rgba(128, 0, 128, 0.2); }
-
-.c-snow-frame {
-  background-color: rgba(0, 0, 0, 0.4); }
-
-@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .c-sperma,
-  .c-sun,
-  .c-nipple,
-  .c-meteor,
-  .c-zigzag-one,
-  .c-zigzag-two,
-  .c-zigzag-three,
-  .c-zigzag-four,
-  .c-zigzag-five,
-  .c-burst,
-  .c-pumping {
-    display: none !important; } }
 
 .home-page .s-initial {
   height: 80vh;
@@ -1429,7 +1431,7 @@ a {
   /* waves end */ }
   .c-boiling > svg {
     width: 375px;
-    top: 60px; }
+    top: 115px; }
   .c-boiling .e-hops-bag {
     width: 114px;
     height: 92px;
@@ -1499,7 +1501,7 @@ a {
     opacity: 0; } }
   .c-boiling .e-steam-top {
     position: absolute;
-    top: 0;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%); }
   .c-boiling .e-boiling-tank {
@@ -1507,14 +1509,14 @@ a {
     height: 165px;
     padding-top: 125px;
     position: absolute;
-    top: 190px;
+    top: 218px;
     left: calc(50% - 3px);
     transform: translateX(-50%);
     overflow: hidden; }
   .c-boiling .thermometer {
     display: inline-block;
     position: absolute;
-    top: 126px;
+    top: 153px;
     right: 161px; }
     .c-boiling .thermometer svg {
       width: 38px; }
@@ -1623,12 +1625,12 @@ a {
     animation: burst 1s steps(17) infinite;
     position: absolute;
     left: 364px;
-    top: 328px;
+    top: 363px;
     transform: rotate(130deg); }
   .c-boiling .c-zigzag-three {
     width: 169px;
     height: 132px;
-    bottom: 15px;
+    bottom: -5px;
     left: 10px;
     background-image: url("../images/desktop/step3/zigzag3_spritesheet_16f_169x132_2864_optimized.png");
     animation: zigzagThree 1.5s steps(16) infinite;

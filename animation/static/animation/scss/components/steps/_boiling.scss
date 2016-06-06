@@ -8,7 +8,7 @@
 
   > svg {
     width: 375px;
-    top: 60px;
+    top: 115px;
   }
 
   .e-hops-bag {
@@ -109,7 +109,7 @@
 
   .e-steam-top {
     position: absolute;
-    top: 0;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -119,7 +119,7 @@
     height: 165px;
     padding-top: 125px;
     position: absolute;
-    top: 190px;
+    top: 218px;
     left: calc(50% - 3px);
     transform: translateX(-50%);
     overflow: hidden;
@@ -128,7 +128,7 @@
   .thermometer {
     display: inline-block;
     position: absolute;
-    top: 126px;
+    top: 153px;
     right: 161px;
 
     svg {
@@ -281,13 +281,13 @@
     animation: burst 1s steps(17) infinite;
     position: absolute;
     left: 364px;
-    top: 328px;
+    top: 363px;
     transform: rotate(130deg);
   }
   .c-zigzag-three {
     width: 169px;
     height: 132px;
-    bottom: 15px;
+    bottom: -5px;
     left: 10px;
     background-image: url('../images/desktop/step3/zigzag3_spritesheet_16f_169x132_2864_optimized.png');
     animation: zigzagThree 1.5s steps(16) infinite;

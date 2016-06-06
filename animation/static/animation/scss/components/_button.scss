@@ -11,6 +11,12 @@
   display: inline-block;
 
   .button {
+    position: absolute;
+    margin: auto;
+    //top: 0;
+    right: 0;
+    left: 0;
+    //bottom: 0;
     text-align: center;
     line-height: 50px;
     display: inline-block;
@@ -19,22 +25,32 @@
 }
 
 .our-beers {
+  width: 350px;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  right: 231px;
+
+  .button {
+    top: 100px;
+  }
 }
 
 .share {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  left: 279px;
+  bottom: 0;
+
+  .button {
+    top: 163px;
+  }
 }
 
 .replay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  right: 234px;
+  bottom: 0;
+
+  .button {
+    top: 150px;
+  }
 }

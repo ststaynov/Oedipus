@@ -172,13 +172,23 @@ svg {
   pointer-events: none;
 }
 .film-related {
-  width: 12000px;
+  width: 8800px;
   height: 500px;
   position: absolute;
   top: calc(50vh - 250px);
-  //background-color: rgba(0,0,0,.2);
   transform: translate3d( 0px, 0px, 0px);
   pointer-events: none;
+}
+
+.e-film-pipes {
+  width: 4920px;
+  height: 100%;
+  position: absolute;
+  left: 2000px;
+  background-image: url(../images/desktop/background/brewing_pipes.svg);
+  background-size: 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
 }
 
 .e-title {

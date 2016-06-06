@@ -288,7 +288,6 @@ function moveBackground(f) {
     });
     if ($bottling.hasClass('fixed') && !$bottling.hasClass('exploded')) { //PLEASE WORK!!!
         TweenMax.to($bottling , 2, {x: -(translateValue - 400)});
-        consoleLog('moving');
     } else if ($bottling.hasClass('fixed')) $bottling.removeClass('fixed');
     displayBgPosition(n);
     checkBackgroundColors();
@@ -308,7 +307,6 @@ function checkPosition(tween) {
         $bottling.removeClass('fixed');
         setTimeout(function() {$bottling.removeClass('exploded');}, 1000);
         TweenMax.set($bottling, {x: positionsArr[10]});
-        consoleLog('should set the bottle n: ' + n);
 
         translateValue = n + 8000;
         TweenMax.set(fgBg, {x: translateValue});
@@ -339,14 +337,12 @@ function checkPosition(tween) {
         else {
             $bottling.addClass('exploded');
             $bottling.removeClass('fixed');
-            consoleLog('remove the fixed class');
         }
 
         // if (n > 170) { attempt to remove the bouncing effect when breaking the law
             TweenMax.to(fgBg, 0.4, {x: translateValue});
             TweenMax.to($actionItem, 0.4, {x: -translateValue});
     }
-    consoleLog(loopBackwardAllowed);
     if (n < -6500) {
         if ($bottling.hasClass('fixed')) {}
         else if (!$bottling.hasClass('exploded')) {
@@ -374,7 +370,6 @@ jQuery('.c-brewing-background-inner')
         });
         if ($bottling.hasClass('fixed') && !$bottling.hasClass('exploded')) { //PLEASE WORK!!! TODO make magic happen on mobile
             TweenMax.set($bottling , {x: -(n + e.deltaX + -400)});
-            consoleLog('moving');
         }
         displayBgPosition(n);
         checkBackgroundColors();
@@ -555,7 +550,6 @@ function startAutoScroll() {
         percentAtTheMoment,
         timeToAnimate;
 
-    consoleLog('n: ' + n);
     if (n <= -7600) {
         TweenMax.set(fgBg, {x: filmStart});
         TweenMax.set($actionItem, {x: -filmStart});
