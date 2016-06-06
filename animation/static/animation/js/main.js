@@ -21,6 +21,8 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     magicCloudTl = new TimelineMax({repeat:-1}),
     $beerWaves = $('.beer-wave'),
     $fermentingWindow = $('.e-window'),
+    $plane = $('.c-plane'),
+    bottlingContainerMoveFix = 0;
 
     // action item
     $actionItem = $('.c-action'),
@@ -34,6 +36,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $warmBeamDown = $('path#e-cloud-warm-beam-down'),
     $warmBeamUp = $('path#e-cloud-warm-beam-up'),
     $warmBeamUpLeft = $('path#e-cloud-warm-beam-up-left'),
+    $warmBeamLeft = $('path#e-cloud-warm-beam-left'),
     $warmBeamUpRight = $('path#e-cloud-warm-beam-up-right'),
     $fermentingTank = $('g#tank'),
 
@@ -85,8 +88,10 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //values which suit mobile screens
+    bottlingContainerMoveFix = 100;
 } else {
     positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
+    bottlingContainerMoveFix = 400;
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
@@ -119,24 +124,26 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 //             .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0.3, x: -30, y: 40}, 0.1, "initial");
 
 
+// $plane
+
+TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Quad.easeInOut});
 
 //cloudTimeLines
 cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
-cloudBoilingTl.fromTo($warmBeamUp, 0.3, {opacity: 1, y: -10}, {opacity: 0, y: 20}, "initial")
-              .fromTo($warmBeamUpLeft, 0.3, {opacity: 1, x: 10, y: 10}, {opacity: 0, x: -20, y: -50}, "initial")
-              .fromTo($warmBeamUpRight, 0.3, {opacity: 1, x: -10, y: 10}, {opacity: 0, x: 20, y: -50}, "initial");
+cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10}, "initial")
+              .fromTo($warmBeamUpLeft, 0.8, {opacity: 1, x: 5, y: 5}, {opacity: 0, x: -10, y: -30}, "initial")
+              .fromTo($warmBeamUpRight, 0.8, {opacity: 1, x: -10, y: 10}, {opacity: 0, x: 10, y: -30}, "initial")
+              .fromTo($warmBeamLeft, 0.8, {opacity: 1, x: 0, y: 0}, {opacity: 0, x: -30, y: 0}, "initial");
 
 
-cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial");
+cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
+                  .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial")
+                  .staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
-cloudCoolingTlRight.staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
+// cloudBottlingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
-cloudFermentingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
-
-cloudBottlingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
-
-cloudEndPopTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
+// cloudEndPopTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
 // var cloudBeamMasterAnimTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
 //
@@ -211,24 +218,9 @@ setInterval(function(){shakeAnimation($fermentingTank);},5000);
 
 
 function shakeAnimation(element){
-  TweenMax.to(element, .1, {
-    x: -4,
-    rotation: -1,
-    ease: Quad.easeInOut
-  });
-  TweenMax.to(element, .1, {
-    repeat: 4,
-    x: 4,
-    rotation: 1,
-    yoyo: true,
-    delay: .1,
-    ease: Quad.easeInOut
-  });
-  TweenMax.to(element, .1, {
-    x: 0,
-    rotation: 0,
-    delay: .1 * 4
-  });
+  TweenMax.to(element, .1, {x: -4, rotation: -1, ease: Quad.easeInOut});
+  TweenMax.to(element, .1, {repeat: 4, x: 4, rotation: 1, yoyo: true, delay: .1, ease: Quad.easeInOut});
+  TweenMax.to(element, .1, {x: 0, rotation: 0, delay: .1 * 4});
 }
 
 
@@ -347,12 +339,12 @@ function checkPosition(tween) {
         if ($bottling.hasClass('fixed')) {}
         else if (!$bottling.hasClass('exploded')) {
             $bottling.addClass('fixed');
-            TweenMax.to($bottling , 2, {x: -(translateValue - 400)});
+            TweenMax.to($bottling , 2, {x: -(translateValue - bottlingContainerMoveFix)});
         }
     } else {
         if($bottling.hasClass('fixed')) {
             $bottling.removeClass('fixed');
-            TweenMax.set($bottling ,{x: -(n - 400)});
+            TweenMax.set($bottling ,{x: -(n - bottlingContainerMoveFix)});
         }
     }
     displayBgPosition(n);
@@ -369,7 +361,7 @@ jQuery('.c-brewing-background-inner')
             onUpdateParams: ["{self}"]
         });
         if ($bottling.hasClass('fixed') && !$bottling.hasClass('exploded')) { //PLEASE WORK!!! TODO make magic happen on mobile
-            TweenMax.set($bottling , {x: -(n + e.deltaX + -400)});
+            TweenMax.set($bottling , {x: -(n + e.deltaX + -bottlingContainerMoveFix)});
         }
         displayBgPosition(n);
         checkBackgroundColors();
@@ -735,9 +727,9 @@ function checkForActionItemEffects(hasClass) {
 }
 
 function getCoolingTimeline() {
-    mainActionItemtl.to($actionItem, 2, {left: '14vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
-                    .to($actionItem, 0.5, {top: '10vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool")
-                    .to($handRight, 2, {x: '-70px', y: '20px', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
+    mainActionItemtl.to($actionItem, 3, {left: '14vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
+                    .to($actionItem, 1, {top: '10vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
+                    // .to($handRight, 2, {x: '-70px', y: '20px', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
 }
 
 function getFermentingTimeline() {

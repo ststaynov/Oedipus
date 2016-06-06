@@ -440,6 +440,15 @@ svg.bg {
   right: 231px; }
   .our-beers .button {
     top: 100px; }
+  .our-beers .e-cap {
+    width: 213px;
+    height: 167px;
+    position: absolute;
+    top: 45px;
+    left: 64px;
+    background-image: url("../images/desktop/step1/cap.svg");
+    background-size: 100%;
+    background-repeat: no-repeat; }
 
 .share {
   position: absolute;
@@ -572,6 +581,15 @@ svg.bg {
     background-position: 0; }
   to {
     background-position: 16800px; } }
+
+.c-plane {
+  width: 238px;
+  height: 55px;
+  position: fixed;
+  top: 84vh;
+  left: -100%;
+  background: url(../images/desktop/plane.svg) left top no-repeat;
+  z-index: 5; }
 
 .home-page .s-initial {
   height: 80vh;

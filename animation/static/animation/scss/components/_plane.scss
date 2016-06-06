@@ -1,0 +1,10 @@
+
+.c-plane {
+  width: 238px;
+  height: 55px;
+  position: fixed;
+  top: 84vh;
+  left: -100%;
+  background: url(../images/desktop/plane.svg) left top no-repeat;
+  z-index: $z-5;
+}

@@ -33,6 +33,17 @@
   .button {
     top: 100px;
   }
+
+  .e-cap {
+    width: 213px;
+    height: 167px;
+    position: absolute;
+    top: 45px;
+    left: 64px;
+    background-image: url('../images/desktop/step1/cap.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
 }
 
 .share {
