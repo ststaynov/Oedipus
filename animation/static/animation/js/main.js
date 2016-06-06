@@ -84,7 +84,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //TODO change values to suit mobile screens
+    positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //values which suit mobile screens
 } else {
     positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
 }
@@ -560,8 +560,24 @@ function startAutoScroll() {
         onComplete: changeScrollButtonClass
     });
 
-    function customOnUpdate() {
+    function customOnUpdate(tween) {
         checkBackgroundColors();
+        var n = -tween._targets[0]._gsTransform.x.toFixed(2);
+
+        if (n < -6500) {
+            if ($bottling.hasClass('fixed')) {
+                TweenMax.set($bottling , {x: -(n - 400)});
+            }
+            else {
+                $bottling.addClass('fixed');
+                TweenMax.set($bottling , {x: -(n - 400)});
+            }
+        } else {
+            if($bottling.hasClass('fixed')) {
+                $bottling.removeClass('fixed');
+                TweenMax.set($bottling ,{x: -(n - 400)});
+            }
+        }
     }
 }
 
