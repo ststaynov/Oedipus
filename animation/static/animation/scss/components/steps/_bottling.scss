@@ -6,6 +6,11 @@
   height: 500px;
   pointer-events: none;
 
+  &.exploded {
+    opacity: 0;
+    transition: opacity .8s;
+  }
+
   .e-label {
     width: 71px;
     height: 97px;

@@ -16,6 +16,20 @@ body {
     .c-cloud-bg-sprite {
       transform: scale(0.6,0.6);
     }
+    // all sprites
+    .c-sperma,
+    .c-sun,
+    .c-nipple,
+    .c-meteor,
+    .c-zigzag-one,
+    .c-zigzag-two,
+    .c-zigzag-three,
+    .c-zigzag-four,
+    .c-zigzag-five,
+    .c-burst,
+    .c-pumping {
+      display: none !important;
+    }
 
     // too heavy for mobile
     .c-magic-cloud {
