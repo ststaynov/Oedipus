@@ -1,6 +1,8 @@
 
 body {
   //position: absolute; /* Fixes strange scroll overflow */
+  background-color: $color-bg;
+  overflow: hidden;
 
   @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) { // if device is mobile or device is portrait
     //-moz-transform: scale(0.5, 0.5); /* Moz-browsers */
@@ -85,8 +87,46 @@ body {
     .e-energy {
       display: none !important;
     }
-  }
 
-  background-color: $color-bg;
-  overflow: hidden;
+    .c-plane {
+      display: none !important;
+    }
+
+    .c-cloud-bg-sprite {
+      background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png') !important;
+      animation: none !important;
+    }
+  }
+  @media screen and (max-height: 845px) {
+    .c-brewing-background-inner-top {
+      top: -50px;
+    }
+    .c-brewing-background-inner-bottom {
+      top: calc(100vh - 250px);
+    }
+  }
+  @media screen and (max-height: 730px) {
+    .c-brewing-background-inner-top {
+      top: -100px;
+    }
+    .c-brewing-background-inner-bottom {
+      top: calc(100vh - 200px);
+    }
+  }
+  @media screen and (max-height: 630px) {
+    .c-brewing-background-inner-top {
+      top: -150px;
+    }
+    .c-brewing-background-inner-bottom {
+      top: calc(100vh - 150px);
+    }
+  }
+  @media screen and (max-height: 530px) {
+    .c-brewing-background-inner-top {
+      top: -200px;
+    }
+    .c-brewing-background-inner-bottom {
+      top: calc(100vh - 100px);
+    }
+  }
 }

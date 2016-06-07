@@ -44,7 +44,32 @@ body {
       top: -16px !important;
       left: 54px !important; }
     body .e-energy {
-      display: none !important; } }
+      display: none !important; }
+    body .c-plane {
+      display: none !important; }
+    body .c-cloud-bg-sprite {
+      background-image: url("../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png") !important;
+      animation: none !important; } }
+  @media screen and (max-height: 845px) {
+    body .c-brewing-background-inner-top {
+      top: -50px; }
+    body .c-brewing-background-inner-bottom {
+      top: calc(100vh - 250px); } }
+  @media screen and (max-height: 730px) {
+    body .c-brewing-background-inner-top {
+      top: -100px; }
+    body .c-brewing-background-inner-bottom {
+      top: calc(100vh - 200px); } }
+  @media screen and (max-height: 630px) {
+    body .c-brewing-background-inner-top {
+      top: -150px; }
+    body .c-brewing-background-inner-bottom {
+      top: calc(100vh - 150px); } }
+  @media screen and (max-height: 530px) {
+    body .c-brewing-background-inner-top {
+      top: -200px; }
+    body .c-brewing-background-inner-bottom {
+      top: calc(100vh - 100px); } }
 
 * {
   box-sizing: border-box; }
@@ -179,12 +204,24 @@ svg {
     position: absolute;
     top: calc(50vh - 153px);
     left: 2015px;
-    z-index: -2; }
+    z-index: -1; }
+  .c-beer-fill-container .e-film-pipes {
+    width: 5178px;
+    height: 500px;
+    position: absolute;
+    pointer-events: none;
+    top: calc(50vh - 249px);
+    left: 2000px;
+    background-image: url(../images/desktop/background/brewing_pipes.svg);
+    background-size: 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+    z-index: 2; }
 
 .c-brewing-background-inner-top {
   position: absolute;
   top: 0;
-  left: -2000px;
+  left: -2500px;
   width: 12000px;
   height: 300px;
   background-image: url(../images/desktop/background/film-top/05.png), url(../images/desktop/background/film-top/01.png), url(../images/desktop/background/film-top/02.png), url(../images/desktop/background/film-top/03.png), url(../images/desktop/background/film-top/04.png), url(../images/desktop/background/film-top/05.png);
@@ -218,16 +255,6 @@ svg {
   top: calc(50vh - 250px);
   transform: translate3d(0px, 0px, 0px);
   pointer-events: none; }
-
-.e-film-pipes {
-  width: 4920px;
-  height: 100%;
-  position: absolute;
-  left: 2000px;
-  background-image: url(../images/desktop/background/brewing_pipes.svg);
-  background-size: 100%;
-  background-position: left center;
-  background-repeat: no-repeat; }
 
 .e-title {
   position: absolute;
@@ -1799,6 +1826,8 @@ a {
   width: 600px;
   height: 500px;
   pointer-events: none; }
+  .c-bottling-container > svg {
+    width: 478px; }
   .c-bottling-container.exploded {
     opacity: 0;
     transition: opacity .8s; }

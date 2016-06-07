@@ -137,14 +137,28 @@ svg {
     top: calc(50vh - 153px);
     left: 2015px;
     //top: calc(50vh - 250px); Film Set up
-    z-index: -2;
+    z-index: -1;
+  }
+
+  .e-film-pipes {
+    width: 5178px;
+    height: 500px;
+    position: absolute;
+    pointer-events: none;
+    top: calc(50vh - 249px);
+    left: 2000px;
+    background-image: url(../images/desktop/background/brewing_pipes.svg);
+    background-size: 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+    z-index: 2;
   }
 }
 
 .c-brewing-background-inner-top {
   position: absolute;
   top: 0;
-  left: -2000px;
+  left: -2500px;
   width: 12000px;
   height: 300px;
   background-image: url(../images/desktop/background/film-top/05.png),url(../images/desktop/background/film-top/01.png),url(../images/desktop/background/film-top/02.png),url(../images/desktop/background/film-top/03.png),url(../images/desktop/background/film-top/04.png),url(../images/desktop/background/film-top/05.png);
@@ -181,16 +195,6 @@ svg {
   pointer-events: none;
 }
 
-.e-film-pipes {
-  width: 4920px;
-  height: 100%;
-  position: absolute;
-  left: 2000px;
-  background-image: url(../images/desktop/background/brewing_pipes.svg);
-  background-size: 100%;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
 
 .e-title {
   position: absolute;

@@ -6,6 +6,10 @@
   height: 500px;
   pointer-events: none;
 
+  > svg {
+    width: 478px;
+  }
+
   &.exploded {
     opacity: 0;
     transition: opacity .8s;

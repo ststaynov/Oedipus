@@ -5,7 +5,8 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $fg = $('.c-brewing-foreground'),
     $btlContainer = $('.c-action-container'),
     $beerFill = $('svg.beer-fill'),
-    fgBg = [$bg, $fg, $btlContainer, $beerFill],
+    $pipes = $('.e-film-pipes'),
+    fgBg = [$bg, $fg, $btlContainer, $beerFill, $pipes],
 
     // foreground animatios
     // $mouse = $('.c-mouse'),
