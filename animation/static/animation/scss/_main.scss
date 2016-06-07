@@ -134,7 +134,8 @@ svg {
 
   > svg {
     position: absolute;
-    top: calc(50vh + 54px);
+    top: calc(50vh - 153px);
+    left: 2015px;
     //top: calc(50vh - 250px); Film Set up
     z-index: -2;
   }

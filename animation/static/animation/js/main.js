@@ -4,7 +4,8 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $bg = $('.c-brewing-background'),
     $fg = $('.c-brewing-foreground'),
     $btlContainer = $('.c-action-container'),
-    fgBg = [$bg, $fg, $btlContainer],
+    $beerFill = $('svg.beer-fill'),
+    fgBg = [$bg, $fg, $btlContainer, $beerFill],
 
     // foreground animatios
     // $mouse = $('.c-mouse'),
@@ -254,7 +255,7 @@ function scrolling(e) {
     }
 }
 
-function arrowBtnMove(e){
+function arrowBtnMove(e) {
     e.preventDefault();
     var pressedBtnValue =  e.which;
     if (pressedBtnValue == 37) {
@@ -263,9 +264,6 @@ function arrowBtnMove(e){
     } else if (pressedBtnValue == 39) {
         moveBackground();
         consoleLog('moveforward');
-    }
-    else if (pressedBtnValue == 9) {
-
     }
     consoleLog('btn number: ' + e.which + 'pressed');
 }
