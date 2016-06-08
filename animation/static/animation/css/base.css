@@ -221,7 +221,7 @@ svg {
 .c-brewing-background-inner-top {
   position: absolute;
   top: 0;
-  left: -2500px;
+  left: -2000px;
   width: 12000px;
   height: 300px;
   background-image: url(../images/desktop/background/film-top/05.png), url(../images/desktop/background/film-top/01.png), url(../images/desktop/background/film-top/02.png), url(../images/desktop/background/film-top/03.png), url(../images/desktop/background/film-top/04.png), url(../images/desktop/background/film-top/05.png);
@@ -467,7 +467,8 @@ svg.bg {
   top: 0;
   right: 231px; }
   .our-beers .button {
-    top: 100px; }
+    top: 100px;
+    pointer-events: all; }
   .our-beers .e-cap {
     width: 213px;
     height: 167px;
@@ -1403,7 +1404,7 @@ a {
     border-bottom-left-radius: 17px;
     border-bottom-right-radius: 17px;
     transform: translateX(-50%);
-    background-color: rgba(236, 191, 146, 0.4); }
+    background-color: #ecbf92; }
   .c-milling-mashing .c-zigzag-one {
     width: 77px;
     height: 105px;
@@ -1510,7 +1511,8 @@ a {
   .c-boiling .hop-item-3 {
     margin: 0 28px;
     -webkit-animation: drop .74s infinite 2.50s;
-    animation: drop 2.2s infinite 2.50s; }
+    animation: drop 2.2s infinite 2.50s;
+    transform: rotate(90deg); }
   .c-boiling .hop-item-4 {
     margin: 0 36px;
     -webkit-animation: drop .75s infinite 3.75s;
@@ -1531,7 +1533,7 @@ a {
     opacity: 1; }
   100% {
     opacity: 0;
-    transform: translateX(100px) translateY(160px) scale(0.7, 0.7); } }
+    transform: translateX(100px) translateY(190px) scale(0.7, 0.7); } }
 
 @keyframes drop {
   0% {
@@ -1543,7 +1545,7 @@ a {
   80% {
     opacity: 1; }
   100% {
-    transform: translateX(80px) translateY(160px) scale(0.7, 0.7);
+    transform: translateX(80px) translateY(190px) scale(0.7, 0.7);
     opacity: 0; } }
   .c-boiling .e-steam-top {
     position: absolute;
@@ -1573,7 +1575,7 @@ a {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    background-color: rgba(251, 171, 41, 0.5); }
+    background-color: #f9df00; }
   .c-boiling .e-boil-item {
     width: 25px;
     height: 50px;
@@ -1744,16 +1746,42 @@ a {
     width: 358px;
     top: 66px;
     left: 46px; }
-  .c-fermenting .e-window {
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    position: absolute;
-    top: 240px;
-    left: 40px;
-    right: 0;
-    background-color: black;
-    z-index: -1; }
+
+.e-window {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  position: absolute;
+  top: 240px;
+  left: 40px;
+  right: 0;
+  background-color: black;
+  z-index: 10; }
+  .e-window .window-relative-container {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+  .e-window .window-item {
+    position: absolute; }
+  .e-window .cell {
+    width: 13px;
+    height: 13px; }
+    .e-window .cell:nth-of-type(1) {
+      background-image: url("../images/desktop/step5/cell.svg"); }
+    .e-window .cell:nth-of-type(2) {
+      width: 15px;
+      height: 21px;
+      background-image: url("../images/desktop/step5/merging-cell.svg"); }
+    .e-window .cell:nth-of-type(3) {
+      background-image: url("../images/desktop/step5/cell.svg"); }
+    .e-window .cell:nth-of-type(4) {
+      width: 15px;
+      height: 21px;
+      background-image: url("../images/desktop/step5/merging-cell.svg"); }
+  .e-window .sperma {
+    width: 47px;
+    height: 20px;
+    background-image: url("../images/desktop/step5/sperma.svg"); }
 
 .c-fermenting-foreground .e-notes {
   width: 85px;
@@ -1768,8 +1796,8 @@ a {
 .c-fermenting-foreground .e-drum {
   width: 77px;
   height: 92px;
-  right: 10px;
-  bottom: 150px;
+  left: 10px;
+  bottom: 80px;
   background-image: url("../images/desktop/step5/drum.svg");
   position: absolute;
   background-size: 100%;
@@ -1778,7 +1806,7 @@ a {
 .c-fermenting-foreground .e-guitar {
   width: 83px;
   height: 135px;
-  right: 83px;
+  right: 13px;
   bottom: 135px;
   background-image: url("../images/desktop/step5/guitar.svg");
   position: absolute;
@@ -1788,12 +1816,16 @@ a {
 .c-fermenting-foreground .e-flumpje {
   width: 92px;
   height: 114px;
-  left: 125px;
-  bottom: 50px;
-  background-image: url("../images/desktop/step5/fluempjes.svg");
+  left: 135px;
+  bottom: 90px;
+  background-image: url("../images/desktop/step5/flumpjes-left.svg");
   position: absolute;
   background-size: 100%;
   background-repeat: no-repeat; }
+  .c-fermenting-foreground .e-flumpje.right {
+    left: auto;
+    right: 105px;
+    background-image: url("../images/desktop/step5/flumpjes-right.svg"); }
 
 .c-fermenting-foreground .e-drink {
   width: 72px;

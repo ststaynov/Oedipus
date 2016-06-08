@@ -9,8 +9,6 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     fgBg = [$bg, $fg, $btlContainer, $beerFill, $pipes],
 
     // foreground animatios
-    // $mouse = $('.c-mouse'),
-    // $flemon = $('.c-flying-lemon'),
     $nipple = $('.c-nipple'),
     $meteor = $('.c-meteor'),
     $sun = $('.c-sun'),
@@ -97,8 +95,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
-// TweenMax.set($mouse, {x: positionsArr[1], y: positionsArr[2]});
-// TweenMax.set($flemon, {x: positionsArr[3], y: positionsArr[4]});
 TweenMax.set($nipple, {x: 4650, y: 600});
 TweenMax.set($sun, {x: 850, y: 0});
 TweenMax.set($meteor, {x: 2000, y: 100});
@@ -119,16 +115,10 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 
 
 /* Setting up action item animation START */
-// var actionItemTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
-//
-// actionItemTl
-//             .staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0.3, x: -40, y: 50}, 0.1, "initial")
-//             .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0.3, x: -30, y: 40}, 0.1, "initial");
-
 
 // $plane
 
-TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Quad.easeInOut});
+TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone   });
 
 //cloudTimeLines
 cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
@@ -142,20 +132,6 @@ cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10
 cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
                   .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial")
                   .staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
-
-// cloudBottlingTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
-
-// cloudEndPopTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
-
-// var cloudBeamMasterAnimTl = new TimelineMax({repeat: -1, yoyo: true, ease: Circ.easeOut});
-//
-//     // add all the cloud animations to a MASTER animation
-//     cloudBeamMasterAnimTl.from(cloudMillmashTl)
-//     .from(cloudBoilingTl)
-//     .from(cloudCoolingTl)
-//     .from(cloudFermentingTl)
-//     .from(cloudBottlingTl)
-//     .from(cloudEndPopTl);
 
 /* Setting up action item animation END */
 
@@ -391,14 +367,6 @@ function displayBgPosition(n) {
 
 /* FOREGROUND ANIMATIONS START */
 
-
-// TweenMax.to($mouse, 3, {x: 2400, y: 705, repeat: -1, yoyo: true, ease: Power0.easeNone, onRepeat: mouseSwitchDirection});
-
-/* change background image according to animation direction */
-// function mouseSwitchDirection() {
-//     switchDirection($mouse);
-// }
-
 function windSwitchDirection() {
     switchDirection($actionItem);
 }
@@ -436,7 +404,6 @@ container_height = $(document).height();
 
 $(window).resize(function() {
   container_height = $(document).height();
-  // doc_width = $(document).width();
 });
 
 var isSnowing = false;
@@ -740,3 +707,31 @@ function getFermentingTimeline() {
     return tl;
 }
 /* action item stages END */
+
+/* Fermenting vessel window START */
+function randomFromTo(from, to) {
+    return Math.floor(Math.random() * (to - from + 1) + from);
+}
+
+function moveRandom(obj) {
+    /* get container position and size
+     * -- access method : cPos.top and cPos.left */
+
+    // set new position
+    var newY = randomFromTo(1, 80),
+        newX = randomFromTo(1, 80);
+
+    // obj.animate({top: newY, left: newX}, 2000, function() {moveRandom(obj);});
+    TweenMax.to(obj, 2, {top: newY, left: newX, ease:Power0.easeNone, onComplete:moveRandomThis});
+
+    function moveRandomThis() {
+        moveRandom(obj);
+        consoleLog("moveRandomThis");
+    }
+}
+
+$('.cell').each(function() {
+    moveRandom($(this))
+});
+
+/* Fermenting vessel window END */

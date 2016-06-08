@@ -11,17 +11,53 @@
     top: 66px;
     left: 46px;
   }
+}
 
-  .e-window {
-    width:100px;
-    height: 100px;
-    margin: auto;
+.e-window {
+  width:100px;
+  height: 100px;
+  margin: auto;
+  position: absolute;
+  top: 240px;
+  left: 40px;
+  right: 0;
+  background-color: black;
+  z-index: 10; //-1
+
+  .window-relative-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .window-item {
     position: absolute;
-    top: 240px;
-    left: 40px;
-    right: 0;
-    background-color: black;
-    z-index: -1;
+  }
+  .cell {
+    width: 13px;
+    height: 13px;
+
+    &:nth-of-type(1) {
+      background-image: url('../images/desktop/step5/cell.svg');
+    }
+    &:nth-of-type(2) {
+      width: 15px;
+      height: 21px;
+      background-image: url('../images/desktop/step5/merging-cell.svg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('../images/desktop/step5/cell.svg');
+    }
+    &:nth-of-type(4) {
+      width: 15px;
+      height: 21px;
+      background-image: url('../images/desktop/step5/merging-cell.svg');
+    }
+  }
+
+  .sperma {
+    width: 47px;
+    height: 20px;
+    background-image: url('../images/desktop/step5/sperma.svg');
   }
 }
 
@@ -40,8 +76,8 @@
   .e-drum {
     width: 77px;
     height: 92px;
-    right: 10px;
-    bottom: 150px;
+    left: 10px;
+    bottom: 80px;
     background-image: url('../images/desktop/step5/drum.svg');
     @include fermenting-fg-item();
   }
@@ -49,7 +85,7 @@
   .e-guitar {
     width: 83px;
     height: 135px;
-    right: 83px;
+    right: 13px;
     bottom: 135px;
     background-image: url('../images/desktop/step5/guitar.svg');
     @include fermenting-fg-item();
@@ -58,10 +94,16 @@
   .e-flumpje {
     width: 92px;
     height: 114px;
-    left: 125px;
-    bottom: 50px;
-    background-image: url('../images/desktop/step5/fluempjes.svg');
+    left: 135px;
+    bottom: 90px;
+    background-image: url('../images/desktop/step5/flumpjes-left.svg');
     @include fermenting-fg-item();
+
+    &.right {
+      left: auto;
+      right: 105px;
+      background-image: url('../images/desktop/step5/flumpjes-right.svg');
+    }
   }
 
   .e-drink {

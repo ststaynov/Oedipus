@@ -54,6 +54,7 @@
     margin: 0 28px;
     -webkit-animation: drop .74s infinite 2.50s;
     animation: drop 2.2s infinite 2.50s;
+    transform: rotate(90deg);
   }
 
   .hop-item-4 {
@@ -83,7 +84,7 @@
     }
     100% {
       opacity: 0;
-      transform: translateX(100px) translateY(160px) scale(0.7,0.7);
+      transform: translateX(100px) translateY(190px) scale(0.7,0.7);
     }
   }
 
@@ -102,7 +103,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(80px) translateY(160px) scale(0.7,0.7);
+      transform: translateX(80px) translateY(190px) scale(0.7,0.7);
       opacity: 0;
     }
   }
@@ -143,7 +144,7 @@
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    background-color: rgba(#FBAB29,.5);
+    background-color: rgba(249, 223, 0, 1);
   }
 
   .e-boil-item {
