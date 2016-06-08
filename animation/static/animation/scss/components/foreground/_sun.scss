@@ -1,14 +1,14 @@
 
 .c-sun {
-  width: 391px;
-  height: 328px;
+  width: 227px;
+  height: 214px;
   position: absolute;
-  background-image: url('../images/desktop/foreground/sun_spritesheet_12f_391x328_4692_optimised.png');
-  animation: sun 1.5s steps(12) infinite;
+  background-image: url('../images/desktop/foreground/sun_spritesheet_5f_227x214_1135.png');
+  animation: sun 1.5s steps(5) infinite;
   pointer-events: none;
 }
 
 @keyframes sun {
   from { background-position: 0; }
-  to { background-position: 4692px; }
+  to { background-position: 1135px; }
 }

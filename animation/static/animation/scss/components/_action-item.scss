@@ -48,14 +48,20 @@
         top: 18px;
         right: 4px; // aligning the face with the sprite
       }
+      .c-cloud-bg-sprite {
+        transform: rotate(15deg);
+      }
     }
 
     &.milled-mashed {
       opacity: 1;
       svg#c-cloud-millmash {
         visibility: visible;
-        top: -6px;
+        top: -12px;
         right: -11px; // aligning the face with the sprite
+      }
+      .c-cloud-bg-sprite {
+        transform: rotate(-20deg);
       }
     }
 

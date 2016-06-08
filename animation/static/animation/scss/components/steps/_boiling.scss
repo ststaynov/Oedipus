@@ -68,45 +68,6 @@
     -webkit-animation: drop .75s infinite 4.75s;
     animation: drop 2.3s infinite 4.75s;
   }
-   @-webkit-keyframes drop {
-    0% {
-      opacity: 0;
-      transform: translateX(10px) translateY(50px);
-    }
-    25% {
-      transform: translateX(10px) translateY(50px);
-    }
-    50% {
-      //transform: translateX(50px)
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(100px) translateY(190px) scale(0.7,0.7);
-    }
-  }
-
-  @keyframes drop {
-    0% {
-      opacity: 0;
-      transform: translateX(10px) translateY(50px);
-    }
-    25% {
-      transform: translateX(20px) translateY(50px);
-    }
-    50% {
-      //transform: translateX(50px)
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(80px) translateY(190px) scale(0.7,0.7);
-      opacity: 0;
-    }
-  }
 
   .e-steam-top {
     position: absolute;
@@ -199,46 +160,6 @@
     animation: boil .55s infinite 3.5s;
   }
 
-  @-webkit-keyframes boil {
-    0% {
-      opacity: 0;
-      transform: translateX(10px) translateY(220px);
-    }
-    25% {
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(-10px);
-    }
-    80% {
-      transform: translateX(10px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-  }
-
-  @keyframes boil {
-    0% {
-      opacity: 0;
-      transform: translateX(10px) translateY(220px);
-    }
-    25% {
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(-10px);
-    }
-    80% {
-      transform: translateX(10px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-10px) translateY(50px);
-    }
-  }
-
   /* waves start */
 
   .water {
@@ -262,36 +183,25 @@
       }
     }
   }
-  @keyframes wave-front {
-    100% {
-      transform: translate(-50%, 0);
-    }
-  }
-
-  @keyframes wave-back {
-    100% {
-      transform: translate(50%, 0);
-    }
-  }
 
   /* waves end */
   .c-burst {
-    width: 272px;
-    height: 181px;
-    background-image: url('../images/desktop/step3/burst_spritesheet_17f_272x181_4794_optimized.png');
-    animation: burst 1s steps(17) infinite;
+    width: 184px;
+    height: 141px;
+    background-image: url('../images/desktop/step3/burst_spritesheet_6f_184x141_1116_optimised.png');
+    animation: burst 1s steps(6) infinite;
     position: absolute;
-    left: 364px;
+    left: 394px;
     top: 363px;
     transform: rotate(130deg);
   }
   .c-zigzag-three {
-    width: 169px;
-    height: 132px;
-    bottom: -5px;
-    left: 10px;
-    background-image: url('../images/desktop/step3/zigzag3_spritesheet_16f_169x132_2864_optimized.png');
-    animation: zigzagThree 1.5s steps(16) infinite;
+    width: 113px;
+    height: 62px;
+    bottom: 28px;
+    left: 78px;
+    background-image: url('../images/desktop/step3/zigzag3_spritesheet_9f_113x62_1017_optimised.png');
+    animation: zigzagThree 1.5s steps(9) infinite;
     position: absolute;
     transform: rotate(110deg);
   }
@@ -314,21 +224,5 @@
     position: absolute;
     top: 106px;
     transform: rotate(-120deg);
-  }
-  @keyframes zigzagThree {
-    from { background-position: 0; }
-    to { background-position: 2864px; }
-  }
-  @keyframes zigzagFour {
-    from { background-position: 0; }
-    to { background-position: 4296px; }
-  }
-  @keyframes zigzagFive {
-    from { background-position: 0; }
-    to { background-position: 7192px; }
-  }
-  @keyframes burst {
-    from { background-position: 0; }
-    to { background-position: 4794px; }
   }
 }

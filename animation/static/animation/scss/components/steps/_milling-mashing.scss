@@ -12,15 +12,6 @@
     left: 46px;
   }
 
-  //.e-cloud {
-  //  width: 150px;
-  //  height: 90px;
-  //  margin: 0 auto;
-  //  background: url('../images/desktop/step2/cloud.png') left center no-repeat;
-  //  background-size: contain;
-  //  animation: cloud .8s steps(3) infinite;
-  //}
-
   .e-grain-container {
     width: 150px;
     height: 200px;
@@ -29,22 +20,7 @@
     margin: 0 auto;
     animation: wiggle 4.75s infinite 2s;
   }
-   @-webkit-keyframes wiggle {
-    0% {}
-      25% {transform: rotate(3deg);}
-    50% {transform: rotate(-3deg);}
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-    @keyframes wiggle {
-    0% {}
-      25% {transform: rotate(3deg);}
-    50% {transform: rotate(-3deg);}
-    100% {
-      transform: rotate(0deg);
-    }
-  }
+
   .e-grain {
     width: 4px;
     height: 4px;
@@ -78,39 +54,6 @@
       margin: 0 90px;
       -webkit-animation: drip .45s infinite 4s;
       animation: drip .75s linear infinite 4s;
-    }
-  }
-  @-webkit-keyframes drip {
-    0% {
-      opacity: 0;
-      width: 0;
-      height: 0;
-      transform: translateY(50px);
-    }
-    50% {
-      transform: translateY(75px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(170px);
-    }
-  }
-
-  @keyframes drip {
-    0% {
-      opacity: 0;
-      transform: translateX(0);
-    }
-    10% {
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(10px) translateY(85px);
-      opacity: .7;
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0) translateY(170px);
     }
   }
 
@@ -152,46 +95,6 @@
       top: 0;
       left: 0;
       animation: sparcle .50s infinite 4s;
-    }
-  }
-  @-webkit-keyframes sparcle {
-    0% {
-      transform: rotate(-5deg) scale(0.3,0.3);
-    }
-    25%{
-      opacity: .7;
-    }
-    50% {
-      opacity: 1;
-      transform: rotate(5deg) scale(1.2,1.2);
-    }
-    75% {
-      opacity: .5;
-    }
-
-    100% {
-      opacity: 0.8;
-      transform: rotate(-5deg) scale(0.3,0.3);
-    }
-  }
-  @keyframes sparcle {
-    0% {
-      transform: rotate(-5deg) scale(0.3,0.3);
-    }
-    25%{
-      opacity: .7;
-    }
-    50% {
-      opacity: 1;
-      transform: rotate(5deg) scale(1.2,1.2);
-    }
-    75% {
-      opacity: .5;
-    }
-
-    100% {
-      opacity: 0.8;
-      transform: rotate(-5deg) scale(0.3,0.3);
     }
   }
 
@@ -242,40 +145,9 @@
     animation: spinreverse 4s linear infinite;
   }
 
-  @-webkit-keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @-webkit-keyframes spinreverse {
-    100% {
-      transform: rotate(-360deg);
-    }
-  }
-  @keyframes spinreverse {
-    100% {
-      transform: rotate(-360deg);
-    }
-  }
-
   /* milling container end */
 
   /* milled grain start */
-
-  @keyframes grain-fall {
-    0% {
-      transform: translateY(-2px);
-    }
-    100% {
-      transform: translateY(26px);
-    }
-  }
 
   .e-milled-grain {
     width: 38px;
@@ -370,17 +242,7 @@
       bottom: 95px;
     }
   }
-  @keyframes mash-wave-front {
-    100% {
-      transform: translate(-50%, 0);
-    }
-  }
 
-  @keyframes mash-wave-back {
-    100% {
-      transform: translate(50%, 0);
-    }
-  }
   .e-mashing-items-container {
     width: 100%;
     height: 35px;
@@ -396,84 +258,34 @@
   /* milled grain end */
 
   .c-zigzag-one {
-    width: 77px;
-    height: 105px;
+    width: 14px;
+    height: 49px;
     position: absolute;
     top: 0;
     left: 237px;
-    transform: rotate(-30deg) scale(0.3,.3);
-    background-image: url('../images/desktop/step2/zigzag1_spritesheet_12f_77x105_924_optimised.png');
-    animation: zigzagOne 0.9s steps(12) infinite;
+    transform: rotate(-30deg);
+    background-image: url('../images/desktop/step2/zigzag1_spritesheet_4f_14x49_56_optimised.png');
+    animation: zigzagOne 0.9s steps(4) infinite;
   }
 
   .c-zigzag-two {
-    width: 76px;
-    height: 100px;
+    width: 14px;
+    height: 49px;
     position: absolute;
     top: 0;
     right: 208px;
-    transform: rotate(-60deg) scale(0.3,0.3);
-    background-image: url('../images/desktop/step2/zigzag2_spritesheet_12f_76x100_912_optimised.png');
-    animation: zigzagTwo 1.2s steps(12) infinite;
+    transform: rotate(-60deg);
+    background-image: url('../images/desktop/step2/zigzag2_spritesheet_4f_14x49_56_optimised.png');
+    animation: zigzagTwo 1.2s steps(4) infinite;
   }
 
   .c-pumping {
-    width: 69px;
-    height: 100px;
+    width: 122px;
+    height: 161px;
     position: absolute;
-    top: 245px;
-    left: 400px;
-    background-image: url('../images/desktop/step2/pumping_spritesheet_28f_69x100_1932_optimised.png');
-    animation: pumping 1.4s steps(28) infinite;
+    top: 180px;
+    left: 392px;
+    background-image: url('../images/desktop/step2/pump_spritesheet_14f_122x161_1708_optimised.png');
+    animation: pumping 1.4s steps(14) infinite;
   }
-
-  @keyframes zigzagOne {
-    0% {
-      background-position: 0;
-      opacity: 0;
-    }
-    10% {
-       opacity: 1;
-    }
-    50% {
-      top: 40px;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      top: 110px;
-      opacity: 0;
-      background-position: 924px;
-    }
-  }
-  @keyframes zigzagTwo {
-    0% {
-      background-position: 0;
-      opacity: 0;
-    }
-    10% {
-       opacity: 1;
-    }
-    50% {
-      top: 60px;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      top: 130px;
-      opacity: 0;
-      background-position: 912px;
-    }
-  }
-  @keyframes pumping {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 1932px;
-    }
-  }
-
 }

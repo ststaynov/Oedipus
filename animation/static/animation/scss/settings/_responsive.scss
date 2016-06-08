@@ -18,6 +18,9 @@ body {
     .c-cloud-bg-sprite {
       transform: scale(0.6,0.6);
     }
+    .c-cloud-bg-sprite {
+      transform: scale(0.6,0.6) !important;
+    }
     // all sprites
     .c-sperma,
     .c-sun,
@@ -84,10 +87,6 @@ body {
       }
     }
 
-    .e-energy {
-      display: none !important;
-    }
-
     .c-plane {
       display: none !important;
     }
@@ -96,7 +95,24 @@ body {
       background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png') !important;
       animation: none !important;
     }
+
+    /* FIXING THE PIPE START */
+    div.e-film-pipes {
+      width: 5249px !important;
+      height: 300px !important;
+      //position: absolute;
+      //pointer-events: none;
+      top: calc(50vh - 166px) !important;
+      left: 1800px !important;
+      background-image: url(../images/desktop/background/brewing_pipes_mobile.svg) !important;
+      //background-size: 100%;
+      //background-position: left center;
+      //background-repeat: no-repeat;
+      //z-index: 2;
+    }
+    /* FIXING THE PIPE END */
   }
+
   @media screen and (max-height: 845px) {
     .c-brewing-background-inner-top {
       top: -50px;

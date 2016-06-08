@@ -6,6 +6,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $btlContainer = $('.c-action-container'),
     $beerFill = $('svg.beer-fill'),
     $pipes = $('.e-film-pipes'),
+    $bottlingFill = $('.e-fill'),
     fgBg = [$bg, $fg, $btlContainer, $beerFill, $pipes],
 
     // foreground animatios
@@ -137,29 +138,29 @@ cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10
 
 
 /* Setting up animation timelines per step START */
-var sunBeamArr = [$('.beam-item-1'), $('.beam-item-2'), $('.beam-item-3'), $('.beam-item-4'), $('.beam-item-5'), $('.beam-item-6'), $('.beam-item-7'), $('.beam-item-8'), $('.beam-item-9'), $('.beam-item-10')],
-    ease = 'Power0.easeNone';
-
-
-    magicCloudTl.to(sunBeamArr[0], 4, {x:'-=200', y:'-=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[1], 4, {y:'-=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[2], 4, {x:'+=200', y:'-=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[3], 4, {x:'+=200}', ease:ease}, "sunBeam")
-                .to(sunBeamArr[4], 4, {x:'+=200', y:'+=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[5], 4, {x:'+=100', y:'+=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[6], 4, {y:'+=170}', ease:ease}, "sunBeam")
-                .to(sunBeamArr[7], 4, {x:'-=100', y:'+=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr[9], 4, {x:'-=200', ease:ease}, "sunBeam")
-                .to(sunBeamArr, 1.5, {opacity: 1}, "sunBeam")
-                .to(sunBeamArr, 1, {delay:3.5, opacity: 0}, "sunBeam")
-                .to(sunBeamArr, 0.5, {scale: 0.8}, "sunBeam")
-                .to(sunBeamArr, 0.5, {delay:1, scale: 1}, "sunBeam")
-                .to(sunBeamArr, 0.5, {delay:1.5, scale: 0.8}, "sunBeam")
-                .to(sunBeamArr, 0.5, {delay:2, scale: 1}, "sunBeam")
-                .to(sunBeamArr, 0.5, {delay:2.5, scale: 0.8}, "sunBeam")
-                .to(sunBeamArr, 0.5, {delay:3, scale: 1}, "sunBeam")
-                .to(sunBeamArr, 0.5, {delay:3.5, scale: 0.8}, "sunBeam");
+// var sunBeamArr = [$('.beam-item-1'), $('.beam-item-2'), $('.beam-item-3'), $('.beam-item-4'), $('.beam-item-5'), $('.beam-item-6'), $('.beam-item-7'), $('.beam-item-8'), $('.beam-item-9'), $('.beam-item-10')],
+//     ease = 'Power0.easeNone';
+//
+//
+//     magicCloudTl.to(sunBeamArr[0], 4, {x:'-=200', y:'-=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[1], 4, {y:'-=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[2], 4, {x:'+=200', y:'-=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[3], 4, {x:'+=200}', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[4], 4, {x:'+=200', y:'+=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[5], 4, {x:'+=100', y:'+=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[6], 4, {y:'+=170}', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[7], 4, {x:'-=100', y:'+=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr[9], 4, {x:'-=200', ease:ease}, "sunBeam")
+//                 .to(sunBeamArr, 1.5, {opacity: 1}, "sunBeam")
+//                 .to(sunBeamArr, 1, {delay:3.5, opacity: 0}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {scale: 0.8}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {delay:1, scale: 1}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {delay:1.5, scale: 0.8}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {delay:2, scale: 1}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {delay:2.5, scale: 0.8}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {delay:3, scale: 1}, "sunBeam")
+//                 .to(sunBeamArr, 0.5, {delay:3.5, scale: 0.8}, "sunBeam");
 
 
 var smoke = $("#smoke circle, #smoke path");
@@ -171,20 +172,23 @@ var smoke = $("#smoke circle, #smoke path");
 
 var $note = $('.e-note'),
     $drum = $('.e-drum'),
-    $flumpje = $('.e-flumpje'),
-    $drink = $('.e-drink');
+    $drink = $('.e-drink'),
+    $guitar = $('.e-guitar');
 
-    fermentingTl.to($note, 2, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+    fermentingTl.to($note, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($drink, 2, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($flumpje, 2, {top: '-=20',rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
+                .to($drink, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                .to($guitar, 1, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
 
 // Change the colors of the window
 tweenToRandomColor();
+var randomYellowColor = '#F9DF00';
+
 function tweenToRandomColor() {
-    random_color = oedipusColors[Math.floor((Math.random() * 4) + 1)];
+    if (randomYellowColor == '#F9DF00') randomYellowColor = '#FFFF6A';
+        else randomYellowColor = '#F9DF00';
     consoleLog(random_color);
-    TweenMax.to($fermentingWindow, 4, {backgroundColor: random_color,opacity: 1, onComplete:tweenToRandomColor});
+    TweenMax.to($fermentingWindow, 4, {backgroundColor: randomYellowColor, onComplete:tweenToRandomColor});
 }
 
 // function random(min, max) {
@@ -195,8 +199,8 @@ setInterval(function(){shakeAnimation($fermentingTank);},5000);
 
 
 function shakeAnimation(element){
-  TweenMax.to(element, .1, {x: -4, rotation: -1, ease: Quad.easeInOut});
-  TweenMax.to(element, .1, {repeat: 4, x: 4, rotation: 1, yoyo: true, delay: .1, ease: Quad.easeInOut});
+  TweenMax.to(element, .1, {x: -28, rotation: -1, ease: Quad.easeInOut});
+  TweenMax.to(element, .1, {repeat: 4, x: 28, rotation: 1, yoyo: true, delay: .1, ease: Quad.easeInOut});
   TweenMax.to(element, .1, {x: 0, rotation: 0, delay: .1 * 4});
 }
 
@@ -254,6 +258,7 @@ function moveBackground(f) {
     });
     if ($bottling.hasClass('fixed') && !$bottling.hasClass('exploded')) { //PLEASE WORK!!!
         TweenMax.to($bottling , 2, {x: -(translateValue - 400)});
+        TweenMax.set($bottlingFill, {display: 'none'});
     } else if ($bottling.hasClass('fixed')) $bottling.removeClass('fixed');
     displayBgPosition(n);
     checkBackgroundColors();
@@ -277,19 +282,19 @@ function checkPosition(tween) {
         translateValue = n + 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        TweenMax.to($replicaEndPop, 1, {opacity: 0, clearProps: "all", onComplete: customLoadReplica}); // animates replica
-        function customLoadReplica() {
-            loadReplica($replicaMagicCloud, $replicaEndPop);
-        }
+        TweenMax.to($replicaEndPop, 1, {opacity: 0, clearProps: "all"}); // , onComplete: customLoadReplica
+        // function customLoadReplica() {
+        //     loadReplica($replicaMagicCloud, $replicaEndPop);
+        // }
     } else if (n >= 200 && loopBackwardAllowed) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        TweenMax.to($replicaMagicCloud, 1, {opacity: 0, clearProps: "all", onComplete: customLoadReplica}); // animates replica
-        function customLoadReplica() {
-            loadReplica($replicaEndPop, $replicaMagicCloud);
-        }
+        TweenMax.to($replicaMagicCloud, 1, {opacity: 0, clearProps: "all"}); // , onComplete: customLoadReplica
+        // function customLoadReplica() {
+        //     loadReplica($replicaEndPop, $replicaMagicCloud);
+        // }
     } else if (n >= 160 && !loopBackwardAllowed) { /* checks if user is allowed to go to the end of the film */
         translateValue = 161;
 
@@ -590,7 +595,7 @@ function checkBackgroundColors() {
     var n = parseInt($bg.css('transform').split(',')[4]);
 
     if (n > step4Duration) {
-        loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
+        // loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
 
         if (n > step1Duration) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
@@ -610,7 +615,7 @@ function checkBackgroundColors() {
             // consoleLog('step4 - blue');
         }
     } else {
-        loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
+        // loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
         if (n > step5Duration) { // step5
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusGreen});
             checkActionItemState('fermenting');
@@ -629,12 +634,12 @@ function checkBackgroundColors() {
 
 /* load the beginning/end film replicas START */
 
-function loadReplica(replicaToLoad, replicaToUnLoad) {
-    replicaToUnLoad.removeClass('loaded');
-    replicaToUnLoad.addClass('unloaded');
-    replicaToLoad.removeClass('unloaded');
-    replicaToLoad.addClass('loaded');
-}
+// function loadReplica(replicaToLoad, replicaToUnLoad) {
+//     replicaToUnLoad.removeClass('loaded');
+//     replicaToUnLoad.addClass('unloaded');
+//     replicaToLoad.removeClass('unloaded');
+//     replicaToLoad.addClass('loaded');
+// }
 
 /* load the beginning/end film replicas END */
 

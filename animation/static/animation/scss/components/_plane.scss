@@ -1,10 +1,17 @@
 
 .c-plane {
-  width: 238px;
-  height: 55px;
+  width: 245px;
+  height: 63px;
   position: fixed;
   top: 84vh;
   left: -100%;
-  background: url(../images/desktop/plane.svg) left top no-repeat;
+  background-image: url('../images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png');
+  animation: plane 0.8s steps(24) infinite;
+  pointer-events: none;
   z-index: $z-5;
+}
+
+@keyframes plane {
+  from { background-position: 0; }
+  to { background-position: 5880px; }
 }

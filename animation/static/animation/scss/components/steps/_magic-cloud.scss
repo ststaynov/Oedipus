@@ -9,10 +9,6 @@
   background-position: left center;
   animation: magicPuff 1.2s steps(15) infinite;
 
-  @keyframes magicPuff {
-    from { background-position: 0; }
-    to { background-position: 15000px; }
-  }
   &.replica {
     z-index: $z-5;
     transform: translateX(8000px);
@@ -30,75 +26,6 @@
   &.unloaded {
     opacity: 0;
   }
-
-  .e-energy {
-    width: 100%;
-    height: 100%;
-  }
-
-  .e-beam-item-container {
-    width: 800px;
-    height: 500px;
-    position: relative;
-    margin: 0 auto;
-  }
-
-  .e-beam-item {
-    @include magicCloud-fg-item();
-    background-image: url('../images/desktop/step1/beam.png');
-    opacity: 0;
-
-    &:nth-of-type(1) {
-      top: 116px;
-      left: 237px;
-      transform: rotate(56deg);
-    }
-    &:nth-of-type(2) {
-      top: 60px;
-      left: 300px;
-      transform: rotate(112deg);
-    }
-    &:nth-of-type(3) {
-      top: 85px;
-      right: 364px;
-      transform: rotate(148deg);
-    }
-    &:nth-of-type(4) {
-      top: 123px;
-      right: 311px;
-      transform: rotate(184deg);
-    }
-    &:nth-of-type(5) {
-      top: 166px;
-      right: 293px;
-      transform: rotate(220deg);
-    }
-    &:nth-of-type(6) {
-      top: 226px;
-      right: 321px;
-      transform: rotate(256deg);
-    }
-    &:nth-of-type(7) {
-      top: 267px;
-      left: 350px;
-      transform: rotate(292deg);
-    }
-    &:nth-of-type(8) {
-      top: 258px;
-      left: 274px;
-      transform: rotate(328deg);
-    }
-    &:nth-of-type(9) {
-      top: 217px;
-      left: 221px;
-      transform: rotate(364deg);
-    }
-    &:nth-of-type(10) {
-      top: 176px;
-      left: 208px;
-      transform: rotate(40deg);
-    }
-  }
   .e-bottle-cap {
     width: 459px;
     height: 356px;
@@ -112,15 +39,23 @@
   }
 }
 
+.e-magic-title {
+  width: 292px;
+  height: 135px;
+  margin: auto;
+  position: absolute;
+  top: 77px;
+  left: 0;
+  right: 0;
+  //transform: matrix3d(1,0,1,0,0,1,1,0,0,0,1,0,0,0,0,1);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('../images/desktop/step1/cloud_title.png');
+}
+
 .float {
     -webkit-animation-name: Floating;
     -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: ease-in-out;
-}
-
-@-webkit-keyframes Floating{
-    from {-webkit-transform:translate(0, 0px);}
-    65% {-webkit-transform:translate(0, 15px);}
-    to {-webkit-transform: translate(0, -0px);}
 }

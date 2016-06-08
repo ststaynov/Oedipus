@@ -1,0 +1,400 @@
+
+/* Magic Cloud START */
+@keyframes magicPuff {
+  from { background-position: 0; }
+  to { background-position: 15000px; }
+}
+
+@-webkit-keyframes Floating{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);}
+}
+/* Magic Cloud END */
+
+
+/* Milling & Mashing START */
+@-webkit-keyframes drip {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(75px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(170px);
+  }
+}
+
+@keyframes drip {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(10px) translateY(85px);
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(170px);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinreverse {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spinreverse {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes sparcle {
+  0% {
+    transform: rotate(-5deg) scale(0.3,0.3);
+  }
+  25%{
+    opacity: .7;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(5deg) scale(1.2,1.2);
+  }
+  75% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 0.8;
+    transform: rotate(-5deg) scale(0.3,0.3);
+  }
+}
+
+@keyframes sparcle {
+  0% {
+    transform: rotate(-5deg) scale(0.3,0.3);
+  }
+  25%{
+    opacity: .7;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(5deg) scale(1.2,1.2);
+  }
+  75% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 0.8;
+    transform: rotate(-5deg) scale(0.3,0.3);
+  }
+}
+
+@-webkit-keyframes wiggle {
+0% {}
+  25% {transform: rotate(3deg);}
+50% {transform: rotate(-3deg);}
+100% {
+  transform: rotate(0deg);
+}
+}
+
+@keyframes wiggle {
+0% {}
+  25% {transform: rotate(3deg);}
+50% {transform: rotate(-3deg);}
+100% {
+  transform: rotate(0deg);
+}
+}
+
+@keyframes grain-fall {
+  0% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(26px);
+  }
+}
+
+@keyframes mash-wave-front {
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes mash-wave-back {
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+
+@keyframes zigzagOne {
+  0% {
+    background-position: 0;
+    opacity: 0;
+  }
+  10% {
+     opacity: 1;
+  }
+  50% {
+    top: 40px;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 110px;
+    opacity: 0;
+    background-position: 56px;
+  }
+}
+
+@keyframes zigzagTwo {
+  0% {
+    background-position: 0;
+    opacity: 0;
+  }
+  10% {
+     opacity: 1;
+  }
+  50% {
+    top: 60px;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 130px;
+    opacity: 0;
+    background-position: 56px;
+  }
+}
+
+@keyframes pumping {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 1708px;
+  }
+}
+/* Milling & Mashing END */
+
+
+/* Boiling START */
+@-webkit-keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateX(10px) translateY(50px);
+  }
+  25% {
+    transform: translateX(10px) translateY(50px);
+  }
+  50% {
+    //transform: translateX(50px)
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px) translateY(190px) scale(0.7,0.7);
+  }
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateX(10px) translateY(50px);
+  }
+  25% {
+    transform: translateX(20px) translateY(50px);
+  }
+  50% {
+    //transform: translateX(50px)
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(80px) translateY(190px) scale(0.7,0.7);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes boil {
+  0% {
+    opacity: 0;
+    transform: translateX(10px) translateY(220px);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+@keyframes boil {
+  0% {
+    opacity: 0;
+    transform: translateX(10px) translateY(220px);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-10px) translateY(50px);
+  }
+}
+
+@keyframes wave-front {
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes wave-back {
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+
+@keyframes zigzagThree {
+  from { background-position: 0; }
+  to { background-position: 1017px; }
+}
+
+@keyframes zigzagFour {
+  from { background-position: 0; }
+  to { background-position: 4296px; }
+}
+
+@keyframes zigzagFive {
+  from { background-position: 0; }
+  to { background-position: 7192px; }
+}
+
+@keyframes burst {
+  from { background-position: 0; }
+  to { background-position: 1116px; }
+}
+/* Boiling END */
+
+
+/* Cooling START */
+/* Cooling END */
+
+
+/* Fermenting START */
+
+@keyframes swimRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(90px) translateY(40px);
+  }
+}
+
+@keyframes swimLeft {
+  0% {
+    transform: translateX(0) rotate(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-20px) translateY(90px) rotate(90deg);
+  }
+}
+
+@keyframes sperma {
+    from { background-position: 0; }
+    to { background-position: 2664px; }
+  }
+
+@keyframes floatLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  25% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-40px) translateY(-90px);
+  }
+}
+
+@keyframes floatRight {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  25% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(40px) translateY(-90px);
+  }
+}
+/* Fermenting END */
+
+
+/* Bottling START */
+@keyframes fill {
+  from { background-position: 0; }
+  to { background-position: 124px; }
+}
+/* Bottling END */
+
+
+/* End-Pop START */
+/* End-Pop END */
