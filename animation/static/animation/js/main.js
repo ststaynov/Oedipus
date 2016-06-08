@@ -183,14 +183,13 @@ var $note = $('.e-note'),
 tweenToRandomColor();
 function tweenToRandomColor() {
     random_color = oedipusColors[Math.floor((Math.random() * 4) + 1)];
-    TweenMax.to($fermentingWindow, 4, {
-        backgroundColor: '#random_color',
-        onComplete:tweenToRandomColor
-    });
+    consoleLog(random_color);
+    TweenMax.to($fermentingWindow, 4, {backgroundColor: random_color,opacity: 1, onComplete:tweenToRandomColor});
 }
-function random(min, max) {
-  return (min + Math.random() * (max - min) + 0.5) | 0;
-}
+
+// function random(min, max) {
+//   return (min + Math.random() * (max - min) + 0.5) | 0;
+// }
 
 setInterval(function(){shakeAnimation($fermentingTank);},5000);
 
@@ -726,7 +725,6 @@ function moveRandom(obj) {
 
     function moveRandomThis() {
         moveRandom(obj);
-        consoleLog("moveRandomThis");
     }
 }
 

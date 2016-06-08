@@ -1755,8 +1755,7 @@ a {
   top: 240px;
   left: 40px;
   right: 0;
-  background-color: black;
-  z-index: 10; }
+  z-index: -1; }
   .e-window .window-relative-container {
     width: 100%;
     height: 100%;
