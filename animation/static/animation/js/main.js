@@ -4,10 +4,12 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $bg = $('.c-brewing-background'),
     $fg = $('.c-brewing-foreground'),
     $btlContainer = $('.c-action-container'),
-    $beerFill = $('svg.beer-fill'),
+    $beerFill = $('svg.beer-fill.desktop'),
+    $beerFillMobile = $('svg.beer-fill.mobile'),
     $pipes = $('.e-film-pipes'),
     $bottlingFill = $('.e-fill'),
-    fgBg = [$bg, $fg, $btlContainer, $beerFill, $pipes],
+    fgBg = [$bg, $fg, $btlContainer, $pipes],
+
 
     // foreground animatios
     $nipple = $('.c-nipple'),
@@ -19,22 +21,16 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     loopForwardAllowed = false,
     positionsArr = [],
     $thermometerNeedle = $('#needle'),
-    magicCloudTl = new TimelineMax({repeat:-1}),
     $beerWaves = $('.beer-wave'),
     $fermentingWindow = $('.e-window'),
     $plane = $('.c-plane'),
-    bottlingContainerMoveFix = 0;
+    bottlingContainerMoveFix = 0,
 
     // action item
     $actionItem = $('.c-action'),
-    $cloudBack = $('#e-cloud-back'),
-    $cloudFront = $('#e-cloud-front'),
-    $handRight = $('#e-hand-right'),
-    $handLeft = $('#e-hand-left'),
     $warmBeams = $('path#e-cloud-warm-beam'), //include path so that jquery selects all TODO make warmItems per cloud so that they don't have to wait for eachother
     $coldLeftBeams = $('path#e-cloud-cold-left-beam'),
     $coldRightBeams = $('path#e-cloud-cold-right-beam'),
-    $warmBeamDown = $('path#e-cloud-warm-beam-down'),
     $warmBeamUp = $('path#e-cloud-warm-beam-up'),
     $warmBeamUpLeft = $('path#e-cloud-warm-beam-up-left'),
     $warmBeamLeft = $('path#e-cloud-warm-beam-left'),
@@ -48,22 +44,11 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     colorOedipusPinkDark = '#ca447f',
     oedipusColors = [colorOedipusGreen, colorOedipusPink, colorOedipusBlueDark, colorOedipusBlue, colorOedipusPinkDark],
 
-        //clouds
-        $cloudMillMash = $('#c-cloud-millmash'),
-        $cloudBoil = $('#c-cloud-boil'),
-        $cloudCoolL = $('#c-cloud-cool-left'),
-        $cloudCoolR = $('#c-cloud-cool-right'),
-        $cloudFermenting = $('#c-cloud-fermenting'),
-
-        //cloudTimeLines
+        // //clouds
         cloudMillmashTl = new TimelineMax({repeat:-1}),
         cloudBoilingTl = new TimelineMax({repeat:-1}),
         cloudCoolingTlLeft = new TimelineMax({repeat:-1}),
-        cloudCoolingTlRight = new TimelineMax({repeat:-1}),
-        cloudFermentingTl = new TimelineMax({repeat:-1}),
-        cloudBottlingTl = new TimelineMax({repeat:-1}),
-        cloudEndPopTl = new TimelineMax({repeat:-1});
-    
+
     // steps
     $replicaEndPop = $('.c-end-pop.replica'),
     $magicCloud = $('.c-magic-cloud.original'),
@@ -75,13 +60,9 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $endPop = $('.c-end-pop.original'),
     $replicaMagicCloud = $('.c-magic-cloud.replica'),
 
-    // timelines per step
-    millmashTl = new TimelineMax({}),
-    boilingTl = new TimelineMax({}),
-    coolingTl = new TimelineMax({}),
-    fermentingTl = new TimelineMax({}),
-    bottlingTl = new TimelineMax({}),
-    endPopTl = new TimelineMax({});
+        // timelines per step
+        boilingTl = new TimelineMax({}),
+        fermentingTl = new TimelineMax({});
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
@@ -90,9 +71,14 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //values which suit mobile screens
     bottlingContainerMoveFix = 100;
+    fgBg.push($beerFillMobile);
+    consoleLog('Added beerFill for mobile');
 } else {
     positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
     bottlingContainerMoveFix = 400;
+    fgBg.push($beerFill);
+    startCloudWarmBeamsTl();
+    consoleLog('Added beerFill');
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
@@ -122,17 +108,18 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone   });
 
 //cloudTimeLines
-cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
+function startCloudWarmBeamsTl() {
+    cloudMillmashTl.staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
 
 cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10}, "initial")
               .fromTo($warmBeamUpLeft, 0.8, {opacity: 1, x: 5, y: 5}, {opacity: 0, x: -10, y: -30}, "initial")
               .fromTo($warmBeamUpRight, 0.8, {opacity: 1, x: -10, y: 10}, {opacity: 0, x: 10, y: -30}, "initial")
               .fromTo($warmBeamLeft, 0.8, {opacity: 1, x: 0, y: 0}, {opacity: 0, x: -30, y: 0}, "initial");
+}
 
 
 cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
-                  .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial")
-                  .staggerFromTo($warmBeams, 0.3, {opacity: 1, x: 40}, {opacity: 0, x: -50}, 0.1, "initial");
+                  .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 
 /* Setting up action item animation END */
 
@@ -187,7 +174,6 @@ var randomYellowColor = '#F9DF00';
 function tweenToRandomColor() {
     if (randomYellowColor == '#F9DF00') randomYellowColor = '#FFFF6A';
         else randomYellowColor = '#F9DF00';
-    consoleLog(random_color);
     TweenMax.to($fermentingWindow, 4, {backgroundColor: randomYellowColor, onComplete:tweenToRandomColor});
 }
 
@@ -240,10 +226,8 @@ function arrowBtnMove(e) {
     var pressedBtnValue =  e.which;
     if (pressedBtnValue == 37) {
         moveBackground(f = "forward");
-        consoleLog('movebackward');
     } else if (pressedBtnValue == 39) {
         moveBackground();
-        consoleLog('moveforward');
     }
     consoleLog('btn number: ' + e.which + 'pressed');
 }
@@ -355,7 +339,6 @@ jQuery('.c-brewing-background-inner')
 
 var n = parseInt($bg.css('transform').split(',')[4]);
 /* BG ANIMATIONS END */
-
 
 /* INFORMATIVE FUNCTIONS */
 
@@ -600,30 +583,24 @@ function checkBackgroundColors() {
         if (n > step1Duration) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             checkActionItemState('initial');
-            // consoleLog('step1 - white');
         } else if (n > step2Duration) { // step 2
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPink});
             checkActionItemState('milled-mashed');
-            // consoleLog('step2 - yellow');
         } else if (n > step3Duration) { // step 3
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
             checkActionItemState('boiling');
-            // consoleLog('step3 - purple');
         } else { //step 4
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
             checkActionItemState('cooling');
-            // consoleLog('step4 - blue');
         }
     } else {
         // loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
         if (n > step5Duration) { // step5
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusGreen});
             checkActionItemState('fermenting');
-            // consoleLog('step5 - orange');
         } else if (n > step6Duration) { // step6
             TweenMax.to(e, 5.5, {backgroundColor: '#fff'});
             checkActionItemState('bottling');
-            // consoleLog('step6 - white');
         } else if (n > step6End) { // step7
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             checkActionItemState('bottling');

@@ -104,11 +104,17 @@ body {
       //pointer-events: none;
       top: calc(50vh - 166px) !important;
       left: 1800px !important;
-      background-image: url(../images/desktop/background/brewing_pipes_mobile.svg) !important;
+      background-image: url(../images/desktop/test/brewing_pipes_mobile.svg) !important;
       //background-size: 100%;
       //background-position: left center;
       //background-repeat: no-repeat;
       //z-index: 2;
+    }
+    .c-beer-fill-container {
+      >svg {
+        top: calc(50vh - 118px);
+        left: 1797px;
+      }
     }
     /* FIXING THE PIPE END */
   }

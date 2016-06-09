@@ -58,7 +58,10 @@ body {
         height: 300px !important;
         top: calc(50vh - 166px) !important;
         left: 1800px !important;
-        background-image: url(../images/desktop/background/brewing_pipes_mobile.svg) !important; } }
+        background-image: url(../images/desktop/test/brewing_pipes_mobile.svg) !important; }
+      body .c-beer-fill-container > svg {
+        top: calc(50vh - 118px);
+        left: 1797px; } }
   @media screen and (max-height: 845px) {
     body .c-brewing-background-inner-top {
       top: -50px; }
@@ -777,20 +780,17 @@ svg.bg {
     color: #ca447f; }
 
 .our-beers {
-  width: 350px;
+  width: 600px;
   position: absolute;
   top: 0;
   right: 231px; }
-  .our-beers .button {
-    top: 100px;
-    pointer-events: all; }
   .our-beers .e-cap {
-    width: 213px;
-    height: 167px;
+    width: 241px;
+    height: 186px;
     position: absolute;
-    top: 45px;
-    left: 64px;
-    background-image: url("../images/desktop/step1/cap.svg");
+    top: 84px;
+    right: 193px;
+    background-image: url("../images/desktop/end-pop-cap.svg");
     background-size: 100%;
     background-repeat: no-repeat; }
 

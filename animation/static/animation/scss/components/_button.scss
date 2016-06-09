@@ -25,23 +25,23 @@
 }
 
 .our-beers {
-  width: 350px;
+  width: 600px;
   position: absolute;
   top: 0;
   right: 231px;
 
-  .button {
-    top: 100px;
-    pointer-events: all;
-  }
+  //.button {
+  //  top: 100px;
+  //  pointer-events: all;
+  //}
 
   .e-cap {
-    width: 213px;
-    height: 167px;
+    width: 241px;
+    height: 186px;
     position: absolute;
-    top: 45px;
-    left: 64px;
-    background-image: url('../images/desktop/step1/cap.svg');
+    top: 84px;
+    right: 193px;
+    background-image: url('../images/desktop/end-pop-cap.svg');
     background-size: 100%;
     background-repeat: no-repeat;
   }
