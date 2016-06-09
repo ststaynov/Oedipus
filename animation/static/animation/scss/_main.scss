@@ -23,33 +23,6 @@ svg {
   shape-rendering: geometricPrecision;
 }
 
-.c-borders {
-  .border {
-    position: absolute;
-    background-color: #000;
-
-    &.border-top {
-      top: 0;
-      @include border-top-bottom();
-    }
-
-    &.border-right {
-      right: 0;
-      @include border-right-left();
-    }
-
-    &.border-bottom {
-      bottom: 0;
-      @include border-top-bottom();
-    }
-
-    &.border-left {
-      left: 0;
-      @include border-right-left();
-    }
-  }
-}
-
 .bg-position {
   z-index: $z-5;
 }
@@ -195,17 +168,6 @@ svg {
   top: calc(50vh - 250px);
   transform: translate3d( 0px, 0px, 0px);
   pointer-events: none;
-}
-
-
-.e-title {
-  position: absolute;
-  margin: 0 auto;
-  top: 50%;
-  font-size: 32px;
-  transform: translateX(-50%);
-  left: 50%;
-  display: none;
 }
 
 svg.bg {

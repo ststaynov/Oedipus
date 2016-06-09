@@ -9,10 +9,6 @@
   background-position: left center;
   animation: magicPuff 1.2s steps(15) infinite;
 
-  &.replica {
-    z-index: $z-5;
-    transform: translateX(8000px);
-  }
 
   &.fading {
     transition: visibility 0s, opacity 0.5s linear;

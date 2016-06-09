@@ -104,42 +104,6 @@ h1 {
 svg {
   shape-rendering: geometricPrecision; }
 
-.c-borders .border {
-  position: absolute;
-  background-color: #000; }
-  .c-borders .border.border-top {
-    top: 0;
-    width: 100%;
-    height: 25px;
-    background-image: url(../images/desktop/oedipus-wing-right.svg);
-    border-left: 25px solid black;
-    border-right: 25px solid black;
-    z-index: 10; }
-  .c-borders .border.border-right {
-    right: 0;
-    width: 25px;
-    height: 100%;
-    background-image: url(../images/desktop/oedipus-wing-down.svg);
-    border-top: 25px solid black;
-    border-bottom: 25px solid black;
-    z-index: 10; }
-  .c-borders .border.border-bottom {
-    bottom: 0;
-    width: 100%;
-    height: 25px;
-    background-image: url(../images/desktop/oedipus-wing-right.svg);
-    border-left: 25px solid black;
-    border-right: 25px solid black;
-    z-index: 10; }
-  .c-borders .border.border-left {
-    left: 0;
-    width: 25px;
-    height: 100%;
-    background-image: url(../images/desktop/oedipus-wing-down.svg);
-    border-top: 25px solid black;
-    border-bottom: 25px solid black;
-    z-index: 10; }
-
 .bg-position {
   z-index: 5; }
 
@@ -268,15 +232,6 @@ svg {
   top: calc(50vh - 250px);
   transform: translate3d(0px, 0px, 0px);
   pointer-events: none; }
-
-.e-title {
-  position: absolute;
-  margin: 0 auto;
-  top: 50%;
-  font-size: 32px;
-  transform: translateX(-50%);
-  left: 50%;
-  display: none; }
 
 svg.bg {
   width: 500px;
@@ -1339,9 +1294,6 @@ a {
   background-image: url("../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png");
   background-position: left center;
   animation: magicPuff 1.2s steps(15) infinite; }
-  .c-magic-cloud.replica {
-    z-index: 5;
-    transform: translateX(8000px); }
   .c-magic-cloud.fading {
     transition: visibility 0s, opacity 0.5s linear;
     opacity: 0; }
@@ -1917,16 +1869,6 @@ a {
   .c-bottling-container.exploded {
     opacity: 0;
     transition: opacity .8s; }
-  .c-bottling-container .e-label {
-    width: 71px;
-    height: 97px;
-    position: absolute;
-    margin: auto;
-    left: 6px;
-    right: 0;
-    top: 300px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 25px; }
   .c-bottling-container .c-bottle-flumpjes {
     width: 100%;
     height: 100%; }
@@ -2026,9 +1968,6 @@ a {
   width: 1000px;
   height: 500px;
   pointer-events: none; }
-  .c-end-pop.replica {
-    z-index: 5;
-    transform: translateX(5px); }
   .c-end-pop.loaded {
     opacity: 1; }
   .c-end-pop.unloaded {

@@ -6,11 +6,6 @@
   height: 500px;
   pointer-events: none;
 
-  &.replica {
-    z-index: $z-5;
-    transform: translateX(5px);
-  }
-
   &.loaded {
     opacity: 1;
   }

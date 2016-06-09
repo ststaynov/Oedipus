@@ -1,0 +1,14 @@
+
+@mixin fermenting-fg-item() {
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin magicCloud-fg-item() {
+    width: 60px;
+    height: 160px;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

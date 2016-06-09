@@ -50,7 +50,6 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
         cloudCoolingTlLeft = new TimelineMax({repeat:-1}),
 
     // steps
-    $replicaEndPop = $('.c-end-pop.replica'),
     $magicCloud = $('.c-magic-cloud.original'),
     $millmash = $('.c-milling-mashing'),
     $boiling = $('.c-boiling'),
@@ -58,7 +57,6 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $fermenting = $('.c-fermenting'),
     $bottling = $('.c-bottling-container'),
     $endPop = $('.c-end-pop.original'),
-    $replicaMagicCloud = $('.c-magic-cloud.replica'),
 
         // timelines per step
         boilingTl = new TimelineMax({}),
@@ -86,9 +84,6 @@ TweenMax.set($nipple, {x: 4650, y: 600});
 TweenMax.set($sun, {x: 850, y: 0});
 TweenMax.set($meteor, {x: 2000, y: 100});
 // steps
-/*  Replica translation are done in css since tweenMax: clearProps:"all" is set for them
- TweenMax.set($replicaEndPop, {x: 5});
- TweenMax.set($replicaMagicCloud, {x: 8000}); */
 
 TweenMax.set($magicCloud, {x: positionsArr[5]});
 TweenMax.set($millmash, {x: positionsArr[6]});
@@ -105,7 +100,7 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 
 // $plane
 
-TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone   });
+TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
 
 //cloudTimeLines
 function startCloudWarmBeamsTl() {
@@ -122,33 +117,6 @@ cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10
                   .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 
 /* Setting up action item animation END */
-
-
-/* Setting up animation timelines per step START */
-// var sunBeamArr = [$('.beam-item-1'), $('.beam-item-2'), $('.beam-item-3'), $('.beam-item-4'), $('.beam-item-5'), $('.beam-item-6'), $('.beam-item-7'), $('.beam-item-8'), $('.beam-item-9'), $('.beam-item-10')],
-//     ease = 'Power0.easeNone';
-//
-//
-//     magicCloudTl.to(sunBeamArr[0], 4, {x:'-=200', y:'-=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[1], 4, {y:'-=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[2], 4, {x:'+=200', y:'-=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[3], 4, {x:'+=200}', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[4], 4, {x:'+=200', y:'+=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[5], 4, {x:'+=100', y:'+=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[6], 4, {y:'+=170}', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[7], 4, {x:'-=100', y:'+=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[8], 4, {x:'-=200', y:'+=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr[9], 4, {x:'-=200', ease:ease}, "sunBeam")
-//                 .to(sunBeamArr, 1.5, {opacity: 1}, "sunBeam")
-//                 .to(sunBeamArr, 1, {delay:3.5, opacity: 0}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {scale: 0.8}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {delay:1, scale: 1}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {delay:1.5, scale: 0.8}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {delay:2, scale: 1}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {delay:2.5, scale: 0.8}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {delay:3, scale: 1}, "sunBeam")
-//                 .to(sunBeamArr, 0.5, {delay:3.5, scale: 0.8}, "sunBeam");
-
 
 var smoke = $("#smoke circle, #smoke path");
 
@@ -251,7 +219,6 @@ function moveBackground(f) {
 function checkPosition(tween) {
     /* Check the current transform value */
     var n = -tween._targets[0]._gsTransform.x.toFixed(2);
-    // var p = parseInt($bg.css('transform').split(',')[4]);
 
     if (n < -7800 && loopForwardAllowed) {
         /* sets new position at the start of the film  */
@@ -266,23 +233,14 @@ function checkPosition(tween) {
         translateValue = n + 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        TweenMax.to($replicaEndPop, 1, {opacity: 0, clearProps: "all"}); // , onComplete: customLoadReplica
-        // function customLoadReplica() {
-        //     loadReplica($replicaMagicCloud, $replicaEndPop);
-        // }
     } else if (n >= 200 && loopBackwardAllowed) {
         /* sets new position at the end of the film  */
         translateValue = n - 8000;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
-        TweenMax.to($replicaMagicCloud, 1, {opacity: 0, clearProps: "all"}); // , onComplete: customLoadReplica
-        // function customLoadReplica() {
-        //     loadReplica($replicaEndPop, $replicaMagicCloud);
-        // }
     } else if (n >= 160 && !loopBackwardAllowed) { /* checks if user is allowed to go to the end of the film */
         translateValue = 161;
 
-        // if (n > 170) { attempt to remove the bouncing effect when breaking the law
         TweenMax.to(fgBg, 0.4, {x: translateValue});
         TweenMax.to($actionItem, 0.4, {x: -translateValue});
     } else if (n <= -7740 && !loopForwardAllowed) { /* checks if user is allowed to go to the beginning of the film */
@@ -294,9 +252,8 @@ function checkPosition(tween) {
             $bottling.removeClass('fixed');
         }
 
-        // if (n > 170) { attempt to remove the bouncing effect when breaking the law
-            TweenMax.to(fgBg, 0.4, {x: translateValue});
-            TweenMax.to($actionItem, 0.4, {x: -translateValue});
+        TweenMax.to(fgBg, 0.4, {x: translateValue});
+        TweenMax.to($actionItem, 0.4, {x: -translateValue});
     }
     if (n < -6500) {
         if ($bottling.hasClass('fixed')) {}
@@ -578,7 +535,6 @@ function checkBackgroundColors() {
     var n = parseInt($bg.css('transform').split(',')[4]);
 
     if (n > step4Duration) {
-        // loadReplica($replicaMagicCloud, $replicaEndPop); // loads replica because user is at beginning of film meaning that he has a higher chance of looping at the beginning
 
         if (n > step1Duration) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
@@ -594,7 +550,6 @@ function checkBackgroundColors() {
             checkActionItemState('cooling');
         }
     } else {
-        // loadReplica($replicaEndPop, $replicaMagicCloud); // loads replica because user is at end of film meaning that he has a higher chance of looping at the end
         if (n > step5Duration) { // step5
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusGreen});
             checkActionItemState('fermenting');
@@ -609,16 +564,6 @@ function checkBackgroundColors() {
 }
 /* Change Background per Step END */
 
-/* load the beginning/end film replicas START */
-
-// function loadReplica(replicaToLoad, replicaToUnLoad) {
-//     replicaToUnLoad.removeClass('loaded');
-//     replicaToUnLoad.addClass('unloaded');
-//     replicaToLoad.removeClass('unloaded');
-//     replicaToLoad.addClass('loaded');
-// }
-
-/* load the beginning/end film replicas END */
 
 /* action item stages START */
 var mainActionItemtl = new TimelineMax({}); // I know it's easier to add all children(per step) to the mainTimeline at beginning and then per step reference them but no one's perfect
@@ -676,7 +621,6 @@ function checkForActionItemEffects(hasClass) {
 function getCoolingTimeline() {
     mainActionItemtl.to($actionItem, 3, {left: '14vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
                     .to($actionItem, 1, {top: '10vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
-                    // .to($handRight, 2, {x: '-70px', y: '20px', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
 }
 
 function getFermentingTimeline() {
@@ -695,14 +639,9 @@ function randomFromTo(from, to) {
 }
 
 function moveRandom(obj) {
-    /* get container position and size
-     * -- access method : cPos.top and cPos.left */
-
-    // set new position
     var newY = randomFromTo(1, 80),
         newX = randomFromTo(1, 80);
 
-    // obj.animate({top: newY, left: newX}, 2000, function() {moveRandom(obj);});
     TweenMax.to(obj, 2, {top: newY, left: newX, ease:Power0.easeNone, onComplete:moveRandomThis});
 
     function moveRandomThis() {
