@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="33px" height="50px" viewBox="0 0 33 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1.000000, 0.000000)" id="Brewing-Animation_Splash-Screen" fill="#FF8338">
+            <g>
+                <g id="Layer_1">
+                    <g id="splash-screen">
+                        <path d="M1.885,3.263 C5.155,8.737 12.519,21.061 13.293,22.29 C14.292,23.875 14.042,25.542 13.226,27.164 C11.16,31.269 2.959,45.542 2.959,45.542 C1.042,49.125 -0.291,50.625 7.814,47.223 C15.818,43.864 26.249,37.635 32.393,27.596 C34.02,24.938 33.604,24.146 32.12,21.413 C29.025,15.714 21.417,4.75 5.411,1.126 C1.092,0.147 -0.072,-0.013 1.885,3.263 L1.885,3.263 L1.885,3.263 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

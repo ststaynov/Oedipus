@@ -6,12 +6,4 @@
   height: 500px;
   pointer-events: none;
 
-  &.loaded {
-    opacity: 1;
-  }
-
-  &.unloaded {
-    opacity: 0;
-  }
-
 }

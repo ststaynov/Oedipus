@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="115px" height="92px" viewBox="0 0 115 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
-    <title>Shape</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Boiling_assets" transform="translate(-21.000000, -61.000000)" fill="#A3D01A">
             <path d="M115.8,81.1 C94.5,73 83.1,59.5 55.4,61.3 C39.3,62.4 35.8,77.9 30.4,87.8 C22.1,102.8 16.7,115.9 28.1,126.3 C39.3,136.6 59.2,136.8 74.3,143.1 C82.6,146.5 93.2,156.4 105.7,151.1 C119.6,145.3 126,129.1 130.4,118.7 C135.9,105.7 139.7,90.6 127,85.6 C127.1,85.7 117.2,81.7 115.8,81.1 L115.8,81.1 Z M101.4,148 C94,149.1 95.7,136.8 96.3,133.8 C96.9,130.6 97.9,128.2 99,125.3 C101.2,119.4 104.8,112.6 109,107 C111.4,103.7 118.5,94.9 123.1,94.1 C126.1,93.6 127.4,94.7 127.7,96.8 C128.6,103.1 126.7,111 121.6,123.2 C118,131.9 108.8,146.9 101.4,148 L101.4,148 Z" id="Shape"></path>

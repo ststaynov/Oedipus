@@ -13,15 +13,51 @@
 #loading-animation {
   position: absolute;
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: 566px;
+  height: 268px;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url('../images/oedipus_logo.svg');
+  background-image: url('../images/splash-screen.svg');
   background-size: 100%;
-  animation: spin 3s linear infinite;
+
+  #e-logo {
+    width: 106px;
+    height: 106px;
+    position: absolute;
+    margin: auto;
+    top: 12px;
+    bottom: 0;
+    left: 0;
+    right: 43px;
+    animation: spin 3s linear infinite;
+    background-image: url('../images/oedipus-logo.svg');
+    background-size: 100%;
+  }
+  #e-arrow {
+    width: 33px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-image: url('../images/splash-arrow.svg');
+    background-size: 100%;
+    animation: pulse 2.5s linear infinite 1.5s;
+    opacity: 0;
+
+    &:nth-of-type(2) {
+      right: 30px;
+      animation: pulse 2.5s linear infinite 1s;
+    }
+    &:nth-of-type(3) {
+      right: 60px;
+      animation: pulse 2.5s linear infinite 0.5s;
+    }
+  }
 }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@-webkit-keyframes pulse { 100% { opacity: 1; } }
+@keyframes pulse { 100% { opacity: 1; } }
