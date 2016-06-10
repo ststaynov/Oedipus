@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'animation'
+    'animation',
+    'pipeline',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -118,5 +119,37 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'  # for the pipeline
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE = {
+    'PIPELINE_ENABLED': True,
+    'STYLESHEETS': {
+        'main': {
+            'source_filenames': (
+              'animation/css/base.css',
+            ),
+            'output_filename': 'animation/css/main-min.css',
+        },
+    },
+    'JAVASCRIPT': {
+        'main': {
+            'source_filenames': (
+              'animation/js/main.js',
+            ),
+            'output_filename': 'animation/js/main.js',
+        }
+    }
+}
+
+PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
+
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
 STATIC_URL = '/static/'

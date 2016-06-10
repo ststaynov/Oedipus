@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "gulp-sass": "^2.2.0",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "yuglify": "^0.1.4"
   },
   "devDependencies": {},
   "scripts": {

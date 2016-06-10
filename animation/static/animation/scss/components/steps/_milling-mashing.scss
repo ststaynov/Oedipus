@@ -12,6 +12,25 @@
     left: 46px;
   }
 
+  .comment-milling {
+    top: 26px;
+    right: 121px;
+
+    img {
+      width: 140px;
+    }
+  }
+
+  .comment-mashing {
+    left: -25px;
+    bottom: 181px;
+  }
+
+  .comment-cooling {
+    right: -256px;
+    bottom: 210px;
+  }
+
   .e-grain-container {
     width: 150px;
     height: 200px;
@@ -263,7 +282,6 @@
     position: absolute;
     top: 0;
     left: 237px;
-    transform: rotate(-30deg);
     background-image: url('../images/desktop/step2/zigzag1_spritesheet_4f_14x49_56_optimised.png');
     animation: zigzagOne 0.9s steps(4) infinite;
   }
@@ -273,8 +291,7 @@
     height: 49px;
     position: absolute;
     top: 0;
-    right: 208px;
-    transform: rotate(-60deg);
+    right: 258px;
     background-image: url('../images/desktop/step2/zigzag2_spritesheet_4f_14x49_56_optimised.png');
     animation: zigzagTwo 1.2s steps(4) infinite;
   }

@@ -9,60 +9,51 @@
   width: 150px;
   margin: auto;
   display: inline-block;
-
-  .button {
-    position: absolute;
-    margin: auto;
-    //top: 0;
-    right: 0;
-    left: 0;
-    //bottom: 0;
-    text-align: center;
-    line-height: 50px;
-    display: inline-block;
-    color: $color-oedipus-pink-dark;
-  }
+  pointer-events: all;
 }
 
 .our-beers {
-  width: 600px;
+  width: 758px;
   position: absolute;
   top: 0;
-  right: 231px;
-
-  //.button {
-  //  top: 100px;
-  //  pointer-events: all;
-  //}
+  right: 0;
 
   .e-cap {
-    width: 241px;
-    height: 186px;
+    width: 351px;
+    height: 261px;
     position: absolute;
     top: 84px;
-    right: 193px;
+    right: 220px;
     background-image: url('../images/desktop/end-pop-cap.svg');
     background-size: 100%;
     background-repeat: no-repeat;
+    pointer-events: all;
+    transition: all 1s;
+
+    &:hover {
+      transform: scale(1.2,1.2);
+    }
   }
 }
 
 .share {
   position: absolute;
-  left: 279px;
-  bottom: 0;
+  left: 150px;
+  bottom: 114px;
+  transition: all 1s;
 
-  .button {
-    top: 163px;
+  &:hover {
+    transform: scale(1.2,1.2);
   }
 }
 
 .replay {
   position: absolute;
-  right: 234px;
+  left: 145px;
   bottom: 0;
+  transition: all 1s;
 
-  .button {
-    top: 150px;
+  &:hover {
+    transform: scale(1.2);
   }
 }

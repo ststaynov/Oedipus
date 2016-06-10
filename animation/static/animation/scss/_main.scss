@@ -7,7 +7,6 @@ body {
   height: 100%;
   overflow: hidden;
   font-family: 'HWTArtz';
-  background-color: rgba(249,223,0,0.4) !important;
 }
 
 h1 {
@@ -103,7 +102,7 @@ svg {
     right: 0;
     bottom: 0;
     transform: translate3d( 0px, 0px, 0px);
-    background-color: rgba(249,223,0,0) !important;
+    background-color: $color-bg;
     z-index: $z--1;
   }
 

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles pipeline %}
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -13,11 +13,14 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Expires" content="-1">
 
-    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-
     <!-- css included -->
     <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">
     <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
+
+    <!-- pipeline output of stylesheets -->
+{#    <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">#}
+    {% stylesheet 'main' %}
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script> {# cdn for timeLineMax tweenMax cssPlugin etc.#}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="{% static "animation/js/jquery.event.move.js" %}"></script>
@@ -259,8 +262,9 @@
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#milling-mashing-bg"></use>
                         </svg>
 
-{#                        <div class="comment-milling"><img src="{% static "animation/images/desktop/comments/mashing-comment.svg" %}" alt=""></div>#}
-{#                        <div class="comment-mashing"><img src="{% static "animation/images/desktop/comments/milling-comment.svg" %}" alt=""></div>#}
+                        <div class="c-comment comment-mashing"><img src="{% static "animation/images/desktop/comments/mashing-comment.svg" %}" alt=""></div>
+                        <div class="c-comment comment-milling"><img src="{% static "animation/images/desktop/comments/milling-comment.svg" %}" alt=""></div>
+                        <div class="c-comment comment-cooling"><img src="{% static "animation/images/desktop/comments/cooling-comment.svg" %}" alt=""></div>
 
                         <div class="c-zigzag-one"></div>
                         <div class="c-zigzag-two"></div>
@@ -318,6 +322,9 @@
                             viewBox="0 0 625 466" enable-background="new 0 0 625 466" xml:space="preserve">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#boiling-bg"></use>
                         </svg>
+
+                        <div class="c-comment comment-boiling-left"><img src="{% static "animation/images/desktop/comments/boiling-comment.svg" %}" alt=""></div>
+                        <div class="c-comment comment-boiling-right"><img src="{% static "animation/images/desktop/comments/boiling-comment-2.svg" %}" alt=""></div>
 
                         <div class="c-burst"></div>
                         <div class="c-zigzag-three"></div>
@@ -393,6 +400,7 @@
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cooling-bg"></use>
                         </svg>
                         <div class="c-frame-snow"></div>
+                        <div class="c-comment comment-cooling"><img src="{% static "animation/images/desktop/comments/cooling-comment.svg" %}" alt=""></div>
                     </figure>
 
                     <figure class="c-fermenting">
@@ -412,6 +420,9 @@
                                 </g>
                             </g>
                         </svg>
+
+                        <div class="c-comment comment-fermenting"><img src="{% static "animation/images/desktop/comments/fermenting-comment.svg" %}" alt=""></div>
+
                         <div class="e-window">
                             <div class="window-relative-container">
                                 <div class="window-item cell"></div>
@@ -431,8 +442,6 @@
                             <div class="e-drink"></div>
                             <div class="e-guitar"></div>
 
-                            <div class="c-sperma"></div>
-
                         </div>
                     </figure>
 
@@ -441,6 +450,8 @@
                             viewBox="0 0 600 500" enable-background="new 0 0 600 500" xml:space="preserve">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bottling-bg"></use>
                         </svg>
+
+                        <div class="c-comment comment-bottling"><img src="{% static "animation/images/desktop/comments/bottling-comment.svg" %}" alt=""></div>
 
                         <div class="e-fill"></div>
 

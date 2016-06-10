@@ -13,6 +13,11 @@
   }
 }
 
+.comment-fermenting {
+  top: -20px;
+  left: 100px;
+}
+
 .e-window {
   width:100px;
   height: 100px;
@@ -126,16 +131,5 @@
     bottom: 220px;
     background-image: url('../images/desktop/step5/drink.svg');
     @include fermenting-fg-item();
-  }
-
-
-  .c-sperma {
-    width: 222px;
-    height: 50px;
-    background-image: url('../images/desktop/step5/sperma_spritesheet_12f_222x50_2664_optimised.png');
-    animation: sperma 0.9s steps(12) infinite;
-    position: absolute;
-    right: 0;
-    top: 0;
   }
 }

@@ -92,8 +92,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: 'HWTArtz';
-  background-color: rgba(249, 223, 0, 0.4) !important; }
+  font-family: 'HWTArtz'; }
 
 h1 {
   position: absolute;
@@ -178,7 +177,7 @@ svg {
     right: 0;
     bottom: 0;
     transform: translate3d(0px, 0px, 0px);
-    background-color: rgba(249, 223, 0, 0) !important;
+    background-color: #fbf8f1;
     z-index: -1; }
   .c-beer-fill-container > svg {
     position: absolute;
@@ -761,45 +760,43 @@ svg.bg {
 .button-block {
   width: 150px;
   margin: auto;
-  display: inline-block; }
-  .button-block .button {
-    position: absolute;
-    margin: auto;
-    right: 0;
-    left: 0;
-    text-align: center;
-    line-height: 50px;
-    display: inline-block;
-    color: #ca447f; }
+  display: inline-block;
+  pointer-events: all; }
 
 .our-beers {
-  width: 600px;
+  width: 758px;
   position: absolute;
   top: 0;
-  right: 231px; }
+  right: 0; }
   .our-beers .e-cap {
-    width: 241px;
-    height: 186px;
+    width: 351px;
+    height: 261px;
     position: absolute;
     top: 84px;
-    right: 193px;
+    right: 220px;
     background-image: url("../images/desktop/end-pop-cap.svg");
     background-size: 100%;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    pointer-events: all;
+    transition: all 1s; }
+    .our-beers .e-cap:hover {
+      transform: scale(1.2, 1.2); }
 
 .share {
   position: absolute;
-  left: 279px;
-  bottom: 0; }
-  .share .button {
-    top: 163px; }
+  left: 150px;
+  bottom: 114px;
+  transition: all 1s; }
+  .share:hover {
+    transform: scale(1.2, 1.2); }
 
 .replay {
   position: absolute;
-  right: 234px;
-  bottom: 0; }
-  .replay .button {
-    top: 150px; }
+  left: 145px;
+  bottom: 0;
+  transition: all 1s; }
+  .replay:hover {
+    transform: scale(1.2); }
 
 .c-portrait-overlay {
   display: none; }
@@ -863,11 +860,31 @@ svg.bg {
     top: 0;
     visibility: hidden; } }
 
+.c-watercolor-overlay {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  pointer-events: none;
+  background-image: url("../images/desktop/background/bg_watercolor.png");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position-x: -300px;
+  opacity: 0.3; }
+
 @font-face {
   font-family: 'HWTArtz';
   src: url("../fonts/HWTArtz.woff");
   font-weight: normal;
   font-style: normal; }
+
+.c-comment {
+  position: absolute;
+  display: inline-block; }
+  .c-comment img {
+    width: 200px; }
 
 .c-meteor {
   width: 205px;
@@ -1361,6 +1378,17 @@ a {
     width: 290px;
     top: 60px;
     left: 46px; }
+  .c-milling-mashing .comment-milling {
+    top: 26px;
+    right: 121px; }
+    .c-milling-mashing .comment-milling img {
+      width: 140px; }
+  .c-milling-mashing .comment-mashing {
+    left: -25px;
+    bottom: 181px; }
+  .c-milling-mashing .comment-cooling {
+    right: -256px;
+    bottom: 210px; }
   .c-milling-mashing .e-grain-container {
     width: 150px;
     height: 200px;
@@ -1550,7 +1578,6 @@ a {
     position: absolute;
     top: 0;
     left: 237px;
-    transform: rotate(-30deg);
     background-image: url("../images/desktop/step2/zigzag1_spritesheet_4f_14x49_56_optimised.png");
     animation: zigzagOne 0.9s steps(4) infinite; }
   .c-milling-mashing .c-zigzag-two {
@@ -1558,8 +1585,7 @@ a {
     height: 49px;
     position: absolute;
     top: 0;
-    right: 208px;
-    transform: rotate(-60deg);
+    right: 258px;
     background-image: url("../images/desktop/step2/zigzag2_spritesheet_4f_14x49_56_optimised.png");
     animation: zigzagTwo 1.2s steps(4) infinite; }
   .c-milling-mashing .c-pumping {
@@ -1582,6 +1608,12 @@ a {
   .c-boiling > svg {
     width: 375px;
     top: 115px; }
+  .c-boiling .comment-boiling-right {
+    top: -50px;
+    right: 50px; }
+  .c-boiling .comment-boiling-left {
+    top: 180px;
+    left: -88px; }
   .c-boiling .e-hops-bag {
     width: 114px;
     height: 92px;
@@ -1764,6 +1796,10 @@ a {
     top: 66px;
     left: 46px; }
 
+.comment-fermenting {
+  top: -20px;
+  left: 100px; }
+
 .e-window {
   width: 100px;
   height: 100px;
@@ -1866,15 +1902,6 @@ a {
   background-size: 100%;
   background-repeat: no-repeat; }
 
-.c-fermenting-foreground .c-sperma {
-  width: 222px;
-  height: 50px;
-  background-image: url("../images/desktop/step5/sperma_spritesheet_12f_222x50_2664_optimised.png");
-  animation: sperma 0.9s steps(12) infinite;
-  position: absolute;
-  right: 0;
-  top: 0; }
-
 .c-bottling-container {
   position: absolute;
   display: block;
@@ -1883,6 +1910,9 @@ a {
   pointer-events: none; }
   .c-bottling-container > svg {
     width: 478px; }
+  .c-bottling-container .comment-bottling {
+    top: -50px;
+    left: 106px; }
   .c-bottling-container.exploded {
     opacity: 0;
     transition: opacity .8s; }
