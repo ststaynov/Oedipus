@@ -28,11 +28,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
     pointer-events: all;
-    transition: all 1s;
-
-    &:hover {
-      transform: scale(1.2,1.2);
-    }
+    cursor: pointer;
   }
 }
 
@@ -41,6 +37,7 @@
   left: 150px;
   bottom: 114px;
   transition: all 1s;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.2,1.2);
@@ -52,6 +49,7 @@
   left: 145px;
   bottom: 0;
   transition: all 1s;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.2);

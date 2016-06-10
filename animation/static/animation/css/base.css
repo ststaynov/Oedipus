@@ -778,15 +778,14 @@ svg.bg {
     background-size: 100%;
     background-repeat: no-repeat;
     pointer-events: all;
-    transition: all 1s; }
-    .our-beers .e-cap:hover {
-      transform: scale(1.2, 1.2); }
+    cursor: pointer; }
 
 .share {
   position: absolute;
   left: 150px;
   bottom: 114px;
-  transition: all 1s; }
+  transition: all 1s;
+  cursor: pointer; }
   .share:hover {
     transform: scale(1.2, 1.2); }
 
@@ -794,7 +793,8 @@ svg.bg {
   position: absolute;
   left: 145px;
   bottom: 0;
-  transition: all 1s; }
+  transition: all 1s;
+  cursor: pointer; }
   .replay:hover {
     transform: scale(1.2); }
 

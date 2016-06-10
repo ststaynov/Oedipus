@@ -15,7 +15,13 @@
 
     <!-- css included -->
     <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">
+
+    <!-- for development -->
     <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
+
+    <!-- for production -->
+{#    <link rel="stylesheet" href="{% static "animation/css/base.min.css" %}">#}
+
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script> {# cdn for timeLineMax tweenMax cssPlugin etc.#}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -475,11 +481,11 @@
                     <figure class="c-end-pop original">
 
                         <div class="c-buttons">
-                            <div class="button-block our-beers">
+                            <div class="our-beers">
                                 <svg viewBox="0 0 805 484" class="">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#btn-beer"></use>
                                 </svg>
-                                <div class="e-cap float"></div>
+                                <div class="button-block e-cap float"></div>
                             </div>
                             <div class="button-block share">
                                 <svg viewBox="0 0 159 118" class="">
@@ -690,9 +696,12 @@
 
 
 <!-- Minified js included -->
-<!--<script src="static/js/bafter_load.js"></script>-->
 <script src="{% static "animation/js/deb_throttle.js" %}"></script>
 <script src="{% static "animation/js/main.js" %}"></script>
+
+<!-- for production -->
+{#<script src="{% static "animation/js/main.min.js" %}"></script>#}
+
 <script>
 $(window).load(function() {
 // will first fade out the loading animation

@@ -145,6 +145,11 @@ function tweenToRandomColor() {
     TweenMax.to($fermentingWindow, 4, {backgroundColor: randomYellowColor, onComplete:tweenToRandomColor});
 }
 
+
+$( ".button-block" ).click(function() {
+  $( this ).slideUp();
+});
+
 // function random(min, max) {
 //   return (min + Math.random() * (max - min) + 0.5) | 0;
 // }
@@ -170,6 +175,7 @@ function shakeAnimation(element){
 /* keep the scroll execution limited to 180 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
 $('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
 $('body').bind('keydown', $.throttle(280, arrowBtnMove));
+
 
 function scrolling(e) {
     e.preventDefault();
