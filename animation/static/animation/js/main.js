@@ -537,27 +537,27 @@ function checkBackgroundColors() {
     if (n > step4Duration) {
 
         if (n > step1Duration) { //step 1
-            TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            // TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             checkActionItemState('initial');
         } else if (n > step2Duration) { // step 2
-            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPink});
+            // TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPink});
             checkActionItemState('milled-mashed');
         } else if (n > step3Duration) { // step 3
-            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
+            // TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
             checkActionItemState('boiling');
         } else { //step 4
-            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
+            // TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
             checkActionItemState('cooling');
         }
     } else {
         if (n > step5Duration) { // step5
-            TweenMax.to(e, 1.5, {backgroundColor: colorOedipusGreen});
+            // TweenMax.to(e, 1.5, {backgroundColor: colorOedipusGreen});
             checkActionItemState('fermenting');
         } else if (n > step6Duration) { // step6
-            TweenMax.to(e, 5.5, {backgroundColor: '#fff'});
+            // TweenMax.to(e, 5.5, {backgroundColor: '#fff'});
             checkActionItemState('bottling');
         } else if (n > step6End) { // step7
-            TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
+            // TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
             checkActionItemState('bottling');
         }
     }

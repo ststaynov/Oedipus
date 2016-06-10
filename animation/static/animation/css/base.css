@@ -92,7 +92,8 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: 'HWTArtz'; }
+  font-family: 'HWTArtz';
+  background-color: rgba(249, 223, 0, 0.4) !important; }
 
 h1 {
   position: absolute;
@@ -177,7 +178,7 @@ svg {
     right: 0;
     bottom: 0;
     transform: translate3d(0px, 0px, 0px);
-    background-color: #fbf8f1;
+    background-color: rgba(249, 223, 0, 0) !important;
     z-index: -1; }
   .c-beer-fill-container > svg {
     position: absolute;
@@ -861,20 +862,6 @@ svg.bg {
   100% {
     top: 0;
     visibility: hidden; } }
-
-.c-watercolor-overlay {
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
-  position: fixed;
-  pointer-events: none;
-  background-image: url("../images/desktop/background/bg_watercolor.png");
-  background-repeat: repeat;
-  background-size: cover;
-  background-position-x: -300px;
-  opacity: 0.3; }
 
 @font-face {
   font-family: 'HWTArtz';
