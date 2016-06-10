@@ -34,11 +34,13 @@ body {
     .c-burst,
     .c-pumping {
       display: none !important;
+      animation: initial !important;
     }
 
     // too heavy for mobile
     .c-magic-cloud {
       background: none;
+      animation: initial !important;
     }
 
     // aligning the face with the sprite for mobile

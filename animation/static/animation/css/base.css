@@ -27,9 +27,11 @@ body {
       body .c-zigzag-five,
       body .c-burst,
       body .c-pumping {
-        display: none !important; }
+        display: none !important;
+        animation: initial !important; }
       body .c-magic-cloud {
-        background: none; }
+        background: none;
+        animation: initial !important; }
       body .c-action.initial svg#c-cloud-travel {
         top: 18px !important;
         right: 31px !important; }
