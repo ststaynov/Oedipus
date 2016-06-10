@@ -1,4 +1,4 @@
-{% load staticfiles pipeline %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -16,10 +16,6 @@
     <!-- css included -->
     <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">
     <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
-
-    <!-- pipeline output of stylesheets -->
-{#    <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">#}
-    {% stylesheet 'main' %}
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script> {# cdn for timeLineMax tweenMax cssPlugin etc.#}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
