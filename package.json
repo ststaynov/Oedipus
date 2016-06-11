@@ -4,6 +4,7 @@
   "description": "Beer Brewing App",
   "main": "index.js",
   "dependencies": {
+    "bourbon": "^4.2.7",
     "gulp-sass": "^2.2.0",
     "gulp-util": "^3.0.7",
     "yuglify": "^0.1.4"
