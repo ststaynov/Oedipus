@@ -38,7 +38,7 @@
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
+    @include transition(visibility 0s, opacity 0.5s linear);
 
     &.initial {
       opacity: 1;
@@ -48,7 +48,7 @@
         right: 4px; // aligning the face with the sprite
       }
       .c-cloud-bg-sprite {
-        transform: rotate(15deg);
+        @include transform(rotate(15deg));
       }
     }
 
@@ -60,7 +60,7 @@
         right: -11px; // aligning the face with the sprite
       }
       .c-cloud-bg-sprite {
-        transform: rotate(-20deg);
+        @include transform(rotate(-20deg));
       }
     }
 
@@ -85,7 +85,7 @@
         }
       }
       &.left {
-        transform: translate(-100,-100);
+        @include transform(translate(-100,-100));
         background-size: contain;
         background-repeat: no-repeat;
         svg#c-cloud-cool-left {
@@ -107,7 +107,7 @@
 
     &.bottling {
       opacity: 0;
-      transition: visibility 0s, opacity 0.5s linear;
+      @include transition(visibility 0s, opacity 0.5s linear);
     }
   }
 

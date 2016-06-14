@@ -93,7 +93,7 @@
       top: 25px;
       left: 25%;
       animation: sparcle .95s infinite 4s;
-      transform: rotate(50deg);
+      @include transform(rotate(50deg));
     }
     &:nth-of-type(8) {
       top: 45px;
@@ -140,7 +140,7 @@
     position: absolute;
     top: 165px;
     left: 50%;
-    transform: translateX(-50%);
+    @include transform(translateX(-50%));
   }
 
   .e-cog-wheel-left, .e-cog-wheel-right {
@@ -174,7 +174,7 @@
     position: absolute;
     top: 308px;
     left: 50%;
-    transform: translateX(-50%);
+    @include transform(translateX(-50%));
     border-radius: 15px 15px 8px 8px;
   }
 
@@ -270,7 +270,7 @@
     top: 30px;
     border-bottom-left-radius: 17px;
     border-bottom-right-radius: 17px;
-    transform: translateX(-50%);
+    @include transform(translateX(-50%));
     background-color: rgba(#ECBF92, 1);
   }
 

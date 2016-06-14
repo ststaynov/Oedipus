@@ -16,10 +16,10 @@ body {
     .c-fermenting,
     .c-end-pop,
     .c-cloud-bg-sprite {
-      transform: scale(0.6,0.6);
+      @include transform(scale(0.6,0.6));
     }
     .c-cloud-bg-sprite {
-      transform: scale(0.6,0.6) !important;
+      @include transform(scale(0.6,0.6) !important);
     }
     // all sprites
     .c-sperma,

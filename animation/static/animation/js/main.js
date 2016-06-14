@@ -151,15 +151,9 @@ function initFermentingItemsEffects() {
             else randomYellowColor = '#F9DF00';
         TweenMax.to($fermentingWindow, 4, {backgroundColor: randomYellowColor, onComplete:tweenToRandomColor});
     }
+
+
 }
-
-// $( ".button-block" ).click(function() {
-//   $( this ).slideUp();
-// });
-
-// function random(min, max) {
-//   return (min + Math.random() * (max - min) + 0.5) | 0;
-// }
 
 setInterval(function(){shakeAnimation($fermentingTank);},5000);
 

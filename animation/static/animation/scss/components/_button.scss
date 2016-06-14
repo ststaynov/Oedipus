@@ -36,11 +36,11 @@
   position: absolute;
   left: 150px;
   bottom: 114px;
-  transition: all 1s;
+  @include transition(all 1s);
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.2,1.2);
+    @include transform(scale(1.2,1.2));
   }
 }
 
@@ -48,10 +48,10 @@
   position: absolute;
   left: 145px;
   bottom: 0;
-  transition: all 1s;
+  @include transition(all 1s);
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.2);
+    @include transform(scale(1.2,1.2));
   }
 }

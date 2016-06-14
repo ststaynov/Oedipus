@@ -10,13 +10,13 @@
   background-size: contain;
   z-index: 10;
   outline: none;
-  transition: all 1s;
+  @include transition(all 1s);
 
   &.scrolling {
     background-color: $color-oedipus-yellow;
-    transform: scale(1.2,1.2);
+    @include transform(scale(1.2,1.2));
   }
   &:hover {
-    transform: scale(1.2,1.2);
+    @include transform(scale(1.2,1.2));
   }
 }

@@ -20,13 +20,12 @@
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  transition: opacity 2000ms;
+  @include transition(opacity 2000ms);
   }
 
   &.active {
     .snow {
       opacity: 1;
-      transition: opacity 2000ms;
     }
   }
 
@@ -38,22 +37,18 @@
   @keyframes fall {
     0% {
       top: 0;
-      //opacity: 0;
       visibility: hidden;
     }
     1% {
       top: 0;
-      //opacity: 1;
       visibility: visible;
     }
     80% {
       top: calc( 100% + 150px);
-      //opacity: 1;
       visibility: visible;
     }
     81% {
       top: calc( 100% + 150px);
-      //opacity: 0;
       visibility: hidden;
     }
     100% {
