@@ -274,7 +274,7 @@ svg.bg {
     left: 0;
     right: 43px;
     animation: spin 3s linear infinite;
-    background-image: url("../images/oedipus-logo.svg");
+    background-image: url("../images/logo.svg");
     background-size: 100%; }
   #loading-animation #e-arrow {
     width: 33px;
@@ -318,96 +318,96 @@ svg.bg {
       - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
       -bottling (stops at previous step and stays there)
  */
-.c-action-container {
-  /* beam animations START */
-  /* beam animations END */ }
-  .c-action-container .c-cloud-bg-sprite {
-    position: absolute;
-    width: 175px;
-    height: 135px;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    visibility: visible;
-    background-image: url("../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png");
-    animation: puff 1.3s steps(75) infinite; }
+.c-action-container .c-cloud-bg-sprite {
+  position: absolute;
+  width: 175px;
+  height: 135px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  visibility: visible;
+  background-image: url("../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png");
+  animation: puff 1.3s steps(75) infinite; }
 
 @keyframes puff {
   from {
     background-position: 0; }
   to {
     background-position: 13875px; } }
-  .c-action-container .c-action {
-    position: absolute;
-    top: 30vh;
-    left: 10vw;
-    margin-left: -50px;
-    display: inline-block;
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear; }
-    .c-action-container .c-action.initial {
-      opacity: 1; }
-      .c-action-container .c-action.initial svg#c-cloud-travel {
+
+.c-action-container .c-action {
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
+  margin-left: -50px;
+  display: inline-block;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear; }
+  .c-action-container .c-action.initial {
+    opacity: 1; }
+    .c-action-container .c-action.initial svg#c-cloud-travel {
+      visibility: visible;
+      top: 18px;
+      right: 4px; }
+    .c-action-container .c-action.initial .c-cloud-bg-sprite {
+      transform: rotate(15deg); }
+  .c-action-container .c-action.milled-mashed {
+    opacity: 1; }
+    .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
+      visibility: visible;
+      top: -12px;
+      right: -11px; }
+    .c-action-container .c-action.milled-mashed .c-cloud-bg-sprite {
+      transform: rotate(-20deg); }
+  .c-action-container .c-action.boiling {
+    opacity: 1; }
+    .c-action-container .c-action.boiling svg#c-cloud-boil {
+      visibility: visible;
+      top: -19px;
+      left: 25px; }
+  .c-action-container .c-action.cooling {
+    opacity: 1; }
+    .c-action-container .c-action.cooling.right {
+      background-size: contain;
+      background-repeat: no-repeat; }
+      .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
+        visibility: visible;
+        top: 26px;
+        left: 29px; }
+    .c-action-container .c-action.cooling.left {
+      transform: translate(-100, -100);
+      background-size: contain;
+      background-repeat: no-repeat; }
+      .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
         visibility: visible;
         top: 18px;
-        right: 4px; }
-      .c-action-container .c-action.initial .c-cloud-bg-sprite {
-        transform: rotate(15deg); }
-    .c-action-container .c-action.milled-mashed {
-      opacity: 1; }
-      .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
-        visibility: visible;
-        top: -12px;
-        right: -11px; }
-      .c-action-container .c-action.milled-mashed .c-cloud-bg-sprite {
-        transform: rotate(-20deg); }
-    .c-action-container .c-action.boiling {
-      opacity: 1; }
-      .c-action-container .c-action.boiling svg#c-cloud-boil {
-        visibility: visible;
-        top: -19px;
-        left: 25px; }
-    .c-action-container .c-action.cooling {
-      opacity: 1; }
-      .c-action-container .c-action.cooling.right {
-        background-size: contain;
-        background-repeat: no-repeat; }
-        .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
-          visibility: visible;
-          top: 26px;
-          left: 29px; }
-      .c-action-container .c-action.cooling.left {
-        transform: translate(-100, -100);
-        background-size: contain;
-        background-repeat: no-repeat; }
-        .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
-          visibility: visible;
-          top: 18px;
-          left: -10px; }
-    .c-action-container .c-action.fermenting {
-      opacity: 1; }
-      .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
-        visibility: visible;
-        top: -27px;
-        left: 30px; }
-    .c-action-container .c-action.bottling {
-      opacity: 0;
-      transition: visibility 0s, opacity 0.5s linear; }
-  .c-action-container .c-cloud {
-    position: relative;
-    width: 150px;
-    height: 100px; }
-    .c-action-container .c-cloud svg {
-      position: absolute;
-      overflow: visible; }
-  @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
-    .c-action-container .c-action {
-      top: 10vh; }
-      .c-action-container .c-action svg {
-        width: 90px; } }
+        left: -10px; }
+  .c-action-container .c-action.fermenting {
+    opacity: 1; }
+    .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
+      visibility: visible;
+      top: -27px;
+      left: 30px; }
+  .c-action-container .c-action.bottling {
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear; }
+
+.c-action-container .c-cloud {
+  position: relative;
+  width: 150px;
+  height: 100px; }
+  .c-action-container .c-cloud svg {
+    position: absolute;
+    overflow: visible; }
+
+@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .c-action-container .c-action {
+    top: 10vh; }
+    .c-action-container .c-action svg {
+      width: 90px; } }
 
 /* Magic Cloud START */
 @keyframes magicPuff {
@@ -739,18 +739,22 @@ svg.bg {
     position: absolute; }
 
 .c-auto-scroll-button {
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   position: absolute;
-  border: 1px solid #000;
   bottom: 10px;
   right: 10px;
-  background-color: #ff8338;
-  border-radius: 50%;
+  border: none;
+  background: url("../images/desktop/btn-auto-scroll.svg") no-repeat center;
+  background-size: contain;
   z-index: 10;
-  outline: none; }
+  outline: none;
+  transition: all 1s; }
   .c-auto-scroll-button.scrolling {
-    background-color: #f9df00; }
+    background-color: #f9df00;
+    transform: scale(1.2, 1.2); }
+  .c-auto-scroll-button:hover {
+    transform: scale(1.2, 1.2); }
 
 .c-buttons {
   position: relative;
@@ -1630,8 +1634,8 @@ a {
     top: 0;
     left: 98px; }
   .c-boiling .e-hops-item {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     display: inline-block;
     position: absolute;
     background-size: 100%;
@@ -1655,7 +1659,9 @@ a {
     transform: rotate(90deg);
     background-image: url("../images/desktop/step3/bag-items/boiling-lime.svg"); }
   .c-boiling .hop-item-4 {
+    height: 70px;
     margin: 0 36px;
+    top: -30px;
     -webkit-animation: drop .75s infinite 3.75s;
     animation: drop 1.9s infinite 3.75s;
     background-image: url("../images/desktop/step3/bag-items/boiling-pepper.svg"); }
@@ -1880,8 +1886,8 @@ a {
   background-repeat: no-repeat; }
 
 .c-fermenting-foreground .e-guitar {
-  width: 83px;
-  height: 135px;
+  width: 52px;
+  height: 159px;
   right: 13px;
   bottom: 135px;
   background-image: url("../images/desktop/step5/guitar.svg");

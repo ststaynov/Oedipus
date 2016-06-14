@@ -18,7 +18,6 @@
     right: 0;
     left: 0;
     bottom: 0;
-    //background-color: rgba(red, .2);
     visibility: visible;
     background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png');
     animation: puff 1.3s steps(75) infinite;
@@ -131,37 +130,5 @@
       }
     }
   }
-
-  /* beam animations START */
-
-
-  #e-cloud-cold-left-beam {
-
-  }
-
-  #e-cloud-cold-right-beam {
-
-  }
-
-  #e-cloud-warm-beam-down {
-
-  }
-
-  #e-cloud-warm-beam-up {
-
-  }
-
-  #e-cloud-warm-beam-left {
-
-  }
-
-  #e-cloud-warm-beam-right {
-
-  }
-
-  /* beam animations END */
-
-
-
 }
 

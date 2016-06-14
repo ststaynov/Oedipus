@@ -28,6 +28,7 @@
     top: 0;
     left: 40px;
     background: url('../images/desktop/step3/boiling-ingredient-bag.svg') left center no-repeat;
+    
   }
 
   .e-hops-item-container {
@@ -37,8 +38,8 @@
   }
 
   .e-hops-item {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     display: inline-block;
     position: absolute;
     background-size: 100%;
@@ -70,7 +71,9 @@
   }
 
   .hop-item-4 {
+    height: 70px;
     margin: 0 36px;
+    top: -30px;
     -webkit-animation: drop .75s infinite 3.75s;
     animation: drop 1.9s infinite 3.75s;
     background-image: url('../images/desktop/step3/bag-items/boiling-pepper.svg');

@@ -128,12 +128,14 @@ var smoke = $("#smoke circle, #smoke path");
 var $note = $('.e-note'),
     $drum = $('.e-drum'),
     $drink = $('.e-drink'),
-    $guitar = $('.e-guitar');
+    $guitar = $('.e-guitar'),
+    $hopsBag = $('.e-hops-bag'); // nasty but I am in a hurry
 
     fermentingTl.to($note, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
                 .to($drink, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($guitar, 1, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
+                .to($guitar, 1, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                .to($hopsBag, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
 
 // Change the colors of the window
 tweenToRandomColor();
@@ -578,18 +580,18 @@ function checkForActionItemEffects(hasClass) {
     switch (hasClass) {
         case "initial":
             mainActionItemtl.clear();
-            TweenMax.to($actionItem, 0.8, {top: '30vh', left: '84vw'});
+            TweenMax.to($actionItem, 0.8, {top: '30vh', left: '70vw'});
             break;
         case "milled-mashed":
             mainActionItemtl.clear();
-            TweenMax.to($actionItem, 0.8, {top: '30vh', left: '84vw'});
+            TweenMax.to($actionItem, 0.8, {top: '17vh', left: '70vw'});
             break;
         case "boiling":
             //clear Timeline from previous tweens&callbacks
             mainActionItemtl.clear();
             mainActionItemtl.eventCallback("repeat", null);
             checkSnow(false);
-            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '16vw'});
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '25vw'});
             break;
         case "cooling":
             $actionItem.addClass('right');
@@ -597,7 +599,7 @@ function checkForActionItemEffects(hasClass) {
             mainActionItemtl.clear();
             checkSnow(true);
 
-            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '86vw', onComplete:setCloudLeft});
+            TweenMax.to($actionItem, 0.8, {top: '4vh', left: '80vw', onComplete:setCloudLeft});
             function setCloudLeft(){
                 if ($actionItem.hasClass('left')) {}
                 else {
@@ -625,14 +627,14 @@ function checkForActionItemEffects(hasClass) {
 }
 
 function getCoolingTimeline() {
-    mainActionItemtl.to($actionItem, 3, {left: '14vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
+    mainActionItemtl.to($actionItem, 3, {left: '20vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
                     .to($actionItem, 1, {top: '10vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
 }
 
 function getFermentingTimeline() {
     var tl = new TimelineMax({delay: 0.8});
 
-    tl.to($actionItem, 2, {left: '86vw', top: '5vh'});
+    tl.to($actionItem, 2, {left: '70vw', top: '5vh'});
 
 
     return tl;
