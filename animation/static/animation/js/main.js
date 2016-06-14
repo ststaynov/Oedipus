@@ -17,6 +17,8 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $sun = $('.c-sun'),
 
     $btnAutoScroll = $('.c-auto-scroll-button'),
+    $btnReplay = $('.replay'),
+    moveObject = '',
     loopBackwardAllowed = false,
     loopForwardAllowed = false,
     positionsArr = [],
@@ -71,12 +73,17 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     bottlingContainerMoveFix = 100;
     fgBg.push($beerFillMobile);
     consoleLog('Added beerFill for mobile');
+    moveObject = '.c-brewing-background-inner, .c-comment';
 } else {
     positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
     bottlingContainerMoveFix = 400;
     fgBg.push($beerFill);
     startCloudWarmBeamsTl();
     consoleLog('Added beerFill');
+    moveObject = '.c-brewing-background-inner';
+    initFermentingItemsEffects();
+    // $plane
+    TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
@@ -98,9 +105,6 @@ TweenMax.set($endPop, {x: positionsArr[11]});
 
 /* Setting up action item animation START */
 
-// $plane
-
-TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
 
 //cloudTimeLines
 function startCloudWarmBeamsTl() {
@@ -113,8 +117,8 @@ cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10
 }
 
 
-cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
-                  .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
+// cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
+//                   .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 
 /* Setting up action item animation END */
 
@@ -125,32 +129,34 @@ var smoke = $("#smoke circle, #smoke path");
              .staggerFromTo(smoke, 1, {opacity: 0.8, y: 40}, {opacity: 0.3, y: -50, repeat: -1, repeatDelay: -2, ease: Circ.easeOut}, 0.1, "boil");
 
 
-var $note = $('.e-note'),
-    $drum = $('.e-drum'),
-    $drink = $('.e-drink'),
-    $guitar = $('.e-guitar'),
-    $hopsBag = $('.e-hops-bag'); // nasty but I am in a hurry
+function initFermentingItemsEffects() {
+    var $note = $('.e-note'),
+        $drum = $('.e-drum'),
+        $drink = $('.e-drink'),
+        $guitar = $('.e-guitar'),
+        $hopsBag = $('.e-hops-bag'); // nasty but I am in a hurry
 
-    fermentingTl.to($note, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($drink, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($guitar, 1, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                .to($hopsBag, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
+        fermentingTl.to($note, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($drink, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($guitar, 1, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($hopsBag, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
 
-// Change the colors of the window
-tweenToRandomColor();
-var randomYellowColor = '#F9DF00';
 
-function tweenToRandomColor() {
-    if (randomYellowColor == '#F9DF00') randomYellowColor = '#FFFF6A';
-        else randomYellowColor = '#F9DF00';
-    TweenMax.to($fermentingWindow, 4, {backgroundColor: randomYellowColor, onComplete:tweenToRandomColor});
+    // Change the colors of the window
+    tweenToRandomColor();
+    var randomYellowColor = '#F9DF00';
+
+    function tweenToRandomColor() {
+        if (randomYellowColor == '#F9DF00') randomYellowColor = '#FFFF6A';
+            else randomYellowColor = '#F9DF00';
+        TweenMax.to($fermentingWindow, 4, {backgroundColor: randomYellowColor, onComplete:tweenToRandomColor});
+    }
 }
 
-
-$( ".button-block" ).click(function() {
-  $( this ).slideUp();
-});
+// $( ".button-block" ).click(function() {
+//   $( this ).slideUp();
+// });
 
 // function random(min, max) {
 //   return (min + Math.random() * (max - min) + 0.5) | 0;
@@ -220,7 +226,7 @@ function moveBackground(f) {
         TweenMax.to($bottling , 2, {x: -(translateValue - 400)});
         TweenMax.set($bottlingFill, {display: 'none'});
     } else if ($bottling.hasClass('fixed')) $bottling.removeClass('fixed');
-    displayBgPosition(n);
+    // displayBgPosition(n);
     checkBackgroundColors();
 }
 
@@ -275,10 +281,10 @@ function checkPosition(tween) {
             TweenMax.set($bottling ,{x: -(n - bottlingContainerMoveFix)});
         }
     }
-    displayBgPosition(n);
+    // displayBgPosition(n);
 }
 
-jQuery('.c-brewing-background-inner')
+jQuery(moveObject)
     .bind('move', function (e) {
         var n = parseInt($bg.css('transform').split(',')[4]);
 
@@ -291,7 +297,7 @@ jQuery('.c-brewing-background-inner')
         if ($bottling.hasClass('fixed') && !$bottling.hasClass('exploded')) { //PLEASE WORK!!! TODO make magic happen on mobile
             TweenMax.set($bottling , {x: -(n + e.deltaX + -bottlingContainerMoveFix)});
         }
-        displayBgPosition(n);
+        // displayBgPosition(n);
         checkBackgroundColors();
     })
     .bind('moveend', function () {
@@ -311,9 +317,9 @@ function consoleLog(e) {
     console.log(e);
 }
 
-function displayBgPosition(n) {
-    $('.bg-position').text(n);
-}
+// function displayBgPosition(n) {
+//     $('.bg-position').text(n);
+// }
 
 /* INFORMATIVE FUNCTIONS END */
 
@@ -447,6 +453,18 @@ function changeScrollButtonClass() {
         $btnAutoScroll.addClass('scrolling');
         startAutoScroll();
     }
+}
+
+$btnReplay.click(function (e) {
+    e.preventDefault();
+    replayFilm();
+});
+
+function replayFilm() {
+    loopBackwardAllowed =  true;
+    loopForwardAllowed = true;
+    moveBackground();
+    moveBackground();
 }
 
 function startAutoScroll() {
@@ -589,6 +607,7 @@ function checkForActionItemEffects(hasClass) {
         case "boiling":
             //clear Timeline from previous tweens&callbacks
             mainActionItemtl.clear();
+            cloudCoolingTlLeft.clear();
             mainActionItemtl.eventCallback("repeat", null);
             checkSnow(false);
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '25vw'});
@@ -614,6 +633,7 @@ function checkForActionItemEffects(hasClass) {
             break;
         case "fermenting":
             mainActionItemtl.clear();
+            cloudCoolingTlLeft.clear();
             checkSnow(false);
             mainActionItemtl.add(getFermentingTimeline());
             break;
@@ -629,6 +649,8 @@ function checkForActionItemEffects(hasClass) {
 function getCoolingTimeline() {
     mainActionItemtl.to($actionItem, 3, {left: '20vw', ease: Power0.easeNone, yoyo:true, repeat: -1, onRepeat: windSwitchDirection}, "cool")
                     .to($actionItem, 1, {top: '10vh', ease: Power0.easeNone, yoyo:true, repeat: -1}, "cool");
+    cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
+                      .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 }
 
 function getFermentingTimeline() {
@@ -650,7 +672,7 @@ function moveRandom(obj) {
     var newY = randomFromTo(1, 80),
         newX = randomFromTo(1, 80);
 
-    TweenMax.to(obj, 2, {top: newY, left: newX, ease:Power0.easeNone, onComplete:moveRandomThis});
+    TweenMax.to(obj, 2, {y: newY, x: newX, ease:Power0.easeNone, onComplete:moveRandomThis});
 
     function moveRandomThis() {
         moveRandom(obj);

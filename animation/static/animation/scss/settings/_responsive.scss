@@ -43,6 +43,39 @@ body {
       animation: initial !important;
     }
 
+    // comments positions
+    .comment-millmash-cooling {
+      right: -530px !important;
+    }
+
+    .comment-boiling-right {
+      top: 0 !important;
+    }
+
+    .comment-bottling {
+      top: 84px !important;
+      left: 64px !important;
+    }
+
+    //get rid of a few of the boiling items
+    .boil-item-1 {
+      display: none !important;
+      animation: none !important;
+    }
+    .boil-item-2 {
+      display: none !important;
+      animation: none !important;
+    }
+    .boil-item-3 {
+      display: none !important;
+      animation: none !important;
+    }
+    .boil-item-4 {
+      display: none !important;
+      animation: none !important;
+    }
+
+
     // aligning the face with the sprite for mobile
     .c-action {
       &.initial {

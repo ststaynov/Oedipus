@@ -23,9 +23,6 @@ svg {
   shape-rendering: geometricPrecision;
 }
 
-.bg-position {
-  z-index: $z-5;
-}
 
 .header__logo {
   width: 72px;
@@ -58,11 +55,6 @@ svg {
   text-decoration: none;
   color: #000;
   z-index: 5;
-}
-
-.bg-position {
-  left: 10%;
-  bottom: 0px;
 }
 
 .main {
@@ -109,7 +101,7 @@ svg {
   > svg {
     position: absolute;
     top: calc(50vh - 153px);
-    left: 2015px;
+    left: 2007px;
     //top: calc(50vh - 250px); Film Set up
     z-index: -1;
   }
@@ -121,7 +113,7 @@ svg {
     pointer-events: none;
     top: calc(50vh - 249px);
     left: 2000px;
-    background-image: url(../images/desktop/background/brewing_pipes_optimised.svg);
+    background-image: url(../images/desktop/background/brewing_pipes.svg);
     background-size: 100%;
     background-position: left center;
     background-repeat: no-repeat;
