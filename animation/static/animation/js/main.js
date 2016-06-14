@@ -19,6 +19,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $btnAutoScroll = $('.c-auto-scroll-button'),
     $btnReplay = $('.replay'),
     moveObject = '',
+    maxSnowFlakeCount = 0,
     loopBackwardAllowed = false,
     loopForwardAllowed = false,
     positionsArr = [],
@@ -27,6 +28,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $fermentingWindow = $('.e-window'),
     $plane = $('.c-plane'),
     bottlingContainerMoveFix = 0,
+    $smoke = $("#smoke circle, #smoke path"),
 
     // action item
     $actionItem = $('.c-action'),
@@ -62,7 +64,8 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 
         // timelines per step
         boilingTl = new TimelineMax({}),
-        fermentingTl = new TimelineMax({});
+        fermentingTl = new TimelineMax({}),
+        bottlingTl = new TimelineMax({});
 
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
@@ -74,6 +77,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     fgBg.push($beerFillMobile);
     consoleLog('Added beerFill for mobile');
     moveObject = '.c-brewing-background-inner, .c-comment';
+    maxSnowFlakeCount = 10;
 } else {
     positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
     bottlingContainerMoveFix = 400;
@@ -84,6 +88,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     initFermentingItemsEffects();
     // $plane
     TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
+    maxSnowFlakeCount = 20;
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
@@ -121,12 +126,6 @@ cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10
 //                   .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 
 /* Setting up action item animation END */
-
-var smoke = $("#smoke circle, #smoke path");
-
-    boilingTl.to($thermometerNeedle, 2, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "boil")
-             .staggerFromTo(smoke, 1, {scale: 0}, {scale: 1}, 0.1, "boil")
-             .staggerFromTo(smoke, 1, {opacity: 0.8, y: 40}, {opacity: 0.3, y: -50, repeat: -1, repeatDelay: -2, ease: Circ.easeOut}, 0.1, "boil");
 
 
 function initFermentingItemsEffects() {
@@ -172,9 +171,6 @@ function shakeAnimation(element){
 }
 
 
-
-    // Bottling
-    TweenMax.staggerTo($beerWaves, 1, {y: -25, repeat:-1, yoyo:true}, 0.4);
 
 /* Setting up animation timelines per step END */
 
@@ -375,7 +371,7 @@ function checkSnow(activate) {
             random_num2 = Math.round(Math.random() * 100);
             random_num3 = Math.floor(Math.random() * 15) + 5;
             random_color = oedipusColors[Math.floor((Math.random() * 4) + 1)];
-            if(snowFlakeCount < 20) {
+            if(snowFlakeCount < maxSnowFlakeCount) {
                 create_flake();
             }
             destroy_flake();
@@ -593,15 +589,19 @@ function checkBackgroundColors() {
 
 /* action item stages START */
 var mainActionItemtl = new TimelineMax({}); // I know it's easier to add all children(per step) to the mainTimeline at beginning and then per step reference them but no one's perfect
+var boilingTimelineRunning = false;
 
 function checkForActionItemEffects(hasClass) {
     switch (hasClass) {
         case "initial":
             mainActionItemtl.clear();
+            boilingTl.clear();
+            boilingTimelineRunning = false;
             TweenMax.to($actionItem, 0.8, {top: '30vh', left: '70vw'});
             break;
         case "milled-mashed":
             mainActionItemtl.clear();
+            if(!boilingTimelineRunning) getBoilingTimeline();
             TweenMax.to($actionItem, 0.8, {top: '17vh', left: '70vw'});
             break;
         case "boiling":
@@ -616,8 +616,10 @@ function checkForActionItemEffects(hasClass) {
             $actionItem.addClass('right');
             //clear Timeline from previous tweens&callbacks
             mainActionItemtl.clear();
+            bottlingTl.clear();
+            clearBottlingTimelineProps();
             checkSnow(true);
-
+            if(!boilingTimelineRunning) getBoilingTimeline();
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '80vw', onComplete:setCloudLeft});
             function setCloudLeft(){
                 if ($actionItem.hasClass('left')) {}
@@ -634,6 +636,9 @@ function checkForActionItemEffects(hasClass) {
         case "fermenting":
             mainActionItemtl.clear();
             cloudCoolingTlLeft.clear();
+            boilingTl.kill();
+            boilingTimelineRunning = false;
+            getBottlingTimeline();
             checkSnow(false);
             mainActionItemtl.add(getFermentingTimeline());
             break;
@@ -653,11 +658,24 @@ function getCoolingTimeline() {
                       .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
 }
 
+function getBoilingTimeline() {
+    boilingTl.to($thermometerNeedle, 2, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "boil")
+             .staggerFromTo($smoke, 1, {scale: 0}, {scale: 1}, 0.1, "boil")
+             .staggerFromTo($smoke, 1, {opacity: 0.8, y: 40}, {opacity: 0.3, y: -50, repeat: -1, repeatDelay: -2, ease: Circ.easeOut}, 0.1, "boil");
+}
+
+function getBottlingTimeline() {
+   bottlingTl.staggerTo($beerWaves, 1, {y: -25, repeat:-1, yoyo:true, clearProps: "all"}, 0.4);
+}
+
+function clearBottlingTimelineProps() {
+   bottlingTl.set($beerWaves,{ clearProps: "all" });
+}
+
 function getFermentingTimeline() {
     var tl = new TimelineMax({delay: 0.8});
 
     tl.to($actionItem, 2, {left: '70vw', top: '5vh'});
-
 
     return tl;
 }

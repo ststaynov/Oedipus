@@ -9,6 +9,7 @@
     <meta property="og:description" content="">
     <title>Oedipus Brewing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="pinterest" content="nopin" /> {#    disabling the annoying pin it popup on the comments  #}
     {#    TODO remove these two cache lines when deploying  #}
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Expires" content="-1">
@@ -1039,6 +1040,8 @@ $(window).load(function() {
     setTimeout(function(){
         jQuery("#loading-animation").fadeOut();
         jQuery("#preloader").delay(1000).fadeOut("slow");
+
+        setTimeout(function(){$('#preloader').remove(); }, 1500); // delete the preloader for less overhead
     }, 4000);
     });
 </script>
