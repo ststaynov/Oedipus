@@ -27,7 +27,7 @@
     position: absolute;
     top: 0;
     left: 40px;
-    background: url('../images/desktop/step3/hops_bag.svg') left center no-repeat;
+    background: url('../images/desktop/step3/boiling-ingredient-bag.svg') left center no-repeat;
   }
 
   .e-hops-item-container {
@@ -43,7 +43,6 @@
     position: absolute;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('../images/desktop/step3/hop.svg');
   }
 
   .hop-item-1 {
@@ -51,6 +50,7 @@
     -webkit-animation: drop .45s infinite 0.4s;
     animation: drop 1.8s infinite 0.4s;
     transform: rotate(45deg);
+    background-image: url('../images/desktop/step3/bag-items/boiling-hop.svg');
   }
 
   .hop-item-2 {
@@ -58,6 +58,7 @@
     -webkit-animation: drop .75s infinite 1.50s;
     animation: drop 2s infinite 1.50s;
     transform: rotate(45deg);
+    background-image: url('../images/desktop/step3/bag-items/boiling-leaf.svg');
   }
 
   .hop-item-3 {
@@ -65,18 +66,27 @@
     -webkit-animation: drop .74s infinite 2.50s;
     animation: drop 2.2s infinite 2.50s;
     transform: rotate(90deg);
+    background-image: url('../images/desktop/step3/bag-items/boiling-lime.svg');
   }
 
   .hop-item-4 {
     margin: 0 36px;
     -webkit-animation: drop .75s infinite 3.75s;
     animation: drop 1.9s infinite 3.75s;
+    background-image: url('../images/desktop/step3/bag-items/boiling-pepper.svg');
   }
 
   .hop-item-5 {
     margin: 0 44px;
     -webkit-animation: drop .75s infinite 4.75s;
     animation: drop 2.3s infinite 4.75s;
+    background-image: url('../images/desktop/step3/bag-items/boiling-waterMelon.svg');
+  }
+  .hop-item-6 {
+    margin: 0 44px;
+    -webkit-animation: drop .75s infinite 4.75s;
+    animation: drop 2.3s infinite 4.75s;
+    background-image: url('../images/desktop/step3/bag-items/boiling-wizardry.svg');
   }
 
   .e-steam-top {

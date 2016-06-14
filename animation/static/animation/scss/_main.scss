@@ -28,15 +28,15 @@ svg {
 }
 
 .header__logo {
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 72px;
+  height: 72px;
   display: block;
   float: left;
   position: absolute;
   margin-top: 1rem;
   margin-left: 1rem;
   left: 0;
-  background: url(http://oedipus.com/wp-content/themes/oedipus/assets/img/logo-cap.svg) center no-repeat;
+  background: url(../images/logo-header.png) center no-repeat;
   background-size: contain;
   text-indent: -9999em;
   z-index: 5;

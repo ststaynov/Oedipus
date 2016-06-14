@@ -110,15 +110,15 @@ svg {
   z-index: 5; }
 
 .header__logo {
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 72px;
+  height: 72px;
   display: block;
   float: left;
   position: absolute;
   margin-top: 1rem;
   margin-left: 1rem;
   left: 0;
-  background: url(http://oedipus.com/wp-content/themes/oedipus/assets/img/logo-cap.svg) center no-repeat;
+  background: url(../images/logo-header.png) center no-repeat;
   background-size: contain;
   text-indent: -9999em;
   z-index: 5; }
@@ -882,9 +882,13 @@ svg.bg {
 
 .c-comment {
   position: absolute;
-  display: inline-block; }
+  display: inline-block;
+  pointer-events: all;
+  transition: all 1s; }
   .c-comment img {
     width: 200px; }
+  .c-comment:hover {
+    transform: scale(1.3, 1.3); }
 
 .c-meteor {
   width: 205px;
@@ -1620,7 +1624,7 @@ a {
     position: absolute;
     top: 0;
     left: 40px;
-    background: url("../images/desktop/step3/hops_bag.svg") left center no-repeat; }
+    background: url("../images/desktop/step3/boiling-ingredient-bag.svg") left center no-repeat; }
   .c-boiling .e-hops-item-container {
     position: absolute;
     top: 0;
@@ -1631,31 +1635,40 @@ a {
     display: inline-block;
     position: absolute;
     background-size: 100%;
-    background-repeat: no-repeat;
-    background-image: url("../images/desktop/step3/hop.svg"); }
+    background-repeat: no-repeat; }
   .c-boiling .hop-item-1 {
     margin: 0 12px;
     -webkit-animation: drop .45s infinite 0.4s;
     animation: drop 1.8s infinite 0.4s;
-    transform: rotate(45deg); }
+    transform: rotate(45deg);
+    background-image: url("../images/desktop/step3/bag-items/boiling-hop.svg"); }
   .c-boiling .hop-item-2 {
     margin: 0 20px;
     -webkit-animation: drop .75s infinite 1.50s;
     animation: drop 2s infinite 1.50s;
-    transform: rotate(45deg); }
+    transform: rotate(45deg);
+    background-image: url("../images/desktop/step3/bag-items/boiling-leaf.svg"); }
   .c-boiling .hop-item-3 {
     margin: 0 28px;
     -webkit-animation: drop .74s infinite 2.50s;
     animation: drop 2.2s infinite 2.50s;
-    transform: rotate(90deg); }
+    transform: rotate(90deg);
+    background-image: url("../images/desktop/step3/bag-items/boiling-lime.svg"); }
   .c-boiling .hop-item-4 {
     margin: 0 36px;
     -webkit-animation: drop .75s infinite 3.75s;
-    animation: drop 1.9s infinite 3.75s; }
+    animation: drop 1.9s infinite 3.75s;
+    background-image: url("../images/desktop/step3/bag-items/boiling-pepper.svg"); }
   .c-boiling .hop-item-5 {
     margin: 0 44px;
     -webkit-animation: drop .75s infinite 4.75s;
-    animation: drop 2.3s infinite 4.75s; }
+    animation: drop 2.3s infinite 4.75s;
+    background-image: url("../images/desktop/step3/bag-items/boiling-waterMelon.svg"); }
+  .c-boiling .hop-item-6 {
+    margin: 0 44px;
+    -webkit-animation: drop .75s infinite 4.75s;
+    animation: drop 2.3s infinite 4.75s;
+    background-image: url("../images/desktop/step3/bag-items/boiling-wizardry.svg"); }
   .c-boiling .e-steam-top {
     position: absolute;
     top: 40px;
@@ -1782,8 +1795,8 @@ a {
   height: 500px;
   pointer-events: none; }
   .c-cooling-container > svg {
-    width: 350px;
-    top: 60px; }
+    width: 459px;
+    top: 15px; }
 
 .c-fermenting {
   position: absolute;
