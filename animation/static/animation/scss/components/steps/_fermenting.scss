@@ -60,8 +60,8 @@
   }
 
   .sperma {
-    width: 33px;
-    height: 20px;
+    width: 30px;
+    height: 15px;
     top: 20px;
     left: -18px;
     will-change: transform;
@@ -78,6 +78,11 @@
       @include animation(swimLeft 2.50s linear infinite 4s);
     }
   }
+}
+
+@include keyframes(spermSwim) {
+  from { background-position: 0; }
+  to { background-position: 408px; }
 }
 
 .c-fermenting-foreground {

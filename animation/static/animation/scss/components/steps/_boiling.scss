@@ -54,6 +54,7 @@
   }
 
   .hop-item-2 {
+    height: 35px;
     margin: 0 20px;
     @include animation(drop 2s infinite 1.50s);
     @include transform(rotate(45deg));

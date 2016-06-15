@@ -24,7 +24,7 @@ body {
         -ms-transform: scale(0.6, 0.6) !important;
         -o-transform: scale(0.6, 0.6) !important;
         transform: scale(0.6, 0.6) !important; }
-      body .c-sperma,
+      body .sperma,
       body .c-sun,
       body .c-nipple,
       body .c-meteor,
@@ -1496,12 +1496,12 @@ svg.bg {
       height: 100%;
       display: block;
       position: fixed;
-      background-color: #3a3025;
+      background-color: #fbf8f1;
       z-index: 10; }
       .c-portrait-overlay .e-flip-message {
         top: 40%;
         position: relative;
-        color: #fbf8f1;
+        color: #3a3025;
         font-size: 18px;
         text-align: center; } }
 
@@ -2584,6 +2584,7 @@ a {
     transform: rotate(45deg);
     background-image: url("../images/desktop/step3/bag-items/boiling-hop.svg"); }
   .c-boiling .hop-item-2 {
+    height: 35px;
     margin: 0 20px;
     -webkit-animation: drop 2s infinite 1.5s;
     -moz-animation: drop 2s infinite 1.5s;
@@ -2862,8 +2863,8 @@ a {
       height: 21px;
       background-image: url("../images/desktop/step5/merging-cell.svg"); }
   .e-window .sperma {
-    width: 33px;
-    height: 20px;
+    width: 30px;
+    height: 15px;
     top: 20px;
     left: -18px;
     will-change: transform;
@@ -2885,6 +2886,24 @@ a {
       -webkit-animation: swimLeft 2.5s linear infinite 4s;
       -moz-animation: swimLeft 2.5s linear infinite 4s;
       animation: swimLeft 2.5s linear infinite 4s; }
+
+@-webkit-keyframes spermSwim {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 408px; } }
+
+@-moz-keyframes spermSwim {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 408px; } }
+
+@keyframes spermSwim {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 408px; } }
 
 .c-fermenting-foreground .e-notes {
   width: 85px;

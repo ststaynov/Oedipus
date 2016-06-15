@@ -26,7 +26,6 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $thermometerNeedle = $('#needle'),
     $beerWaves = $('.beer-wave'),
     $fermentingWindow = $('.e-window'),
-    $plane = $('.c-plane'),
     bottlingContainerMoveFix = 0,
     bottlingContainerFixingPosition = 0,
     $smoke = $("#smoke circle, #smoke path"),
@@ -89,8 +88,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     consoleLog('Added beerFill');
     moveObject = '.c-brewing-background-inner';
     initFermentingItemsEffects();
-    // $plane
-    // TweenMax.to($plane, 14, {x:'calc(100vw + 250px)', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
     maxSnowFlakeCount = 20;
 }
 

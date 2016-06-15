@@ -7,13 +7,13 @@
     height: 100%;
     display: block;
     position: fixed;
-    background-color: $color-portrait-overlay;
+    background-color: $color-portrait-text;
     z-index: $z-10;
 
     .e-flip-message {
       top: 40%;
       position: relative;
-      color: $color-portrait-text;
+      color: $color-portrait-overlay;
       font-size: 18px;
       text-align: center;
     }
