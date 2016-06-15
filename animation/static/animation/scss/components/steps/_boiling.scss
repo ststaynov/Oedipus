@@ -48,24 +48,21 @@
 
   .hop-item-1 {
     margin: 0 12px;
-    -webkit-animation: drop .45s infinite 0.4s;
-    animation: drop 1.8s infinite 0.4s;
+    @include animation(drop 1.8s infinite 0.4s);
     @include transform(rotate(45deg));
     background-image: url('../images/desktop/step3/bag-items/boiling-hop.svg');
   }
 
   .hop-item-2 {
     margin: 0 20px;
-    -webkit-animation: drop .75s infinite 1.50s;
-    animation: drop 2s infinite 1.50s;
+    @include animation(drop 2s infinite 1.50s);
     @include transform(rotate(45deg));
     background-image: url('../images/desktop/step3/bag-items/boiling-leaf.svg');
   }
 
   .hop-item-3 {
     margin: 0 28px;
-    -webkit-animation: drop .74s infinite 2.50s;
-    animation: drop 2.2s infinite 2.50s;
+    @include animation(drop 2.2s infinite 2.50s);
     @include transform(rotate(90deg));
     background-image: url('../images/desktop/step3/bag-items/boiling-lime.svg');
   }
@@ -74,21 +71,18 @@
     height: 70px;
     margin: 0 36px;
     top: -30px;
-    -webkit-animation: drop .75s infinite 3.75s;
-    animation: drop 1.9s infinite 3.75s;
+    @include animation(drop 1.9s infinite 3.75s);
     background-image: url('../images/desktop/step3/bag-items/boiling-pepper.svg');
   }
 
   .hop-item-5 {
     margin: 0 44px;
-    -webkit-animation: drop .75s infinite 4.75s;
-    animation: drop 2.3s infinite 4.75s;
+    @include animation(drop 2.3s infinite 4.75s);
     background-image: url('../images/desktop/step3/bag-items/boiling-waterMelon.svg');
   }
   .hop-item-6 {
     margin: 0 44px;
-    -webkit-animation: drop .75s infinite 4.75s;
-    animation: drop 2.3s infinite 4.75s;
+    @include animation(drop 2.3s infinite 4.75s);
     background-image: url('../images/desktop/step3/bag-items/boiling-wizardry.svg');
   }
 
@@ -139,48 +133,44 @@
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url('../images/desktop/step3/bubbles.svg');
+    @include animation-name(boil);
+    @include animation-iteration-count(infinite);
+    @include animation-duration(.75s);
+    will-change: transform;
   }
 
   .boil-item-1 {
     margin-left: 100px;
-    -webkit-animation: boil .75s infinite;
-    animation: boil .75s infinite;
   }
   .boil-item-2 {
     margin-left: 75px;
-    -webkit-animation: boil .75s infinite 1s;
-    animation: boil .75s infinite 1s;
+    @include animation-delay(1s);
   }
   .boil-item-3 {
     margin-left: 150px;
-    -webkit-animation: boil .75s infinite 2s;
-    animation: boil .75s infinite 2s;
+    @include animation-delay(2s);
   }
   .boil-item-4 {
     margin-left: 30px;
-    -webkit-animation: boil .75s infinite 3s;
-    animation: boil .75s infinite 3s;
+    @include animation-delay(3s);
   }
   .boil-item-5 {
     margin-left: 180px;
-    -webkit-animation: boil .75s infinite 4s;
-    animation: boil .75s infinite 4s;
+    @include animation-delay(4s);
   }
   .boil-item-6 {
     margin-left: 5px;
-    -webkit-animation: boil .75s infinite 5s;
-    animation: boil .75s infinite 5s;
+    @include animation-delay(5s);
   }
   .boil-item-7 {
     margin-left: 210px;
-    -webkit-animation: boil .75s infinite 6s;
-    animation: boil .75s infinite 6s;
+    @include animation-delay(6s);
   }
 
   .boil-item-8 {
     margin-left: 240px;
-    -webkit-animation: boil .55s infinite 3.5s;
-    animation: boil .55s infinite 3.5s;
+    @include animation-duration(.55s);
+    @include animation-delay(3.5s);
   }
 
   /* waves start */
@@ -189,12 +179,14 @@
     .wave {
       width: 200%;
       position: absolute;
+      will-change: transform;
 
       &.back {
         top: 62px;
         right: 0;
         fill: #FBAB29;
-        animation: wave-back 1.4s infinite linear;
+        @include animation(wave-back 1.4s infinite linear);
+
       }
 
       &.front {
@@ -202,7 +194,7 @@
         left: 0;
         fill: #F9DF00;
         margin-bottom: -1px;
-        animation: wave-front .7s infinite linear;
+        @include animation(wave-front .7s infinite linear);
       }
     }
   }
@@ -211,41 +203,41 @@
   .c-burst {
     width: 184px;
     height: 141px;
-    background-image: url('../images/desktop/step3/burst_spritesheet_6f_184x141_1116_optimised.png');
-    animation: burst 1s steps(6) infinite;
     position: absolute;
     left: 394px;
     top: 363px;
+    background-image: url('../images/desktop/step3/burst_spritesheet_6f_184x141_1116_optimised.png');
+    @include animation(burst 1s steps(6) infinite);
     @include transform(rotate(130deg));
   }
   .c-zigzag-three {
     width: 113px;
     height: 62px;
+    position: absolute;
     bottom: 28px;
     left: 78px;
     background-image: url('../images/desktop/step3/zigzag3_spritesheet_9f_113x62_1017_optimised.png');
-    animation: zigzagThree 1.5s steps(9) infinite;
-    position: absolute;
+    @include animation(zigzagThree 1.5s steps(9) infinite);
     @include transform(rotate(110deg));
   }
 
   .c-zigzag-four {
     width: 169px;
     height: 155px;
+    position: absolute;
     top: -45px;
     left: 150px;
     background-image: url('../images/desktop/step3/zigzag4_spritesheet_24f_169x155_4296_optimized.png');
-    animation: zigzagFour 1.5s steps(24) infinite;
-    position: absolute;
+    @include animation(zigzagFour 1.5s steps(24) infinite);
     @include transform(rotate(128deg));
   }
   .c-zigzag-five {
     width: 222px;
     height: 127px;
-    background-image: url('../images/desktop/step3/zigzag5_spritesheet_31f_222x127_7192_optimized.png');
-    animation: zigzagFive 1.5s steps(31) infinite;
     position: absolute;
     top: 106px;
+    @include animation(zigzagFive 1.5s steps(31) infinite);
+    background-image: url('../images/desktop/step3/zigzag5_spritesheet_31f_222x127_7192_optimized.png');
     @include transform(rotate(-120deg));
   }
 }

@@ -37,7 +37,7 @@
     top: 0;
     position: relative;
     margin: 0 auto;
-    animation: wiggle 4.75s infinite 2s;
+    @include animation(wiggle 4.75s infinite 2s);
   }
 
   .e-grain {
@@ -48,31 +48,30 @@
     margin: 0 auto;
     border-radius: 100%;
     background-color: #FF8338;
+    will-change: transform;
+    @include animation-name(drip);
+    @include animation-duration(.75s);
+    @include animation-timing-function(linear);
+    @include animation-iteration-count(infinite);
 
     &:nth-of-type(1)  {
       margin: 0 12px;
-      -webkit-animation: drip .45s infinite;
-      animation: drip .75s linear infinite;
     }
     &:nth-of-type(2)  {
       margin: 0 25px;
-      -webkit-animation: drip .45s infinite 1s;
-      animation: drip .75s linear infinite 1s;
+      @include animation-delay(1s);
     }
     &:nth-of-type(3) {
       margin: 0 50px;
-      -webkit-animation: drip .45s infinite 2s;
-      animation: drip .75s linear infinite 2s;
+      @include animation-delay(2s);
     }
     &:nth-of-type(4) {
       margin: 0 75px;
-      -webkit-animation: drip .45s infinite 3s;
-      animation: drip .75s linear infinite 3s;
+      @include animation-delay(3s);
     }
     &:nth-of-type(5) {
       margin: 0 90px;
-      -webkit-animation: drip .45s infinite 4s;
-      animation: drip .75s linear infinite 4s;
+      @include animation-delay(4s);
     }
   }
 
@@ -82,38 +81,42 @@
     position: absolute;
     background: url('../images/desktop/step2/star.svg') center center no-repeat;
     margin: auto;
+    will-change: transform;
+    @include animation-name(sparcle);
+    @include animation-iteration-count(infinite);
+    @include animation-delay(4s);
 
     &:nth-of-type(6) {
       top: 65px;
       left: 0;
       right: 0;
-      animation: sparcle .75s infinite 4s;
+      @include animation-duration(.75s);
     }
     &:nth-of-type(7) {
       top: 25px;
       left: 25%;
-      animation: sparcle .95s infinite 4s;
+      @include animation-duration(.95s);
       @include transform(rotate(50deg));
     }
     &:nth-of-type(8) {
       top: 45px;
       right: 25%;
-      animation: sparcle .45s infinite 4s;
+      @include animation-duration(.45s);
     }
     &:nth-of-type(9) {
       top: 75px;
       left: 10%;
-      animation: sparcle .85s infinite 4s;
+      @include animation-duration(.85s);
     }
     &:nth-of-type(10) {
       top: 25px;
       right: 10%;
-      animation: sparcle .50s infinite 4s;
+      @include animation-duration(.50s);
     }
     &:nth-of-type(11) {
       top: 0;
       left: 0;
-      animation: sparcle .50s infinite 4s;
+      @include animation-duration(.50s);
     }
   }
 
@@ -125,11 +128,11 @@
 
     &:nth-of-type(12) {
       left: 25%;
-      animation: drip .9s linear infinite;
+      @include animation(drip .9s linear infinite);
     }
     &:nth-of-type(13) {
       right: 25%;
-      animation: drip 1.1s linear infinite 0.7s;
+      @include animation(drip 1.1s linear infinite 0.7s);
     }
   }
   /* milling container start */
@@ -148,20 +151,19 @@
     height: 78px;
     position: absolute;
     display: inline-block;
+    will-change: transform;
     background: url('../images/desktop/step2/cog-wheel.svg');
     background-size: 100%;
   }
 
   .e-cog-wheel-left {
     margin-left: 5px;
-    -webkit-animation: spin 4s linear infinite;
-    animation: spin 4s linear infinite;
+    @include animation(spin 4s linear infinite);
   }
 
   .e-cog-wheel-right {
     margin-left: 105px;
-    -webkit-animation: spinreverse 4s linear infinite;
-    animation: spinreverse 4s linear infinite;
+    @include animation(spinreverse 4s linear infinite);
   }
 
   /* milling container end */
@@ -182,40 +184,41 @@
     width: 4px;
     height: 4px;
     border-radius: 4px;
-    background: $color-oedipus-pink;
+    background: #FBAB29;
     display: block;
     left: 10px;
     position: absolute;
-    animation-name: grain-fall;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+    will-change: transform;
+    @include animation-name(grain-fall);
+    @include animation-duration( 1s);
+    @include animation-iteration-count(infinite);
     &:nth-of-type(2) {
       left: 24px;
-      animation-delay: 0.7s;
+      @include animation-delay(.7s);
     }
     &:nth-of-type(3) {
       left: 18px;
-      animation-delay: 0.6s;
+      @include animation-delay(.6s);
     }
     &:nth-of-type(4) {
       left: 13px;
-      animation-delay: 0.3s;
+      @include animation-delay(.3s);
     }
     &:nth-of-type(5) {
       left: 18px;
-      animation-delay: 0.4s;
+      @include animation-delay(.4s);
     }
     &:nth-of-type(6) {
       left: 11px;
-      animation-delay: 0.8s;
+      @include animation-delay(.8s);
     }
     &:nth-of-type(7) {
       left: 19px;
-      animation-delay: 0.4s;
+      @include animation-delay(.4s);
     }
     &:nth-of-type(8) {
       left: 22px;
-      animation-delay: 0.2s;
+      @include animation-delay(.2s);
     }
   }
 
@@ -237,14 +240,14 @@
     &.back {
       left: -250px;
       fill: #E8994A;
-      animation: wave-back 1.4s infinite linear;
+      @include animation(wave-back 1.4s infinite linear);
     }
 
     &.front {
       left: 0;
       fill: #ECBF92;
       margin-bottom: -1px;
-      animation: wave-front .7s infinite linear;
+      @include animation(wave-front .7s infinite linear);
     }
   }
   .e-mashine-puff {
@@ -283,7 +286,7 @@
     top: 0;
     left: 237px;
     background-image: url('../images/desktop/step2/zigzag1_spritesheet_4f_14x49_56_optimised.png');
-    animation: zigzagOne 0.9s steps(4) infinite;
+    @include animation(zigzagOne 0.9s steps(4) infinite);
   }
 
   .c-zigzag-two {
@@ -293,7 +296,7 @@
     top: 0;
     right: 258px;
     background-image: url('../images/desktop/step2/zigzag2_spritesheet_4f_14x49_56_optimised.png');
-    animation: zigzagTwo 1.2s steps(4) infinite;
+    @include animation(zigzagTwo 1.2s steps(4) infinite);
   }
 
   .c-pumping {
@@ -303,6 +306,6 @@
     top: 180px;
     left: 392px;
     background-image: url('../images/desktop/step2/pump_spritesheet_14f_122x161_1708_optimised.png');
-    animation: pumping 1.4s steps(14) infinite;
+    @include animation(pumping 1.4s steps(14) infinite);
   }
 }

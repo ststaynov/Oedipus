@@ -4,11 +4,11 @@
   height: 214px;
   position: absolute;
   background-image: url('../images/desktop/foreground/sun_spritesheet_5f_227x214_1135.png');
-  animation: sun 1.5s steps(5) infinite;
+  @include animation(sun 1.5s steps(5) infinite);
   pointer-events: none;
 }
 
-@keyframes sun {
+@include keyframes(sun) {
   from { background-position: 0; }
   to { background-position: 1135px; }
 }

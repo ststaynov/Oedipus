@@ -64,17 +64,18 @@
     height: 20px;
     top: 20px;
     left: -18px;
+    will-change: transform;
     background-image: url('../images/desktop/step5/sperma.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    animation: swimRight 2.25s linear infinite 2.5s;
+    @include animation(swimRight 2.25s linear infinite 2.5s);
 
     &.swim-left {
       top: 0;
       left: auto;
       right: 10px;
       @include transform(rotate(90deg));
-      animation: swimLeft 2.50s linear infinite 4s;
+      @include animation(swimLeft 2.50s linear infinite 4s);
     }
   }
 }
@@ -115,13 +116,13 @@
     bottom: 90px;
     background-image: url('../images/desktop/step5/flumpjes-left.svg');
     @include fermenting-fg-item();
-    animation: floatLeft 2.50s linear infinite 4s;
+    @include animation(floatLeft 2.50s linear infinite 4s);
 
     &.right {
       left: auto;
       right: 105px;
       background-image: url('../images/desktop/step5/flumpjes-right.svg');
-      animation: floatRight 2.50s linear infinite 4s;
+      @include animation(floatRight 2.50s linear infinite 4s);
     }
   }
 

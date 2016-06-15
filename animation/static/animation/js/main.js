@@ -28,6 +28,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $fermentingWindow = $('.e-window'),
     $plane = $('.c-plane'),
     bottlingContainerMoveFix = 0,
+    bottlingContainerFixingPosition = 0,
     $smoke = $("#smoke circle, #smoke path"),
 
     // action item
@@ -74,6 +75,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //values which suit mobile screens
     bottlingContainerMoveFix = 100;
+    bottlingContainerFixingPosition = -6635;
     fgBg.push($beerFillMobile);
     consoleLog('Added beerFill for mobile');
     moveObject = '.c-brewing-background-inner, .c-comment';
@@ -81,13 +83,14 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 } else {
     positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
     bottlingContainerMoveFix = 400;
+    bottlingContainerFixingPosition = -6500;
     fgBg.push($beerFill);
     startCloudWarmBeamsTl();
     consoleLog('Added beerFill');
     moveObject = '.c-brewing-background-inner';
     initFermentingItemsEffects();
     // $plane
-    TweenMax.to($plane, 14, {left:'100%', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
+    // TweenMax.to($plane, 14, {x:'calc(100vw + 250px)', repeat:-1, repeatDelay:3, ease: Power0.easeNone});
     maxSnowFlakeCount = 20;
 }
 
@@ -120,11 +123,6 @@ cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10
               .fromTo($warmBeamUpRight, 0.8, {opacity: 1, x: -10, y: 10}, {opacity: 0, x: 10, y: -30}, "initial")
               .fromTo($warmBeamLeft, 0.8, {opacity: 1, x: 0, y: 0}, {opacity: 0, x: -30, y: 0}, "initial");
 }
-
-
-// cloudCoolingTlLeft.staggerFromTo($coldLeftBeams, 0.3, {opacity: 1, x: 10, y: -10}, {opacity: 0, x: -40, y: 50}, 0.1, "initial")
-//                   .staggerFromTo($coldRightBeams, 0.3, {opacity: 1, x: -10, y: -20}, {opacity: 0, x: -30, y: 40}, 0.1, "initial");
-
 /* Setting up action item animation END */
 
 
@@ -259,7 +257,7 @@ function checkPosition(tween) {
         TweenMax.to(fgBg, 0.4, {x: translateValue});
         TweenMax.to($actionItem, 0.4, {x: -translateValue});
     }
-    if (n < -6500) {
+    if (n < bottlingContainerFixingPosition) {
         if ($bottling.hasClass('fixed')) {}
         else if (!$bottling.hasClass('exploded')) {
             $bottling.addClass('fixed');

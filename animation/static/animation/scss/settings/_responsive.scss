@@ -1,4 +1,9 @@
 
+@mixin noAnimDispl() {
+  display: none !important;
+  @include animation(initial !important);
+}
+
 body {
   //position: absolute; /* Fixes strange scroll overflow */
   background-color: $color-bg;
@@ -33,14 +38,13 @@ body {
     .c-zigzag-five,
     .c-burst,
     .c-pumping {
-      display: none !important;
-      animation: initial !important;
+      @include noAnimDispl();
     }
 
     // too heavy for mobile
     .c-magic-cloud {
       background: none;
-      animation: initial !important;
+      @include animation(initial !important);
     }
 
     // comments positions
@@ -57,24 +61,52 @@ body {
       left: 64px !important;
     }
 
-    //get rid of a few of the boiling items
-    .boil-item-1 {
-      display: none !important;
-      animation: none !important;
+    //get rid of few of the millmash animation items
+    .c-milling-mashing {
+      b {
+        &:nth-of-type(2) {
+          @include noAnimDispl();
+        }
+        &:nth-of-type(4) {
+          @include noAnimDispl();
+        }
+        &:nth-of-type(7) {
+          @include noAnimDispl();
+        }
+      }
+      .e-grain {
+        &:nth-of-type(1) {
+          @include noAnimDispl();
+        }
+        &:nth-of-type(4) {
+          @include noAnimDispl();
+        }
+      }
+      .e-star {
+        &:nth-of-type(8) {
+          @include noAnimDispl();
+        }
+        &:nth-of-type(11) {
+          @include noAnimDispl();
+        }
+      }
     }
-    .boil-item-2 {
-      display: none !important;
-      animation: none !important;
-    }
-    .boil-item-3 {
-      display: none !important;
-      animation: none !important;
-    }
-    .boil-item-4 {
-      display: none !important;
-      animation: none !important;
+    .e-grain-flumpje {
+      &:nth-of-type(12) {
+
+      }
+      &:nth-of-type(13) {
+
+      }
     }
 
+    //get rid of a few of the boiling items
+    .boil-item-1,
+    .boil-item-2,
+    .boil-item-3,
+    .boil-item-4 {
+      @include noAnimDispl();
+    }
 
     // aligning the face with the sprite for mobile
     .c-action {
@@ -123,12 +155,12 @@ body {
     }
 
     .c-plane {
-      display: none !important;
+      @include noAnimDispl();
     }
 
     .c-cloud-bg-sprite {
       background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png') !important;
-      animation: none !important;
+      @include animation(none !important);
     }
 
     /* FIXING THE PIPE START */

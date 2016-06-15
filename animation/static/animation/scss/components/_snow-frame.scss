@@ -16,10 +16,7 @@
   left: 20%;
   top: 0;
   opacity: 0;
-  animation-name: fall;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  @include animation(fall 10s linear infinite);
   @include transition(opacity 2000ms);
   }
 
@@ -34,25 +31,30 @@
     height: auto;
   }
 
-  @keyframes fall {
+  @include keyframes(fall) {
     0% {
-      top: 0;
+      //top: 0;
+      @include transform(translateY(0));
       visibility: hidden;
     }
     1% {
-      top: 0;
+      //top: 0;
+      @include transform(translateY(0));
       visibility: visible;
     }
     80% {
-      top: calc( 100% + 150px);
+      //top: calc( 100% + 150px);
+      @include transform(translateY(calc( 200vh + 150px)));
       visibility: visible;
     }
     81% {
-      top: calc( 100% + 150px);
+      //top: calc( 100% + 150px);
+      @include transform(translateY(calc( 200vh + 150px)));
       visibility: hidden;
     }
     100% {
-      top: 0;
+      //top: 0;
+      @include transform(translateY(0));
       visibility: hidden;
     }
   }

@@ -81,7 +81,7 @@
     left: 7px;
     right: 0;
     background-image: url('../images/desktop/step6/fill_spritesheet_5f_25x65_124.png');
-    animation: fill 1.5s steps(5) infinite;
+    @include animation(fill 1.5s steps(5) infinite);
     z-index: $z--1;
   }
 

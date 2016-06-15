@@ -4,11 +4,11 @@
   height: 113px;
   position: absolute;
   background-image: url('../images/desktop/foreground/meteor_spritesheet_4f_205x113_820.png');
-  animation: meteor 0.4s steps(4) infinite;
+  @include animation(meteor 0.4s steps(4) infinite);
   pointer-events: none;
 }
 
-@keyframes meteor {
+@include keyframes(meteor) {
   from { background-position: 0; }
   to { background-position: 820px; }
 }
