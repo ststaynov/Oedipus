@@ -1613,6 +1613,7 @@ svg.bg {
   position: fixed;
   pointer-events: none;
   background-image: url("../images/desktop/background/bg_watercolor.png");
+  background-color: #FBF8BF;
   background-repeat: repeat;
   background-size: cover;
   background-position-x: -300px;
@@ -2233,7 +2234,7 @@ a {
   .c-milling-mashing .comment-mashing {
     left: -25px;
     bottom: 181px; }
-  .c-milling-mashing .comment-millmash-cooling {
+  .c-milling-mashing .comment-filtering {
     right: -384px;
     bottom: 210px; }
   .c-milling-mashing .e-grain-container {
