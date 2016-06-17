@@ -28,10 +28,10 @@
   margin: auto;
   position: absolute;
   top: 77px;
-  left: 0;
-  right: 0;
+  left: 67px;
   background-repeat: no-repeat;
   background-size: contain;
+  @include transform(rotateY(40deg) rotateZ(8deg) rotateX(-31deg));
   background-image: url('../images/desktop/step1/cloud_title.png');
 }
 

@@ -2201,10 +2201,14 @@ a {
   margin: auto;
   position: absolute;
   top: 77px;
-  left: 0;
-  right: 0;
+  left: 67px;
   background-repeat: no-repeat;
   background-size: contain;
+  -webkit-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
+  -moz-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
+  -ms-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
+  -o-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
+  transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
   background-image: url("../images/desktop/step1/cloud_title.png"); }
 
 .float {
