@@ -13,13 +13,18 @@
   }
 }
 
+.title-fermenting {
+  bottom: 20px;
+  left: 206px;
+}
+
 .comment-fermenting {
-  top: -20px;
-  left: 100px;
+  top: 120px;
+  right: 0;
 }
 
 .e-window {
-  width:100px;
+  width: 100px;
   height: 100px;
   margin: auto;
   position: absolute;
@@ -81,8 +86,12 @@
 }
 
 @include keyframes(spermSwim) {
-  from { background-position: 0; }
-  to { background-position: 408px; }
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 408px;
+  }
 }
 
 .c-fermenting-foreground {

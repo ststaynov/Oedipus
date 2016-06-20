@@ -173,6 +173,12 @@ h1 {
 svg {
   shape-rendering: geometricPrecision; }
 
+.c-step-title {
+  display: inline-block;
+  position: absolute;
+  color: #fff;
+  font-size: 48px; }
+
 .header__logo {
   width: 72px;
   height: 72px;
@@ -2230,17 +2236,32 @@ a {
     width: 290px;
     top: 60px;
     left: 46px; }
+  .c-milling-mashing .title-milling {
+    width: 150px;
+    top: 112px;
+    margin: 0 auto;
+    left: 0;
+    right: 0; }
+  .c-milling-mashing .title-mashing {
+    width: 150px;
+    bottom: 63px;
+    margin: 0 auto;
+    left: 0;
+    right: 0; }
+  .c-milling-mashing .title-filtering {
+    bottom: 163px;
+    right: -260px; }
   .c-milling-mashing .comment-milling {
     top: 26px;
-    right: 121px; }
+    left: 55px; }
     .c-milling-mashing .comment-milling img {
       width: 140px; }
   .c-milling-mashing .comment-mashing {
-    left: -25px;
+    right: -25px;
     bottom: 181px; }
   .c-milling-mashing .comment-filtering {
-    right: -384px;
-    bottom: 210px; }
+    right: -341px;
+    bottom: 219px; }
   .c-milling-mashing .e-grain-container {
     width: 150px;
     height: 200px;
@@ -2553,12 +2574,18 @@ a {
   .c-boiling > svg {
     width: 375px;
     top: 115px; }
+  .c-boiling .title-boiling {
+    width: 136px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 47px; }
   .c-boiling .comment-boiling-right {
-    top: -50px;
-    right: 50px; }
+    top: 35px;
+    right: 27px; }
   .c-boiling .comment-boiling-left {
-    top: 180px;
-    left: -88px; }
+    top: 143px;
+    left: -46px; }
   .c-boiling .e-hops-bag {
     width: 114px;
     height: 92px;
@@ -2818,8 +2845,12 @@ a {
   .c-cooling-container > svg {
     width: 459px;
     top: 15px; }
+  .c-cooling-container .title-cooling {
+    top: 75px;
+    right: 160px; }
   .c-cooling-container .comment-cooling {
-    top: 120px; }
+    top: 108px;
+    left: 35px; }
 
 .c-fermenting {
   position: absolute;
@@ -2832,9 +2863,13 @@ a {
     top: 66px;
     left: 46px; }
 
+.title-fermenting {
+  bottom: 20px;
+  left: 206px; }
+
 .comment-fermenting {
-  top: -20px;
-  left: 100px; }
+  top: 120px;
+  right: 0; }
 
 .e-window {
   width: 100px;
@@ -2978,9 +3013,12 @@ a {
   pointer-events: none; }
   .c-bottling-container > svg {
     width: 478px; }
+  .c-bottling-container .title-bottling {
+    top: 122px;
+    left: 79px; }
   .c-bottling-container .comment-bottling {
-    top: -50px;
-    left: 106px; }
+    top: -10px;
+    left: 305px; }
   .c-bottling-container.exploded {
     opacity: 0;
     -webkit-transition: opacity 0.8s;

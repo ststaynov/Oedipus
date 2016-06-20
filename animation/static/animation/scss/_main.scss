@@ -23,6 +23,12 @@ svg {
   shape-rendering: geometricPrecision;
 }
 
+.c-step-title {
+  display: inline-block;
+  position: absolute;
+  color: $color-white;
+  font-size: 48px;
+}
 
 .header__logo {
   width: 72px;

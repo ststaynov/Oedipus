@@ -78,8 +78,8 @@
                 <path d="M400,265 L400,350.8 C400,369.5 388.2,389 369.1,389 L38.7,389 C19.6,389 0.1,369.5 0.1,350.8 L0.1,265" id="Shape" stroke="#FFFFFF" stroke-width="14"></path>
                 <path d="M413,352.5 C413,357.2 409.2,361 404.5,361 L404.5,361 C399.8,361 396,357.2 396,352.5 L396,318.5 C396,313.8 399.8,310 404.5,310 L404.5,310 C409.2,310 413,313.8 413,318.5 L413,352.5 L413,352.5 Z" id="Shape" fill="#FFFFFF"></path>
                 <path d="M512,352.5 C512,357.2 508.2,361 503.5,361 L503.5,361 C498.8,361 495,357.2 495,352.5 L495,318.5 C495,313.8 498.8,310 503.5,310 L503.5,310 C508.2,310 512,313.8 512,318.5 L512,352.5 L512,352.5 Z" id="Shape" fill="#FFFFFF"></path>
-                <path d="M74,417.9 C74,426.8 66.8,434 57.9,434 L47.1,434 C38.2,434 31,426.8 31,417.9 L31,398.1 C31,389.2 38.2,382 47.1,382 L57.9,382 C66.8,382 74,389.2 74,398.1 L74,417.9 L74,417.9 Z" id="Shape" fill="#FFFFFF"></path>
-                <path d="M375,417.9 C375,426.8 367.8,434 358.9,434 L348.1,434 C339.2,434 332,426.8 332,417.9 L332,398.1 C332,389.2 339.2,382 348.1,382 L358.9,382 C367.8,382 375,389.2 375,398.1 L375,417.9 L375,417.9 Z" id="Shape" fill="#FFFFFF"></path>
+{#                <path d="M74,417.9 C74,426.8 66.8,434 57.9,434 L47.1,434 C38.2,434 31,426.8 31,417.9 L31,398.1 C31,389.2 38.2,382 47.1,382 L57.9,382 C66.8,382 74,389.2 74,398.1 L74,417.9 L74,417.9 Z" id="Shape" fill="#FFFFFF"></path>#}
+{#                <path d="M375,417.9 C375,426.8 367.8,434 358.9,434 L348.1,434 C339.2,434 332,426.8 332,417.9 L332,398.1 C332,389.2 339.2,382 348.1,382 L358.9,382 C367.8,382 375,389.2 375,398.1 L375,417.9 L375,417.9 Z" id="Shape" fill="#FFFFFF"></path>#}
             </g>
         </g>
     </svg>
@@ -594,6 +594,10 @@
                         <div class="c-comment comment-milling"><img src="{% static "animation/images/desktop/comments/milling-comment.svg" %}" alt=""></div>
                         <div class="c-comment comment-filtering"><img src="{% static "animation/images/desktop/comments/filtering-comment.svg" %}" alt=""></div>
 
+                        <div class="c-step-title title-milling">MILLING</div>
+                        <div class="c-step-title title-mashing">MASHING</div>
+                        <div class="c-step-title title-filtering">FILTERING</div>
+
                         <div class="c-zigzag-one"></div>
                         <div class="c-zigzag-two"></div>
                         <div class="c-pumping"></div>
@@ -653,6 +657,8 @@
 
                         <div class="c-comment comment-boiling-left"><img src="{% static "animation/images/desktop/comments/boiling-comment.svg" %}" alt=""></div>
                         <div class="c-comment comment-boiling-right"><img src="{% static "animation/images/desktop/comments/boiling-comment-2.svg" %}" alt=""></div>
+
+                        <div class="c-step-title title-boiling">BOILING</div>
 
                         <div class="c-burst"></div>
                         <div class="c-zigzag-three"></div>
@@ -730,6 +736,9 @@
                         </svg>
                         <div class="c-frame-snow"></div>
                         <div class="c-comment comment-cooling"><img src="{% static "animation/images/desktop/comments/cooling-comment.svg" %}" alt=""></div>
+
+                        <div class="c-step-title title-cooling">COOLING</div>
+
                     </figure>
 
                     <figure class="c-fermenting">
@@ -751,6 +760,8 @@
                         </svg>
 
                         <div class="c-comment comment-fermenting"><img src="{% static "animation/images/desktop/comments/fermenting-comment.svg" %}" alt=""></div>
+
+                        <div class="c-step-title title-fermenting">FERMENTING</div>
 
                         <div class="e-window">
                             <div class="window-relative-container">
@@ -781,6 +792,8 @@
                         </svg>
 
                         <div class="c-comment comment-bottling"><img src="{% static "animation/images/desktop/comments/bottling-comment.svg" %}" alt=""></div>
+
+                        <div class="c-step-title title-bottling">BOTTLING</div>
 
                         <div class="e-fill"></div>
 

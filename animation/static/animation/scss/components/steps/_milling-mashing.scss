@@ -12,9 +12,28 @@
     left: 46px;
   }
 
+  .title-milling {
+    width: 150px;
+    top: 112px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+
+  .title-mashing {
+    width: 150px;
+    bottom: 63px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  .title-filtering {
+    bottom: 163px;
+    right: -260px;
+  }
   .comment-milling {
     top: 26px;
-    right: 121px;
+    left: 55px;
 
     img {
       width: 140px;
@@ -22,13 +41,13 @@
   }
 
   .comment-mashing {
-    left: -25px;
+    right: -25px;
     bottom: 181px;
   }
 
   .comment-filtering {
-    right: -384px;
-    bottom: 210px;
+    right: -341px;
+    bottom: 219px;
   }
 
   .e-grain-container {
