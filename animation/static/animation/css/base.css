@@ -118,10 +118,8 @@ body {
         -moz-animation: initial !important;
         animation: initial !important; }
       body .c-cloud-bg-sprite {
-        background-image: url("../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png") !important;
-        -webkit-animation: none !important;
-        -moz-animation: none !important;
-        animation: none !important; }
+        display: inline-block !important;
+        background-image: url("../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png"); }
       body div.e-film-pipes {
         width: 5249px !important;
         height: 300px !important;
@@ -172,6 +170,9 @@ h1 {
 
 svg {
   shape-rendering: geometricPrecision; }
+
+#canvas-action-cloud-animation {
+  position: absolute; }
 
 .c-step-title {
   display: inline-block;
@@ -228,15 +229,8 @@ svg {
 .cell {
   will-change: transform; }
 
-.c-cloud-bg-sprite,
-.c-magic-cloud {
-  will-change: background-position; }
-
 .c-action {
   will-change: transform,left,top; }
-
-.c-plane {
-  will-change: left, background-position; }
 
 .c-brewing-background-inner {
   position: absolute;
@@ -449,29 +443,7 @@ svg.bg {
   right: 0;
   left: 0;
   bottom: 0;
-  visibility: visible;
-  background-image: url("../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png");
-  -webkit-animation: puff 1.3s steps(75) infinite;
-  -moz-animation: puff 1.3s steps(75) infinite;
-  animation: puff 1.3s steps(75) infinite; }
-
-@-webkit-keyframes puff {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 13875px; } }
-
-@-moz-keyframes puff {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 13875px; } }
-
-@keyframes puff {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 13875px; } }
+  visibility: visible; }
 
 .c-action-container .c-action {
   position: absolute;
@@ -563,24 +535,6 @@ svg.bg {
       width: 90px; } }
 
 /* Magic Cloud START */
-@-webkit-keyframes magicPuff {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 15000px; } }
-
-@-moz-keyframes magicPuff {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 15000px; } }
-
-@keyframes magicPuff {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 15000px; } }
-
 @-webkit-keyframes Floating {
   from {
     -webkit-transform: translate(0, 0px); }
@@ -1481,8 +1435,8 @@ svg.bg {
 
 .replay {
   position: absolute;
-  left: 145px;
-  bottom: 0;
+  right: -46px;
+  bottom: 100px;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   transition: all 1s;
@@ -1737,30 +1691,11 @@ svg.bg {
   position: fixed;
   top: 84vh;
   left: calc(0% - 250px);
-  background-image: url("../images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png");
-  -webkit-animation: plane 0.8s steps(24) infinite, fly 15s linear infinite;
-  -moz-animation: plane 0.8s steps(24) infinite, fly 15s linear infinite;
-  animation: plane 0.8s steps(24) infinite, fly 15s linear infinite;
+  -webkit-animation: fly 15s linear infinite;
+  -moz-animation: fly 15s linear infinite;
+  animation: fly 15s linear infinite;
   pointer-events: none;
   z-index: 5; }
-
-@-webkit-keyframes plane {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 5880px; } }
-
-@-moz-keyframes plane {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 5880px; } }
-
-@keyframes plane {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 5880px; } }
 
 @-webkit-keyframes fly {
   0% {
@@ -2184,12 +2119,7 @@ a {
   display: block;
   width: 1000px;
   height: 500px;
-  pointer-events: none;
-  background-image: url("../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png");
-  background-position: left center;
-  -webkit-animation: magicPuff 1.2s steps(15) infinite;
-  -moz-animation: magicPuff 1.2s steps(15) infinite;
-  animation: magicPuff 1.2s steps(15) infinite; }
+  pointer-events: none; }
   .c-magic-cloud .e-bottle-cap {
     width: 459px;
     height: 356px;
@@ -2202,12 +2132,12 @@ a {
     background-image: url("../images/desktop/step1/cap.svg"); }
 
 .e-magic-title {
-  width: 292px;
-  height: 135px;
+  width: 673px;
+  height: 402px;
   margin: auto;
   position: absolute;
-  top: 77px;
-  left: 67px;
+  top: -25px;
+  left: -146px;
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
@@ -2215,7 +2145,7 @@ a {
   -ms-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
   -o-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
   transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
-  background-image: url("../images/desktop/step1/cloud_title.png"); }
+  background-image: url("../images/desktop/step1/cloud_title.svg"); }
 
 .float {
   -webkit-animation: Floating 3s infinite ease-in-out;
@@ -2252,13 +2182,13 @@ a {
     bottom: 163px;
     right: -260px; }
   .c-milling-mashing .comment-milling {
-    top: 26px;
-    left: 55px; }
+    top: 160px;
+    right: 30px; }
     .c-milling-mashing .comment-milling img {
       width: 140px; }
   .c-milling-mashing .comment-mashing {
-    right: -25px;
-    bottom: 181px; }
+    left: -37px;
+    bottom: 227px; }
   .c-milling-mashing .comment-filtering {
     right: -341px;
     bottom: 219px; }
@@ -3024,78 +2954,6 @@ a {
     -webkit-transition: opacity 0.8s;
     -moz-transition: opacity 0.8s;
     transition: opacity 0.8s; }
-  .c-bottling-container .c-bottle-flumpjes {
-    width: 100%;
-    height: 100%; }
-    .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje {
-      width: 60px;
-      height: 160px;
-      position: absolute;
-      background-size: 100%;
-      background-repeat: no-repeat; }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(1) {
-        top: 116px;
-        left: 137px;
-        -webkit-transform: rotate(56deg);
-        -moz-transform: rotate(56deg);
-        -ms-transform: rotate(56deg);
-        -o-transform: rotate(56deg);
-        transform: rotate(56deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje1.svg"); }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(2) {
-        top: 60px;
-        left: 20px;
-        -webkit-transform: rotate(112deg);
-        -moz-transform: rotate(112deg);
-        -ms-transform: rotate(112deg);
-        -o-transform: rotate(112deg);
-        transform: rotate(112deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje2.svg"); }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(3) {
-        top: 185px;
-        left: 24px;
-        -webkit-transform: rotate(148deg);
-        -moz-transform: rotate(148deg);
-        -ms-transform: rotate(148deg);
-        -o-transform: rotate(148deg);
-        transform: rotate(148deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje3.svg"); }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(4) {
-        top: 123px;
-        right: 51px;
-        -webkit-transform: rotate(184deg);
-        -moz-transform: rotate(184deg);
-        -ms-transform: rotate(184deg);
-        -o-transform: rotate(184deg);
-        transform: rotate(184deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje4.svg"); }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(5) {
-        top: 266px;
-        right: 93px;
-        -webkit-transform: rotate(220deg);
-        -moz-transform: rotate(220deg);
-        -ms-transform: rotate(220deg);
-        -o-transform: rotate(220deg);
-        transform: rotate(220deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje5.svg"); }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(6) {
-        top: 226px;
-        right: 21px;
-        -webkit-transform: rotate(256deg);
-        -moz-transform: rotate(256deg);
-        -ms-transform: rotate(256deg);
-        -o-transform: rotate(256deg);
-        transform: rotate(256deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje6.svg"); }
-      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje:nth-of-type(7) {
-        top: 326px;
-        right: 61px;
-        -webkit-transform: rotate(256deg);
-        -moz-transform: rotate(256deg);
-        -ms-transform: rotate(256deg);
-        -o-transform: rotate(256deg);
-        transform: rotate(256deg);
-        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_flumpje7.svg"); }
   .c-bottling-container .e-fill {
     width: 25px;
     height: 65px;

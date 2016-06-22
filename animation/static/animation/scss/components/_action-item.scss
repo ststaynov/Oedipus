@@ -19,14 +19,12 @@
     left: 0;
     bottom: 0;
     visibility: visible;
-    background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png');
-    @include animation(puff 1.3s steps(75) infinite);
   }
 
-  @include keyframes(puff) {
-    from { background-position: 0; }
-    to { background-position: 13875px; }
-  }
+  //@include keyframes(puff) {
+  //  from { background-position: 0; }
+  //  to { background-position: 13875px; }
+  //}
 
 
   .c-action {

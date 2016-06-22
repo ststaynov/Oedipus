@@ -46,8 +46,8 @@
 
 .replay {
   position: absolute;
-  left: 145px;
-  bottom: 0;
+  right: -46px;
+  bottom: 100px;
   @include transition(all 1s);
   cursor: pointer;
 

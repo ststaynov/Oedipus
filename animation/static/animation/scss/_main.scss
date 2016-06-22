@@ -23,6 +23,10 @@ svg {
   shape-rendering: geometricPrecision;
 }
 
+#canvas-action-cloud-animation {
+  position: absolute;
+}
+
 .c-step-title {
   display: inline-block;
   position: absolute;
@@ -84,15 +88,8 @@ svg {
 .cell {
   will-change: transform;
 }
-.c-cloud-bg-sprite,
-.c-magic-cloud {
-  will-change: background-position;
-}
 .c-action {
   will-change: transform,left,top;
-}
-.c-plane {
-  will-change: left, background-position;
 }
 // will changes end
 .c-brewing-background-inner {

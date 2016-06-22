@@ -159,8 +159,8 @@ body {
     }
 
     .c-cloud-bg-sprite {
-      background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png') !important;
-      @include animation(none !important);
+      display: inline-block !important;
+      background-image: url('../images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png');
     }
 
     /* FIXING THE PIPE START */

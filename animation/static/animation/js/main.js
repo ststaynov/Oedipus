@@ -70,6 +70,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 /* set the transform value with tweenMax at beginning & transform all initial components to their places
  Have in mind that 'x:5' transforms into translate3d(5px, 0px, 0px) which is awesome and gets CPU boost*/
 
+
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //values which suit mobile screens
@@ -92,7 +93,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
-TweenMax.set($nipple, {x: 4650, y: 600});
+TweenMax.set($nipple, {x: 7650, y: 600});
 TweenMax.set($sun, {x: 850, y: 0});
 TweenMax.set($meteor, {x: 2000, y: 100});
 // steps
@@ -180,7 +181,7 @@ function scrolling(e) {
     }
 
     /* Keep track of the scrolling events */
-    if (e.originalEvent.wheelDelta / 120 > 0 || e.originalEvent.detail / 3) {
+    if (e.originalEvent.wheelDelta / 120 > 0 || e.originalEvent.detail < 0) {
         moveBackground(f = "forward");
     }
     else {
@@ -648,7 +649,7 @@ function getCoolingTimeline() {
 }
 
 function getBoilingTimeline() {
-    boilingTl.to($thermometerNeedle, 2, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "boil")
+    boilingTl.to($thermometerNeedle, .8, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "boil")
              .staggerFromTo($smoke, 1, {scale: 0}, {scale: 1}, 0.1, "boil")
              .staggerFromTo($smoke, 1, {opacity: 0.8, y: 40}, {opacity: 0.3, y: -50, repeat: -1, repeatDelay: -2, ease: Circ.easeOut}, 0.1, "boil");
 }

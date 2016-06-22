@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^home/', 'animation.views.home'),
     url(r'^quotes/', 'animation.views.quotes'),
     url(r'^test/', 'animation.views.test'),
+    url(r'^test2/', 'animation.views.test2'),
     url(r'^admin/', admin.site.urls),
 ]

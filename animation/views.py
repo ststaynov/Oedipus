@@ -14,3 +14,5 @@ def quotes(request):
 
 def test(request):
     return render_to_response('animation/test.html', {})
+def test2(request):
+    return render_to_response('animation/test2.html', {})

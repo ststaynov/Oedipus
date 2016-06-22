@@ -5,16 +5,16 @@
   position: fixed;
   top: 84vh;
   left: calc(0% - 250px);
-  background-image: url('../images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png');
-  @include animation(plane 0.8s steps(24) infinite, fly 15s linear infinite);
+  //background-image: url('../images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png');
+  @include animation(fly 15s linear infinite);
   pointer-events: none;
   z-index: $z-5;
 }
 
-@include keyframes(plane) {
-  from { background-position: 0; }
-  to { background-position: 5880px; }
-}
+//@include keyframes(plane) {
+//  from { background-position: 0; }
+//  to { background-position: 5880px; }
+//}
 
 @include keyframes(fly) {
   0% {

@@ -1,35 +1,4 @@
 
-{% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <link rel="stylesheet" href="{% static "animation/css/base.css" %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script> {# cdn for timeLineMax tweenMax cssPlugin etc.#}
-{#    <script src="{% static "animation/js/canvas.js" %}" defer></script>#}
-</head>
-<body style='overflow:visible;width:auto; text-align: center;'>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-magic-cloud-animation"></canvas>
-    <canvas id="canvas-action-cloud-animation" style="position: relative;display: block;margin: auto;"></canvas>
-    <canvas id="canvas-plane-animation" style="position: relative;display: block;margin: auto;"></canvas>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-    <script>
-
 // Copyright 2013 William Malone (www.williammalone.com)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -73,7 +42,8 @@
             clearTimeout(id);
         };
 }());
-initAllCanvasItems();
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {} 
+else initAllCanvasItems();
 
 function initAllCanvasItems () {
 
@@ -95,9 +65,9 @@ function initAllCanvasItems () {
         plane.update();
 
         magicCloud.render();
-        plane.render();
         actionCloud.render();
-    }
+        plane.render();
+	}
 
 	function sprite (options) {
 
@@ -155,7 +125,7 @@ function initAllCanvasItems () {
 	canvasMagicCloud = document.getElementById("canvas-magic-cloud-animation");
 	canvasMagicCloud.width = 1000;
 	canvasMagicCloud.height = 500;
-
+    
     canvasActionCloud = document.getElementById("canvas-action-cloud-animation");
     canvasActionCloud.width = 173;
 	canvasActionCloud.height = 135;
@@ -194,7 +164,7 @@ function initAllCanvasItems () {
 		height: 63,
 		image: planeImage,
 		numberOfFrames: 24,
-		ticksPerFrame: 2
+		ticksPerFrame: 1.5
 	});
 
 	// Load sprite sheet
@@ -206,7 +176,3 @@ function initAllCanvasItems () {
     planeImage.src = "/static/animation/images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png";
 }
 
-
-    </script>
-</body>
-</html>

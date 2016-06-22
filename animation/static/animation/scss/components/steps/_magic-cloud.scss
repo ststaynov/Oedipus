@@ -5,9 +5,9 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  background-image: url('../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png');
-  background-position: left center;
-  @include animation(magicPuff 1.2s steps(15) infinite);
+  //background-image: url('../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png');
+  //background-position: left center;
+  //@include animation(magicPuff 1.2s steps(15) infinite);
 
   .e-bottle-cap {
     width: 459px;
@@ -23,16 +23,16 @@
 }
 
 .e-magic-title {
-  width: 292px;
-  height: 135px;
+  width: 673px;
+  height: 402px;
   margin: auto;
   position: absolute;
-  top: 77px;
-  left: 67px;
+  top: -25px;
+  left: -146px;
   background-repeat: no-repeat;
   background-size: contain;
   @include transform(rotateY(40deg) rotateZ(8deg) rotateX(-31deg));
-  background-image: url('../images/desktop/step1/cloud_title.png');
+  background-image: url('../images/desktop/step1/cloud_title.svg');
 }
 
 .float {

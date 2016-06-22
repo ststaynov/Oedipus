@@ -1,9 +1,9 @@
 
 /* Magic Cloud START */
-@include keyframes(magicPuff) {
-  from { background-position: 0; }
-  to { background-position: 15000px; }
-}
+//@include keyframes(magicPuff) {
+//  from { background-position: 0; }
+//  to { background-position: 15000px; }
+//}
 
 @include keyframes(Floating) {
     from {@include transform(translate(0, 0px));}
