@@ -23,7 +23,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     loopBackwardAllowed = false,
     loopForwardAllowed = false,
     positionsArr = [],
-    $thermometerNeedle = $('#needle'),
+    $thermometerNeedle = $('path#needle'),
     $beerWaves = $('.beer-wave'),
     $fermentingWindow = $('.e-window'),
     bottlingContainerMoveFix = 0,
@@ -95,7 +95,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 TweenMax.set(fgBg, {x: positionsArr[0]});
 TweenMax.set($nipple, {x: 7650, y: 600});
 TweenMax.set($sun, {x: 850, y: 0});
-TweenMax.set($meteor, {x: 2000, y: 100});
+TweenMax.set($meteor, {x: 7800, y: 200});
 // steps
 
 TweenMax.set($magicCloud, {x: positionsArr[5]});
@@ -126,16 +126,18 @@ cloudBoilingTl.fromTo($warmBeamUp, 0.8, {opacity: 1, y: 20}, {opacity: 0, y: -10
 
 function initFermentingItemsEffects() {
     var $note = $('.e-note'),
+        $notes = $('.e-notes'),
         $drum = $('.e-drum'),
         $drink = $('.e-drink'),
         $guitar = $('.e-guitar'),
         $hopsBag = $('.e-hops-bag'); // nasty but I am in a hurry
 
         fermentingTl.to($note, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                    .to($drum, 2, {rotation: 10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                    .to($drink, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                    .to($guitar, 1, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
-                    .to($hopsBag, 3, {rotation: -10, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
+                    .to($notes, 1.8, {transformOrigin: "50% 0%", rotation: -25, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($drum, 1.4, {rotation: 20, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($drink, 1.5, {rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($guitar, 1, {rotation: -20, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment")
+                    .to($hopsBag, 3, {rotation: -15, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "ferment");
 
 
     // Change the colors of the window
@@ -649,7 +651,7 @@ function getCoolingTimeline() {
 }
 
 function getBoilingTimeline() {
-    boilingTl.to($thermometerNeedle, .8, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "boil")
+    boilingTl.to($thermometerNeedle, .6, {transformOrigin: "50% 80%", rotation: -30, repeat: -1, yoyo: true, ease: Elastic.easeOut}, "boil")
              .staggerFromTo($smoke, 1, {scale: 0}, {scale: 1}, 0.1, "boil")
              .staggerFromTo($smoke, 1, {opacity: 0.8, y: 40}, {opacity: 0.3, y: -50, repeat: -1, repeatDelay: -2, ease: Circ.easeOut}, 0.1, "boil");
 }

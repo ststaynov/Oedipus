@@ -19,8 +19,8 @@
 }
 
 .comment-fermenting {
-  top: 120px;
-  right: 0;
+  top: 45px;
+  right: 16px;
 }
 
 .e-window {
@@ -97,19 +97,32 @@
 .c-fermenting-foreground {
 
   .e-notes {
-    width: 85px;
+    width: 55px;
     height: 110px;
-    right: 50px;
-    top: 50px;
-    background-image: url('../images/desktop/step5/notes.svg');
+    left: 40px;
+    bottom: 150px;
+    background-image: url('../images/desktop/step5/note-first.svg');
     @include fermenting-fg-item();
+  }
+
+  .e-note {
+    width: 50px;
+    height: 110px;
+    right: -50px;
+    bottom: 180px;
+    background-image: url('../images/desktop/step5/note-second.svg');
+    @include fermenting-fg-item();
+
+    &:nth-of-type(2) {
+      bottom: 90px;
+    }
   }
 
   .e-drum {
     width: 77px;
     height: 92px;
-    left: 10px;
-    bottom: 80px;
+    left: 65px;
+    bottom: 70px;
     background-image: url('../images/desktop/step5/drum.svg');
     @include fermenting-fg-item();
   }
@@ -117,7 +130,7 @@
   .e-guitar {
     width: 52px;
     height: 159px;
-    right: 13px;
+    right: 30px;
     bottom: 135px;
     background-image: url('../images/desktop/step5/guitar.svg');
     @include fermenting-fg-item();
@@ -143,7 +156,7 @@
   .e-drink {
     width: 72px;
     height: 111px;
-    left: 25px;
+    left: 165px;
     bottom: 220px;
     background-image: url('../images/desktop/step5/drink.svg');
     @include fermenting-fg-item();
