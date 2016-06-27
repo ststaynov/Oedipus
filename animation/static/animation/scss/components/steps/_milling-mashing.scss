@@ -269,20 +269,6 @@
       @include animation(wave-front .7s infinite linear);
     }
   }
-  .e-mashine-puff {
-    width: 45px;
-    height: 37px;
-    position: absolute;
-    left: 114px;
-    bottom: 152px;
-    background: url('../images/desktop/step2/mash_puff.svg');
-
-    &.right {
-      left: auto;
-      right: 114px;
-      bottom: 95px;
-    }
-  }
 
   .e-mashing-items-container {
     width: 100%;
@@ -323,7 +309,7 @@
     height: 161px;
     position: absolute;
     top: 180px;
-    left: 392px;
+    right: 393px;
     background-image: url('../images/desktop/step2/pump_spritesheet_14f_122x161_1708_optimised.png');
     @include animation(pumping 1.4s steps(14) infinite);
   }
