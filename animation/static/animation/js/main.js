@@ -169,7 +169,7 @@ function shakeAnimation(element){
 
 /* binds & hanlers */
 /* keep the scroll execution limited to 180 miliseconds with $.throttle ^ keeps the events limited to max ~20 at a time */
-$('body').bind('DOMMouseScroll mousewheel', $.throttle(180, scrolling)); // maybe use debounce as well here for the touchpad scrolling
+$('body').bind('DOMMouseScroll mousewheel', $.throttle(200, scrolling)); // maybe use debounce as well here for the touchpad scrolling
 $('body').bind('keydown', $.throttle(280, arrowBtnMove));
 
 
@@ -445,12 +445,18 @@ function changeScrollButtonClass() {
 
 $btnReplay.click(function (e) {
     e.preventDefault();
-    replayFilm();
+    $bottling.addClass('exploded');
+    $bottling.removeClass('fixed');
+    setTimeout(function(){
+            replayFilm();
+    }, 200);
 });
 
 function replayFilm() {
     loopBackwardAllowed =  true;
     loopForwardAllowed = true;
+    moveBackground();
+    moveBackground();
     moveBackground();
     moveBackground();
 }
@@ -593,7 +599,11 @@ function checkForActionItemEffects(hasClass) {
             break;
         case "milled-mashed":
             mainActionItemtl.clear();
-            if(!boilingTimelineRunning) getBoilingTimeline();
+            if(!boilingTimelineRunning) {
+                setTimeout(function(){
+                    getBoilingTimeline();
+                }, 200);
+            }
             TweenMax.to($actionItem, 0.8, {top: '17vh', left: '70vw'});
             break;
         case "boiling":
@@ -611,7 +621,11 @@ function checkForActionItemEffects(hasClass) {
             bottlingTl.clear();
             clearBottlingTimelineProps();
             checkSnow(true);
-            if(!boilingTimelineRunning) getBoilingTimeline();
+            if(!boilingTimelineRunning) {
+                 setTimeout(function(){
+                    getBoilingTimeline();
+                }, 200);
+            }
             TweenMax.to($actionItem, 0.8, {top: '4vh', left: '80vw', onComplete:setCloudLeft});
             function setCloudLeft(){
                 if ($actionItem.hasClass('left')) {}
@@ -630,7 +644,9 @@ function checkForActionItemEffects(hasClass) {
             cloudCoolingTlLeft.clear();
             boilingTl.kill();
             boilingTimelineRunning = false;
-            getBottlingTimeline();
+            setTimeout(function(){
+                getBottlingTimeline();
+            }, 200);
             checkSnow(false);
             mainActionItemtl.add(getFermentingTimeline());
             break;

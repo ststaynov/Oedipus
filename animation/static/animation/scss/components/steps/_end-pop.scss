@@ -6,3 +6,26 @@
   height: 500px;
   pointer-events: none;
 }
+
+.e-pop-face {
+  width: 200px;
+  height: 168px;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.e-beerFace {
+  top: 20px;
+  background-image: url('../images/desktop/step7/pop_beerFace.svg');
+}
+.e-hmmFace {
+  top: 50px;
+  right: 10px;
+  background-image: url('../images/desktop/step7/pop_hmmFace.svg');
+}
+.e-musicFace {
+  top: 200px;
+  left: 50px;
+  background-image: url('../images/desktop/step7/pop_musicFace.svg');
+}

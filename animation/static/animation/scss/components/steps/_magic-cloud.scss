@@ -5,34 +5,20 @@
   width: 1000px;
   height: 500px;
   pointer-events: none;
-  //background-image: url('../images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png');
-  //background-position: left center;
-  //@include animation(magicPuff 1.2s steps(15) infinite);
 
   .e-bottle-cap {
-    width: 459px;
-    height: 356px;
+    width: 830px;
+    height: 420px;
     position: absolute;
     margin: auto;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('../images/desktop/step1/cap.svg');
+    background-image: url('../images/desktop/step1/cloud_cap.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
   }
-}
-
-.e-magic-title {
-  width: 673px;
-  height: 402px;
-  margin: auto;
-  position: absolute;
-  top: -25px;
-  left: -146px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  @include transform(rotateY(40deg) rotateZ(8deg) rotateX(-31deg));
-  background-image: url('../images/desktop/step1/cloud_title.svg');
 }
 
 .float {

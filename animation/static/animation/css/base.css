@@ -178,7 +178,8 @@ svg {
   display: inline-block;
   position: absolute;
   color: #fff;
-  font-size: 48px; }
+  font-size: 48px;
+  letter-spacing: 5px; }
 
 .header__logo {
   width: 72px;
@@ -282,7 +283,7 @@ svg {
     background-size: 100%;
     background-position: left center;
     background-repeat: no-repeat;
-    z-index: 2; }
+    z-index: 0; }
 
 .c-brewing-background-inner-top {
   position: absolute;
@@ -435,104 +436,103 @@ svg.bg {
       - fermenting (cloud passes behing fermenting vessel, positions itself at teh top right and turns into a clock)
       -bottling (stops at previous step and stays there)
  */
-.c-action-container .c-cloud-bg-sprite {
-  position: absolute;
-  width: 175px;
-  height: 135px;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  visibility: visible; }
-
-.c-action-container .c-action {
-  position: absolute;
-  top: 30vh;
-  left: 10vw;
-  margin-left: -50px;
-  display: inline-block;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: visibility 0s, opacity 0.5s linear;
-  -moz-transition: visibility 0s, opacity 0.5s linear;
-  transition: visibility 0s, opacity 0.5s linear; }
-  .c-action-container .c-action.initial {
-    opacity: 1; }
-    .c-action-container .c-action.initial svg#c-cloud-travel {
-      visibility: visible;
-      top: 18px;
-      right: 4px; }
-    .c-action-container .c-action.initial .c-cloud-bg-sprite {
-      -webkit-transform: rotate(15deg);
-      -moz-transform: rotate(15deg);
-      -ms-transform: rotate(15deg);
-      -o-transform: rotate(15deg);
-      transform: rotate(15deg); }
-  .c-action-container .c-action.milled-mashed {
-    opacity: 1; }
-    .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
-      visibility: visible;
-      top: -12px;
-      right: -11px; }
-    .c-action-container .c-action.milled-mashed .c-cloud-bg-sprite {
-      -webkit-transform: rotate(-20deg);
-      -moz-transform: rotate(-20deg);
-      -ms-transform: rotate(-20deg);
-      -o-transform: rotate(-20deg);
-      transform: rotate(-20deg); }
-  .c-action-container .c-action.boiling {
-    opacity: 1; }
-    .c-action-container .c-action.boiling svg#c-cloud-boil {
-      visibility: visible;
-      top: -19px;
-      left: 25px; }
-  .c-action-container .c-action.cooling {
-    opacity: 1; }
-    .c-action-container .c-action.cooling.right {
-      background-size: contain;
-      background-repeat: no-repeat; }
-      .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
-        visibility: visible;
-        top: 26px;
-        left: 29px; }
-    .c-action-container .c-action.cooling.left {
-      -webkit-transform: translate(-100, -100);
-      -moz-transform: translate(-100, -100);
-      -ms-transform: translate(-100, -100);
-      -o-transform: translate(-100, -100);
-      transform: translate(-100, -100);
-      background-size: contain;
-      background-repeat: no-repeat; }
-      .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
-        visibility: visible;
-        top: 18px;
-        left: -10px; }
-  .c-action-container .c-action.fermenting {
-    opacity: 1; }
-    .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
-      visibility: visible;
-      top: -27px;
-      left: 30px; }
-  .c-action-container .c-action.bottling {
+.c-action-container {
+  z-index: 10; }
+  .c-action-container .c-cloud-bg-sprite {
+    position: absolute;
+    width: 175px;
+    height: 135px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    visibility: visible; }
+  .c-action-container .c-action {
+    position: absolute;
+    top: 30vh;
+    left: 10vw;
+    margin-left: -50px;
+    display: inline-block;
+    pointer-events: none;
+    visibility: hidden;
     opacity: 0;
     -webkit-transition: visibility 0s, opacity 0.5s linear;
     -moz-transition: visibility 0s, opacity 0.5s linear;
     transition: visibility 0s, opacity 0.5s linear; }
-
-.c-action-container .c-cloud {
-  position: relative;
-  width: 150px;
-  height: 100px; }
-  .c-action-container .c-cloud svg {
-    position: absolute;
-    overflow: visible; }
-
-@media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .c-action-container .c-action {
-    top: 10vh; }
-    .c-action-container .c-action svg {
-      width: 90px; } }
+    .c-action-container .c-action.initial {
+      opacity: 1; }
+      .c-action-container .c-action.initial svg#c-cloud-travel {
+        visibility: visible;
+        top: 18px;
+        right: 4px; }
+      .c-action-container .c-action.initial .c-cloud-bg-sprite {
+        -webkit-transform: rotate(15deg);
+        -moz-transform: rotate(15deg);
+        -ms-transform: rotate(15deg);
+        -o-transform: rotate(15deg);
+        transform: rotate(15deg); }
+    .c-action-container .c-action.milled-mashed {
+      opacity: 1; }
+      .c-action-container .c-action.milled-mashed svg#c-cloud-millmash {
+        visibility: visible;
+        top: -12px;
+        right: -11px; }
+      .c-action-container .c-action.milled-mashed .c-cloud-bg-sprite {
+        -webkit-transform: rotate(-20deg);
+        -moz-transform: rotate(-20deg);
+        -ms-transform: rotate(-20deg);
+        -o-transform: rotate(-20deg);
+        transform: rotate(-20deg); }
+    .c-action-container .c-action.boiling {
+      opacity: 1; }
+      .c-action-container .c-action.boiling svg#c-cloud-boil {
+        visibility: visible;
+        top: -19px;
+        left: 25px; }
+    .c-action-container .c-action.cooling {
+      opacity: 1; }
+      .c-action-container .c-action.cooling.right {
+        background-size: contain;
+        background-repeat: no-repeat; }
+        .c-action-container .c-action.cooling.right svg#c-cloud-cool-right {
+          visibility: visible;
+          top: 26px;
+          left: 29px; }
+      .c-action-container .c-action.cooling.left {
+        -webkit-transform: translate(-100, -100);
+        -moz-transform: translate(-100, -100);
+        -ms-transform: translate(-100, -100);
+        -o-transform: translate(-100, -100);
+        transform: translate(-100, -100);
+        background-size: contain;
+        background-repeat: no-repeat; }
+        .c-action-container .c-action.cooling.left svg#c-cloud-cool-left {
+          visibility: visible;
+          top: 18px;
+          left: -10px; }
+    .c-action-container .c-action.fermenting {
+      opacity: 1; }
+      .c-action-container .c-action.fermenting svg#c-cloud-fermenting {
+        visibility: visible;
+        top: -27px;
+        left: 30px; }
+    .c-action-container .c-action.bottling {
+      opacity: 0;
+      -webkit-transition: visibility 0s, opacity 0.5s linear;
+      -moz-transition: visibility 0s, opacity 0.5s linear;
+      transition: visibility 0s, opacity 0.5s linear; }
+  .c-action-container .c-cloud {
+    position: relative;
+    width: 150px;
+    height: 100px; }
+    .c-action-container .c-cloud svg {
+      position: absolute;
+      overflow: visible; }
+  @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .c-action-container .c-action {
+      top: 10vh; }
+      .c-action-container .c-action svg {
+        width: 90px; } }
 
 /* Magic Cloud START */
 @-webkit-keyframes Floating {
@@ -1317,19 +1317,19 @@ svg.bg {
   from {
     background-position: 0; }
   to {
-    background-position: 124px; } }
+    background-position: 203px; } }
 
 @-moz-keyframes fill {
   from {
     background-position: 0; }
   to {
-    background-position: 124px; } }
+    background-position: 203px; } }
 
 @keyframes fill {
   from {
     background-position: 0; }
   to {
-    background-position: 124px; } }
+    background-position: 203px; } }
 
 /* Bottling END */
 /* End-Pop START */
@@ -1377,7 +1377,8 @@ svg.bg {
   -moz-transition: all 1s;
   transition: all 1s; }
   .c-auto-scroll-button.scrolling {
-    background-color: #f9df00;
+    background-color: rgba(255, 131, 56, 0.5);
+    border-radius: 10px;
     -webkit-transform: scale(1.2, 1.2);
     -moz-transform: scale(1.2, 1.2);
     -ms-transform: scale(1.2, 1.2);
@@ -2121,31 +2122,17 @@ a {
   height: 500px;
   pointer-events: none; }
   .c-magic-cloud .e-bottle-cap {
-    width: 459px;
-    height: 356px;
+    width: 830px;
+    height: 420px;
     position: absolute;
     margin: auto;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url("../images/desktop/step1/cap.svg"); }
-
-.e-magic-title {
-  width: 673px;
-  height: 402px;
-  margin: auto;
-  position: absolute;
-  top: -25px;
-  left: -146px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  -webkit-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
-  -moz-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
-  -ms-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
-  -o-transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
-  transform: rotateY(40deg) rotateZ(8deg) rotateX(-31deg);
-  background-image: url("../images/desktop/step1/cloud_title.svg"); }
+    background-image: url("../images/desktop/step1/cloud_cap.svg");
+    background-size: contain;
+    background-repeat: no-repeat; }
 
 .float {
   -webkit-animation: Floating 3s infinite ease-in-out;
@@ -2167,13 +2154,13 @@ a {
     top: 60px;
     left: 46px; }
   .c-milling-mashing .title-milling {
-    width: 150px;
+    width: 178px;
     top: 112px;
     margin: 0 auto;
     left: 0;
     right: 0; }
   .c-milling-mashing .title-mashing {
-    width: 150px;
+    width: 196px;
     bottom: 63px;
     margin: 0 auto;
     left: 0;
@@ -2505,7 +2492,7 @@ a {
     width: 375px;
     top: 115px; }
   .c-boiling .title-boiling {
-    width: 136px;
+    width: 166px;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -2517,7 +2504,7 @@ a {
     top: 143px;
     left: -46px; }
   .c-boiling .e-hops-bag {
-    width: 114px;
+    width: 120px;
     height: 92px;
     position: absolute;
     top: 0;
@@ -2795,7 +2782,7 @@ a {
 
 .title-fermenting {
   bottom: 20px;
-  left: 206px; }
+  left: 193px; }
 
 .comment-fermenting {
   top: 45px;
@@ -2853,27 +2840,9 @@ a {
       -ms-transform: rotate(90deg);
       -o-transform: rotate(90deg);
       transform: rotate(90deg);
-      -webkit-animation: swimLeft 2.5s linear infinite 4s;
-      -moz-animation: swimLeft 2.5s linear infinite 4s;
-      animation: swimLeft 2.5s linear infinite 4s; }
-
-@-webkit-keyframes spermSwim {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 408px; } }
-
-@-moz-keyframes spermSwim {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 408px; } }
-
-@keyframes spermSwim {
-  from {
-    background-position: 0; }
-  to {
-    background-position: 408px; } }
+      -webkit-animation: swimLeft 2.5s linear infinite 4s, spermSwim 0.4s steps(6) infinite;
+      -moz-animation: swimLeft 2.5s linear infinite 4s, spermSwim 0.4s steps(6) infinite;
+      animation: swimLeft 2.5s linear infinite 4s, spermSwim 0.4s steps(6) infinite; }
 
 .c-fermenting-foreground .e-notes {
   width: 55px;
@@ -2957,7 +2926,7 @@ a {
     width: 478px; }
   .c-bottling-container .title-bottling {
     top: 122px;
-    left: 79px; }
+    left: 50px; }
   .c-bottling-container .comment-bottling {
     top: -10px;
     left: 305px; }
@@ -2966,18 +2935,40 @@ a {
     -webkit-transition: opacity 0.8s;
     -moz-transition: opacity 0.8s;
     transition: opacity 0.8s; }
+  .c-bottling-container .c-bottle-flumpjes {
+    width: 100%;
+    height: 100%; }
+    .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje {
+      width: 200px;
+      height: 210px;
+      position: absolute;
+      top: 250px;
+      left: 76px;
+      background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_fluimpje_left.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      -webkit-animation: floatLeft 2.5s linear infinite 4s;
+      -moz-animation: floatLeft 2.5s linear infinite 4s;
+      animation: floatLeft 2.5s linear infinite 4s; }
+      .c-bottling-container .c-bottle-flumpjes .e-bottle-flumpje.right {
+        left: auto;
+        right: 65px;
+        background-image: url("../images/desktop/step6/bottle_flumpjes/bottle_fluimpje_right.svg");
+        -webkit-animation: floatRight 2.5s linear infinite 4s;
+        -moz-animation: floatRight 2.5s linear infinite 4s;
+        animation: floatRight 2.5s linear infinite 4s; }
   .c-bottling-container .e-fill {
-    width: 25px;
-    height: 65px;
+    width: 29px;
+    height: 252px;
     position: absolute;
     margin: auto;
     top: 134px;
     left: 7px;
     right: 0;
-    background-image: url("../images/desktop/step6/fill_spritesheet_5f_25x65_124.png");
-    -webkit-animation: fill 1.5s steps(5) infinite;
-    -moz-animation: fill 1.5s steps(5) infinite;
-    animation: fill 1.5s steps(5) infinite;
+    background-image: url("../images/desktop/step6/flow_spritesheet_7f_29x252_203.png");
+    -webkit-animation: fill 1s steps(7) infinite;
+    -moz-animation: fill 1s steps(7) infinite;
+    animation: fill 1s steps(7) infinite;
     z-index: -1; }
   .c-bottling-container .e-bottle-container {
     width: 80px;
@@ -3023,3 +3014,24 @@ a {
   width: 1000px;
   height: 500px;
   pointer-events: none; }
+
+.e-pop-face {
+  width: 200px;
+  height: 168px;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.e-beerFace {
+  top: 20px;
+  background-image: url("../images/desktop/step7/pop_beerFace.svg"); }
+
+.e-hmmFace {
+  top: 50px;
+  right: 10px;
+  background-image: url("../images/desktop/step7/pop_hmmFace.svg"); }
+
+.e-musicFace {
+  top: 200px;
+  left: 50px;
+  background-image: url("../images/desktop/step7/pop_musicFace.svg"); }

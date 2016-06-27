@@ -13,7 +13,8 @@
   @include transition(all 1s);
 
   &.scrolling {
-    background-color: $color-oedipus-yellow;
+    background-color: rgba($color-oedipus-orange,.5);
+    border-radius: 10px;
     @include transform(scale(1.2,1.2));
   }
   &:hover {

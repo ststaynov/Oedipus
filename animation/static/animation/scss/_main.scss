@@ -32,6 +32,7 @@ svg {
   position: absolute;
   color: $color-white;
   font-size: 48px;
+  letter-spacing: 5px;
 }
 
 .header__logo {
@@ -141,7 +142,7 @@ svg {
     background-size: 100%;
     background-position: left center;
     background-repeat: no-repeat;
-    z-index: 2;
+    z-index: 0;
   }
 }
 

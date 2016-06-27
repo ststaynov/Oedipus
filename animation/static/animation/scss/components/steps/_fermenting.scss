@@ -15,7 +15,7 @@
 
 .title-fermenting {
   bottom: 20px;
-  left: 206px;
+  left: 193px;
 }
 
 .comment-fermenting {
@@ -31,7 +31,7 @@
   top: 240px;
   left: 40px;
   right: 0;
-  z-index: -1; //-1
+  z-index: -1;
   background-color: #F9DF00;
 
   .window-relative-container {
@@ -70,6 +70,7 @@
     top: 20px;
     left: -18px;
     will-change: transform;
+    //background-image: url('../images/desktop/step5/sperma_spritesheet_6f_68x15_408_optimised.png');
     background-image: url('../images/desktop/step5/sperma.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -80,19 +81,19 @@
       left: auto;
       right: 10px;
       @include transform(rotate(90deg));
-      @include animation(swimLeft 2.50s linear infinite 4s);
+      @include animation(swimLeft 2.50s linear infinite 4s, spermSwim 0.4s steps(6) infinite );
     }
   }
 }
-
-@include keyframes(spermSwim) {
-  from {
-    background-position: 0;
-  }
-  to {
-    background-position: 408px;
-  }
-}
+//
+//@include keyframes(spermSwim) {
+//  from {
+//    background-position: 0;
+//  }
+//  to {
+//    background-position: 408px;
+//  }
+//}
 
 .c-fermenting-foreground {
 
