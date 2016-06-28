@@ -32,7 +32,7 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 
     // action item
     $actionItem = $('.c-action'),
-    $warmBeams = $('path#e-cloud-warm-beam'), //include path so that jquery selects all TODO make warmItems per cloud so that they don't have to wait for eachother
+    $warmBeams = $('path#e-cloud-warm-beam'), //include path so that jquery selects all
     $coldLeftBeams = $('path#e-cloud-cold-left-beam'),
     $coldRightBeams = $('path#e-cloud-cold-right-beam'),
     $warmBeamUp = $('path#e-cloud-warm-beam-up'),
@@ -430,10 +430,6 @@ $btnAutoScroll.click(function (e) {
     changeScrollButtonClass();
 });
 
-$btnAutoScroll.click(function (e) {
-    e.preventDefault();
-    changeScrollButtonClass();
-});
 
 function changeScrollButtonClass() {
     var n = parseInt($bg.css('transform').split(',')[4]);
@@ -441,7 +437,6 @@ function changeScrollButtonClass() {
         $btnAutoScroll.removeClass('scrolling');
         stopAutoScroll();
     } else if (n < -7690) {
-        $btnAutoScroll.addClass('scrolling');
         loopBackwardAllowed =  true;
         loopForwardAllowed = true;
         moveBackground();
@@ -526,6 +521,10 @@ function startAutoScroll() {
             else {
                 $bottling.addClass('exploded');
                 $bottling.removeClass('fixed');
+                TweenMax.to($('.e-musicFace'), 1.4, {x: -600, y: 1000, opacity:0});
+                TweenMax.to($('.e-hmmFace'), 1.4, {x: -700, y: 700, opacity:0});
+                TweenMax.to($('.e-beerFace'), 1.4, {x: 1000, y: 100, opacity:0});
+                $('.c-buttons').addClass('visible');
             }
         }
     }
@@ -533,6 +532,8 @@ function startAutoScroll() {
 
 function stopAutoScroll() {
     var n = parseInt($bg.css('transform').split(',')[4]);
+
+    consoleLog("something");
 
     translateValue = n;
     TweenMax.set(fgBg, {x: n});
