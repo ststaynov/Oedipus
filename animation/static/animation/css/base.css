@@ -44,13 +44,37 @@ body {
         -webkit-animation: initial !important;
         -moz-animation: initial !important;
         animation: initial !important; }
-      body .comment-millmash-cooling {
-        right: -530px !important; }
+      body .c-comment {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2); }
+        body .c-comment:hover {
+          -webkit-transform: scale(1.7);
+          -moz-transform: scale(1.7);
+          -ms-transform: scale(1.7);
+          -o-transform: scale(1.7);
+          transform: scale(1.7); }
+      body .comment-mashing {
+        right: -22px;
+        bottom: 206px; }
+      body .comment-milling {
+        left: 48px !important; }
+      body .comment-boiling-left {
+        top: 164px !important;
+        left: -69px !important; }
       body .comment-boiling-right {
-        top: 0 !important; }
+        top: 23px !important; }
+      body .comment-filtering {
+        right: -485px !important;
+        bottom: 219px !important; }
+      body .comment-cooling {
+        top: 85px !important;
+        left: 20px !important; }
       body .comment-bottling {
-        top: 84px !important;
-        left: 64px !important; }
+        top: -4px !important;
+        left: 330px !important; }
       body .c-milling-mashing b:nth-of-type(2) {
         display: none !important;
         -webkit-animation: initial !important;
@@ -1394,7 +1418,13 @@ svg.bg {
 .c-buttons {
   position: relative;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 3s;
+  -moz-transition: all 3s;
+  transition: all 3s; }
+  .c-buttons.visible {
+    opacity: 1; }
 
 .button-block {
   width: 150px;
@@ -1422,7 +1452,7 @@ svg.bg {
 .share {
   position: absolute;
   left: 150px;
-  bottom: 114px;
+  bottom: 160px;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   transition: all 1s;
@@ -1436,8 +1466,8 @@ svg.bg {
 
 .replay {
   position: absolute;
-  right: -46px;
-  bottom: 100px;
+  left: 156px;
+  bottom: 45px;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   transition: all 1s;
@@ -1592,7 +1622,8 @@ svg.bg {
   pointer-events: all;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
-  transition: all 1s; }
+  transition: all 1s;
+  z-index: 10; }
   .c-comment img {
     width: 200px; }
   .c-comment:hover {
@@ -2130,7 +2161,7 @@ a {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url("../images/desktop/step1/cloud_cap.svg");
+    background-image: url("../images/desktop/step1/cloud_cap_title.svg");
     background-size: contain;
     background-repeat: no-repeat; }
 
@@ -2169,16 +2200,18 @@ a {
     bottom: 163px;
     right: -260px; }
   .c-milling-mashing .comment-milling {
-    top: 160px;
-    right: 30px; }
+    top: 38px;
+    left: 62px; }
     .c-milling-mashing .comment-milling img {
-      width: 140px; }
+      width: 152px; }
   .c-milling-mashing .comment-mashing {
-    left: -37px;
-    bottom: 227px; }
+    right: -14px;
+    bottom: 197px; }
   .c-milling-mashing .comment-filtering {
-    right: -341px;
+    right: -321px;
     bottom: 219px; }
+    .c-milling-mashing .comment-filtering img {
+      width: 170px; }
   .c-milling-mashing .e-grain-container {
     width: 150px;
     height: 200px;
@@ -2755,8 +2788,8 @@ a {
     top: 75px;
     right: 160px; }
   .c-cooling-container .comment-cooling {
-    top: 108px;
-    left: 35px; }
+    top: 95px;
+    left: 37px; }
 
 .c-fermenting {
   position: absolute;
@@ -2918,7 +2951,7 @@ a {
     left: 50px; }
   .c-bottling-container .comment-bottling {
     top: -10px;
-    left: 305px; }
+    left: 295px; }
   .c-bottling-container.exploded {
     opacity: 0;
     -webkit-transition: opacity 0.8s;
@@ -3005,22 +3038,23 @@ a {
   pointer-events: none; }
 
 .e-pop-face {
-  width: 200px;
-  height: 168px;
+  width: 130px;
+  height: 120px;
   position: absolute;
   background-size: contain;
   background-repeat: no-repeat; }
 
 .e-beerFace {
   top: 20px;
+  left: 200px;
   background-image: url("../images/desktop/step7/pop_beerFace.svg"); }
 
 .e-hmmFace {
   top: 50px;
-  right: 10px;
+  right: 200px;
   background-image: url("../images/desktop/step7/pop_hmmFace.svg"); }
 
 .e-musicFace {
-  top: 200px;
-  left: 50px;
+  top: 275px;
+  right: 250px;
   background-image: url("../images/desktop/step7/pop_musicFace.svg"); }

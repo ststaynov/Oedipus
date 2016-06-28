@@ -251,6 +251,12 @@ function checkPosition(tween) {
         if ($bottling.hasClass('exploded')) {}
         else {
             $bottling.addClass('exploded');
+            // $('.e-beerFace'), $('.e-hmmFace'), $('.e-musicFace')
+            TweenMax.to($('.e-musicFace'), 1.4, {x: -600, y: 1000, opacity:0});
+            TweenMax.to($('.e-hmmFace'), 1.4, {x: -700, y: 700, opacity:0});
+            TweenMax.to($('.e-beerFace'), 1.4, {x: 1000, y: 100, opacity:0});
+            $('.c-buttons').addClass('visible');
+
             $bottling.removeClass('fixed');
         }
 
@@ -424,6 +430,11 @@ $btnAutoScroll.click(function (e) {
     changeScrollButtonClass();
 });
 
+$btnAutoScroll.click(function (e) {
+    e.preventDefault();
+    changeScrollButtonClass();
+});
+
 function changeScrollButtonClass() {
     var n = parseInt($bg.css('transform').split(',')[4]);
     if ($btnAutoScroll.hasClass('scrolling')) {
@@ -558,16 +569,24 @@ function checkBackgroundColors() {
 
         if (n > step1Duration) { //step 1
             TweenMax.to(e, 1.5, {backgroundColor: '#fff'});
-            checkActionItemState('initial');
+            setTimeout(function(){
+                checkActionItemState('initial');
+            }, 200);
         } else if (n > step2Duration) { // step 2
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPink});
-            checkActionItemState('milled-mashed');
+            setTimeout(function(){
+                checkActionItemState('milled-mashed');
+            }, 200);
         } else if (n > step3Duration) { // step 3
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusPinkDark});
-            checkActionItemState('boiling');
+            setTimeout(function(){
+                checkActionItemState('boiling');
+            }, 200);
         } else { //step 4
             TweenMax.to(e, 1.5, {backgroundColor: colorOedipusBlue});
-            checkActionItemState('cooling');
+            setTimeout(function(){
+                checkActionItemState('cooling');
+            }, 200);
         }
     } else {
         if (n > step5Duration) { // step5
@@ -600,9 +619,7 @@ function checkForActionItemEffects(hasClass) {
         case "milled-mashed":
             mainActionItemtl.clear();
             if(!boilingTimelineRunning) {
-                setTimeout(function(){
-                    getBoilingTimeline();
-                }, 200);
+                getBoilingTimeline();
             }
             TweenMax.to($actionItem, 0.8, {top: '17vh', left: '70vw'});
             break;

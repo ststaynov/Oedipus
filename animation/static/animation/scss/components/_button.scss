@@ -3,6 +3,12 @@
     position: relative;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    @include transition(all 3s);
+
+  &.visible {
+    opacity: 1;
+  }
 }
 
 .button-block {
@@ -35,7 +41,7 @@
 .share {
   position: absolute;
   left: 150px;
-  bottom: 114px;
+  bottom: 160px;
   @include transition(all 1s);
   cursor: pointer;
 
@@ -46,8 +52,8 @@
 
 .replay {
   position: absolute;
-  right: -46px;
-  bottom: 100px;
+  left: 156px;
+  bottom: 45px;
   @include transition(all 1s);
   cursor: pointer;
 

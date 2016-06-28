@@ -1,4 +1,3 @@
-
 // Copyright 2013 William Malone (www.williammalone.com)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,166 +12,171 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function() {
-	// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-	// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-	// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
-	// MIT license
+(function () {
+    // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+    // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+    // requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+    // MIT license
 
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
-                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
+    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
+            || window[vendors[x] + 'CancelRequestAnimationFrame'];
     }
 
     if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function(callback, element) {
+        window.requestAnimationFrame = function (callback, element) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-              timeToCall);
+            var id = window.setTimeout(function () {
+                    callback(currTime + timeToCall);
+                },
+                timeToCall);
             lastTime = currTime + timeToCall;
             return id;
         };
 
     if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function(id) {
+        window.cancelAnimationFrame = function (id) {
             clearTimeout(id);
         };
-}());
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {} 
-else initAllCanvasItems();
 
-function initAllCanvasItems () {
 
-	var magicCloud,
-        actionCloud,
-        plane,
-		magicCloudImage,
-        actionCloudImage,
-        planeImage,
-		canvasMagicCloud,
-        canvasActionCloud,
-        canvasPlane;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    }
+    else initAllCanvasItems();
 
-	function magicCloudGameLoop () {
-        window.requestAnimationFrame(magicCloudGameLoop);
+    function initAllCanvasItems() {
 
-        magicCloud.update();
-        actionCloud.update();
-        plane.update();
+        var magicCloud,
+            actionCloud,
+            plane,
+            magicCloudImage,
+            actionCloudImage,
+            planeImage,
+            canvasMagicCloud,
+            canvasActionCloud,
+            canvasPlane;
 
-        magicCloud.render();
-        actionCloud.render();
-        plane.render();
-	}
+        function magicCloudGameLoop() {
+            window.requestAnimationFrame(magicCloudGameLoop);
 
-	function sprite (options) {
+            magicCloud.update();
+            actionCloud.update();
+            plane.update();
 
-		var that = {},
-			frameIndex = 0,
-			tickCount = 0,
-			ticksPerFrame = options.ticksPerFrame || 0,
-			numberOfFrames = options.numberOfFrames || 1;
+            magicCloud.render();
+            actionCloud.render();
+            plane.render();
+        }
 
-		that.context = options.context;
-		that.width = options.width;
-		that.height = options.height;
-		that.image = options.image;
+        function sprite(options) {
 
-		that.update = function () {
+            var that = {},
+                frameIndex = 0,
+                tickCount = 0,
+                ticksPerFrame = options.ticksPerFrame || 0,
+                numberOfFrames = options.numberOfFrames || 1;
 
-            tickCount += 1;
+            that.context = options.context;
+            that.width = options.width;
+            that.height = options.height;
+            that.image = options.image;
 
-            if (tickCount > ticksPerFrame) {
+            that.update = function () {
 
-				tickCount = 0;
+                tickCount += 1;
 
-                // If the current frame index is in range
-                if (frameIndex < numberOfFrames - 1) {
-                    // Go to the next frame
-                    frameIndex += 1;
-                } else {
-                    frameIndex = 0;
+                if (tickCount > ticksPerFrame) {
+
+                    tickCount = 0;
+
+                    // If the current frame index is in range
+                    if (frameIndex < numberOfFrames - 1) {
+                        // Go to the next frame
+                        frameIndex += 1;
+                    } else {
+                        frameIndex = 0;
+                    }
                 }
-            }
-        };
+            };
 
-		that.render = function () {
+            that.render = function () {
 
-		  // Clear the canvas
-		  that.context.clearRect(0, 0, that.width, that.height);
+                // Clear the canvas
+                that.context.clearRect(0, 0, that.width, that.height);
 
-		  // Draw the animation
-		  that.context.drawImage(
-		    that.image,
-		    frameIndex * that.width / numberOfFrames,
-		    0,
-		    that.width / numberOfFrames,
-		    that.height,
-		    0,
-		    0,
-		    that.width / numberOfFrames,
-		    that.height);
-		};
+                // Draw the animation
+                that.context.drawImage(
+                    that.image,
+                    frameIndex * that.width / numberOfFrames,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height,
+                    0,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height);
+            };
 
-		return that;
-	}
+            return that;
+        }
 
-	// Get canvas
-	canvasMagicCloud = document.getElementById("canvas-magic-cloud-animation");
-	canvasMagicCloud.width = 1000;
-	canvasMagicCloud.height = 500;
-    
-    canvasActionCloud = document.getElementById("canvas-action-cloud-animation");
-    canvasActionCloud.width = 173;
-	canvasActionCloud.height = 135;
+        // Get canvas
+        canvasMagicCloud = document.getElementById("canvas-magic-cloud-animation");
+        canvasMagicCloud.width = 1000;
+        canvasMagicCloud.height = 500;
 
-    canvasPlane = document.getElementById("canvas-plane-animation");
-    canvasPlane.width = 245;
-	canvasPlane.height = 63;
+        canvasActionCloud = document.getElementById("canvas-action-cloud-animation");
+        canvasActionCloud.width = 173;
+        canvasActionCloud.height = 135;
 
-	// Create sprite sheet
-	magicCloudImage = new Image();
-    actionCloudImage = new Image();
-    planeImage = new Image();
+        canvasPlane = document.getElementById("canvas-plane-animation");
+        canvasPlane.width = 245;
+        canvasPlane.height = 63;
 
-	// Create sprite
-	magicCloud = sprite({
-		context: canvasMagicCloud.getContext("2d"),
-		width: 15000,
-		height: 500,
-		image: magicCloudImage,
-		numberOfFrames: 15,
-		ticksPerFrame: 4
-	});
+        // Create sprite sheet
+        magicCloudImage = new Image();
+        actionCloudImage = new Image();
+        planeImage = new Image();
 
-    actionCloud = sprite({
-		context: canvasActionCloud.getContext("2d"),
-		width: 13875,
-		height: 135,
-		image: actionCloudImage,
-		numberOfFrames: 75,
-		ticksPerFrame: 1
-	});
+        // Create sprite
+        magicCloud = sprite({
+            context: canvasMagicCloud.getContext("2d"),
+            width: 15000,
+            height: 500,
+            image: magicCloudImage,
+            numberOfFrames: 15,
+            ticksPerFrame: 4
+        });
 
-    plane = sprite({
-		context: canvasPlane.getContext("2d"),
-		width: 5880,
-		height: 63,
-		image: planeImage,
-		numberOfFrames: 24,
-		ticksPerFrame: 1.5
-	});
+        actionCloud = sprite({
+            context: canvasActionCloud.getContext("2d"),
+            width: 13875,
+            height: 135,
+            image: actionCloudImage,
+            numberOfFrames: 75,
+            ticksPerFrame: 1
+        });
 
-	// Load sprite sheet
-	magicCloudImage.addEventListener("load", magicCloudGameLoop);
-    // actionCloudImage.addEventListener("load", actionCloudGameLoop);
+        plane = sprite({
+            context: canvasPlane.getContext("2d"),
+            width: 5880,
+            height: 63,
+            image: planeImage,
+            numberOfFrames: 24,
+            ticksPerFrame: 1.5
+        });
 
-	magicCloudImage.src = "/static/animation/images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png";
-    actionCloudImage.src = "/static/animation/images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png";
-    planeImage.src = "/static/animation/images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png";
-}
+        // Load sprite sheet
+        magicCloudImage.addEventListener("load", magicCloudGameLoop);
+        // actionCloudImage.addEventListener("load", actionCloudGameLoop);
 
+        magicCloudImage.src = "/static/animation/images/desktop/step1/magic_spritesheet_15f_1000x500_15000_optimised.png";
+        actionCloudImage.src = "/static/animation/images/desktop/action-item/animation_spritesheet_75f_173x135_13875_optimized.png";
+        planeImage.src = "/static/animation/images/desktop/foreground/plane_spritesheet_24f_245x63_5880.png";
+    }
+
+}());

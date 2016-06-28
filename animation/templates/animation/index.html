@@ -6,13 +6,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta property="og:description" content="">
     <title>Oedipus Brewing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="pinterest" content="nopin" /> {#    disabling the annoying pin it popup on the comments  #}
-    {#    TODO remove these two cache lines when deploying  #}
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
+    <meta property="og:url"                content="//oedipus.com/brewing-flight/" />
+    <meta property="og:type"               content="animation" />
+    <meta property="og:title"              content="Brewing Flight of Oedipus" />
+    <meta property="og:description"        content="A flight displaying the brewing process of Oedipus beer brewery." />
+    <meta property="og:image"              content="//localhost:8000/static/animation/images/desktop/facebook_image.png" />
+{#    <meta property="og:image"              content="//oedipus.com/brewing-flight/static/animation/images/desktop/facebook_image.png" />#}
 
     <!-- css included -->
     <link rel="stylesheet" href="{% static "animation/css/normalize.mind41d.css" %}">
@@ -861,13 +863,17 @@
                                 <svg viewBox="0 0 805 484" class="">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#btn-beer"></use>
                                 </svg>
-                                <div class="button-block e-cap float"></div>
+                                <a href="//oedipus.com/beers/"><div class="button-block e-cap float"></div></a>
                             </div>
-                            <div class="button-block share">
-                                <svg viewBox="0 0 159 118" class="">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#btn-share"></use>
-                                </svg>
-                            </div>
+
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//oedipus.com/brewing-flight/">
+                                <div class="button-block share">
+                                    <svg viewBox="0 0 159 118" class="">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#btn-share"></use>
+                                    </svg>
+                                </div>
+                            </a>
+
                             <div class="button-block replay">
                                 <svg viewBox="0 0 159 118" class="">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#btn-replay"></use>

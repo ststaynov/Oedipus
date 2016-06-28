@@ -47,18 +47,45 @@ body {
       @include animation(initial !important);
     }
 
+    .c-comment {
+      @include transform(scale(1.2));
+      &:hover {
+        @include transform(scale(1.7));
+      }
+    }
+
     // comments positions
-    .comment-millmash-cooling {
-      right: -530px !important;
+    .comment-mashing {
+      right: -22px;
+      bottom: 206px;
+    }
+
+    .comment-milling {
+      left: 48px !important;
+    }
+
+    .comment-boiling-left {
+      top: 164px !important;
+      left: -69px !important;
     }
 
     .comment-boiling-right {
-      top: 0 !important;
+      top: 23px !important;
+    }
+
+    .comment-filtering {
+      right: -485px !important;
+      bottom: 219px !important;
+    }
+
+    .comment-cooling {
+      top: 85px !important;
+      left: 20px !important;
     }
 
     .comment-bottling {
-      top: 84px !important;
-      left: 64px !important;
+      top: -4px !important;
+      left: 330px !important;
     }
 
     //get rid of few of the millmash animation items

@@ -4,9 +4,12 @@
   display: inline-block;
   pointer-events: all;
   @include transition(all 1s);
+  z-index: 10;
+
   img {
     width: 200px;
   }
+
   &:hover {
     @include transform(scale(1.3,1.3));
   }
