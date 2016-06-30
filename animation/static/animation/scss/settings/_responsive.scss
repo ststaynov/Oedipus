@@ -41,6 +41,11 @@ body {
       @include noAnimDispl();
     }
 
+    .c-auto-scroll-button {
+      bottom: 10px !important;
+      right: 10px !important;
+    }
+
     // too heavy for mobile
     .c-magic-cloud {
       background: none;
@@ -84,8 +89,15 @@ body {
     }
 
     .comment-bottling {
-      top: -4px !important;
-      left: 330px !important;
+      top: 100px !important;
+
+      img {
+        width: 120px;
+      }
+    }
+
+    .e-fill {
+      top: 125px !important;
     }
 
     //get rid of few of the millmash animation items

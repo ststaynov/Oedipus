@@ -1,14 +1,14 @@
-
-.c-nipple {
-  width: 200px;
-  height: 199px;
-  position: absolute;
-  background-image: url('../images/desktop/foreground/nipple_spritesheet_16f_200x199_3200.png');
-  @include animation(nipple 2.5s steps(16) infinite);
-  pointer-events: none;
-}
-
-@include keyframes(nipple) {
-  from { background-position: 0; }
-  to { background-position: 3200px; }
-}
+//
+//.c-nipple {
+//  width: 200px;
+//  height: 199px;
+//  position: absolute;
+//  background-image: url('../images/desktop/foreground/nipple_spritesheet_16f_200x199_3200.png');
+//  @include animation(nipple 2.5s steps(16) infinite);
+//  pointer-events: none;
+//}
+//
+//@include keyframes(nipple) {
+//  from { background-position: 0; }
+//  to { background-position: 3200px; }
+//}

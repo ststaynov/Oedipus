@@ -28,6 +28,8 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
     $fermentingWindow = $('.e-window'),
     bottlingContainerMoveFix = 0,
     bottlingContainerFixingPosition = 0,
+    bottlingBottleMoveFix = 0,
+    translateValueFix = 0,
     $smoke = $("#smoke circle, #smoke path"),
 
     // action item
@@ -73,17 +75,25 @@ var e = [document.body, $('.c-brewing-background-inner-right-overlay')],
 
 /* Setting things up at the beginning START */
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570]; //values which suit mobile screens
+    positionsArr = [10, 2010,705, 107,800, -135, 1406, 2734, 4070, 5404, 6730, 7570, 7048]; //values which suit mobile screens
     bottlingContainerMoveFix = 100;
     bottlingContainerFixingPosition = -6635;
+    bottlingBottleMoveFix = 185;
+
+    translateValueFix = 400;
+
     fgBg.push($beerFillMobile);
     consoleLog('Added beerFill for mobile');
     moveObject = '.c-brewing-background-inner, .c-comment';
     maxSnowFlakeCount = 10;
 } else {
-    positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000];
+    positionsArr = [10, 2010,705, 107,800, 5, 1536, 2864, 4200, 5534, 6860, 8000, 7310];
     bottlingContainerMoveFix = 400;
     bottlingContainerFixingPosition = -6500;
+    bottlingBottleMoveFix = 400;
+
+    translateValueFix = 200;
+
     fgBg.push($beerFill);
     startCloudWarmBeamsTl();
     consoleLog('Added beerFill');
@@ -93,7 +103,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 TweenMax.set(fgBg, {x: positionsArr[0]});
-TweenMax.set($nipple, {x: 7650, y: 600});
+// TweenMax.set($nipple, {x: 7650, y: 600});
 TweenMax.set($sun, {x: 850, y: 0});
 TweenMax.set($meteor, {x: 7800, y: 200});
 // steps
@@ -105,7 +115,7 @@ TweenMax.set($cooling, {x: positionsArr[8]});
 TweenMax.set($fermenting, {x: positionsArr[9]});
 TweenMax.set($bottling, {x: positionsArr[10]});
 TweenMax.set($endPop, {x: positionsArr[11]});
-
+TweenMax.set($('.comment-bottling'), {x: positionsArr[12]});
 /* Setting things up at the beginning END */
 
 
@@ -232,7 +242,7 @@ function checkPosition(tween) {
         setTimeout(function() {$bottling.removeClass('exploded');}, 1000);
         TweenMax.set($bottling, {x: positionsArr[10]});
 
-        translateValue = n + 8000;
+        translateValue = translateValueFix;
         TweenMax.set(fgBg, {x: translateValue});
         TweenMax.set($actionItem, {x: -translateValue});
     } else if (n >= 200 && loopBackwardAllowed) {
@@ -472,7 +482,7 @@ function startAutoScroll() {
     var n = parseInt($bg.css('transform').split(',')[4]),
         filmEnd = 7750,
         filmStart = 200,
-        maxTime = 20,
+        maxTime = 30,
         oneTimePercent,
         oneFilmPercent,
         percentAtTheMoment,
@@ -503,11 +513,11 @@ function startAutoScroll() {
 
         if (n < -6500 && !$bottling.hasClass('exploded')) {
             if ($bottling.hasClass('fixed')) {
-                TweenMax.set($bottling , {x: -(n - 400)});
+                TweenMax.set($bottling , {x: -(n - bottlingBottleMoveFix )});
             }
             else {
                 $bottling.addClass('fixed');
-                TweenMax.set($bottling , {x: -(n - 400)});
+                TweenMax.set($bottling , {x: -(n - bottlingBottleMoveFix)});
             }
         } else {
             if($bottling.hasClass('fixed')) {

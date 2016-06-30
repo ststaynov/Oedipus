@@ -312,8 +312,9 @@
     height: 161px;
     position: absolute;
     top: 180px;
-    right: 393px;
+    right: 395px;
     background-image: url('../images/desktop/step2/pump_spritesheet_14f_122x161_1708_optimised.png');
     @include animation(pumping 1.4s steps(14) infinite);
+    @include transform(scale(.7) rotate(-10deg));
   }
 }
