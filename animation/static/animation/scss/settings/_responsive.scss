@@ -1,4 +1,3 @@
-
 @mixin noAnimDispl() {
   display: none !important;
   @include animation(initial !important);
@@ -9,7 +8,7 @@ body {
   background-color: $color-bg;
   overflow: hidden;
 
-  @media screen and (max-device-width: 1024px), only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : landscape) { // if device is mobile or device is portrait
+  @media screen and (max-device-width: 1024px), only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) { // if device is mobile or device is portrait
     //-moz-transform: scale(0.5, 0.5); /* Moz-browsers */
     //zoom: 0.5; /* Other non-webkit browsers */
     //zoom: 50%; /* Webkit browsers */
@@ -21,10 +20,10 @@ body {
     .c-fermenting,
     .c-end-pop,
     .c-cloud-bg-sprite {
-      @include transform(scale(0.6,0.6));
+      @include transform(scale(0.6, 0.6));
     }
     .c-cloud-bg-sprite {
-      @include transform(scale(0.6,0.6) !important);
+      @include transform(scale(0.6, 0.6) !important);
     }
     // all sprites
     .sperma,
@@ -56,6 +55,11 @@ body {
       @include transform(scale(1.2));
       &:hover {
         @include transform(scale(1.7));
+      }
+      &.comment-bottling {
+        &:hover {
+          @include transform(scale(1.7) matrix(1, 0, 0, 1, 4202, 0) !important);
+        }
       }
     }
 
@@ -211,7 +215,7 @@ body {
       background-image: url(../images/desktop/background/brewing_pipes_mobile_optimised.svg) !important;
     }
     .c-beer-fill-container {
-      >svg {
+      > svg {
         top: calc(50vh - 118px);
         left: 1797px;
       }
